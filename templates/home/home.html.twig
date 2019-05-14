@@ -1,7 +1,18 @@
 {% extends 'base.html.twig' %}
-{% block stylesheet %}
-    <!-- <link rel="stylesheet" href="{#{{ asset('css/style.css') }}#}"> -->
-{% endblock %}
 {% block body %}
- <h1>Bienvenido a Fruitable!</h1>
+    <div class="jg_slider_home">
+    <h1>texto</h1>
+
+    </div>
+    <div class="jg_caja_productos_temporada">
+        <h1>Productos de temporada</h1>
+        <div class="jg_productos_temporada">
+            <h4>manchana</h4>
+            <!--añadiremos la misma descripción en alt que en longdesc-->
+            <img src="img/manzana.jpg" alt="" longdesc="">
+            <p>Precio</p>
+            <button>Añadir</button>
+        </div>
+
+    </div>
 {% endblock %}

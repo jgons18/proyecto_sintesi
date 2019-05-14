@@ -7,6 +7,7 @@
  */
 
 namespace App\Controller;
+
 use App\Entity\User;
 use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -34,7 +35,7 @@ class UserController extends AbstractController
         $user = new User();
         $user->setRoles(['ROLE_USER']);
         //marca el usuario activo o inactivo
-        $user->setIsActive(true);
+        //$user->setIsActive(true);
         $form=$this->createForm(UserType::class,$user);
 
         $form->handleRequest($request);

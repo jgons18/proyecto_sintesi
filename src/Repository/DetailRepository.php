@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Detalle;
+use App\Entity\Detail;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Detalle|null find($id, $lockMode = null, $lockVersion = null)
- * @method Detalle|null findOneBy(array $criteria, array $orderBy = null)
- * @method Detalle[]    findAll()
- * @method Detalle[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Detail|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Detail|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Detail[]    findAll()
+ * @method Detail[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DetalleRepository extends ServiceEntityRepository
+class DetailRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Detalle::class);
+        parent::__construct($registry, Detail::class);
     }
 
     // /**
-    //  * @return Detalle[] Returns an array of Detalle objects
+    //  * @return Detail[] Returns an array of Detail objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class DetalleRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Detalle
+    public function findOneBySomeField($value): ?Detail
     {
         return $this->createQueryBuilder('d')
             ->andWhere('d.exampleField = :val')
