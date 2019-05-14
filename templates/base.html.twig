@@ -2,11 +2,34 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Fruitable{% endblock %}</title>
+        {% block stylesheet %}
+             <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {% endblock %}
     </head>
     <body>
+    <header>
+        <div id="am_div_logo">
+        <h1 id="am_logo">LOGO</h1>
+        </div>
+        <div id="am_div_buscador">
+            <input type="text" placeholder="buscar" id="am_buscador" />
+        </div>
+        <div id="am_div_login">
+            <a id="am_login">login</a>
+        </div>
+        <div id="am_div_perfil">
+            <a id="am_perfil">perfil</a>
+        </div>
+        <div id="am_div_carro">
+            <h1 id="am_carro">Carrito</h1>
+        </div>
+        <div id="am_div_comprar">
+            <button id="am_comprar">COMPRAR</button>
+        </div>
+    </header>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+
     </body>
 </html>
