@@ -32,5 +32,91 @@
         width: 10vw;
         height: 10vh;
     }
+    /* HEADER Base.html*/
+
+    header{
+
+        display: flex;
+        text-align: center;
+
+    }
+
+    #am_div_logo{
+        align-self: center;
+        text-align: center;
+        width: 10vw;
+
+    }
+
+    #am_logo{
+
+
+    }
+
+    #am_div_buscador{
+
+        align-self: center;
+        width: 25vw;
+        height: 10vh;
+
+    }
+
+    #am_buscador{
+
+        width: 25vw;
+        height: 8vh;
+
+    }
+
+    #am_div_login{
+
+        width: 35vw;
+        text-align: right;
+        align-self: center;
+    }
+
+    #am_login{
+
+
+        width: 35vw;
+        font-size: 20px;
+        text-align: right;
+
+
+    }
+
+    #am_div_perfil{
+
+        width: 10vw;
+        text-align: center;
+        align-self: center;
+
+    }
+
+    #am_div_carro{
+
+        width: 10vw;
+
+
+    }
+
+    #am_div_comprar{
+
+        justify-self: center;
+        text-align: center;
+        align-self: center;
+        width: 10vw;
+
+
+    }
+
+    #am_comprar{
+
+        width: 7vw;
+        height: 5vh;
+        text-align: center;
+
+    }
+
 
 }

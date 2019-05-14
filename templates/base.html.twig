@@ -1,44 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Fruitable - Venta de fruta y verdura{% endblock %}</title>
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        {% endblock %}
-    </head>
-    <body>
-    <header class="jg_menu">
-        <nav class="jg_menu_1">
-            <ul>
-                <li>Logo</li>
-                <li>Buscador</li>
-                <li><a href="{{ path('app_register') }}">Identificate</a></li>
-                <li><a href="{{ path('app_login') }}">loggin</a></li>
-                <li>Mis pedidos</li>
-            </ul>
-        </nav>
-        <nav class="jg_menu_2">
-            <ul>
-                <li>Frutas</li>
-                <li>Verduras</li>
-                <li>Promociones</li>
-                <li>Cajas</li>
-            </ul>
-        </nav>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Fruitable{% endblock %}</title>
+    {% block stylesheet %}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% endblock %}
+</head>
+<body>
+<header>
+    <div id="am_div_logo">
+        <h1 id="am_logo">LOGO</h1>
+    </div>
+    <div id="am_div_buscador">
+        <input type="text" placeholder="buscar" id="am_buscador" />
+    </div>
+    <div id="am_div_login">
+        <a id="am_login">login</a>
+    </div>
+    <div id="am_div_perfil">
+        <a id="am_perfil">perfil</a>
+    </div>
+    <div id="am_div_carro">
+        <h1 id="am_carro">Carrito</h1>
+    </div>
+    <div id="am_div_comprar">
+        <button id="am_comprar">COMPRAR</button>
+    </div>
+</header>
+<body>
+<header class="jg_menu">
+    <nav class="jg_menu_1">
+        <ul>
+            <li>Logo</li>
+            <li>Buscador</li>
+            <li><a href="{{ path('app_register') }}">Identificate</a></li>
+            <li><a href="{{ path('app_login') }}">loggin</a></li>
+            <li>Mis pedidos</li>
+        </ul>
+    </nav>
+    <nav class="jg_menu_2">
+        <ul>
+            <li>Frutas</li>
+            <li>Verduras</li>
+            <li>Promociones</li>
+            <li>Cajas</li>
+        </ul>
+    </nav>
 
-    </header>
-    <main role="main">
-        <div>
-            {% block body %}{% endblock %}
-        </div>
-    </main>
-    <footer>
-        <div>
+</header>
+<main role="main">
+    <div>
+        {% block body %}{% endblock %}
+    </div>
+</main>
+<footer>
+    <div>
 
-            <span class="text-muted">Place sticky footer content here.</span>
-        </div>
-    </footer>
-        {% block javascripts %}{% endblock %}
-    </body>
+        <span class="text-muted">Place sticky footer content here.</span>
+    </div>
+</footer>
+{% block javascripts %}{% endblock %}
+
+</body>
 </html>
