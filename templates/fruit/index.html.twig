@@ -3,9 +3,9 @@
 {% block body %}
 
     <h2>Frutas</h2>
-    {% if app.user %}
-        <p><a href="{{ path('new_post') }}">+ Añadir nuevo producto</a></p>
-    {% endif %}
+{#{% if app.user %}#}
+        <p><a href="{{ path('new_product') }}">+ Añadir nuevo producto</a></p>
+{#    {% endif %}#}
     {% for product in products %}
         <div>
             <div>

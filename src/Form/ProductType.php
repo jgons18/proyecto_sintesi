@@ -6,9 +6,10 @@
  * Time: 17:43
  */
 
-/*namespace App\Form;
+namespace App\Form;
 
-
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
 
 class ProductType extends AbstractType
@@ -114,4 +115,4 @@ class ProductType extends AbstractType
     {
         $resolver->setDefaults(['data_class'=>'App\Entity\Product']);
     }
-}*/
+}
