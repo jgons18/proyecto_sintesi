@@ -1,12 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Fruitable - Venta de fruta y verdura{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <header class="jg_menu">
+        <nav class="jg_menu_1">
+            <ul>
+                <li>Logo</li>
+                <li>Buscador</li>
+                <li><a href="{{ path('app_register') }}">Identificate</a></li>
+                <li><a href="{{ path('app_login') }}">loggin</a></li>
+                <li>Mis pedidos</li>
+            </ul>
+        </nav>
+        <nav class="jg_menu_2">
+            <ul>
+                <li>Frutas</li>
+                <li>Verduras</li>
+                <li>Promociones</li>
+                <li>Cajas</li>
+            </ul>
+        </nav>
+
+    </header>
+    <main role="main">
+        <div>
+            {% block body %}{% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div>
+
+            <span class="text-muted">Place sticky footer content here.</span>
+        </div>
+    </footer>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

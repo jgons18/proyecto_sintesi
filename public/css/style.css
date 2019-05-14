@@ -1,0 +1,36 @@
+
+/* PORTÁTILES*/
+@media (min-width: 1025px) and (max-width: 1913px) {
+    body{
+        margin: 0;
+    }
+    .jg_menu_1{
+        height: 5vh;
+    }
+    .jg_menu,.jg_menu ul,.jg_menu ul li{
+        border: 1px solid;
+    }
+    .jg_menu ul li{
+        display: inline;
+        font-size: 25px;
+    }
+    .jg_slider_home{
+        border:1px solid;
+        height: 50vh;
+    }
+    .jg_caja_productos_temporada{
+        display: inline;
+    }
+    .jg_productos_temporada{
+        text-align: center;
+        border:1px solid;
+        width: 20vw;
+        height: 30vh;
+        /*float: left;*/
+    }
+    .jg_productos_temporada img{
+        width: 10vw;
+        height: 10vh;
+    }
+
+}

@@ -5,11 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -19,109 +20,75 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=20)
-     */
-    private $nombreusuario;
-
-    /**
-     * @ORM\Column(type="string", length=40)
-     */
-    private $nombre;
-
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $apellidos;
-
-    /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
 
     /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
+    /**
+     * @var string The hashed password
+     * @ORM\Column(type="string")
+     */
+    private $password;
+    private $plainPassword;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    private $username;
+
+    /**
+     * @ORM\Column(type="string", length=40)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $surname;
+
+    /**
      * @ORM\Column(type="string", length=120)
      */
-    private $direccion;
+    private $address;
 
     /**
      * @ORM\Column(type="string", length=5)
      */
-    private $codigopostal;
+    private $postalcode;
 
     /**
      * @ORM\Column(type="string", length=30)
      */
-    private $ciudad;
+    private $city;
 
     /**
      * @ORM\Column(type="string", length=20)
      */
-    private $provincia;
+    private $province;
 
     /**
      * @ORM\Column(type="string", length=9, nullable=true)
      */
-    private $telefono;
+    private $phone;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\OneToMany(targetEntity="App\Entity\Order", mappedBy="user")
      */
-    private $rol;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $contrasenya;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Pedido", mappedBy="user")
-     */
-    private $pedidos;
+    private $orders;
 
     public function __construct()
     {
-        $this->pedidos = new ArrayCollection();
+        $this->orders = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNombreusuario(): ?string
-    {
-        return $this->nombreusuario;
-    }
-
-    public function setNombreusuario(string $nombreusuario): self
-    {
-        $this->nombreusuario = $nombreusuario;
-
-        return $this;
-    }
-
-    public function getNombre(): ?string
-    {
-        return $this->nombre;
-    }
-
-    public function setNombre(string $nombre): self
-    {
-        $this->nombre = $nombre;
-
-        return $this;
-    }
-
-    public function getApellidos(): ?string
-    {
-        return $this->apellidos;
-    }
-
-    public function setApellidos(string $apellidos): self
-    {
-        $this->apellidos = $apellidos;
-
-        return $this;
     }
 
     public function getEmail(): ?string
@@ -136,119 +103,201 @@ class User
         return $this;
     }
 
-    public function getDireccion(): ?string
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): string
     {
-        return $this->direccion;
+        return (string) $this->email;
     }
 
-    public function setDireccion(string $direccion): self
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
     {
-        $this->direccion = $direccion;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
 
-        return $this;
+        return array_unique($roles);
     }
 
-    public function getCodigopostal(): ?string
+    public function setRoles(array $roles): self
     {
-        return $this->codigopostal;
-    }
-
-    public function setCodigopostal(string $codigopostal): self
-    {
-        $this->codigopostal = $codigopostal;
-
-        return $this;
-    }
-
-    public function getCiudad(): ?string
-    {
-        return $this->ciudad;
-    }
-
-    public function setCiudad(string $ciudad): self
-    {
-        $this->ciudad = $ciudad;
-
-        return $this;
-    }
-
-    public function getProvincia(): ?string
-    {
-        return $this->provincia;
-    }
-
-    public function setProvincia(string $provincia): self
-    {
-        $this->provincia = $provincia;
-
-        return $this;
-    }
-
-    public function getTelefono(): ?string
-    {
-        return $this->telefono;
-    }
-
-    public function setTelefono(?string $telefono): self
-    {
-        $this->telefono = $telefono;
-
-        return $this;
-    }
-
-    public function getRol(): ?string
-    {
-        return $this->rol;
-    }
-
-    public function setRol(string $rol): self
-    {
-        $this->rol = $rol;
-
-        return $this;
-    }
-
-    public function getContrasenya(): ?string
-    {
-        return $this->contrasenya;
-    }
-
-    public function setContrasenya(string $contrasenya): self
-    {
-        $this->contrasenya = $contrasenya;
+        $this->roles = $roles;
 
         return $this;
     }
 
     /**
-     * @return Collection|Pedido[]
+     * @see UserInterface
      */
-    public function getPedidos(): Collection
+    public function getPassword(): string
     {
-        return $this->pedidos;
+        return (string) $this->password;
     }
 
-    public function addPedido(Pedido $pedido): self
+    public function setPassword(string $password): self
     {
-        if (!$this->pedidos->contains($pedido)) {
-            $this->pedidos[] = $pedido;
-            $pedido->setUser($this);
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
+    public function setUsername(?string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getSurname(): ?string
+    {
+        return $this->surname;
+    }
+
+    public function setSurname(string $surname): self
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function getPostalcode(): ?string
+    {
+        return $this->postalcode;
+    }
+
+    public function setPostalcode(string $postalcode): self
+    {
+        $this->postalcode = $postalcode;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getProvince(): ?string
+    {
+        return $this->province;
+    }
+
+    public function setProvince(string $province): self
+    {
+        $this->province = $province;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+    /**
+     * @return mixed
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param mixed $plainPassword
+     */
+    public function setPlainPassword($plainPassword): void
+    {
+        $this->plainPassword = $plainPassword;
+    }
+
+    /**
+     * @return Collection|Order[]
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Order $order): self
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders[] = $order;
+            $order->setUser($this);
         }
 
         return $this;
     }
 
-    public function removePedido(Pedido $pedido): self
+    public function removeOrder(Order $order): self
     {
-        if ($this->pedidos->contains($pedido)) {
-            $this->pedidos->removeElement($pedido);
+        if ($this->orders->contains($order)) {
+            $this->orders->removeElement($order);
             // set the owning side to null (unless already changed)
-            if ($pedido->getUser() === $this) {
-                $pedido->setUser(null);
+            if ($order->getUser() === $this) {
+                $order->setUser(null);
             }
         }
 
         return $this;
     }
-
 }
