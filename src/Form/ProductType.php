@@ -3,14 +3,22 @@
  * Created by PhpStorm.
  * User: linux
  * Date: 14/05/19
- * Time: 17:43
+ * Time: 18:56
  */
 
 namespace App\Form;
 
+use App\Entity\Category;
+use App\Entity\Season;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
+
 
 class ProductType extends AbstractType
 {
@@ -20,91 +28,73 @@ class ProductType extends AbstractType
         //función para construir un formulario
         //añadimos add por tantos campos que tengamos en la clase User(en entity)
         $builder
-            ->add('name',TextType::class,[
+            ->add('nameproduct',TextType::class,[
                 'required'=>'required',
-                'label' => 'Nombre',
+                'label' => 'Nombre del producto',
                 'attr'=>[
                     'class'=>'form-username form-control',
-                    'placeholder'=>'ej:Maria'
+                    'placeholder'=>'ej:Melocotón'
                 ]
             ])
-            ->add('surname',TextType::class,[
+            ->add('description',TextType::class,[
                 'required'=>'required',
-                'label' => 'Apellidos',
+                'label' => 'Descripción',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:Gómez Roca'
+                    'class'=>'form-control',
+                    'placeholder'=>'ej:El Melocotón es originario de China desde hace 3.000 a. c.'
                 ]
             ])
-            ->add('address',TextType::class,[
+            ->add('unitprice',NumberType::class,[
                 'required'=>'required',
-                'label' => 'Dirección',
+                'label' => 'Precio unidad',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:C/de las flores,44'
+                    'class'=>'form-control',
+                    'placeholder'=>'ej:2.99'
                 ]
             ])
-            ->add('city',TextType::class,[
+            ->add('stock',NumberType::class,[
                 'required'=>'required',
-                'label' => 'Ciudad',
+                'label' => 'Existencias',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:Viladecans'
+                    'class'=>'form-control',
+                    'placeholder'=>'ej:100'
                 ]
             ])
-            ->add('postalcode',TextType::class,[
+            ->add('reservedstocks',NumberType::class,[
                 'required'=>'required',
-                'label' => 'Código postal',
+                'label' => 'Existencias reservadas',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:08840'
+                    'class'=>'form-control',
+                    'placeholder'=>'ej:50'
                 ]
             ])
-            ->add('province',TextType::class,[
+            ->add('season',EntityType::class,[
                 'required'=>'required',
-                'label' => 'Provincia',
+                'class' => Season::class,
+                'label' => 'Temporada',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:Barcelona'
+                    'class'=>'form-control',
+                    'placeholder'=>'ej:1'
                 ]
             ])
-            ->add('username',TextType::class,[
+            ->add('category',EntityType::class,[
                 'required'=>'required',
-                'label' => 'Nombre de usuario',
+                'class' => Category::class,
+                'label' => 'Categoria',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:usuario123'
+                    'class'=>'form-control',
+                    'placeholder'=>'ej:2'
                 ]
             ])
-            ->add('email',EmailType::class,[
-                'required'=>'required',
-                'label' => 'Correo electrónico',
+            ->add('image',TextType::class,[
+                'label' => 'URL imagen',
                 'attr'=>[
-                    'class'=>'form-email form-control',
-                    'placeholder'=>'Email@email'
+                    'class'=>'form-control',
+                    'placeholder'=>'ej:img/manzana.jpg'
                 ]
-            ])
-            ->add('plainpassword',RepeatedType::class,[ //repeated por que se repetirá para comparar con otro campo de password de que son iguales
-                'type'=>PasswordType::class, //aqui indicamos que tipo de campo se va  repetir
-                'required'=>'required',
-                'first_options'=>[
-                    'label' => 'Contraseña',
-                    'attr'=>[
-                        'class'=>'form-password form-control',
-                        'placeholder'=>'Introduzca la contraseña',
-                    ]
-                ],
-                'second_options'=>[
-                    'label' => 'Repita la contraseña',
-                    'attr'=>[
-                        'class'=>'form-password form-control',
-                        'placeholder'=>'Repite la contraseña'
-                    ]
-                ]
-
             ])
             ->add('save',SubmitType::class, [
-                'label' => 'Registrarme',
+                'label' => 'Guardar producto',
                 'attr'=>[
                     'class' => 'save'
                 ]
