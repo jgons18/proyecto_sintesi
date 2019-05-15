@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+            <div>
+                <h3>{{ product.nameproduct }}</h3>
+                <p>{{ product.description }}<br>
+                    {{ product.unitprice }}<br>
+                    {{ product.stock }}<br>
+                    {{ product.reservedstocks }}<br>
+                    {{ product.season }}<br>
+                    {{ product.category }}<br>
+                    <img src="{{ product.image }}">
+                </p>
+                <a href="{{ path('edit_product_fruit', {'id':product.id}) }}">Editar</a>
+                <a href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+            </div>
+    </div>
+{% endblock %}

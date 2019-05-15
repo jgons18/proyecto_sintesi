@@ -81,7 +81,7 @@ class Category
         return $this;
     }
     /**
-     * Función para convertir a string el array de tags para poder editarlos
+     * Función para convertir a string el array de categoria para poder mostrar su contenido
      * @return mixed
      */
     public function __toString()
