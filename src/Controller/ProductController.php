@@ -10,7 +10,7 @@ namespace App\Controller;
 
 
 use App\Entity\Product;
-//use http\Env\Request;
+use App\Form\ProductType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -55,7 +55,7 @@ class ProductController extends AbstractController
             $entityManager->persist($product);
             $entityManager->flush();
             $this->addFlash('success','Producto creado correctamente');
-            return $this->redirectToRoute('frutas');
+            return $this->redirectToRoute('app_frutas');
         }
         //renderizar formulario
         return $this->render('fruit/new_product.html.twig', [
