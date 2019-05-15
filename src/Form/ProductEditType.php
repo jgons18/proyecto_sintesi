@@ -2,28 +2,26 @@
 /**
  * Created by PhpStorm.
  * User: linux
- * Date: 14/05/19
- * Time: 18:56
+ * Date: 15/05/19
+ * Time: 16:44
  */
 
 namespace App\Form;
 
+
+use App\Entity\Product;
 use App\Entity\Category;
 use App\Entity\Season;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\AbstractType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-
-class ProductType extends AbstractType
+class ProductEditType extends AbstractType
 {
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -85,7 +83,7 @@ class ProductType extends AbstractType
                     'placeholder'=>'ej:2'
                 ]
             ])
-            ->add('image',FileType::class,[
+            ->add('image',TextType::class,[
                 'label' => 'URL imagen',
                 'attr'=>[
                     'class'=>'form-control',
@@ -102,6 +100,7 @@ class ProductType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(['data_class'=>'App\Entity\Product']);
+        $resolver->setDefaults(['data_class'=> Product::class]);
     }
+
 }

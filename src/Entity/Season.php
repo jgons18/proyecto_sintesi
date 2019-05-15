@@ -81,7 +81,7 @@ class Season
         return $this;
     }
     /**
-     * Función para convertir a string el array de tags para poder editarlos
+     * Función para convertir a string el array de las temporadas para poder mostrar el cotenido
      * @return mixed
      */
     public function __toString()
