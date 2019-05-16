@@ -8,7 +8,7 @@
 
 namespace App\Controller;
 
-
+use App\Entity\Product;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -19,7 +19,8 @@ class HomeController extends AbstractController
      * @Route("/",name="app_homepage")
      */
     public function homepage(){
-
-        return $this->render('home/home.html.twig');
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        return $this->render('home/home.html.twig', [
+            'products'=>$products]);
     }
 }

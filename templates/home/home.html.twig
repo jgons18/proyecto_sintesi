@@ -6,13 +6,30 @@
     </div>
     <div class="jg_caja_productos_temporada">
         <h1>Productos de temporada</h1>
-        <div class="jg_productos_temporada">
-            <h4>manchana</h4>
-            <!--añadiremos la misma descripción en alt que en longdesc-->
-            <img src="img/manzana.jpg" alt="" longdesc="">
-            <p>Precio</p>
-            <button>Añadir</button>
-        </div>
 
-    </div>
+        {% for product in products %}
+            <div>
+                {%  if product.season == 'Todo el año' %}
+                    <div class="jg_productos_temporada">
+                        <h3>{{ product.nameproduct }}</h3>
+                        <p>
+                            <!--{#{{ product.description }}#}<br>
+                            {#{{ product.stock }}#}<br>
+                            {#{{ product.reservedstocks }}#}<br>
+                            {#{{ product.season }}#}<br>
+                            {#{{ product.category }}#}<br>-->
+                            <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}"><br>
+                            {{ product.unitprice }}<br>
+
+</p>
+<a href="{{ path('view_product_fruit', {'id':product.id}) }}">Ver producto</a>
+<a href="{{ path('edit_product_fruit', {'id':product.id}) }}">Editar</a>
+<a href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+</div>
+{% endif %}
+</div>
+{% endfor %}
+
+
+</div>
 {% endblock %}

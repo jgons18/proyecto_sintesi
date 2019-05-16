@@ -10,7 +10,7 @@
                     {{ product.reservedstocks }}<br>
                     {{ product.season }}<br>
                     {{ product.category }}<br>
-                    <img src="{{ product.image }}">
+                    <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
                 </p>
                 <a href="{{ path('edit_product_fruit', {'id':product.id}) }}">Editar</a>
                 <a href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>

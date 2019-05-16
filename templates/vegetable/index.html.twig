@@ -17,7 +17,7 @@
                         {{ product.reservedstocks }}<br>
                         {{ product.season }}<br>
                         {{ product.category }}<br>
-                        <img src="{{ product.image }}">
+                        <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
                     </p>
                     <a href="{{ path('view_product_fruit', {'id':product.id}) }}">Ver producto</a>
                     <a href="{{ path('edit_product_vegetable', {'id':product.id}) }}">Editar</a>
