@@ -1,35 +1,55 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+
     <div class="jg_slider_home">
-    <h1>texto</h1>
 
     </div>
-    <div class="jg_caja_productos_temporada">
+
+    <div class="jg_productos_temporada">
         <h1>Productos de temporada</h1>
+        <div class="am_caja_productos_temporada">
+            {% for product in products %}
+            <div class="jg_producto_temporada">
+                {#{%  if product.season == 'Todo el año' %}#}
+                <h4>{{ product.nameproduct }}</h4>
+                <!--añadiremos la misma descripción en alt que en longdesc-->
+                <img src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
+                <p>{{ product.unitprice }}€</p>
+                <button class="am_boton_producto">Añadir a cesta</button><br>
 
-        {% for product in products %}
-            <div>
-                {%  if product.season == 'Todo el año' %}
-                    <div class="jg_productos_temporada">
-                        <h3>{{ product.nameproduct }}</h3>
-                        <p>
-                            <!--{#{{ product.description }}#}<br>
-                            {#{{ product.stock }}#}<br>
-                            {#{{ product.reservedstocks }}#}<br>
-                            {#{{ product.season }}#}<br>
-                            {#{{ product.category }}#}<br>-->
-                            <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}"><br>
-                            {{ product.unitprice }}<br>
+                <a href="{{ path('view_product_fruit', {'id':product.id}) }}">Ver producto</a>
+                <a href="{{ path('edit_product_fruit', {'id':product.id}) }}">Editar</a>
+                <a href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+            </div>
+            {#{% endif %}#}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="am_marcas">
+        <h1>Marcas con las que trabajamos</h1>
+        <div class="am_div_marcas">
+            <div>marca</div>
+            <div>marca</div>
+            <div>marca</div>
+            <div>marca</div>
+        </div>
+    </div>
+    <div class="am_opiniones">
+        <h1>Opiniones</h1>
+        <div class="am_var_opiniones">
+            <div class="am_opinion">
+                <p>lorep ipsumlorep ipsumlorep ipsumlorep ipsum</p>
+            </div>
+            <div class="am_opinion">
+                <p>lorep ipsumlorep ipsumlorep ipsumlorep ipsum</p>
+            </div>
+            <div class="am_opinion">
+                <p>lorep ipsumlorep ipsumlorep ipsumlorep ipsum</p>
+            </div>
+            <div class="am_opinion">
+                <p>lorep ipsumlorep ipsumlorep ipsumlorep ipsum</p>
+            </div>
+        </div>
+    </div>
 
-</p>
-<a href="{{ path('view_product_fruit', {'id':product.id}) }}">Ver producto</a>
-<a href="{{ path('edit_product_fruit', {'id':product.id}) }}">Editar</a>
-<a href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
-</div>
-{% endif %}
-</div>
-{% endfor %}
-
-
-</div>
 {% endblock %}

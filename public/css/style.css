@@ -1,43 +1,31 @@
+/*font-family: 'Dosis', sans-serif;*/
+/*font-family: 'Metrophobic', sans-serif;*/
+
 
 /* PORTÁTILES*/
 @media (min-width: 1025px) and (max-width: 1913px) {
-    body{
-        margin: 0;
+    *{
+        box-sizing: border-box;
+        margin:0;
+        padding:0;
     }
-    .jg_menu_1{
-        height: 5vh;
-    }
-    .jg_menu,.jg_menu ul,.jg_menu ul li{
-        border: 1px solid;
-    }
-    .jg_menu ul li{
-        display: inline;
-        font-size: 25px;
-    }
-    .jg_slider_home{
-        border:1px solid;
-        height: 50vh;
-    }
-    .jg_caja_productos_temporada{
-        display: inline;
-    }
-    .jg_productos_temporada{
-        text-align: center;
-        border:1px solid;
-        width: 20vw;
-        height: 30vh;
-        /*float: left;*/
-    }
-    .jg_productos_temporada img{
-        width: 10vw;
-        height: 10vh;
-    }
+
     /* HEADER Base.html*/
 
-    header{
+    .am_cabecera{
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
 
+    header{
+        width: 100%;
+        height: 25vh;
         display: flex;
         text-align: center;
+        background-color: white;
+        font-family: Metrophobic;
+
 
     }
 
@@ -45,67 +33,82 @@
         align-self: center;
         text-align: center;
         width: 10vw;
-
     }
 
     #am_logo{
-
-
+        vertical-align: top;
     }
 
     #am_div_buscador{
-
         align-self: center;
-        width: 25vw;
-        height: 10vh;
-
+        width: 30vw;
+        height: 7vh;
+        border: 1px solid;
+        margin: 0vh 14vw 0vh 2vw;
     }
 
     #am_buscador{
-
-        width: 25vw;
-        height: 8vh;
+        text-align: left;
+        align-self: center;
+        width: 30vw;
+        height: 7vh;
 
     }
 
     #am_div_login{
-
-        width: 35vw;
-        text-align: right;
+        width: 6vw;
+        justify-self: right;
+        text-align: center;
         align-self: center;
     }
 
     #am_login{
+        width: 10vw;
+        font-size: 5vh;
+    }
 
+    #am_div_signin{
 
-        width: 35vw;
-        font-size: 20px;
-        text-align: right;
+        width: 10vw;
+        text-align: center;
+        align-self: center;
+    }
+
+    #am_signin{
+
+        font-size: 5vh;
+
+    }
+    #am_div_perfil{
+
+        width: 6vw;
+        text-align: center;
+        align-self: center;
+    }
+    #am_perfil{
+
+        font-size: 5vh;
 
 
     }
+    #am_div_carro{
 
-    #am_div_perfil{
-
-        width: 10vw;
+        width: 8vw;
         text-align: center;
         align-self: center;
 
     }
 
-    #am_div_carro{
-
-        width: 10vw;
-
-
+    .fas{
+        font-size: 10vh;
+        color: #99C24D;
     }
-
     #am_div_comprar{
 
         justify-self: center;
         text-align: center;
         align-self: center;
-        width: 10vw;
+        width: 9vw;
 
 
     }
@@ -113,15 +116,227 @@
     #am_comprar{
 
         width: 7vw;
-        height: 5vh;
+        height: 10vh;
+        font-size: 1em;
         text-align: center;
+        border-radius: 5px;
+        background-color: #f95e1b;
+        border-color: #f95e1b;
+        font-family: dosis;
+        color: #fff;
 
     }
 
-    /**LUEGO BORRAR - DEVELOPER */
-    img{
-        width:30%;
+    a{
+        text-decoration: none;
+        color: #000;
     }
+
+
+    /* NAV*/
+
+    .jg_nav{
+        width: 100%;
+        height: 10vh;
+        border-top: 1px solid black;
+        background-color: white;
+        font-family: Metrophobic;
+
+    }
+    .jg_nav ul{
+
+        display: flex;
+        flex-direction:row;
+        list-style: none;
+        padding: 1vw;
+        justify-content: space-around;
+        font-size: 5vh;
+
+    }
+
+
+    .jg_menu ul li{
+        display: inline;
+        font-size: 25px;
+    }
+    .jg_slider_home{
+
+        border:1px solid;
+        width: 100%;
+        height: 65vh;
+        align-self: center;
+        margin-top: 36vh;
+        background-image: url("https://i.ytimg.com/vi/W7K1gi2dG-I/maxresdefault.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .jg_productos_temporada{
+        text-align: center;
+        width: 100%;
+        border:1px solid;
+        padding: 10vh 0vw 4vh 0vw;
+    }
+    .jg_productos_temporada h1{
+
+        font-family: dosis;
+    }
+    .am_caja_productos_temporada{
+
+        display: grid;
+        grid-template-columns:repeat(4, 1fr);
+        grid-auto-rows:55vh;
+        grid-gap: 0px;
+        padding: 12vh 0vw 1vh 0vw;
+
+
+    }
+    .jg_producto_temporada{
+        text-align: center;
+        width: 20vw;
+        height: 50vh;
+        justify-self: center;
+        font-family: Metrophobic;
+
+    }
+    .jg_productos_temporada img{
+        width: 15vw;
+        height: auto;
+    }
+
+    .am_boton_producto{
+        font-family: dosis;
+        width: 7vw;
+        height: 3vw;
+        vertical-align: bottom;
+        background-color: #f95e1b ;
+        border-color: #f95e1b;
+        font-size: 1em;
+        color: #fff;
+        margin-top: 2vh;
+        border-radius: 5px;
+    }
+
+
+    .am_marcas{
+        margin-top: 10vh;
+        text-align: center;
+    }
+
+    .am_marcas h1{
+
+        font-family: dosis;
+    }
+
+    .am_div_marcas{
+        margin-top: 12vh;
+        display: flex;
+        flex-direction:row;
+
+        justify-content: center;
+    }
+
+
+
+
+    .am_div_marcas div{
+        border: 1px solid black;
+        margin: 0vh 4vw 0vh 4vw;
+        width: 10vw;
+        height: 20vh;
+
+    }
+
+    .am_opiniones{
+        text-align: center;
+        margin-top: 10vh;
+    }
+
+    .am_opiniones h1{
+        font-family: dosis;
+    }
+
+    .am_var_opiniones{
+        margin-top: 12vh;
+        display: flex;
+        flex-direction:row;
+        justify-content: space-around;
+    }
+    .am_opinion{
+        font-family: Metrophobic;
+        border: 1px solid black;
+        width: 20vw;
+        height: 30vh;
+    }
+
+
+
+    /*footer*/
+    footer{
+        background-color:#333333;
+
+        color: white;
+        margin-top: 10vh;
+
+    }
+
+    .sn_footer_top{
+        margin-top: 5vh;
+        display: flex;
+        flex-direction:row;
+        list-style: none;
+        padding: 1vw;
+        justify-content: space-between;
+
+    }
+
+    .sn_footer_top article{
+
+        width: 20vw;
+        height: 20vh;
+    }
+    .rrss{
+        text-align: center;
+    }
+    .iconos{
+
+        display: flex;
+        flex-direction:row;
+        list-style: none;
+        padding: 1vw;
+        justify-content: space-between;
+        font-size: 10vh;
+
+    }
+
+    .sn_footer_mid{
+        margin-top: 5vh;
+        display: flex;
+        flex-direction:row;
+        list-style: none;
+        padding: 1vw;
+        justify-content: center;
+        margin: 5vh 0vw 5vh 0vw;
+    }
+
+    .sn_footer_mid article{
+        margin: 0vh 2vw 0vh 2vw ;
+    }
+
+    .sn_footer_bot{
+        text-align: center;
+        margin: 2vh 0vw 0vh 0vw;
+        padding-bottom: 4vh;
+    }
+    .sn_footer_top > p{
+        font-size: 2em;
+    }
+    .sn_move_top{
+        margin-top: 2vh;
+    }
+    .jg_box_login{
+        margin-top: 42vh;
+    }
+
 
 
 }
