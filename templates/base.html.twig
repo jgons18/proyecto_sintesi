@@ -33,9 +33,18 @@
         <ul>
             <li>Logo</li>
             <li>Buscador</li>
+            {% if app.user is null %}
             <li><a href="{{ path('app_register') }}">Identificate</a></li>
             <li><a href="{{ path('app_login') }}">loggin</a></li>
-            <li>Mis pedidos</li>
+            {% else %}
+            <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="">Pedidos</a></li>
+            {% endif %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li>Mis pedidos</li>
+            {% endif %}
+            {% endif %}
         </ul>
     </nav>
     <nav class="jg_menu_2">

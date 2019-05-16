@@ -13,12 +13,14 @@ use App\Entity\Product;
 use App\Entity\Category;
 use App\Entity\Season;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\HttpFoundation\File\File;
 
 class ProductEditType extends AbstractType
 {
@@ -83,13 +85,15 @@ class ProductEditType extends AbstractType
                     'placeholder'=>'ej:2'
                 ]
             ])
-            ->add('image',TextType::class,[
+            /*->add('image',FileType::class,[
                 'label' => 'URL imagen',
                 'attr'=>[
                     'class'=>'form-control',
-                    'placeholder'=>'ej:img/manzana.jpg'
+                    'placeholder'=>'ej:img/manzana.jpg',
+                    "data_class" =>null
                 ]
-            ])
+            ])*/
+            ->add('image',FileType::class,array('data_class'=> null))
             ->add('save',SubmitType::class, [
                 'label' => 'Guardar producto',
                 'attr'=>[
