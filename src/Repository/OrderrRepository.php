@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Order;
+use App\Entity\Orderr;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Order|null find($id, $lockMode = null, $lockVersion = null)
- * @method Order|null findOneBy(array $criteria, array $orderBy = null)
- * @method Order[]    findAll()
- * @method Order[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Orderr|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Orderr|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Orderr[]    findAll()
+ * @method Orderr[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class OrderRepository extends ServiceEntityRepository
+class OrderrRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Order::class);
+        parent::__construct($registry, Orderr::class);
     }
 
     // /**
-    //  * @return Order[] Returns an array of Order objects
+    //  * @return Orderr[] Returns an array of Orderr objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class OrderRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Order
+    public function findOneBySomeField($value): ?Orderr
     {
         return $this->createQueryBuilder('o')
             ->andWhere('o.exampleField = :val')

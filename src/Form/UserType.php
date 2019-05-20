@@ -74,14 +74,14 @@ class UserType extends AbstractType
                     'placeholder'=>'ej:Barcelona'
                 ]
             ])
-            ->add('username',TextType::class,[
+            /*->add('username',TextType::class,[
                 'required'=>'required',
                 'label' => 'Nombre de usuario',
                 'attr'=>[
                     'class'=>'form-username form-control',
                     'placeholder'=>'ej:usuario123'
                 ]
-            ])
+            ])*/
             ->add('email',EmailType::class,[
                 'required'=>'required',
                 'label' => 'Correo electrónico',

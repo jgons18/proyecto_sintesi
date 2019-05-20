@@ -12,7 +12,7 @@
 
     /* HEADER Base.html*/
 
-    .am_cabecera{
+    /*.am_cabecera{
         position: fixed;
         width: 100%;
         top: 0;
@@ -91,7 +91,7 @@
 
 
     }
-    #am_div_carro{
+    .am_div_carro{
 
         width: 8vw;
         text-align: center;
@@ -130,12 +130,12 @@
     a{
         text-decoration: none;
         color: #000;
-    }
+    }*/
 
 
     /* NAV*/
 
-    .jg_nav{
+    /*.jg_nav{
         width: 100%;
         height: 10vh;
         border-top: 1px solid black;
@@ -266,12 +266,12 @@
         border: 1px solid black;
         width: 20vw;
         height: 30vh;
-    }
+    }*/
 
 
 
     /*footer*/
-    footer{
+    /*footer{
         background-color:#333333;
 
         color: white;
@@ -336,7 +336,7 @@
     .jg_box_login{
         margin-top: 42vh;
     }
-
+*/
 
 
 }

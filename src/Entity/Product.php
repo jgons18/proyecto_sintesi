@@ -222,4 +222,13 @@ class Product
         return $this;
     }
 
+    /**
+     * Función para convertir a string el array de los productos para poder mostrar el cotenido
+     * @return mixed
+     */
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->nameproduct;
+    }
 }
