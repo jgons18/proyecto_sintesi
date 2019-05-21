@@ -23,4 +23,5 @@ class HomeController extends AbstractController
         return $this->render('home/home.html.twig', [
             'products'=>$products]);
     }
+
 }

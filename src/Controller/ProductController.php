@@ -12,10 +12,10 @@ namespace App\Controller;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Form\ProductEditType;
+use App\Form\SearchType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-
 
 class ProductController extends AbstractController
 {
@@ -239,6 +239,7 @@ class ProductController extends AbstractController
         ]);
     }
     /**
+     * Función para generar un nombre único a las imágenes
      * @return string
      */
     private function generateUniqueFileName()
@@ -247,6 +248,57 @@ class ProductController extends AbstractController
         // uniqid(), which is based on timestamps
         return md5(uniqid());
     }
+
+
+    /**
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @Route("/buscar", name="app_search")
+     */
+    public function searchForm(Request $request) {
+        $search_file = new Product();
+        $form = $this->createForm(SearchType::class, $search_file, [
+            'action' => '/buscar'
+        ]);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $search_file = $form->getData();
+            return $this->redirectToRoute('search', [
+                'keywords' => $search_file->getNameproduct()
+            ]);
+        }
+        return $this->render('search/form.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+    
+
+    /**
+     * función buscar
+     * @Route("/busqueda", name="app_search_product")
+     */
+
+    public function searchProduct(Request $request){
+        //$request = $this->getRequest();
+        $data = $request->request->get("search");
+
+
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p FROM App\Entity\Product p
+            WHERE p.nameproduct LIKE :data')
+            ->setParameter('data',$data);
+
+
+        $res = $query->getResult();
+        /*var_dump($res);
+        die;*/
+
+        return $this->render('search/results.html.twig', array(
+            'res' => $res));
+    }
+
 
 
 }

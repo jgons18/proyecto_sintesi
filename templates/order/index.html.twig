@@ -2,6 +2,7 @@
 
 {% block body %}
 <h1>Pedidos</h1>
+    <a href="">Añadir pedido</a>
     {% for orderr in orderrs %}
         <div>
            {%  if orderr.paymentconfirmed == 1 %}
@@ -13,7 +14,7 @@
                         <strong>Dirección secundaria:</strong> {{ orderr.mainaddress }}<br>
                         <strong>Fecha de compra:</strong> {{ orderr.dateeorderr|date('d-m-Y H:i:s') }}<br>
                         {% for detail in details %}
-                            <strong>Producto: </strong> {{ dump(detail.forder) }}
+                            <strong>Producto: </strong>
                         {% endfor %}
                     </p>
 
