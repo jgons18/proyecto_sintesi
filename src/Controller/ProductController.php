@@ -272,7 +272,7 @@ class ProductController extends AbstractController
             'form' => $form->createView()
         ]);
     }
-    
+
 
     /**
      * función buscar
@@ -288,7 +288,7 @@ class ProductController extends AbstractController
         $query = $em->createQuery(
             'SELECT p FROM App\Entity\Product p
             WHERE p.nameproduct LIKE :data')
-            ->setParameter('data',$data);
+            ->setParameter('data','%'.$data.'%');
 
 
         $res = $query->getResult();

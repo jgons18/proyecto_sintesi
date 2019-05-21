@@ -5,19 +5,10 @@
         <div>
             <div>
                 <h3>{{ re.nameproduct }}</h3>
-                <p>{{ product.description }}<br>
-                    {{ product.unitprice }}<br>
-                    {{ product.stock }}<br>
-                    {{ product.reservedstocks }}<br>
-                    {{ product.season }}<br>
-                    {{ product.category }}<br>
-                    <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
+                <p>{{ re.description }}<br>
+
 
                 </p>
-                <a href="{{ path('add_product_to_basket',{'id':product.id}) }}">añadir al carrito</a>
-                <a href="{{ path('view_product_fruit', {'id':product.id}) }}">Ver producto</a>
-                <a href="{{ path('edit_product_fruit', {'id':product.id}) }}">Editar</a>
-                <a href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
             </div>
         </div>
     {% endfor %}
