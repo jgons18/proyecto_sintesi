@@ -33,4 +33,12 @@ class OrderrController extends AbstractController
         return $this->findBy(array(), array('dateeorderr' => 'ASC'));
     }
 
+    /**
+     * Función  para añadir productos al carrito
+     * @Route("/pedido/add/{id}", name="add_product_to_basket")
+     */
+    public function addProductOrder(Request $request,$id){
+
+    }
+
 }
