@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="077947ff-565a-4672-a56a-f8484b29cd52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Form/SearchType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/product/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search/form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search/results.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fruitable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fruitable.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/OrderrController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OrderrController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Detail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Orderr.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Orderr.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fruit/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fruit/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/order/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/order/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search/results.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search/results.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,13 +68,13 @@
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="2" />
-          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.16" value="2" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.93" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -140,7 +125,7 @@
           <entry key="env" value="109" />
           <entry key="gitignore" value="6" />
           <entry key="js" value="15" />
-          <entry key="php" value="7299" />
+          <entry key="php" value="7340" />
           <entry key="sql" value="4" />
           <entry key="twig" value="2727" />
           <entry key="txt" value="41" />
@@ -152,7 +137,7 @@
           <entry key=".env file" value="109" />
           <entry key="CSS" value="385" />
           <entry key="JavaScript" value="15" />
-          <entry key="PHP" value="7299" />
+          <entry key="PHP" value="7340" />
           <entry key="PLAIN_TEXT" value="50" />
           <entry key="SQL" value="4" />
           <entry key="Scratch" value="48" />
@@ -164,11 +149,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/ProductController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="274" column="4" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="4" />
+            <state relative-caret-position="503">
+              <caret line="295" column="14" selection-start-line="295" selection-start-column="14" selection-end-line="295" selection-end-column="14" />
               <folding>
                 <element signature="e#115#138#0#PHP" expanded="true" />
               </folding>
@@ -185,11 +170,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/search/results.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -299,8 +284,8 @@
         <option value="$PROJECT_DIR$/templates/search/form.html.twig" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
-        <option value="$PROJECT_DIR$/templates/search/results.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/ProductController.php" />
+        <option value="$PROJECT_DIR$/templates/search/results.html.twig" />
       </list>
     </option>
   </component>
@@ -569,18 +554,19 @@
       <workItem from="1558357927244" duration="8172000" />
       <workItem from="1558366812813" duration="7959000" />
       <workItem from="1558444936638" duration="8086000" />
-      <workItem from="1558454909613" duration="35000" />
+      <workItem from="1558454909613" duration="615000" />
+      <workItem from="1558455818840" duration="99000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109978000" />
+    <option name="totallyTimeSpent" value="110657000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="457" y="0" width="1448" height="913" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19296987" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19583932" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -936,8 +922,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="274" column="4" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="4" />
+        <state relative-caret-position="503">
+          <caret line="295" column="14" selection-start-line="295" selection-start-column="14" selection-end-line="295" selection-end-column="14" />
           <folding>
             <element signature="e#115#138#0#PHP" expanded="true" />
           </folding>
@@ -948,13 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/search/results.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -996,6 +975,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="16" selection-start-line="5" selection-start-column="4" selection-end-line="24" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/search/results.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
