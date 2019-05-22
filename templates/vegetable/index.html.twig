@@ -5,6 +5,9 @@
     <h2>Verduras</h2>
     {#{% if app.user %}#}
     <p><a href="{{ path('new_product_vegetable') }}">+ Añadir nuevo producto</a></p>
+    <p><a href="{{ path('app_price_low_to_high_v') }}">Precio:bajo a alto</a></p>
+    <p><a href="{{ path('app_price_high_to_low_v') }}">Precio:alto a bajo</a></p>
+    <p><a href="{{ path('app_category_filter_other_vegetables') }}">Otras</a>&nbsp; </p>
     {#    {% endif %}#}
     {% for product in products %}
         <div>

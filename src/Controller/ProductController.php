@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Category;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Form\ProductEditType;
@@ -251,38 +252,12 @@ class ProductController extends AbstractController
 
 
     /**
-     *
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     * @Route("/buscar", name="app_search")
-     */
-    public function searchForm(Request $request) {
-        $search_file = new Product();
-        $form = $this->createForm(SearchType::class, $search_file, [
-            'action' => '/buscar'
-        ]);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $search_file = $form->getData();
-            return $this->redirectToRoute('search', [
-                'keywords' => $search_file->getNameproduct()
-            ]);
-        }
-        return $this->render('search/form.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
-
-
-    /**
-     * función buscar
+     * Función para buscar productos
      * @Route("/busqueda", name="app_search_product")
      */
-
     public function searchProduct(Request $request){
         //$request = $this->getRequest();
         $data = $request->request->get("search");
-
 
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(
@@ -290,14 +265,137 @@ class ProductController extends AbstractController
             WHERE p.nameproduct LIKE :data')
             ->setParameter('data','%'.$data.'%');
 
-
         $res = $query->getResult();
         /*var_dump($res);
         die;*/
-
         return $this->render('search/results.html.twig', array(
-            'res' => $res));
+            'res' => $res,
+            'data' =>$data));
     }
+
+    /**
+     * Función para filtrar productos del precio más bajo al más alto(FRUTAS)
+     * @Route("/frutas/filters/price-low", name="app_price_low_to_high_f")
+     */
+    public function filterProduct_Fruit_price_Low(){
+        return $this->filterProduct_price_Low('fruit/filters/price-low-to-high.html.twig');
+    }
+
+    /**
+     * Función para filtrar productos del precio más bajo al más alto(VERDURAS)
+     * @Route("/verduras/filters/price-low", name="app_price_low_to_high_v")
+     */
+    public function filterProduct_Vegetable_price_Low(){
+        return $this->filterProduct_price_Low('vegetable/filters/price-low-to-high.html.twig');
+    }
+
+    /**
+     * Función privada para filtrar los productos según el precio, de menor a mayor
+     * @param string $template
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    private function filterProduct_price_Low(string $template){
+        $product = new Product();
+        $product->getUnitprice();
+
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p FROM App\Entity\Product p 
+            ORDER BY p.unitprice ASC');
+        $res = $query->getResult();
+
+        return $this->render($template, array(
+            'res' => $res,
+            'products'=>$product));
+    }
+
+    /**
+     * Función para filtrar productos del precio más alto al más bajo(FRUTAS)
+     * @Route("/frutas/filters/price-high", name="app_price_high_to_low_f")
+     */
+    public function filterProduct_Fruit_price_High(){
+
+        return $this->filterProduct_price_High('fruit/filters/price-high-to-low.html.twig');
+    }
+
+    /**
+     * Función para filtrar productos del precio más alto al más bajo(VERDURAR)
+     * @Route("/verduras/filters/price-high", name="app_price_high_to_low_v")
+     */
+    public function filterProduct_Vegatable_price_High(){
+
+        return $this->filterProduct_price_High('vegetable/filters/price-high-to-low.html.twig');
+    }
+
+    /**
+     * Función privada para filtrar los productos según el precio, de mayor a menor
+     * @param string $template
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    private function filterProduct_price_High(string $template){
+        $product = new Product();
+        $product->getUnitprice();
+
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p FROM App\Entity\Product p 
+            ORDER BY p.unitprice DESC');
+        $res = $query->getResult();
+
+        return $this->render($template, array(
+            'res' => $res,
+            'products'=>$product));
+    }
+
+    /**
+     * Función filtros por categoria de platanos
+     * @Route("frutas/filters/for-category-banana", name="app_category_filter_banana")
+     */
+    public function filterProduct_category_Banana(){
+
+        return $this->filterProduct_category(1,'fruit/filters/category.html.twig');
+    }
+    /**
+     * Función filtros por categoria de otras verduras
+     * @Route("verduras/filters/for-category-apple", name="app_category_filter_other_vegetables")
+     */
+    public function filterProduct_category_Others_Vegetables(){
+
+        return $this->filterProduct_category(2,'vegetable/filters/category.html.twig');
+
+    }
+    /**
+     * Función filtros por categoria de manzanas
+     * @Route("frutas/filters/for-category-apple", name="app_category_filter_apple")
+     */
+    public function filterProduct_category_Apple(){
+
+        return $this->filterProduct_category(3,'fruit/filters/category.html.twig');
+
+    }
+
+    /**
+     * Función privada para filtrar por categorias
+     * @param int $numcategory
+     * @param string $template
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    private function filterProduct_category(int $numcategory, string $template){
+        $product = new Product();
+
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p FROM App\Entity\Product p 
+        WHERE p.category = '.$numcategory);
+        $res = $query->getResult();
+
+        return $this->render($template, array(
+            'res' => $res,
+            'products'=>$product));
+    }
+
+
+
 
 
 

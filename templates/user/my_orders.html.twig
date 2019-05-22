@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% for orderr in orderrs %}
+        {% if orderr|length < 0 %}
+            <h2>Hola {{ app.user.name }},estos son tus pedidos:</h2>
+                {{ orderr.dateeorderr }}<br>
+                {{ orderr.mainaddress }}<br>
+                {{ orderr.secondarydirection }}
+        {% else %}
+            <h2>Hola {{ app.user.name }},no tienes pedidos aún:(</h2>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
