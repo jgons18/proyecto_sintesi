@@ -5,7 +5,10 @@
     <h2>Frutas</h2>
 {#{% if app.user %}#}
         <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
-{#    {% endif %}#}
+        <p><a href="{{ path('app_price_low_to_high_f') }}">Precio:bajo a alto</a></p>
+        <p><a href="{{ path('app_price_high_to_low_f') }}">Precio:alto a bajo</a></p>
+        <p><a href="{{ path('app_category_filter_banana') }}">Platanos</a>&nbsp;<a href="{{ path('app_category_filter_apple') }}">Manzanas</a> </p>
+    {#    {% endif %}#}
     {% for product in products %}
         <div>
             {%  if product.isfruit == 1 %}
