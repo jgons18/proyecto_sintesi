@@ -10,9 +10,13 @@
         padding:0;
     }
 
+    .margen{
+        margin-bottom: 29vh;
+    }
+
     /* HEADER Base.html*/
 
-    /*.am_cabecera{
+    .am_cabecera{
         position: fixed;
         width: 100%;
         top: 0;
@@ -20,7 +24,7 @@
 
     header{
         width: 100%;
-        height: 25vh;
+        height: 20vh;
         display: flex;
         text-align: center;
         background-color: white;
@@ -28,82 +32,147 @@
 
 
     }
+    button:hover{
 
-    #am_div_logo{
+        opacity: 0.7;
+        cursor: pointer;
+    }
+    a:hover{
+
+        font-weight: bolder;
+    }
+
+    .am_div_logo{
         align-self: center;
         text-align: center;
         width: 10vw;
+
     }
 
-    #am_logo{
+    .am_logo{
         vertical-align: top;
     }
 
-    #am_div_buscador{
+    .am_div_buscador{
+        box-shadow: none;
         align-self: center;
-        width: 30vw;
+        width: 32vw;
         height: 7vh;
-        border: 1px solid;
-        margin: 0vh 14vw 0vh 2vw;
+        margin: 0vh 0vw 0vh 2vw;
     }
-
-    #am_buscador{
+    .am_div_buscador form{
+        display: flex;
+        flex-direction: row;
+    }
+    .am_buscador{
+        align-self: flex-start;
+        border: 1px solid lightgrey;
         text-align: left;
         align-self: center;
-        width: 30vw;
+        width: 25vw;
         height: 7vh;
 
     }
 
-    #am_div_login{
-        width: 6vw;
-        justify-self: right;
-        text-align: center;
-        align-self: center;
+    .am_boton_buscar{
+        height: 7vh;
+        width: 7vw;
+
     }
 
-    #am_login{
+    .am_div_login{
+        width: 15vw;
+        justify-self: left;
+        text-align: center;
+        align-self: center;
+        margin: 0vh 0vw 0vh 25vw;
+    }
+
+    .am_login{
+        font-size: 4vh;
+    }
+
+    .am_logout{
         width: 10vw;
-        font-size: 5vh;
+        text-align: center;
+        align-self: center;
     }
 
-    #am_div_signin{
+    .am_logout a{
+        font-size: 4vh;
+    }
+
+    .am_div_signin{
 
         width: 10vw;
         text-align: center;
         align-self: center;
     }
 
-    #am_signin{
+    .am_signin{
 
-        font-size: 5vh;
+        font-size: 4vh;
 
     }
-    #am_div_perfil{
+    .am_div_pedidos{
 
-        width: 6vw;
+        width: 10vw;
         text-align: center;
         align-self: center;
     }
-    #am_perfil{
+    .am_div_perfil{
 
-        font-size: 5vh;
+        width: 10vw;
+        text-align: center;
+        align-self: center;
+        margin: 0vh 0vw 0vh 10vw;
+    }
+    .am_perfil{
 
+        font-size: 4vh;
+    }
+
+    .am_div_pedidos{
+        width: 15vw;
+        text-align: center;
+        align-self: center;
+    }
+
+    .am_div_pedidos a{
+        font-size: 4vh;
 
     }
+
+    .am_div_listdes{
+        width: 19vw;
+        text-align: center;
+        align-self: center;
+    }
+
+    .am_div_listdes a{
+        font-size: 4vh;
+    }
+
     .am_div_carro{
 
         width: 8vw;
         text-align: center;
         align-self: center;
+        margin: 0vh 3vw 0vh 0vw;
 
     }
 
-    .fas{
-        font-size: 10vh;
+
+    .fas:hover{
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+    .fa-shopping-basket{
+        font-size: 9vh;
         color: #99C24D;
     }
-    #am_div_comprar{
+    .am_div_comprar{
 
         justify-self: center;
         text-align: center;
@@ -113,7 +182,7 @@
 
     }
 
-    #am_comprar{
+    .am_comprar{
 
         width: 7vw;
         height: 10vh;
@@ -130,52 +199,182 @@
     a{
         text-decoration: none;
         color: #000;
-    }*/
+    }
 
+    /* Frutas */
+
+
+    .am_filtros{
+
+        display: flex;
+        flex-direction: column;
+    }
+    .am_filtros_precio{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .am_filtros_precio a{
+        margin: 0vh 1vw 0vh 1vw;
+        height: 5vh;
+        background-color: #e0e0e0;
+        border: 1px solid;
+    }
+
+    .am_filtros_categoria{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .am_filtros_categoria a{
+        margin: 0vh 1vw 0vh 0vw;
+
+    }
+
+
+    .am_titulo_frutas{
+        font-size: 2.5em;
+        margin: 4vh 1vw 4vh 0vw;
+        font-family: dosis;
+    }
+    .am_añadirproducto_fruta{
+        font-family: Metrophobic;
+        font-size: 1.1em;
+
+    }
+
+    .am_imagen_producto{
+        width: auto;
+        height: 30vh;
+
+    }
+    /*verdura*/
+
+    .am_titulo_verdura{
+        font-size: 2.5em;
+        margin: 4vh 1vw 4vh 0vw;
+        font-family: dosis;
+    }
+
+    .am_añadirproducto_verdura{
+
+        font-family: Metrophobic;
+        font-size: 1.1em;
+
+    }
 
     /* NAV*/
 
-    /*.jg_nav{
+    .jg_nav{
         width: 100%;
-        height: 10vh;
-        border-top: 1px solid black;
-        background-color: white;
+        height: 8vh;
+        background-color: #51AD2A;
         font-family: Metrophobic;
 
     }
     .jg_nav ul{
-
+        vertical-align: center;
         display: flex;
         flex-direction:row;
         list-style: none;
-        padding: 1vw;
         justify-content: space-around;
-        font-size: 5vh;
-
-    }
-
-
-    .jg_menu ul li{
-        display: inline;
-        font-size: 25px;
-    }
-    .jg_slider_home{
-
-        border:1px solid;
-        width: 100%;
-        height: 65vh;
+        font-size: 1.3em;
         align-self: center;
-        margin-top: 36vh;
-        background-image: url("https://i.ytimg.com/vi/W7K1gi2dG-I/maxresdefault.jpg");
+    }
+    .jg_nav li{
+        padding-top: 1vh;
+    }
+
+    .am_nav_obj{
+        height: 8vh;
+        width: 10vw;
+         text-align: center;
+        color: white;
+
+    }
+
+    .am_nav_objverd{
+        width: 25vw;
+
+    }
+    .am_nav_obj a{
+        width: 100%;
+        height: 100%;
+        text-align: center;
+
+    }
+    .am_nav_obj:hover{
+        border: 0px solid #99C24D;
+        background-color: #99C24D;
+        color: #fff;
+
+    }
+
+    .jg_slider_home{
+        width: 100%;
+        height: 60vh;
+        align-self: center;
         background-repeat: no-repeat;
         background-size: cover;
+        border: 1px solid;
     }
+
+    /* slider */
+
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+
+    /* fin slider */
+
     .jg_productos_temporada{
         text-align: center;
         width: 100%;
-        border:1px solid;
         padding: 10vh 0vw 4vh 0vw;
     }
+
+    .am_iconos{
+        text-align: right;
+        padding-right: 3vw;
+
+    }
+
+    .fa-eye{
+        font-size:1em;
+        color: #aaaaaa;
+        text-align: right;
+    }
+    .fa-pen{
+        font-size:1em;
+        color: #5eb5e0;
+        text-align: right;
+    }
+    .fa-trash-alt{
+        font-size:1em;
+        color: red;
+        text-align: right;
+    }
+
     .jg_productos_temporada h1{
 
         font-family: dosis;
@@ -187,8 +386,6 @@
         grid-auto-rows:55vh;
         grid-gap: 0px;
         padding: 12vh 0vw 1vh 0vw;
-
-
     }
     .jg_producto_temporada{
         text-align: center;
@@ -196,26 +393,64 @@
         height: 50vh;
         justify-self: center;
         font-family: Metrophobic;
+        color: #AAAAAA;
+        margin: 0vh 1vw 0vh 1vw;
 
     }
+    .jg_producto_temporada p{
+        color: #99C24D;
+        font-size: 1.8em;
+        margin-right: 0.2em;
+    }
     .jg_productos_temporada img{
-        width: 15vw;
-        height: auto;
+        width: auto;
+        height: 30vh;
+    }
+
+
+    .jg_producto_temporada_bot{
+        display: flex;
+        flex-direction: row;
+        padding-left: 5vw;
+
+    }
+    .jg_producto_temporada_bot div{
+        align-self:flex-end;
+        text-align: center;
     }
 
     .am_boton_producto{
         font-family: dosis;
         width: 7vw;
-        height: 3vw;
-        vertical-align: bottom;
+        height: 7vh;
+        vertical-align: center;
+        text-align: center;
         background-color: #f95e1b ;
-        border-color: #f95e1b;
+        border: 1px solid #f95e1b;
         font-size: 1em;
         color: #fff;
         margin-top: 2vh;
-        border-radius: 5px;
+        border-radius: 3px;
+        padding-top: 1vh;
+
+    }
+    .am_boton_producto:hover{
+        opacity: 0.7;
+        font-weight: normal;
+
     }
 
+    .am_boton_producto a{
+        width: 7vw;
+        height: 7vh;
+        text-decoration: none;
+        color: white;
+    }
+    .am_boton_producto a:hover{
+
+        opacity: 0.7;
+        font-weight: normal;
+    }
 
     .am_marcas{
         margin-top: 10vh;
@@ -231,7 +466,6 @@
         margin-top: 12vh;
         display: flex;
         flex-direction:row;
-
         justify-content: center;
     }
 
@@ -239,10 +473,9 @@
 
 
     .am_div_marcas div{
-        border: 1px solid black;
         margin: 0vh 4vw 0vh 4vw;
-        width: 10vw;
-        height: 20vh;
+        width: 15vw;
+        height: 40vh;
 
     }
 
@@ -262,23 +495,106 @@
         justify-content: space-around;
     }
     .am_opinion{
+        padding: 3vh 1vw 0vh 1vw;
         font-family: Metrophobic;
-        border: 1px solid black;
-        width: 20vw;
-        height: 30vh;
-    }*/
+        width: 23vw;
+        height: 40vh;
+        text-align: left;
+        font-size: 1.1em;
+        color :black;
+        background-image: url("/img/bocadillo.png");
+        background-repeat: no-repeat;
+        background-size : cover;
+        align-self: center;
+    }
+
+    .am_mensaje{
+
+        font-style: italic;
+
+    }
+    .autor{
+        text-align: right;
+    }
+
+    /* REGISTRARCE */
+
+    .am_formulario{
+        margin-top: 45vh;
+    }
+
+
+    /* View Product */
+
+
+
+    .am_vista{
+        font-family: Metrophobic;
+        padding-top: 5vh;
+    }
+
+
+
+
+    .detalles{
+        font-family: Metrophobic;
+        display: grid;
+        grid-gap:0px;
+        grid-template-columns:40vw 45vw;
+        grid-template-rows:15vh 8vh repeat(3, 5vh);
+        grid-auto-flow:dense;
+
+
+    }
+
+    .am_nameproduct{
+        font-family: dosis;
+        font-size: 2.5em;
+        align-self: flex-end;
+
+    }
+
+    .am_imagen{
+
+        grid-row: span -1;
+        grid-row-end: span 6;
+        text-align: center;
+    }
+    .am_imagen img{
+        width: auto;
+        height: 70vh;
+    }
+
+    .am_categoria{
+        font-size: 1.5em;
+        align-self: baseline;
+
+    }
+    .am_temporada{
+        align-self: center;
+    }
+
+    .am_precio{
+        align-self: baseline;
+    }
+
+
 
 
 
     /*footer*/
-    /*footer{
+    footer{
         background-color:#333333;
-
         color: white;
         margin-top: 10vh;
+        font-family: Metrophobic;
 
     }
 
+    footer a {
+        font-style: normal;
+        color: white;
+    }
     .sn_footer_top{
         margin-top: 5vh;
         display: flex;
@@ -294,6 +610,13 @@
         width: 20vw;
         height: 20vh;
     }
+    .sn_footer_mid article{
+        width: 20vw;
+        text-align: center;
+
+    }
+
+
     .rrss{
         text-align: center;
     }
@@ -309,7 +632,6 @@
     }
 
     .sn_footer_mid{
-        margin-top: 5vh;
         display: flex;
         flex-direction:row;
         list-style: none;
@@ -317,10 +639,11 @@
         justify-content: center;
         margin: 5vh 0vw 5vh 0vw;
     }
-
-    .sn_footer_mid article{
-        margin: 0vh 2vw 0vh 2vw ;
+    .titulo{
+        font-size: 1.2em;
+        color: #e0e0e0;
     }
+
 
     .sn_footer_bot{
         text-align: center;
@@ -331,12 +654,120 @@
         font-size: 2em;
     }
     .sn_move_top{
-        margin-top: 2vh;
+        margin-top: 1vh;
     }
     .jg_box_login{
         margin-top: 42vh;
     }
-*/
+
+    .la_horta{
+        background-image: url("/img/la_horta.png");
+        background-repeat: no-repeat;
+    }
+    .camp_verd{
+
+        background-image: url("/img/Camp_Verd.png");
+        background-repeat: no-repeat;
+    }
+    .huerto_de_manolo{
+
+        background-image: url("/img/huerto_de_manolo.png");
+        background-repeat: no-repeat;
+    }
+    .terra_viva{
+
+        background-image: url("/img/Terra_Viva.png");
+        background-repeat: no-repeat;
+    }
+
+    /*aviso Legal*/
+
+
+    .am_legal{
+
+        padding: 3vh 5vw 0vh 5vw;
+        font-family: Metrophobic;
+
+    }
+
+    .am_legal h1 , h2 {
+
+        font-family: dosis;
+        margin: 2vh 0vw 2vh 0vw;
+
+    }
+    .am_legal p{
+
+        margin: 2vh 0vw 2vh 0vw;
+    }
+
+    .am_primera_lista{
+
+        list-style: none;
+    }
+
+    /*cookies*/
+
+    .am_cookies{
+        padding: 3vh 5vw 0vh 5vw;
+        font-family: Metrophobic;
+
+
+    }
+
+    .am_cookies h1 , h2{
+        font-family: dosis;
+        margin: 2vh 0vw 2vh 0vw;
+
+
+    }
+    .am_titulo_cookies{
+        margin: 2vh 0vw 2vh 0vh;
+        color: #111111;
+        font-size: 1.1em;
+        font-weight: lighter;
+    }
+
+    .am_cookies li{
+        margin: 3vh 0vw 3vh 0vw;
+    }
+
+    /* sales terms*/
+
+
+
+    .am_sales_terms{
+        padding: 3vh 5vw 0vh 5vw;
+        font-family: Metrophobic;
+
+    }
+
+    .am_sales_terms h1 , h2{
+        font-family: dosis;
+        margin: 2vh 0vw 2vh 0vw;
+    }
+    .am_sales_terms li {
+
+        margin: 2vh 0vw 2vh 0vw;
+    }
+
+    .am_privacy_policy{
+        padding: 3vh 5vw 0vh 5vw;
+        font-family: Metrophobic;
+    }
+
+    .am_privacy_policy h1 , h2{
+
+        font-family: dosis;
+        margin: 2vh 0vw 2vh 0vw;
+    }
+
+    .am_privacy_policy ul{
+
+        margin: 2vh 0vw 2vh 1vw;
+
+    }
+
 
 
 }

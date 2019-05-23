@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="am_filtros">
+        <input type="text"><button>Filtrar</button>
+    </div>
+    <div class="jg_productos_temporada">
+        <h1>Productos de temporada</h1>
+        <div class="am_caja_productos_temporada">
+            {% for product in products %}
+                <div class="jg_producto_temporada">
+                    {#{%  if product.season == 'Todo el año' %}#}
+                    <div class="am_iconos">
+                        <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':product.id}) }}"></a>
+                        <a class="fas fa-pen" href="{{ path('edit_product_fruit', {'id':product.id}) }}"></a>
+                        <a class="fas fa-trash-alt" href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
+                    </div>
+                    <!--añadiremos la misma descripción en alt que en longdesc-->
+                    <a class="am_producto" href="{{ path('view_product_fruit', {'id':product.id}) }}"><img src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
+                        <h4 class="am_titulo_producto">{{ product.nameproduct }}</h4></a>
+                    <div class="jg_producto_temporada_bot">
+                        <div><p>{{ product.unitprice }}€</p></div>
+                        <div><button class="am_boton_producto">Añadir a cesta</button><br></div></div>
+                </div>
+                {#{% endif %}#}
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}
