@@ -2,13 +2,15 @@
 
 {% block body %}
 
-    <div class="am_filtros">
-        <input type="text"><button>Filtrar</button>
-    </div>
+
     <h2 class="am_titulo_frutas">Frutas</h2>
 {#{% if app.user %}#}
-        <p class="am_añadirproducto_fruta"><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
-{#    {% endif %}#}
+    <div class="am_filtros"><p>
+        <div class="am_filtros_precio"><p>ordear por precio:</p><a href="{{ path('app_price_low_to_high_f') }}">bajo a alto</a><a href="{{ path('app_price_high_to_low_f') }}">alto a bajo</a></div>
+    <div class="am_filtros_categoria"><p>ordenar por categoria:</p><p><a href="{{ path('app_category_filter_banana') }}">Platanos</a><a href="{{ path('app_category_filter_apple') }}">Manzanas</a></p></div>
+    </div>
+    <p class="am_añadirproducto_fruta"><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
+    {#    {% endif %}#}
     {% for product in products %}
         <div>
             {%  if product.isfruit == 1 %}
@@ -24,7 +26,9 @@
                     <h4 class="am_titulo_producto">{{ product.nameproduct }}</h4></a>
                     <div class="jg_producto_temporada_bot">
                         <div><p>{{ product.unitprice }}€</p></div>
-                        <div><button class="am_boton_producto">Añadir a cesta</button><br></div></div>
+                        <div class="am_boton_producto"><a href="{{ path('add_product_to_basket',{'id':product.id}) }}" >Añadir a cesta</a></div></div>
+
+
                 </div>
             {% endif %}
         </div>

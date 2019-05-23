@@ -915,7 +915,7 @@
     <table id="229" parent="2" name="migration_versions">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <table id="230" parent="2" name="order">
+    <table id="230" parent="2" name="orderr">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
     <table id="231" parent="2" name="paymentmethod">
@@ -1057,7 +1057,7 @@
     <foreign-key id="257" parent="228" name="FK_2E067F9321CD5ED1">
       <ColNames>forder_id</ColNames>
       <RefSchemaName>fruitable</RefSchemaName>
-      <RefTableName>order</RefTableName>
+      <RefTableName>orderr</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="258" parent="229" name="version">
@@ -1085,48 +1085,48 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="230" name="dateorder">
+    <column id="262" parent="230" name="user_id">
       <Position>2</Position>
-      <DataType>datetime|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="263" parent="230" name="paymentconfirmed">
-      <Position>3</Position>
-      <DataType>tinyint(1)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="264" parent="230" name="mainaddress">
-      <Position>4</Position>
-      <DataType>varchar(120)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="265" parent="230" name="secondarydirection">
-      <Position>5</Position>
-      <DataType>varchar(120)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="266" parent="230" name="nameofowner">
-      <Position>6</Position>
-      <DataType>varchar(150)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="267" parent="230" name="cardnumber">
-      <Position>7</Position>
-      <DataType>varchar(16)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="268" parent="230" name="user_id">
-      <Position>8</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="269" parent="230" name="IDX_F5299398A76ED395">
+    <column id="263" parent="230" name="dateeorderr">
+      <Position>3</Position>
+      <DataType>datetime|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="264" parent="230" name="paymentconfirmed">
+      <Position>4</Position>
+      <DataType>tinyint(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="265" parent="230" name="mainaddress">
+      <Position>5</Position>
+      <DataType>varchar(120)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="266" parent="230" name="secondarydirection">
+      <Position>6</Position>
+      <DataType>varchar(120)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="267" parent="230" name="nameofowner">
+      <Position>7</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="268" parent="230" name="cardnumber">
+      <Position>8</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="269" parent="230" name="IDX_9228CD78A76ED395">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
@@ -1135,7 +1135,7 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="271" parent="230" name="FK_F5299398A76ED395">
+    <foreign-key id="271" parent="230" name="FK_9228CD78A76ED395">
       <ColNames>user_id</ColNames>
       <RefSchemaName>fruitable</RefSchemaName>
       <RefTableName>user</RefTableName>

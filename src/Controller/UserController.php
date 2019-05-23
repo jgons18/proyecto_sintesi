@@ -16,8 +16,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
+
+/**
+ * Class UserController
+ * @package App\Controller
+ *
+ */
 class UserController extends AbstractController
 {
+
 
     /**
      * @Route("/user", name="user")
@@ -42,6 +49,14 @@ class UserController extends AbstractController
         $error=$form->getErrors();
 
         if($form->isSubmitted() && $form->isValid()){
+            //extraigo el string que va antes de @gmail.com(por ej.) y lo pongo como nombre de usuario(gestión interna)
+                //if($posibilite="@gmail.com" || $posibilite="@yahoo.com" || $posibilite="@hotmail.com"){
+            $emailfraccionado = explode("@",$user->getEmail());
+            //var_dump($emailfraccionado[0]);
+            //die;
+            $user->setUsername($emailfraccionado[0]);
+                //}
+
             //encriptamos el password y lo guardamos como campo
             $password=$passwordEncoder->encodePassword($user,$user->getPlainPassword());
             $user->setPassword($password);//si modifica el campo $user, el que irá a la bd
@@ -75,6 +90,12 @@ class UserController extends AbstractController
         $error=$authUtils->getLastAuthenticationError();//guardaremos el último errore de la autentificación
         //last username
         $lastUsername=$authUtils->getLastUsername();
+
+        $session = $this->get('session');
+        $session->set('filter', array(
+            'accounts' => 'value',
+        ));
+
         return $this->render('user/login.html.twig',[
             'error'=>$error,
             'last_username'=>$lastUsername

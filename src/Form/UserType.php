@@ -109,12 +109,52 @@ class UserType extends AbstractType
                     'placeholder'=>'ej:Barcelona'
                 ]
             ])
+
             ->add('save',SubmitType::class, [
                 'label' => 'Registrarme',
                 'attr'=>[
                     'class' => 'save'
                 ]
             ]);
+/*<<<<<<< HEAD
+=======
+            /*->add('username',TextType::class,[
+                'required'=>'required',
+                'label' => 'Nombre de usuario',
+                'attr'=>[
+                    'class'=>'form-username form-control',
+                    'placeholder'=>'ej:usuario123'
+                ]
+            ])
+            ->add('email',EmailType::class,[
+                'required'=>'required',
+                'label' => 'Correo electrónico',
+                'attr'=>[
+                    'class'=>'form-email form-control',
+                    'placeholder'=>'Email@email'
+                ]
+            ])
+            ->add('plainpassword',RepeatedType::class,[ //repeated por que se repetirá para comparar con otro campo de password de que son iguales
+                'type'=>PasswordType::class, //aqui indicamos que tipo de campo se va  repetir
+                'required'=>'required',
+                'first_options'=>[
+                    'label' => 'Contraseña',
+                    'attr'=>[
+                        'class'=>'form-password form-control',
+                        'placeholder'=>'Introduzca la contraseña',
+                    ]
+                ],
+                'second_options'=>[
+                    'label' => 'Repita la contraseña',
+                    'attr'=>[
+                        'class'=>'form-password form-control',
+                        'placeholder'=>'Repite la contraseña'
+                    ]
+                ]
+
+            ])
+>>>>>>> e4831df8f4cac621807ad401edc06bd44d973c74*/
+            
     }
 
     public function configureOptions(OptionsResolver $resolver)

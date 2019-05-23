@@ -54,27 +54,35 @@
     }
 
     .am_div_buscador{
-
         box-shadow: none;
         align-self: center;
-        width: 30vw;
-        height: 9vh;
-
+        width: 32vw;
+        height: 7vh;
         margin: 0vh 0vw 0vh 2vw;
     }
-
+    .am_div_buscador form{
+        display: flex;
+        flex-direction: row;
+    }
     .am_buscador{
+        align-self: flex-start;
         border: 1px solid lightgrey;
         text-align: left;
         align-self: center;
-        width: 30vw;
+        width: 25vw;
         height: 7vh;
+
+    }
+
+    .am_boton_buscar{
+        height: 7vh;
+        width: 7vw;
 
     }
 
     .am_div_login{
         width: 15vw;
-        justify-self: right;
+        justify-self: left;
         text-align: center;
         align-self: center;
         margin: 0vh 0vw 0vh 25vw;
@@ -197,28 +205,33 @@
 
 
     .am_filtros{
-        margin: 0vh 0vw 10vh 15vw;
-        padding: 3vh 0vw 0vh 15vw;
-        width: 70vw;
-        height: 7vh;
+
+        display: flex;
+        flex-direction: column;
+    }
+    .am_filtros_precio{
+        display: flex;
+        flex-direction: row;
     }
 
-    .am_filtros input{
-        width: 35vw;
-        height: 7vh;
+    .am_filtros_precio a{
+        margin: 0vh 1vw 0vh 1vw;
+        height: 5vh;
+        background-color: #e0e0e0;
+        border: 1px solid;
     }
-    .am_filtros button{
-        width: 7vw;
-        height: 7vh;
-        font-family: dosis;
-        background-color: #f95e1b ;
-        font-size: 1em;
-        color: #fff;
-        margin-top: 2vh;
-        border-radius: 3px;
-        border: 1px solid #f95e1b;
+
+    .am_filtros_categoria{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .am_filtros_categoria a{
+        margin: 0vh 1vw 0vh 0vw;
 
     }
+
+
     .am_titulo_frutas{
         font-size: 2.5em;
         margin: 4vh 1vw 4vh 0vw;
@@ -402,24 +415,42 @@
 
     }
     .jg_producto_temporada_bot div{
-        align-self: baseline;
-        text-align: right;
+        align-self:flex-end;
+        text-align: center;
     }
 
     .am_boton_producto{
         font-family: dosis;
         width: 7vw;
-        height: 3vw;
-        vertical-align: bottom;
+        height: 7vh;
+        vertical-align: center;
+        text-align: center;
         background-color: #f95e1b ;
         border: 1px solid #f95e1b;
         font-size: 1em;
         color: #fff;
         margin-top: 2vh;
         border-radius: 3px;
+        padding-top: 1vh;
+
+    }
+    .am_boton_producto:hover{
+        opacity: 0.7;
+        font-weight: normal;
 
     }
 
+    .am_boton_producto a{
+        width: 7vw;
+        height: 7vh;
+        text-decoration: none;
+        color: white;
+    }
+    .am_boton_producto a:hover{
+
+        opacity: 0.7;
+        font-weight: normal;
+    }
 
     .am_marcas{
         margin-top: 10vh;
@@ -549,6 +580,8 @@
     .am_precio{
         align-self: baseline;
     }
+
+
 
 
 

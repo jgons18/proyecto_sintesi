@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Pedidos</h1>
+    <a href="">Añadir pedido</a>
+    {% for orderr in orderrs %}
+        <div>
+           {%  if orderr.paymentconfirmed == 1 %}
+                <div>
+                    <h3>Número de pedido: {{ orderr.id }}</h3>
+                    <p>
+                        <strong>Pedido hecho por:</strong> {{ orderr.user }}<br>
+                        <strong>Dirección principal:</strong> {{ orderr.mainaddress }}<br>
+                        <strong>Dirección secundaria:</strong> {{ orderr.mainaddress }}<br>
+                        <strong>Fecha de compra:</strong> {{ orderr.dateeorderr|date('d-m-Y H:i:s') }}<br>
+                        {% for detail in details %}
+                            <strong>Producto: </strong>
+                        {% endfor %}
+                    </p>
+
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}

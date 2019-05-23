@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\OrderRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\OrderrRepository")
  */
-class Order
+class Orderr
 {
     /**
      * @ORM\Id()
@@ -21,7 +21,7 @@ class Order
     /**
      * @ORM\Column(type="datetime")
      */
-    private $dateorder;
+    private $dateeorderr;
 
     /**
      * @ORM\Column(type="boolean")
@@ -49,7 +49,7 @@ class Order
     private $cardnumber;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="orderrs")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
@@ -62,6 +62,7 @@ class Order
     public function __construct()
     {
         $this->details = new ArrayCollection();
+        $this->dateeorderr = new \DateTime();
     }
 
     public function getId(): ?int
@@ -69,14 +70,14 @@ class Order
         return $this->id;
     }
 
-    public function getDateorder(): ?\DateTimeInterface
+    public function getDateeorderr(): ?\DateTimeInterface
     {
-        return $this->dateorder;
+        return $this->dateeorderr;
     }
 
-    public function setDateorder(\DateTimeInterface $dateorder): self
+    public function setDateeorderr(\DateTimeInterface $dateeorderr): self
     {
-        $this->dateorder = $dateorder;
+        $this->dateeorderr = $dateeorderr;
 
         return $this;
     }
@@ -183,4 +184,7 @@ class Order
 
         return $this;
     }
+
+
+
 }

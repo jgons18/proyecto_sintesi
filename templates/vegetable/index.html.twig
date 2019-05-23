@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="am_filtros">
-    <input type="text"><button>Filtrar</button>
-</div>
+
     <h2 class="am_titulo_verdura">Verduras</h2>
     {#{% if app.user %}#}
-    <p am_añadirproducto_verdura><a href="{{ path('new_product_vegetable') }}">+ Añadir nuevo producto</a></p>
+    <p class="am_añadirproducto_verdura"><a href="{{ path('new_product_vegetable') }}">+ Añadir nuevo producto</a></p>
+    <p><a href="{{ path('app_price_low_to_high_v') }}">Precio:bajo a alto</a></p>
+    <p><a href="{{ path('app_price_high_to_low_v') }}">Precio:alto a bajo</a></p>
+    <p><a href="{{ path('app_category_filter_other_vegetables') }}">Otras</a>&nbsp; </p>
+
     {#    {% endif %}#}
     {% for product in products %}
         <div>

@@ -50,10 +50,11 @@ class Detail
     private $paymentmethod;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Order", inversedBy="details")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Orderr", inversedBy="details")
      * @ORM\JoinColumn(nullable=false)
      */
     private $forder;
+
 
     public function getId(): ?int
     {
@@ -132,15 +133,18 @@ class Detail
         return $this;
     }
 
-    public function getForder(): ?Order
+    public function getForder(): ?Orderr
     {
         return $this->forder;
     }
 
-    public function setForder(?Order $forder): self
+    public function setForder(?Orderr $forder): self
     {
         $this->forder = $forder;
 
         return $this;
     }
+
+
+
 }
