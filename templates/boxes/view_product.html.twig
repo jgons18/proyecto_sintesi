@@ -13,8 +13,8 @@
                 {{ product.category }}<br>
                 <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
             </p>
-            <a href="{{ path('edit_product', {'id':product.id}) }}">Editar</a>
-            <a href="{{ path('delete_product', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+            <a href="{{ path('edit_box', {'id':product.id}) }}">Editar</a>
+            <a href="{{ path('delete_box', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
         </div>
     </div>
 {% endblock %}
