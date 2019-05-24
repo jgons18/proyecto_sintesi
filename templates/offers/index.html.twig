@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Frutas en oferta</h2>
+    {% for product in products %}
+        <div>
+            {%  if product.isoffer == 1 %}
+            {%  if product.isfruit == 1 %}
+                <div>
+                    <h3>{{ product.nameproduct }}</h3>
+                    <p>{{ product.description }}<br>
+                        <strike>{{ product.unitprice }}</strike><br>
+                        {{ product.offerprice }}<br>
+                        {{ product.stock }}<br>
+                        {{ product.reservedstocks }}<br>
+                        {{ product.season }}<br>
+                        {{ product.season }}<br>
+                        {{ product.offer.discount}}<br>
+                        {{ product.offer.name }}<br>
+                        <p>{{ product.offer.datestart|date("d/m/Y H:i:s") }}</p><br>
+                        <p>La oferta acaba el dia{{ product.offer.datefinish|date("d/m/Y H:i:s") }}</p><br>
+                        {{ product.category }}<br>
+                        <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
+
+                    </p>
+                </div>
+            {% endif %}
+            {% endif %}
+        </div>
+    {% endfor %}
+<h2>Verduras en oferta</h2>
+<p><a href="{{ path('new_product_vegetable') }}">+ Añadir nuevo producto</a></p>
+    {% for product in products %}
+        <div>
+            {% if product.isoffer == 2 %}
+            {% if product.isfruit == 0 %}
+                <div>
+                    <h3>{{ product.nameproduct }}</h3>
+                    <p>{{ product.description }}<br>
+                        <strike>{{ product.unitprice }}</strike><br>
+                        {{ product.offerprice }}<br>
+                        {{ product.stock }}<br>
+                        {{ product.reservedstocks }}<br>
+                        {{ product.season }}<br>
+                        {{ product.season }}<br>
+                        {{ product.offer.discount}}<br>
+                        {{ product.offer.name }}<br>
+                    <p>{{ product.offer.datestart|date("d/m/Y H:i:s") }}</p><br>
+                    <p>La oferta acaba el dia {{ product.offer.datefinish|date("d/m/Y H:i:s") }}</p><br>
+                    {{ product.category }}<br>
+                    {{ "now"|date("m/d/Y") }}<br>
+                    <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
+                    </p>
+                    <a href="{{ path('view_product_fruit', {'id':product.id}) }}">Ver producto</a>
+                    <a href="{{ path('edit_product_vegetable', {'id':product.id}) }}">Editar</a>
+                    <a href="{{ path('delete_product_vegetable', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                </div>
+            {% endif %}
+            {% endif %}
+        </div>
+    {% endfor %}
+
+{% endblock %}
+

@@ -5,10 +5,7 @@
     <title>{% block title %}Fruitable{% endblock %}</title>
     {% block stylesheet %}
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Metrophobic" rel="stylesheet">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    {% endblock %}
+         {% endblock %}
 </head>
 <body>
 <div class="am_cabecera">
@@ -33,7 +30,7 @@
         {% endif %}
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <div id="am_div_perfil">
-                <a id="am_perfil" href="">perfil</a>
+                <a id="am_perfil" href="{{ path('profile_user') }}">perfil</a>
                 <a href="">Mis pedidos</a>
                 <a  href="">Lista de deseos</a>
             </div>
@@ -83,7 +80,7 @@
         </article>
         <article>
             <p>ayuda</p>
-            <article>FAQ</article>
+            <article><a id="am_login" href="{{ path('app_privacity') }}">FAQ</a></article>
         </article>
     </section>
     <hr>

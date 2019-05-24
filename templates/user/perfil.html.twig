@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="sn_perfil_general">
+    <p class="sn_user_name">Bienvenido a tu perfil {{ app.user.name }}</p>
+    <section class="sn_profile">
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <article class="sn_datosacceso">
+            <h1 class="sn_titulos_prof">Datos de acceso</h1>
+        <p>Email: {{ app.user.email }}</p>
+        <p>Password: ********</p>
+        </article>
+        <article class="sn_direccion">
+            <h1 class="sn_titulos_prof">Tu actual direccion</h1>
+        <p>Direccion: {{ app.user.address }}</p>
+        <p>Ciudad: {{ app.user.city }}</p>
+        <p>Codigo postal: {{ app.user.postalcode }}</p>
+        <p>Provincia: {{ app.user.province }}</p>
+        <p>Telefono: {{ app.user.phone }}</p>
+            <a id="am_login" href="{{ path('app_prof') }}">Editar Direccion</a>
+        </article>
+    </section>
+        </div>
+    {% endif %}
+
+{% endblock %}

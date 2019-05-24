@@ -23,4 +23,11 @@ class HomeController extends AbstractController
         return $this->render('home/home.html.twig', [
             'products'=>$products]);
     }
+    /**
+     * @Route("/privacidad",name="app_privacity")
+     */
+    public function privacidad(){
+        return $this->render('footer/faq.html.twig');
+    }
+
 }

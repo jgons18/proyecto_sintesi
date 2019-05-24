@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2>Verduras</h2>
+    {#{% if app.user %}#}
+    <p><a href="{{ path('new_product_vegetable') }}">+ Añadir nuevo producto</a></p>
+    {#    {% endif %}#}
+    {% for product in products %}
+        <div>
+            {%  if product.category == '3' %}
+                <div>
+                    <h3>{{ product.nameproduct }}</h3>
+                    <p>{{ product.description }}<br>
+                        {{ product.unitprice }}<br>
+                        {{ product.stock }}<br>
+                        {{ product.reservedstocks }}<br>
+                        {{ product.season }}<br>
+                        {{ product.category }}<br>
+                        <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
+                    </p>
+                    <a href="{{ path('view_product_fruit', {'id':product.id}) }}">Ver producto</a>
+                    <a href="{{ path('edit_product_vegetable', {'id':product.id}) }}">Editar</a>
+                    <a href="{{ path('delete_product_vegetable', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+{% endblock %}
