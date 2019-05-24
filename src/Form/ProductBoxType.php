@@ -78,7 +78,8 @@ class ProductBoxType extends AbstractType
                 'class' => Category::class,
                 'label' => 'Categoria',
                 'attr'=>[
-                    'class'=>'form-control'
+                    'class'=>'form-control',
+                    'choice_value'=>4
                 ]
             ])
             ->add('image',FileType::class,[

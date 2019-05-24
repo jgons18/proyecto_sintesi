@@ -28,7 +28,8 @@ class Orderr2Type extends AbstractType
                 'label' => 'Unidades',
                 'attr'=>[
                     'class'=>'form-control',
-                    'placeholder'=>'ej:50'
+                    'placeholder'=>'ej:50',
+                    'min'=>1
                 ]
             ])
             ->add('carrier',EntityType::class,[
