@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        {% for product in products %}
+            <h2>Editar producto con identificador: <strong>{{ product.id }}</strong></h2>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}<br>
+            <a href="{{ path('app_fruits') }}">Cancelar</a></button>
+            {{ form_errors(form) }}
+            {{ form_end(form) }}
+        {% endfor %}
+    </div>
+{% endblock %}

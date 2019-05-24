@@ -4,41 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c8bf3b40e27d57ea23df544f927dfc1e",
+    "content-hash": "1f8958e7a7ced0f11dbac70e4fa2f9c4",
     "packages": [
-        {
-            "name": "bitsystem/searchpro",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/juliangarciaga3/SearchPro.git",
-                "reference": "d5142b01ba2e7b297d1c4119a0f0157eee174a6d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/juliangarciaga3/SearchPro/zipball/d5142b01ba2e7b297d1c4119a0f0157eee174a6d",
-                "reference": "d5142b01ba2e7b297d1c4119a0f0157eee174a6d",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Bitsystem\\SearchPro\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Julian Garcia Garcia",
-                    "email": "juliarriate@hotmail.es"
-                }
-            ],
-            "description": "Este es una libreria que te permite listar las tablas de una base de datos. Pueden mostrar tablas relacionadas y filtrarlas entre multiples valores. Pagina los resultados y puedes asignar el numero de resultados por pagina",
-            "time": "2018-07-26T09:58:30+00:00"
-        },
         {
             "name": "doctrine/annotations",
             "version": "v1.6.1",
@@ -4356,6 +4323,39 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "bitsystem/searchpro",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/juliangarciaga3/SearchPro.git",
+                "reference": "d5142b01ba2e7b297d1c4119a0f0157eee174a6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/juliangarciaga3/SearchPro/zipball/d5142b01ba2e7b297d1c4119a0f0157eee174a6d",
+                "reference": "d5142b01ba2e7b297d1c4119a0f0157eee174a6d",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bitsystem\\SearchPro\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Julian Garcia Garcia",
+                    "email": "juliarriate@hotmail.es"
+                }
+            ],
+            "description": "Este es una libreria que te permite listar las tablas de una base de datos. Pueden mostrar tablas relacionadas y filtrarlas entre multiples valores. Pagina los resultados y puedes asignar el numero de resultados por pagina",
+            "time": "2018-07-26T09:58:30+00:00"
+        },
         {
             "name": "symfony/polyfill-php72",
             "version": "v1.11.0",

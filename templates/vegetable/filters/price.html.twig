@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <h2>Frutas</h2>
+    <h2>Verduras</h2>
     {#{% if app.user %}#}
     <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
     <p><a href="{{ path('app_price_low_to_high_v') }}">Precio:bajo a alto</a></p>
@@ -10,7 +10,7 @@
     {#    {% endif %}#}
     {% for re in res %}
         <div>
-            {%  if re.isfruit == 0 %}
+            {%  if re.isfruit == 0 and re.category != 'Caja'%}
                 <div>
                     <h3>{{ re.nameproduct }}</h3>
                     <p>{{ re.description }}<br>

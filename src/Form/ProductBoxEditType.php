@@ -2,26 +2,27 @@
 /**
  * Created by PhpStorm.
  * User: linux
- * Date: 22/05/19
- * Time: 17:38
+ * Date: 24/05/19
+ * Time: 15:50
  */
 
 namespace App\Form;
 
-use App\Entity\Detail;
+
 use App\Entity\Product;
 use App\Entity\Category;
 use App\Entity\Season;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\AbstractType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class OrderrType extends AbstractType
+class ProductBoxEditType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -29,7 +30,6 @@ class OrderrType extends AbstractType
                 'required'=>'required',
                 'label' => 'Nombre del producto',
                 'attr'=>[
-                    'readonly' => true,
                     'class'=>'form-username form-control',
                     'placeholder'=>'ej:Melocotón'
                 ]
@@ -38,7 +38,6 @@ class OrderrType extends AbstractType
                 'required'=>'required',
                 'label' => 'Descripción',
                 'attr'=>[
-                    'readonly' => true,
                     'class'=>'form-control',
                     'placeholder'=>'ej:El Melocotón es originario de China desde hace 3.000 a. c.'
                 ]
@@ -47,7 +46,6 @@ class OrderrType extends AbstractType
                 'required'=>'required',
                 'label' => 'Precio unidad',
                 'attr'=>[
-                    'readonly' => true,
                     'class'=>'form-control',
                     'placeholder'=>'ej:2.99'
                 ]
@@ -56,7 +54,6 @@ class OrderrType extends AbstractType
                 'required'=>'required',
                 'label' => 'Existencias',
                 'attr'=>[
-                    'readonly' => true,
                     'class'=>'form-control',
                     'placeholder'=>'ej:100'
                 ]
@@ -65,7 +62,6 @@ class OrderrType extends AbstractType
                 'required'=>'required',
                 'label' => 'Existencias reservadas',
                 'attr'=>[
-                    'readonly' => true,
                     'class'=>'form-control',
                     'placeholder'=>'ej:50'
                 ]
@@ -84,23 +80,28 @@ class OrderrType extends AbstractType
                 'class' => Category::class,
                 'label' => 'Categoria',
                 'attr'=>[
-                    'class'=>'form-control',
-                    'placeholder'=>'ej:2'
+                    'class'=>'form-control'
                 ]
             ])
-
-            /*->add('save',SubmitType::class, [
+            ->add('image',TextType::class,[
+                'label' => 'URL imagen',
+                'attr'=>[
+                    'class'=>'form-control',
+                    'placeholder'=>'ej:iframe',
+                    "data_class" =>null
+                ]
+            ])
+            //->add('image',FileType::class,array('data_class'=> null))
+            ->add('save',SubmitType::class, [
                 'label' => 'Guardar producto',
                 'attr'=>[
                     'class' => 'save'
                 ]
-            ])*/
-            ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(['data_class'=> Product::class]);
     }
-
 }

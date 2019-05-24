@@ -41,10 +41,8 @@
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <div id="am_div_perfil">
                 <a id="am_perfil" href="">perfil</a>
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <a href="{{ path('app_my_orders', {'id':app.user.id}) }}">Mis pedidos</a>
                 <a  href="">Lista de deseos</a>
-            {% endif %}
             </div>
         {% endif %}
             <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
@@ -63,7 +61,7 @@
             <li><a href="{{ path('app_fruits') }}">Frutas</a></li>
             <li><a href="{{ path('app_vegetables') }}">Verduras</a></li>
             <li>Ofertas</li>
-            <li>Cajas</li>
+            <li><a href="{{ path('app_boxes') }}">Cajas</a></li>
         </ul>
     </nav>
 </div>

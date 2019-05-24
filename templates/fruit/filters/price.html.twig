@@ -5,12 +5,12 @@
     <h2>Frutas</h2>
     {#{% if app.user %}#}
     <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
-    <p><a href="{{ path('app_price_low_to_high_v') }}">Precio:bajo a alto</a></p>
-    <p><a href="{{ path('app_price_high_to_low_v') }}">Precio:alto a bajo</a></p>
+    <p><a href="{{ path('app_price_low_to_high_f') }}">Precio:bajo a alto</a></p>
+    <p><a href="{{ path('app_price_high_to_low_f') }}">Precio:alto a bajo</a></p>
     {#    {% endif %}#}
     {% for re in res %}
         <div>
-            {%  if re.isfruit == 0 %}
+            {%  if re.isfruit == 1 and re.category != 'Caja' %}
                 <div>
                     <h3>{{ re.nameproduct }}</h3>
                     <p>{{ re.description }}<br>

@@ -3,6 +3,7 @@
 {% block body %}
 <h1>Pedidos</h1>
     <a href="">Añadir pedido</a>
+    <a href="{{ path('app_add_carrier') }}">Añadir transportista</a>
     {% for orderr in orderrs %}
         <div>
            {%  if orderr.paymentconfirmed == 1 %}

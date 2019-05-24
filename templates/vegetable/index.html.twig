@@ -11,7 +11,7 @@
     {#    {% endif %}#}
     {% for product in products %}
         <div>
-            {%  if product.isfruit == 0 %}
+            {%  if product.isfruit == 0  and product.category != 'Caja' %}
                 <div>
                     <h3>{{ product.nameproduct }}</h3>
                     <p>{{ product.description }}<br>

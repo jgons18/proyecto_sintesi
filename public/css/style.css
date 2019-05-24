@@ -337,6 +337,9 @@
         margin-top: 42vh;
     }
 */
-
+    /*FORMULARIO DE AÑADIR UN PRODUCTO AL CARRITO*/
+    #orderr div:nth-child(4),#orderr div:nth-child(5),#orderr div:nth-child(6),#orderr div:nth-child(7){
+        display: none;
+    }
 
 }
