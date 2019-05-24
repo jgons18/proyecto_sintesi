@@ -1,8 +1,23 @@
+{#hola jenni#}
 {% extends 'base.html.twig' %}
 {% block body %}
 
-    <div class="jg_slider_home">
 
+    <div class="jg_slider_home">
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+            <div class="swiper-slide">Slide 10</div>
+        </div>
     </div>
 
     <div class="jg_productos_temporada">
@@ -11,45 +26,51 @@
             {% for product in products %}
             <div class="jg_producto_temporada">
                 {#{%  if product.season == 'Todo el año' %}#}
-                <h4>{{ product.nameproduct }}</h4>
-                <!--añadiremos la misma descripción en alt que en longdesc-->
-                <img src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
-                <p>{{ product.unitprice }}€</p>
-                <button class="am_boton_producto">Añadir a cesta</button><br>
-
-                <a href="{{ path('view_product_fruit', {'id':product.id}) }}">Ver producto</a>
-                <a href="{{ path('edit_product_fruit', {'id':product.id}) }}">Editar</a>
-                <a href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
-            </div>
+                <div class="am_iconos">
+                <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':product.id}) }}"></a>
+                <a class="fas fa-pen" href="{{ path('edit_product_fruit', {'id':product.id}) }}"></a>
+                <a class="fas fa-trash-alt" href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
+                </div>
+                    <!--añadiremos la misma descripción en alt que en longdesc-->
+                <a class="am_producto" href="{{ path('view_product_fruit', {'id':product.id}) }}"><img src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
+                <h4 class="am_titulo_producto">{{ product.nameproduct }}</h4></a>
+                <div class="jg_producto_temporada_bot">
+                <div><p>{{ product.unitprice }}€</p></div>
+                <div><button class="am_boton_producto">Añadir a cesta</button><br></div></div>
+                </div>
             {#{% endif %}#}
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
+
     </div>
     <div class="am_marcas">
         <h1>Marcas con las que trabajamos</h1>
         <div class="am_div_marcas">
-            <div>marca</div>
-            <div>marca</div>
-            <div>marca</div>
-            <div>marca</div>
+            <div class="la_horta"></div>
+            <div class="camp_verd"></div>
+            <div class="huerto_de_manolo"></div>
+            <div class="terra_viva"> </div>
         </div>
     </div>
     <div class="am_opiniones">
         <h1>Opiniones</h1>
         <div class="am_var_opiniones">
             <div class="am_opinion">
-                <p>lorep ipsumlorep ipsumlorep ipsumlorep ipsum</p>
+                <p class="am_mensaje">Servicio bueno y la fruta muy buena, todo muy fresco sin problemas</p>
+                <p class="autor">-Raul Montes</p>
             </div>
             <div class="am_opinion">
-                <p>lorep ipsumlorep ipsumlorep ipsumlorep ipsum</p>
+                <p class="am_mensaje">Entrega muy rapido y fruta de calidad buena, aunque los productos que no estan en temporada suelen ser menos frescos pero aceptables</p>
+                <p class="autor">-Maria Gutierrez</p>
             </div>
             <div class="am_opinion">
-                <p>lorep ipsumlorep ipsumlorep ipsumlorep ipsum</p>
+                <p class="am_mensaje">No pude recojer el pedido pero lo reclame y me lo enviaron otro dia, servicio muy bueno y la fruta tambien</p>
+                <p class="autor">-Marc Aguilar</p>
             </div>
             <div class="am_opinion">
-                <p>lorep ipsumlorep ipsumlorep ipsumlorep ipsum</p>
+                <p class="am_mensaje">Tuve un problema con el servicio de tranporte, pero la empresa soluciono el problema rapidamente y puede disfrutar de las frutas</p>
+                <p class="autor">-Ana Marinez</p>
             </div>
         </div>
     </div>
-
 {% endblock %}

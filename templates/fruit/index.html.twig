@@ -2,35 +2,35 @@
 
 {% block body %}
 
-    <h2>Frutas</h2>
+
+    <h2 class="am_titulo_frutas">Frutas</h2>
 {#{% if app.user %}#}
-        <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
-        <p><a href="{{ path('app_price_low_to_high_f') }}">Precio:bajo a alto</a></p>
-        <p><a href="{{ path('app_price_high_to_low_f') }}">Precio:alto a bajo</a></p>
-        <p><a href="{{ path('app_category_filter_banana') }}">Platanos</a>&nbsp;<a href="{{ path('app_category_filter_apple') }}">Manzanas</a> </p>
+    <div class="am_filtros"><p>
+        <div class="am_filtros_precio"><p>ordear por precio:</p><a href="{{ path('app_price_low_to_high_f') }}">bajo a alto</a><a href="{{ path('app_price_high_to_low_f') }}">alto a bajo</a></div>
+    <div class="am_filtros_categoria"><p>ordenar por categoria:</p><p><a href="{{ path('app_category_filter_banana') }}">Platanos</a><a href="{{ path('app_category_filter_apple') }}">Manzanas</a></p></div>
+    </div>
+    <p class="am_añadirproducto_fruta"><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
     {#    {% endif %}#}
     {% for product in products %}
         <div>
             {%  if product.isfruit == 1 and product.category != 'Caja' %}
-            <div>
-                <h3>{{ product.nameproduct }}</h3>
-                <p>{{ product.description }}<br>
-                {{ product.unitprice }}<br>
-                {{ product.stock }}<br>
-                {{ product.reservedstocks }}<br>
-                {{ product.season }}<br>
-                {{ product.category }}<br>
-                    <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
+                <div class="jg_producto_temporada">
+                    {#{%  if product.season == 'Todo el año' %}#}
+                    <div class="am_iconos">
+                        <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':product.id}) }}"></a>
+                        <a class="fas fa-pen" href="{{ path('edit_product_fruit', {'id':product.id}) }}"></a>
+                        <a class="fas fa-trash-alt" href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
+                    </div>
+                    <!--añadiremos la misma descripción en alt que en longdesc-->
+                    <a class="am_producto" href="{{ path('view_product_fruit', {'id':product.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
+                    <h4 class="am_titulo_producto">{{ product.nameproduct }}</h4></a>
+                    <div class="jg_producto_temporada_bot">
+                        <div><p>{{ product.unitprice }}€</p></div>
+                        <div class="am_boton_producto"><a href="{{ path('add_product_to_basket',{'id':product.id}) }}" >Añadir a cesta</a></div></div>
 
-                </p>
-                <a href="{{ path('add_product_to_basket',{'id':product.id}) }}">añadir al carrito</a>
-                <a href="{{ path('view_product_fruit', {'id':product.id}) }}">Ver producto</a>
-                <a href="{{ path('edit_product_fruit', {'id':product.id}) }}">Editar</a>
-                <a href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
-            </div>
+                </div>
             {% endif %}
         </div>
     {% endfor %}
 
 {% endblock %}
-
