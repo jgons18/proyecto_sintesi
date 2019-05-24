@@ -58,6 +58,7 @@
             </div>
         {% endif %}
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
             <div class="am_div_perfil"><a class="am_perfil" href="">perfil</a></div>
                <div class="am_div_pedidos"><a class="am_pedidos" href="{{ path('app_my_orders', {'id':app.user.id}) }}">Mis pedidos</a>
                </div>
@@ -74,7 +75,7 @@
         <ul>
             <a href="{{ path('app_fruits') }}"><li class="am_nav_obj">Frutas</li></a>
             <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj am_nav_objverd">Verduras y Hortalizas</li></a>
-            <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj">Cestas</li></a>
+            <a href="{{ path('app_boxes') }}"><li class="am_nav_obj">Cestas</li></a>
             <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj">Ofertas</li></a>
         </ul>
     </nav>

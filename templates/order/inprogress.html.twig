@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Pedido</h1>
+    {% for orderr in orderrs %}
+        <div>
+                <div class="jg_form_add_product_to_basket">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    {{ form_errors(form) }}
+                    {{ form_end(form) }}
+
+                    {{ form_start(form2) }}
+                    {{ form_widget(form2) }}
+                    {{ form_errors(form2) }}
+                    {{ form_end(form2) }}
+
+                </div>
+        </div>
+    {% endfor %}
+{% endblock %}

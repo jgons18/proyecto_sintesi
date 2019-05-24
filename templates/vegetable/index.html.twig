@@ -12,7 +12,7 @@
     {#    {% endif %}#}
     {% for product in products %}
         <div>
-            {%  if product.isfruit == 0 %}
+            {%  if product.isfruit == 0 and product.category != 'Caja' %}
             <div class="jg_producto_temporada">
                 {#{%  if product.season == 'Todo el año' %}#}
                 <div class="am_iconos">

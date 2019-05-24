@@ -14,6 +14,8 @@ use App\Entity\Product;
 use App\Form\ProductType;
 use App\Form\ProductEditType;
 use App\Form\SearchType;
+use App\Form\ProductBoxType;
+use App\Form\ProductBoxEditType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,13 +43,23 @@ class ProductController extends AbstractController
             'products'=>$products]);
 
     }
+    /**
+     * Función para listar los productos que sean cajas
+     * @Route("/cestas", name="app_boxes")
+     */
+    public function listboxes(){
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        return $this->render('boxes/index.html.twig', [
+            'products'=>$products]);
+
+    }
 
     /**
      * Función para añadir producto (que sea fruta)
      * @Route("/frutas/newproduct", name="new_product_fruit")
      */
     public function addProduct_Fruit(Request $request){
-        return $this->addProduct($request, true, 'fruit/new_product.html.twig', 'app_fruits');
+        return $this->addProduct($request, true,'fruit/new_product.html.twig', 'app_fruits');
     }
     /**
      * Función para añadir producto (que sea verdura)
@@ -116,6 +128,78 @@ class ProductController extends AbstractController
     }
 
     /**
+     * Función para añadir un producto de tipo cajas de frutas
+     * @Route("/cestas/new_product_fruit", name="new_product_box_fruit")
+     */
+    public function addProduct_Boxes_fruit(Request $request){
+        return $this->addProduct_Box($request, true, 'boxes/new_product.html.twig');
+    }
+    /**
+     * Función para añadir un producto de tipo cajas de verduras
+     * @Route("/cestas/new_product_vegetable", name="new_product_box_vegetable")
+     */
+    public function addProduct_Boxes_vegetable(Request $request){
+        return $this->addProduct_Box($request, false, 'boxes/new_product.html.twig');
+    }
+    /**
+     * Función privada para añadir productos que sean cestas
+     * @param Request $request
+     * @param bool $isfruit
+     * @param string $template
+     * @param string $route
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    private function addProduct_Box(Request $request, bool $isfruit, string $template){
+        //crear un nuevo objeto producto
+        $product = new Product();
+
+        //como este método lo utilizamos para añadir productos que son VERDURAS
+        //le pondremos por defecto el campo isfruta en false
+        $product->setIsfruit($isfruit);
+
+        //creamos el formulario
+        $form=$this->createForm(ProductBoxType::class,$product);
+        $form->handleRequest($request);
+
+        $error=$form->getErrors();
+
+        if($form->isSubmitted() && $form->isValid()){
+            //capturo los datos
+            $product=$form->getData();
+            //para obtener la imagen
+            $file = $form->get('image')->getData();
+            if($file){
+                //genero una serie de letras y números únicos + su extensión para la imagen
+                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+                // moves the file to the directory where brochures are stored
+                try{
+                    $file->move(
+                        $this->getParameter('pictures_directory'),
+                        $fileName
+                    );
+                    //actualizar propiedad de image
+                    $product->setImage($fileName);
+                }catch (FileException $e){
+                    $this->addFlash('warning','Error uploading image');
+                }
+                $product->setImage($fileName);
+            }
+
+
+            $entityManager=$this->getDoctrine()->getManager();
+            $entityManager->persist($product);
+            $entityManager->flush();
+            $this->addFlash('success','Producto creado correctamente');
+            return $this->redirectToRoute('app_boxes');
+        }
+        //renderizar formulario
+        return $this->render($template, [
+            'error'=>$error,
+            'form'=>$form->createView()
+        ]);
+    }
+
+    /**
      * Función para editar productos - frutas
      * @Route("frutas/edit_product/{id}", name="edit_product_fruit")
      */
@@ -167,6 +251,38 @@ class ProductController extends AbstractController
             'form'=>$form->createView()
         ]);
     }
+
+    /**
+     * Función para editar productos - cestas
+     * @Route("cestas/edit_product/{id}", name="edit_box")
+     */
+    public function editProduct_Box($id,Request $request){
+        $product=$this->getDoctrine()->getRepository(Product::class)->findBy(array('id'=>$id));
+        $prducttoedit=$product[0];
+
+        $form=$this->createForm(ProductBoxEditType::class,$prducttoedit);
+
+        $form->handleRequest($request);
+        $error=$form->getErrors();
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            $entityManager=$this->getDoctrine()->getManager();
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Producto modificado correctamente');
+            return $this->redirectToRoute('app_boxes');
+        }
+
+        return $this->render('boxes/edit_product.html.twig',[
+            'error'=>$error,
+            'products'=>$product,
+            'form'=>$form->createView()
+        ]);
+
+
+    }
+
     /**
      * Función para eliminar producto - fruta
      * @Route("/fruta/delete/{id}", name="delete_product_fruit")
@@ -183,6 +299,14 @@ class ProductController extends AbstractController
     public function deleteProduct_Vegetable($id, Request $request)
     {
         return $this->deleteProduct($request, $id, 'app_vegetables');
+    }
+    /**
+     * Función para eliminar producto - cestas
+     * @Route("/cestas/delete/{id}", name="delete_box")
+     */
+    public function deleteProduct_Box($id, Request $request)
+    {
+        return $this->deleteProduct($request, $id, 'app_boxes');
     }
 
     /**
@@ -222,6 +346,14 @@ class ProductController extends AbstractController
     public function viewProduct_Vegetable($id){
 
         return $this->viewProduct($id, 'vegetable/view_product.html.twig');
+    }
+    /**
+     * Función para ver un producto seleccionado - cestas
+     * @Route("cestas/view_product/{id}", name="view_box")
+     */
+    public function viewProduct_Box($id){
+
+        return $this->viewProduct($id, 'boxes/view_product.html.twig');
     }
 
     /**
@@ -278,7 +410,7 @@ class ProductController extends AbstractController
      * @Route("/frutas/filters/price-low", name="app_price_low_to_high_f")
      */
     public function filterProduct_Fruit_price_Low(){
-        return $this->filterProduct_price_Low('fruit/filters/price-low-to-high.html.twig');
+        return $this->filterProduct_price('fruit/filters/price.html.twig','ASC');
     }
 
     /**
@@ -286,36 +418,15 @@ class ProductController extends AbstractController
      * @Route("/verduras/filters/price-low", name="app_price_low_to_high_v")
      */
     public function filterProduct_Vegetable_price_Low(){
-        return $this->filterProduct_price_Low('vegetable/filters/price-low-to-high.html.twig');
+        return $this->filterProduct_price('vegetable/filters/price.html.twig','ASC');
     }
-
-    /**
-     * Función privada para filtrar los productos según el precio, de menor a mayor
-     * @param string $template
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    private function filterProduct_price_Low(string $template){
-        $product = new Product();
-        $product->getUnitprice();
-
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery(
-            'SELECT p FROM App\Entity\Product p 
-            ORDER BY p.unitprice ASC');
-        $res = $query->getResult();
-
-        return $this->render($template, array(
-            'res' => $res,
-            'products'=>$product));
-    }
-
     /**
      * Función para filtrar productos del precio más alto al más bajo(FRUTAS)
      * @Route("/frutas/filters/price-high", name="app_price_high_to_low_f")
      */
     public function filterProduct_Fruit_price_High(){
 
-        return $this->filterProduct_price_High('fruit/filters/price-high-to-low.html.twig');
+        return $this->filterProduct_price('fruit/filters/price.html.twig','DESC');
     }
 
     /**
@@ -324,7 +435,7 @@ class ProductController extends AbstractController
      */
     public function filterProduct_Vegatable_price_High(){
 
-        return $this->filterProduct_price_High('vegetable/filters/price-high-to-low.html.twig');
+        return $this->filterProduct_price('vegetable/filters/price.html.twig','DESC');
     }
 
     /**
@@ -332,14 +443,19 @@ class ProductController extends AbstractController
      * @param string $template
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function filterProduct_price_High(string $template){
+    private function filterProduct_price(string $template, string  $orden){
         $product = new Product();
         $product->getUnitprice();
 
-        $em = $this->getDoctrine()->getManager();
+        /*$em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(
             'SELECT p FROM App\Entity\Product p 
             ORDER BY p.unitprice DESC');
+        $res = $query->getResult();*/
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p FROM App\Entity\Product p 
+            ORDER BY p.unitprice '.$orden);
         $res = $query->getResult();
 
         return $this->render($template, array(
