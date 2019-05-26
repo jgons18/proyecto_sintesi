@@ -2,23 +2,15 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-
-    <div class="jg_slider_home">
-    <!-- Swiper -->
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
-            <div class="swiper-slide">Slide 4</div>
-            <div class="swiper-slide">Slide 5</div>
-            <div class="swiper-slide">Slide 6</div>
-            <div class="swiper-slide">Slide 7</div>
-            <div class="swiper-slide">Slide 8</div>
-            <div class="swiper-slide">Slide 9</div>
-            <div class="swiper-slide">Slide 10</div>
+    <div id="slider-wrapper">
+        <div id="slider">
+            <a href="URL_ENLACE1"><img src="http://xurl.es/3h8zb" /></a>
+            <a href="URL_ENLACE2"><img src="https://i.ytimg.com/vi/W7K1gi2dG-I/maxresdefault.jpg" /></a>
+            <a href="URL_ENLACE3"><img src="https://www.lacocinadealimerka.com/web/uploads/nutricion/frutayverdura.jpg" /></a>
         </div>
-    </div>
+        <a href="javascript:void();" class="mas">&rsaquo;</a>
+        <a href="javascript:void();" class="menos">&lsaquo;</a></div>
+
 
     <div class="jg_productos_temporada">
         <h1>Productos de temporada</h1>
@@ -27,9 +19,11 @@
             <div class="jg_producto_temporada">
                 {#{%  if product.season == 'Todo el año' %}#}
                 <div class="am_iconos">
+                    {% if is_granted('ROLE_ADMIN') %}
                 <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':product.id}) }}"></a>
                 <a class="fas fa-pen" href="{{ path('edit_product_fruit', {'id':product.id}) }}"></a>
                 <a class="fas fa-trash-alt" href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
+                {% endif %}
                 </div>
                     <!--añadiremos la misma descripción en alt que en longdesc-->
                 <a class="am_producto" href="{{ path('view_product_fruit', {'id':product.id}) }}"><img src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
