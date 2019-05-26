@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2>Frutas</h2>
+    {% if is_granted('ROLE_ADMIN') %}
+    <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
+    {% endif %}
+   {# <select class="jg_filtros_precio">
+        <option value="{{ path('app_fruits') }}">Escoge una opción</option>
+        <option value="{{ path('app_price_low_to_high_f') }}">Ordenar por precio: de bajo a más alto</option>
+        <option value="{{ path('app_price_high_to_low_f') }}">Ordenar por precio: de alto a más bajo</option>
+    </select>#}
+    <div class="am_filtros_categoria">
+        <a href="{{ path('app_category_filter_banana') }}" class="jg_filtros jg_filtros_banana">Platanos</a>
+        <a href="{{ path('app_category_filter_apple') }}" class="jg_filtros_selected jg_filtros_apple">Manzanas</a>
+        <a href="{{ path('app_fruits') }}" class="jg_filtros jg_quitar_filtros"><i class="fas fa-filter"></i><i class="fas fa-times"></i></a>
+    </div>
+    <div class="am_caja_productos_temporada">
+        {% for re in res %}
+            <div class="jg_producto_temporada">
+                {#{%  if product.season == 'Todo el año' %}#}
+                <div class="am_iconos">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':re.id}) }}"></a>
+                        <a class="fas fa-pen" href="{{ path('edit_product_fruit', {'id':re.id}) }}"></a>
+                        <a class="fas fa-trash-alt" href="{{ path('delete_product_fruit', {'id':re.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
+                    {% endif %}
+                </div>
+                <!--añadiremos la misma descripción en alt que en longdesc-->
+                <a class="am_producto" href="{{ path('view_product_fruit', {'id':re.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ re.image) }}" alt="{{ re.description }}" longdesc="{{ re.description }}">
+                    <h4 class="am_titulo_producto">{{ re.nameproduct }}</h4></a>
+                <div class="jg_producto_temporada_bot">
+                    <div><p>{{ re.unitprice }}€</p></div>
+                    <div class="am_boton_producto"><a href="{{ path('add_product_to_basket',{'id':re.id}) }}" >Añadir a cesta</a></div></div>
+
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+

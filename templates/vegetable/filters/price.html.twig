@@ -3,11 +3,11 @@
 {% block body %}
 
     <h2>Verduras</h2>
-    {#{% if app.user %}#}
+    {% if is_granted('ROLE_ADMIN') %}
     <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
     <p><a href="{{ path('app_price_low_to_high_v') }}">Precio:bajo a alto</a></p>
     <p><a href="{{ path('app_price_high_to_low_v') }}">Precio:alto a bajo</a></p>
-    {#    {% endif %}#}
+    {% endif %}
     {% for re in res %}
         <div>
             {%  if re.isfruit == 0 and re.category != 'Caja'%}
@@ -24,8 +24,10 @@
                     </p>
                     <a href="{{ path('add_product_to_basket',{'id':re.id}) }}">añadir al carrito</a>
                     <a href="{{ path('view_product_fruit', {'id':re.id}) }}">Ver producto</a>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('edit_product_fruit', {'id':re.id}) }}">Editar</a>
                     <a href="{{ path('delete_product_fruit', {'id':re.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                {% endif %}
                 </div>
             {% endif %}
         </div>

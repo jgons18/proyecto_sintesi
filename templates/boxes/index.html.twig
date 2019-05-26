@@ -8,29 +8,30 @@
         <p><a href="{{ path('new_product_box_vegetable') }}">+ Añadir nueva cesta de verdura</a></p>
     {% endif %}
 
-    {% for product in products %}
-        <div>
+
+    <div class="am_caja_productos_temporada">
+        {% for product in products %}
             {% if product.category == 'Caja' %}
-            <div>
-                <h3>{{ product.nameproduct }}</h3>
-                <p>{{ product.description }}<br>
-                    {{ product.unitprice }}<br>
-                    {{ product.stock }}<br>
-                    {{ product.reservedstocks }}<br>
-                    {{ product.season }}<br>
-                    {{ product.category }}<br>
-                    <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
+                <div class="jg_producto_temporada">
+                    {#{%  if product.season == 'Todo el año' %}#}
+                    <div class="am_iconos">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="fas fa-eye"  href="{{ path('view_box', {'id':product.id}) }}"></a>
+                            <a class="fas fa-pen" href="{{ path('edit_box', {'id':product.id}) }}"></a>
+                            <a class="fas fa-trash-alt" href="{{ path('delete_box', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
+                        {% endif %}
+                    </div>
+                    <!--añadiremos la misma descripción en alt que en longdesc-->
+                    <a class="am_producto" href="{{ path('view_box', {'id':product.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
+                        <h4 class="am_titulo_producto">{{ product.nameproduct }}</h4></a>
+                    <div class="jg_producto_temporada_bot">
+                        <div><p>{{ product.unitprice }}€</p></div>
+                        <div class="am_boton_producto"><a href="{{ path('add_product_to_basket',{'id':product.id}) }}" >Añadir a cesta</a></div></div>
 
-                </p>
-                <a href="{{ path('add_product_to_basket',{'id':product.id}) }}">añadir al carrito</a>
-                <a href="{{ path('view_box', {'id':product.id}) }}">Ver producto</a>
-                <a href="{{ path('edit_box', {'id':product.id}) }}">Editar</a>
-                <a href="{{ path('delete_box', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
-
-            </div>
+                </div>
             {% endif %}
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 
 {% endblock %}
 

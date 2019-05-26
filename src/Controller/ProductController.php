@@ -469,15 +469,16 @@ class ProductController extends AbstractController
      */
     public function filterProduct_category_Banana(){
 
-        return $this->filterProduct_category(1,'fruit/filters/category.html.twig');
+        return $this->filterProduct_category(1,'fruit/filters/category_banana.html.twig');
+        //return $this->filterProduct_category(1,'fruit/index.html.twig');
     }
     /**
      * Función filtros por categoria de otras verduras
-     * @Route("verduras/filters/for-category-apple", name="app_category_filter_other_vegetables")
+     * @Route("verduras/filters/for-category-others", name="app_category_filter_other_vegetables")
      */
     public function filterProduct_category_Others_Vegetables(){
 
-        return $this->filterProduct_category(2,'vegetable/filters/category.html.twig');
+        return $this->filterProduct_category(2,'vegetable/filters/category_others.html.twig');
 
     }
     /**
@@ -486,7 +487,7 @@ class ProductController extends AbstractController
      */
     public function filterProduct_category_Apple(){
 
-        return $this->filterProduct_category(3,'fruit/filters/category.html.twig');
+        return $this->filterProduct_category(3,'fruit/filters/category_apple.html.twig');
 
     }
 
@@ -509,6 +510,8 @@ class ProductController extends AbstractController
             'res' => $res,
             'products'=>$product));
     }
+
+
 
 
 

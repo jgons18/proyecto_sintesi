@@ -3,32 +3,41 @@
 {% block body %}
 
     <h2 class="am_titulo_verdura">Verduras</h2>
-    {#{% if app.user %}#}
-    <p class="am_añadirproducto_verdura"><a href="{{ path('new_product_vegetable') }}">+ Añadir nuevo producto</a></p>
-    <p><a href="{{ path('app_price_low_to_high_v') }}">Precio:bajo a alto</a></p>
-    <p><a href="{{ path('app_price_high_to_low_v') }}">Precio:alto a bajo</a></p>
-    <p><a href="{{ path('app_category_filter_other_vegetables') }}">Otras</a>&nbsp; </p>
+    {% if is_granted('ROLE_ADMIN') %}
+        <p class="am_añadirproducto_verdura"><a href="{{ path('new_product_vegetable') }}">+ Añadir nuevo producto</a></p>
+    {% endif %}
+    <select class="jg_filtros_precio">
+        <option value="{{ path('app_fruits') }}">Escoge una opción</option>
+        <option value="{{ path('app_price_low_to_high_v') }}">Ordenar por precio: de bajo a más alto</option>
+        <option value="{{ path('app_price_high_to_low_v') }}">Ordenar por precio: de alto a más bajo</option>
+    </select>
+    <div class="am_filtros_categoria">
+        <a href="{{ path('app_category_filter_other_vegetables') }}" class="jg_filtros jg_filtros_otras">Otras</a>&nbsp;
+    </div>
 
-    {#    {% endif %}#}
-    {% for product in products %}
-        <div>
+
+    <div class="am_caja_productos_temporada">
+        {% for product in products %}
             {%  if product.isfruit == 0 and product.category != 'Caja' %}
-            <div class="jg_producto_temporada">
-                {#{%  if product.season == 'Todo el año' %}#}
-                <div class="am_iconos">
-                    <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':product.id}) }}"></a>
-                    <a class="fas fa-pen" href="{{ path('edit_product_fruit', {'id':product.id}) }}"></a>
-                    <a class="fas fa-trash-alt" href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
-                </div>
-                <div>
+                <div class="jg_producto_temporada">
+                    {#{%  if product.season == 'Todo el año' %}#}
+                    <div class="am_iconos">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="fas fa-eye"  href="{{ path('view_product_vegetable', {'id':product.id}) }}"></a>
+                            <a class="fas fa-pen" href="{{ path('edit_product_vegetable', {'id':product.id}) }}"></a>
+                            <a class="fas fa-trash-alt" href="{{ path('delete_product_vegetable', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
+                        {% endif %}
+                    </div>
                     <!--añadiremos la misma descripción en alt que en longdesc-->
-                    <a class="am_producto" href="{{ path('view_product_fruit', {'id':product.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
+                    <a class="am_producto" href="{{ path('view_product_vegetable', {'id':product.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
                         <h4 class="am_titulo_producto">{{ product.nameproduct }}</h4></a>
                     <div class="jg_producto_temporada_bot">
                         <div><p>{{ product.unitprice }}€</p></div>
-                        <div><button class="am_boton_producto">Añadir a cesta</button><br></div></div></div>
+                        <div class="am_boton_producto"><a href="{{ path('add_product_to_basket',{'id':product.id}) }}" >Añadir a cesta</a></div></div>
+
+                </div>
             {% endif %}
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 
 {% endblock %}
