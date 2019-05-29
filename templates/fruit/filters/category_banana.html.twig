@@ -3,20 +3,20 @@
 {% block body %}
 
     <h2>Frutas</h2>
-    {% if is_granted('ROLE_ADMIN') %}
-        <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
-    {% endif %}
-    {#<select class="jg_filtros_precio">
+
+    <select class="jg_filtros_precio">
         <option value="{{ path('app_fruits') }}">Escoge una opción</option>
-        <option value="{{ path('app_price_low_to_high_f') }}">Ordenar por precio: de bajo a más alto</option>
-        <option value="{{ path('app_price_low_to_high_f') }}">Ordenar por precio: de alto a más bajo</option>
-    </select>#}
+        <option value="{{ path('app_price_low_to_high_f_bananas') }}">Ordenar por precio: de bajo a más alto</option>
+        <option value="{{ path('app_price_high_to_low_f_bananas') }}">Ordenar por precio: de alto a más bajo</option>
+    </select>
     <div class="am_filtros_categoria">
         <a href="{{ path('app_category_filter_banana') }}" class="jg_filtros_selected jg_filtros_banana">Platanos</a>
         <a href="{{ path('app_category_filter_apple') }}" class="jg_filtros jg_filtros_apple">Manzanas</a>
         <a href="{{ path('app_fruits') }}" class="jg_filtros jg_quitar_filtros"><i class="fas fa-filter"></i><i class="fas fa-times"></i></a>
     </div>
-
+    {% if is_granted('ROLE_ADMIN') %}
+        <p class="am_añadirproducto_fruta"><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
+    {% endif %}
     <div class="am_caja_productos_temporada">
         {% for re in res %}
                 <div class="jg_producto_temporada">

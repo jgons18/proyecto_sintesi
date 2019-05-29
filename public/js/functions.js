@@ -1,6 +1,7 @@
 
 
 $(document).ready(function () {
+
     $('#slider a:gt(0)').hide();
     var interval = setInterval(changeDiv, 6000);
     function changeDiv(){
@@ -18,9 +19,76 @@ $(document).ready(function () {
         interval = setInterval(changeDiv, 6000);
     });
 
-    //$(".jg_nav_fruit").addClass("jg_menu_selected");
-    //añadimos la clase que le pone negrita a la letra al elemento que hemos seleccionado
-    $(".jg_nav_fruit").click(function () {
+    //cambiar en producción
+    /*sessionStorage.setItem("mfrutas ", 1);
+    sessionStorage.setItem("mverduras ", 1);
+    sessionStorage.setItem("mcestas ", 1);
+    sessionStorage.setItem("mofertas ", 1);*/
+
+    //en local
+    localStorage.setItem('mfrutas',1);
+    localStorage.setItem('mverduras',1);
+    localStorage.setItem('mcestas',1);
+    localStorage.setItem('mofertas',1);
+
+        $(".jg_nav_fruit").click(function () {
+            //sessionStorage.setItem("mfrutas ", 2);
+            localStorage.setItem("mfrutas",2);
+            //if(sessionStorage.getItem('mfrutas')%2==0){
+            if(localStorage.getItem('mfrutas')%2==0){
+                $(".jg_nav_fruit").addClass("jg_menu_selected");
+                $(".jg_nav_veg").removeClass("jg_menu_selected");
+                $(".jg_nav_basket").removeClass("jg_menu_selected");
+                $(".jg_nav_offers").removeClass("jg_menu_selected");
+            }
+        });
+        $(".jg_nav_veg").click(function () {
+            //sessionStorage.setItem("mverduras ", 2);
+            localStorage.setItem("mverduras",2);
+            //if (sessionStorage.getItem('mverduras') % 2 == 0) {
+            if (localStorage.getItem('mverduras') % 2 == 0) {
+                $(".jg_nav_veg").addClass("jg_menu_selected");
+                $(".jg_nav_fruit").removeClass("jg_menu_selected");
+                $(".jg_nav_basket").removeClass("jg_menu_selected");
+                $(".jg_nav_offers").removeClass("jg_menu_selected");
+
+            }
+        });
+        $(".jg_nav_basket").click(function () {
+            //sessionStorage.setItem("mcestas ", 2);
+            localStorage.setItem("mcestas",2);
+            //if (sessionStorage.getItem('mcestas') % 2 == 0) {
+            if (localStorage.getItem('mcestas') % 2 == 0) {
+                $(".jg_nav_basket").addClass("jg_menu_selected");
+                $(".jg_nav_fruit").removeClass("jg_menu_selected");
+                $(".jg_nav_veg").removeClass("jg_menu_selected");
+                $(".jg_nav_offers").removeClass("jg_menu_selected");
+            }
+        });
+        $(".jg_nav_offers").click(function () {
+            //sessionStorage.setItem("mofertas ", 2);
+            localStorage.setItem("mofertas",2);
+            //if (sessionStorage.getItem('mofertas') % 2 == 0) {
+            if (localStorage.getItem('mofertas') % 2 == 0) {
+                $(".jg_nav_offers").addClass("jg_menu_selected");
+                $(".jg_nav_fruit").removeClass("jg_menu_selected");
+                $(".jg_nav_veg").removeClass("jg_menu_selected");
+                $(".jg_nav_basket").removeClass("jg_menu_selected");
+            }
+        });
+
+
+    /*if(localStorage.getItem('fruta')) {
+        //add class with completed token
+        $(".jg_nav_fruit").addClass("jg_menu_selected");
+
+    }*/
+    //animación cuando haces hover en el logo
+    $("#Logo").hover(function () {
+        $(this).addClass("animated 2s swing");
+        //$(this).addClass("animated 2s hinge");
+    });
+    /*$(".jg_nav_fruit").click(function () {
         $(".jg_nav_fruit").addClass("jg_menu_selected");
         $(".jg_nav_veg").removeClass("jg_menu_selected");
         $(".jg_nav_basket").removeClass("jg_menu_selected");
@@ -43,7 +111,7 @@ $(document).ready(function () {
         $(".jg_nav_fruit").removeClass("jg_menu_selected");
         $(".jg_nav_veg").removeClass("jg_menu_selected");
         $(".jg_nav_basket").removeClass("jg_menu_selected");
-    });
+    });*/
 
     /*indicamos que cuando seleccionemos por ej. el filtro de los Plátanos, tendrá un color de fondo
     * más vistoso que el resto de filtros*/

@@ -73,6 +73,7 @@ class Product
      */
     private $details;
 
+
     public function __construct()
     {
         $this->details = new ArrayCollection();
@@ -231,4 +232,6 @@ class Product
         // TODO: Implement __toString() method.
         return $this->nameproduct;
     }
+
+
 }

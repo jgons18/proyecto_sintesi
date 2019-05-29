@@ -18,7 +18,6 @@
         {% for re in res %}
             {%  if re.isfruit == 1 and re.category != 'Caja' %}
                 <div class="jg_producto_temporada">
-                    {#{%  if product.season == 'Todo el año' %}#}
                     <div class="am_iconos">
                         {% if is_granted('ROLE_ADMIN') %}
                             <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':re.id}) }}"></a>

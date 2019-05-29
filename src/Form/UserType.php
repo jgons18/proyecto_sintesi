@@ -26,19 +26,20 @@ class UserType extends AbstractType
         //función para construir un formulario
         //añadimos add por tantos campos que tengamos en la clase User(en entity)
         $builder
-            ->add('username',TextType::class,[
+            /*->add('username',TextType::class,[
                 'required'=>'required',
                 'label' => 'Nombre de usuario',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:usuario123'
+                    'class'=>'jg_input_form',
+                    'placeholder'=>'ej:usuario123',
+                    'pattern' => '^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$'
                 ]
-            ])
+            ])*/
             ->add('email',EmailType::class,[
                 'required'=>'required',
                 'label' => 'Correo electrónico',
                 'attr'=>[
-                    'class'=>'form-email form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'Email@email'
                 ]
             ])
@@ -48,14 +49,14 @@ class UserType extends AbstractType
                 'first_options'=>[
                     'label' => 'Contraseña',
                     'attr'=>[
-                        'class'=>'form-password form-control',
+                        'class'=>'jg_input_form',
                         'placeholder'=>'Introduzca la contraseña',
                     ]
                 ],
                 'second_options'=>[
                     'label' => 'Repita la contraseña',
                     'attr'=>[
-                        'class'=>'form-password form-control',
+                        'class'=>'jg_input_form',
                         'placeholder'=>'Repite la contraseña'
                     ]
                 ]
@@ -65,48 +66,54 @@ class UserType extends AbstractType
                 'required'=>'required',
                 'label' => 'Nombre',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:Maria'
+                    'class'=>'jg_input_form',
+                    'placeholder'=>'ej:Maria',
+                    'pattern'=>'[A-Za-z]{1,40}'
                 ]
             ])
             ->add('surname',TextType::class,[
                 'required'=>'required',
                 'label' => 'Apellidos',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:Gómez Roca'
+                    'class'=>'jg_input_form',
+                    'placeholder'=>'ej:Gómez Roca',
+                    'pattern'=>'[A-Za-z]{1,100}'
                 ]
             ])
             ->add('address',TextType::class,[
                 'required'=>'required',
                 'label' => 'Dirección',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:C/de las flores,44'
+                    'class'=>'jg_input_form',
+                    'placeholder'=>'ej:C/de las flores,44',
+                    'pattern'=>'[A-Za-z0-9]'
                 ]
             ])
             ->add('city',TextType::class,[
                 'required'=>'required',
                 'label' => 'Ciudad',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:Viladecans'
+                    'class'=>'jg_input_form',
+                    'placeholder'=>'ej:Viladecans',
+                    'pattern'=>'[A-Za-z]{1,30}'
                 ]
             ])
             ->add('postalcode',TextType::class,[
                 'required'=>'required',
                 'label' => 'Código postal',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:08840'
+                    'class'=>'jg_input_form',
+                    'placeholder'=>'ej:08840',
+                    'pattern'=>'[0-9]{5}'
                 ]
             ])
             ->add('province',TextType::class,[
                 'required'=>'required',
                 'label' => 'Provincia',
                 'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:Barcelona'
+                    'class'=>'jg_input_form',
+                    'placeholder'=>'ej:Barcelona',
+                    'pattern'=>'[A-Za-z]{1,20}'
                 ]
             ])
 

@@ -185,7 +185,6 @@ class ProductController extends AbstractController
                 $product->setImage($fileName);
             }
 
-
             $entityManager=$this->getDoctrine()->getManager();
             $entityManager->persist($product);
             $entityManager->flush();
@@ -421,6 +420,13 @@ class ProductController extends AbstractController
         return $this->filterProduct_price('vegetable/filters/price.html.twig','ASC');
     }
     /**
+     * Función para filtrar productos del precio más bajo al más alto(CESTAS)
+     * @Route("/cestas/filters/price-low", name="app_price_low_to_high_b")
+     */
+    public function filterProduct_Box_price_Low(){
+        return $this->filterProduct_price('boxes/filters/price.html.twig','ASC');
+    }
+    /**
      * Función para filtrar productos del precio más alto al más bajo(FRUTAS)
      * @Route("/frutas/filters/price-high", name="app_price_high_to_low_f")
      */
@@ -436,6 +442,14 @@ class ProductController extends AbstractController
     public function filterProduct_Vegatable_price_High(){
 
         return $this->filterProduct_price('vegetable/filters/price.html.twig','DESC');
+    }
+    /**
+     * Función para filtrar productos del precio más alto al más bajo(CESTAS)
+     * @Route("/cestas/filters/price-high", name="app_price_high_to_low_b")
+     */
+    public function filterProduct_Box_price_High(){
+
+        return $this->filterProduct_price('boxes/filters/price.html.twig','DESC');
     }
 
     /**
@@ -504,6 +518,68 @@ class ProductController extends AbstractController
         $query = $em->createQuery(
             'SELECT p FROM App\Entity\Product p 
         WHERE p.category = '.$numcategory);
+        $res = $query->getResult();
+
+        return $this->render($template, array(
+            'res' => $res,
+            'products'=>$product));
+    }
+
+
+    /**
+     * Función para filtrar productos del precio más bajo al más alto(FRUTA) y con la categoría plátanos
+     * @Route("/frutas/filters/category-and-price-low-banana", name="app_price_low_to_high_f_bananas")
+     */
+    public function filterProduct_Fruit_price_and_Banana(){
+        return $this->filterProduct_category_and_price('1','fruit/filters/category_banana.html.twig','ASC');
+    }
+    /**
+     * Función para filtrar productos del precio  más alto al más bajo(FRUTA) y con la categoría plátanos
+     * @Route("/frutas/filters/category-and-price-high-banana", name="app_price_high_to_low_f_bananas")
+     */
+    public function filterProduct_Fruit_price_and_Banana2(){
+        return $this->filterProduct_category_and_price('1','fruit/filters/category_banana.html.twig','DESC');
+    }
+    /**
+     * Función para filtrar productos del precio más bajo al más alto(FRUTA) y con la categoría manzanas
+     * @Route("/frutas/filters/category-and-price-low-apple", name="app_price_low_to_high_f_apples")
+     */
+    public function filterProduct_Fruit_price_and_Apple(){
+        return $this->filterProduct_category_and_price('3','fruit/filters/category_apple.html.twig','ASC');
+    }
+    /**
+     * Función para filtrar productos del precio  más alto al más bajo(FRUTA) y con la categoría manzanas
+     * @Route("/frutas/filters/category-and-price-high-apple", name="app_price_high_to_low_f_apples")
+     */
+    public function filterProduct_Fruit_price_and_Apple2(){
+        return $this->filterProduct_category_and_price('3','fruit/filters/category_apple.html.twig','DESC');
+    }
+    /**
+     * Función para filtrar productos del precio más bajo al más alto(VERDURAS) y con la categoría otras
+     * @Route("/verduras/filters/category-and-price-low-others", name="app_price_low_to_high_v_others")
+     */
+    public function filterProduct_Vegetable_price_and_Others(){
+        return $this->filterProduct_category_and_price('2','vegetable/filters/category_others.html.twig','ASC');
+    }
+    /**
+     * Función para filtrar productos del precio más alto al más bajo(VERDURAS) y con la categoría otras
+     * @Route("/verduras/filters/category-and-price-high-others", name="app_price_high_to_low_v_others")
+     */
+    public function filterProduct_Vegetable_price_and_Others2(){
+        return $this->filterProduct_category_and_price('2','vegetable/filters/category_others.html.twig','DESC');
+    }
+    /**
+     * Función privada para filtrar por categorias  y por precio(según se indique, de mayor a menor y viceversa)
+     * @param string $template
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    private function filterProduct_category_and_price(int $numcategory, string $template, string $order){
+        $product = new Product();
+
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p FROM App\Entity\Product p 
+        WHERE p.category = '.$numcategory.' order by p.unitprice '.$order);
         $res = $query->getResult();
 
         return $this->render($template, array(

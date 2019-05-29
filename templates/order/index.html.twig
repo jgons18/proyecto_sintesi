@@ -1,25 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Pedidos</h1>
-    <a href="">Añadir pedido</a>
-    <a href="{{ path('app_add_carrier') }}">Añadir transportista</a>
+<h2 class="am_titulo_frutas jg_titulos">Pedidos</h2>
+    <div class="jg_add_order">
+        {#<a href="">Añadir pedido</a><br>#}
+        <p class="jg_adproduct_box"><a href="{{ path('app_add_carrier') }}">+ Añadir transportista</a></p>
+    </div>
+    <br>
     {% for orderr in orderrs %}
-        <div>
+        <div class="jg_orders">
            {%  if orderr.paymentconfirmed == 1 %}
-                <div>
-                    <h3>Número de pedido: {{ orderr.id }}</h3>
-                    <p>
-                        <strong>Pedido hecho por:</strong> {{ orderr.user }}<br>
-                        <strong>Dirección principal:</strong> {{ orderr.mainaddress }}<br>
-                        <strong>Dirección secundaria:</strong> {{ orderr.mainaddress }}<br>
-                        <strong>Fecha de compra:</strong> {{ orderr.dateeorderr|date('d-m-Y H:i:s') }}<br>
-                        {% for detail in details %}
-                            <strong>Producto: </strong>
-                        {% endfor %}
-                    </p>
+               <table class="jg_table_orders">
+                   <tr>
+                       <th>Número de pedido</th>
+                       <th>Pedido hecho por</th>
+                       <th>Dirección principal</th>
+                       <th>Dirección secundaria</th>
+                       <th>Fecha de compra</th>
+                       <th>Contenido</th>
+                   </tr>
+                    <tr>
+                        <td>{{ orderr.id }}</td>
+                        <td>{{ orderr.user }}</td>
+                        <td>{{ orderr.mainaddress }}</td>
+                        <td>
+                            {% if orderr.secondarydirection|trim is empty %}
+                                <p>-</p>
+                            {% else %}
+                                {{ orderr.secondarydirection }}
+                            {% endif %}
 
-                </div>
+                        </td>
+                        <td>{{ orderr.dateeorderr|date('d-m-Y H:i:s') }}</td>
+                        <td>
+                            {% for detail in details %}
+                                <strong>Producto: </strong>
+                            {% endfor %}
+                        </td>
+                    </tr>
+               </table>
             {% endif %}
         </div>
     {% endfor %}

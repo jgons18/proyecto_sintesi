@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2>Frutas</h2>
+    {% if is_granted('ROLE_ADMIN') %}
+        <p class="jg_adproduct_box">
+            <a href="{{ path('new_product_box_fruit') }}">+ Añadir nueva cesta de <strong>fruta</strong></a>
+        </p>
+        <p class="jg_adproduct_box">
+            <a href="{{ path('new_product_box_vegetable') }}">+ Añadir nueva cesta de <strong>verdura</strong></a>
+        </p>
+    {% endif %}
+    <select class="jg_filtros_precio">
+        <option value="{{ path('app_boxes') }}">Escoge una opción</option>
+        <option value="{{ path('app_price_low_to_high_b') }}">Ordenar por precio: de bajo a más alto</option>
+        <option value="{{ path('app_price_high_to_low_b') }}">Ordenar por precio: de alto a más bajo</option>
+    </select>
+    {#    {% endif %}#}
+
+
+    <div class="am_caja_productos_temporada">
+        {% for re in res %}
+            {%  if re.category == 'Caja' %}
+                <div class="jg_producto_temporada">
+                    {#{%  if product.season == 'Todo el año' %}#}
+                    <div class="am_iconos">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="fas fa-eye"  href="{{ path('view_box', {'id':re.id}) }}"></a>
+                            <a class="fas fa-pen" href="{{ path('edit_box', {'id':re.id}) }}"></a>
+                            <a class="fas fa-trash-alt" href="{{ path('delete_box', {'id':re.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
+                        {% endif %}
+                    </div>
+                    <!--añadiremos la misma descripción en alt que en longdesc-->
+                    <a class="am_producto" href="{{ path('view_box', {'id':re.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ re.image) }}" alt="{{ re.description }}" longdesc="{{ re.description }}">
+                        <h4 class="am_titulo_producto">{{ re.nameproduct }}</h4></a>
+                    <div class="jg_producto_temporada_bot">
+                        <div><p>{{ re.unitprice }}€</p></div>
+                        <div class="am_boton_producto"><a href="{{ path('add_product_to_basket',{'id':re.id}) }}" >Añadir a cesta</a></div></div>
+
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+
+
+{% endblock %}

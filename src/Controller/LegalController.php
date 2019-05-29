@@ -44,4 +44,12 @@ class LegalController extends AbstractController
     public function viewPrivacyPolicy(){
         return $this->render('footer/privacy_policy.html.twig');
     }
+
+    /**
+     * Renderizado de la página de contacto
+     * @Route("/contacto", name="app_contact")
+     */
+    public function contact(){
+        return $this->render('home/contact.html.twig');
+    }
 }

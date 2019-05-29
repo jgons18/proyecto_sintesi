@@ -30,7 +30,7 @@ class ProductBoxEditType extends AbstractType
                 'required'=>'required',
                 'label' => 'Nombre del producto',
                 'attr'=>[
-                    'class'=>'form-username form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:Melocotón'
                 ]
             ])
@@ -38,7 +38,7 @@ class ProductBoxEditType extends AbstractType
                 'required'=>'required',
                 'label' => 'Descripción',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:El Melocotón es originario de China desde hace 3.000 a. c.'
                 ]
             ])
@@ -46,7 +46,7 @@ class ProductBoxEditType extends AbstractType
                 'required'=>'required',
                 'label' => 'Precio unidad',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:2.99'
                 ]
             ])
@@ -54,7 +54,7 @@ class ProductBoxEditType extends AbstractType
                 'required'=>'required',
                 'label' => 'Existencias',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:100'
                 ]
             ])
@@ -62,7 +62,7 @@ class ProductBoxEditType extends AbstractType
                 'required'=>'required',
                 'label' => 'Existencias reservadas',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:50'
                 ]
             ])
@@ -71,29 +71,30 @@ class ProductBoxEditType extends AbstractType
                 'class' => Season::class,
                 'label' => 'Temporada',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:1'
                 ]
             ])
-            ->add('category',EntityType::class,[
+            /*->add('category',EntityType::class,[
                 'required'=>'required',
                 'class' => Category::class,
                 'label' => 'Categoria',
                 'attr'=>[
-                    'class'=>'form-control'
+                    'class'=>'jg_input_form',
+                    'readonly' => true,
                 ]
-            ])
-            ->add('image',TextType::class,[
+            ])*/
+            /*->add('image',TextType::class,[
                 'label' => 'URL imagen',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:iframe',
                     "data_class" =>null
                 ]
-            ])
+            ])*/
             //->add('image',FileType::class,array('data_class'=> null))
             ->add('save',SubmitType::class, [
-                'label' => 'Guardar producto',
+                'label' => 'Actualizar producto',
                 'attr'=>[
                     'class' => 'save'
                 ]
