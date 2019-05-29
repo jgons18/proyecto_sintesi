@@ -35,6 +35,24 @@ class UserType extends AbstractType
                     'pattern' => '^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$'
                 ]
             ])*/
+            ->add('name',TextType::class,[
+                'required'=>'required',
+                'label' => 'Nombre',
+                'attr'=>[
+                    'class'=>'jg_input_form',
+                    'placeholder'=>'ej:Maria',
+                    'pattern'=>'[A-Za-z]{1,40}'
+                ]
+            ])
+            ->add('surname',TextType::class,[
+                'required'=>'required',
+                'label' => 'Apellidos',
+                'attr'=>[
+                    'class'=>'jg_input_form',
+                    'placeholder'=>'ej:Gómez Roca',
+                    'pattern'=>'[A-Za-z]{1,100}'
+                ]
+            ])
             ->add('email',EmailType::class,[
                 'required'=>'required',
                 'label' => 'Correo electrónico',
@@ -62,31 +80,13 @@ class UserType extends AbstractType
                 ]
 
             ])
-            ->add('name',TextType::class,[
-                'required'=>'required',
-                'label' => 'Nombre',
-                'attr'=>[
-                    'class'=>'jg_input_form',
-                    'placeholder'=>'ej:Maria',
-                    'pattern'=>'[A-Za-z]{1,40}'
-                ]
-            ])
-            ->add('surname',TextType::class,[
-                'required'=>'required',
-                'label' => 'Apellidos',
-                'attr'=>[
-                    'class'=>'jg_input_form',
-                    'placeholder'=>'ej:Gómez Roca',
-                    'pattern'=>'[A-Za-z]{1,100}'
-                ]
-            ])
             ->add('address',TextType::class,[
                 'required'=>'required',
                 'label' => 'Dirección',
                 'attr'=>[
                     'class'=>'jg_input_form',
-                    'placeholder'=>'ej:C/de las flores,44',
-                    'pattern'=>'[A-Za-z0-9]'
+                    'placeholder'=>'ej:C/de las flores,44'/*,
+                    'pattern'=>'[A-za-z]'*/
                 ]
             ])
             ->add('city',TextType::class,[
@@ -120,7 +120,7 @@ class UserType extends AbstractType
             ->add('save',SubmitType::class, [
                 'label' => 'Registrarme',
                 'attr'=>[
-                    'class' => 'save'
+                    'class' => 'save jg_finalizar_1'
                 ]
             ]);
 /*<<<<<<< HEAD

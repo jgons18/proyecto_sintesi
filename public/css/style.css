@@ -2,7 +2,7 @@
 /*font-family: 'Metrophobic', sans-serif;*/
 
 
-/* PORTÁTILES*/
+/* PORTÁTILES & pantallas como las de clase*/
 @media (min-width: 1025px) and (max-width: 1913px) {
     *{
         box-sizing: border-box;
@@ -46,7 +46,7 @@
         align-self: center;
         text-align: center;
         width: 10vw;
-
+        height:12vh;
     }
 
     .am_logo{
@@ -58,7 +58,7 @@
         box-shadow: none;
         align-self: center;
         width: 32vw;
-        height: 7vh;
+        height: 3vh;
         margin: 0vh 0vw 0vh 2vw;
     }
     .am_div_buscador form{
@@ -728,13 +728,38 @@
     .jg_form_login input label,.jg_input_form label{
         text-align: left;
     }
-    .jg_form_login button,#user_save,.am_formulario form button,.jg_btn_contact{
+    .jg_form_login button,#user_save,.am_formulario form button,.jg_btn_contact,{
         width: 23%;
         padding: 8px;
         background-color: #51AD2A;
         color: white;
         font-size: 3vh;
         letter-spacing: 2px;
+    }
+    .jg_ocultar_campos{
+        align-items: center;
+        text-align:center;
+    }
+    .jg_siguiente_1,.am_boton_buscar{
+        width: 23%;
+        padding: 8px;
+        background-color: #96D094;
+        color: white;
+        font-size: 3vh;
+        letter-spacing: 2px;
+    }
+    .jg_atras_1,.jg_finalizar_1{
+        width: 23%;
+        padding: 8px;
+        font-size: 3vh;
+        letter-spacing: 2px;
+    }
+    .jg_atras_1{
+        background-color: #A4BAB7;
+    }
+    .jg_finalizar_1{
+        background-color: #51AD2A;
+        color: white;
     }
     .jg_btn_contact{
         width: 100% !important;
@@ -745,7 +770,7 @@
     }
     .jg_enlaces{
         color: #51AD2A;
-        font-size: 1.8vh;
+        font-size: 2.8vh;
     }
     .jg_menu_secondary{
         background-color: #f0f0f0;
@@ -773,6 +798,11 @@
         border-bottom-width: 0px;
         border-bottom: 1px solid darkgray;
     }
+    .jg_input_contact:before{
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 400;
+    }
     .jg_orders{
         font-family: Metrophobic;
     }
@@ -798,9 +828,9 @@
         width: 100%;
         margin-bottom: 10%;
     }
-
-*/
-    
+    .jg_link_now{
+        font-style: italic;
+    }
 
 
     .la_horta{
