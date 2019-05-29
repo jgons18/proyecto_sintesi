@@ -3,34 +3,41 @@
 {% block body %}
 
     <h2>Verduras</h2>
-    {% if is_granted('ROLE_ADMIN') %}
-    <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
-    <p><a href="{{ path('app_price_low_to_high_v') }}">Precio:bajo a alto</a></p>
-    <p><a href="{{ path('app_price_high_to_low_v') }}">Precio:alto a bajo</a></p>
-    {% endif %}
-    {% for re in res %}
-        <div>
-            {%  if re.isfruit == 0 and re.category != 'Caja'%}
-                <div>
-                    <h3>{{ re.nameproduct }}</h3>
-                    <p>{{ re.description }}<br>
-                        {{ re.unitprice }}<br>
-                        {{ re.stock }}<br>
-                        {{ re.reservedstocks }}<br>
-                        {{ re.season }}<br>
-                        {{ re.category }}<br>
-                        <img width="30px" src="{{ asset('uploads/pictures/' ~ re.image) }}">
 
-                    </p>
-                    <a href="{{ path('add_product_to_basket',{'id':re.id}) }}">añadir al carrito</a>
-                    <a href="{{ path('view_product_fruit', {'id':re.id}) }}">Ver producto</a>
-                    {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('edit_product_fruit', {'id':re.id}) }}">Editar</a>
-                    <a href="{{ path('delete_product_fruit', {'id':re.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
-                {% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
+    {% endif %}
+    <select class="jg_filtros_precio">
+        <option value="{{ path('app_fruits') }}">Escoge una opción</option>
+        <option value="{{ path('app_price_low_to_high_v') }}">Ordenar por precio: de bajo a más alto</option>
+        <option value="{{ path('app_price_high_to_low_v') }}">Ordenar por precio: de alto a más bajo</option>
+    </select>
+    <div class="am_filtros_categoria">
+        <a href="{{ path('app_category_filter_other_vegetables') }}" class="jg_filtros_otras">Otras</a>
+        <a href="{{ path('app_vegetables') }}" class="jg_filtros jg_quitar_filtros"><i class="fas fa-filter"></i><i class="fas fa-times"></i></a>
+    </div>
+
+    <div class="am_caja_productos_temporada">
+    {% for re in res %}
+            {%  if re.isfruit == 0 and re.category != 'Caja'%}
+                <div class="jg_producto_temporada">
+                    <div class="am_iconos">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="fas fa-eye"  href="{{ path('view_product_vegetable', {'id':re.id}) }}"></a>
+                            <a class="fas fa-pen" href="{{ path('edit_product_vegetable', {'id':re.id}) }}"></a>
+                            <a class="fas fa-trash-alt" href="{{ path('delete_product_vegetable', {'id':re.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
+                        {% endif %}
+                    </div>
+
+                    <a class="am_producto" href="{{ path('view_product_vegetable', {'id':re.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ re.image) }}" alt="{{ re.description }}" longdesc="{{ re.description }}">
+                        <h4 class="am_titulo_producto">{{ re.nameproduct }}</h4></a>
+                    <div class="jg_producto_temporada_bot">
+                        <div><p>{{ re.unitprice }}€</p></div>
+                        <div class="am_boton_producto"><a href="{{ path('add_product_to_basket',{'id':re.id}) }}" >Añadir a cesta</a></div></div>
+
                 </div>
             {% endif %}
-        </div>
     {% endfor %}
-
+    </div>
 {% endblock %}
+

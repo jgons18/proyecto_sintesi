@@ -2,18 +2,23 @@
 
 {% block body %}
     <div>
-        <div>
-            <h3>{{ product.nameproduct }}</h3>
-            <p>{{ product.description }}<br>
-                {{ product.unitprice }}<br>
-                {{ product.stock }}<br>
-                {{ product.reservedstocks }}<br>
-                {{ product.season }}<br>
-                {{ product.category }}<br>
-                <img src="{{ product.image }}">
-            </p>
-            <a href="{{ path('edit_product_fruit', {'id':product.id}) }}">Editar</a>
-            <a href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+        <div class="am_vista">
+            <h3 class="am_ruta">
+                <a href="{{ path('app_homepage') }}">Home</a>
+                > <a href="{{ path('app_vegetables') }}">Verduras</a> >
+                <a href="{% if product.category == 'Otras' %}{{ path('app_category_filter_other_vegetables') }}{% endif %}">{{ product.category }}</a> >
+                <a href="{{ path('view_product_vegetable', {'id':product.id}) }}">{{ product.nameproduct }}</a>
+            </h3>
+            <div class="am_iconos"><a class="fas fa-pen" href="{{ path('edit_product_vegetable', {'id':product.id}) }}"></a> <a class="fas fa-trash-alt" href="{{ path('delete_product_vegetable', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a></div>
+
+            <div class="detalles">
+                <div class="am_imagen"><img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}"></div>
+                <h3 class="am_nameproduct">{{ product.nameproduct }}</h3>
+                <div class="am_categoria">{{ product.category }}</div>
+                <div class="am_temporada">{{ product.season }}</div>
+                <div class="am_precio">{{ product.unitprice }}€</div>
+                <div class="am_descripcion">{{ product.description }}</div>
+            </div>
         </div>
     </div>
 {% endblock %}

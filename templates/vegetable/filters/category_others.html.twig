@@ -6,7 +6,11 @@
     {% if is_granted('ROLE_ADMIN') %}
         <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
     {% endif %}
-
+    <select class="jg_filtros_precio">
+        <option value="{{ path('app_fruits') }}">Escoge una opción</option>
+        <option value="{{ path('app_price_low_to_high_v_others') }}">Ordenar por precio: de bajo a más alto</option>
+        <option value="{{ path('app_price_high_to_low_v_others') }}">Ordenar por precio: de alto a más bajo</option>
+    </select>
     <div class="am_filtros_categoria">
         <a href="{{ path('app_category_filter_other_vegetables') }}" class="jg_filtros_selected jg_filtros_otras">Otras</a>
         <a href="{{ path('app_vegetables') }}" class="jg_filtros jg_quitar_filtros"><i class="fas fa-filter"></i><i class="fas fa-times"></i></a>

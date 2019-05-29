@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class="jg_titulos">Contacto</h2><br>
+    <div class="jg_contacto">
+        <div class="jg_box_contact">
+            <form action="mailto:noreplyfruitable@gmail.com?subject=Consulta Fruitable" method="post" enctype="text/plain">
+                <label>Nombre</label><br>
+                <input type="text" name="nombre" class="jg_input_contact"><br><br>
+                <label>Correo electrónico</label><br>
+                <input type="email" name="email" class="jg_input_contact"><br><br><br>
+                <label>Mensaje</label><br><br>
+                <textarea rows="10" cols="43" class="jg_textarea_contact"></textarea>
+                <input type="submit" class="jg_btn_contact" value="Enviar consulta">
+            </form>
+        </div>
+        <div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11990.791512065392!2d1.9979506465015933!3d41.29367937345699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49cdf529eeb67%3A0x3d83ee38a1c6dc79!2sFruteria!5e0!3m2!1ses-419!2ses!4v1558972526865!5m2!1ses-419!2ses" width="90%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+{% endblock %}

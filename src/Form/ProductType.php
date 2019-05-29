@@ -31,7 +31,7 @@ class ProductType extends AbstractType
                 'required'=>'required',
                 'label' => 'Nombre del producto',
                 'attr'=>[
-                    'class'=>'form-username form-control am_nameproduct',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:Melocotón'
                 ]
             ])
@@ -39,7 +39,7 @@ class ProductType extends AbstractType
                 'required'=>'required',
                 'label' => 'Descripción',
                 'attr'=>[
-                    'class'=>'form-control am_descripcion',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:El Melocotón es originario de China desde hace 3.000 a. c.'
                 ]
             ])
@@ -47,7 +47,7 @@ class ProductType extends AbstractType
                 'required'=>'required',
                 'label' => 'Precio unidad',
                 'attr'=>[
-                    'class'=>'form-control am_precio',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:2.99'
                 ]
             ])
@@ -55,7 +55,7 @@ class ProductType extends AbstractType
                 'required'=>'required',
                 'label' => 'Existencias',
                 'attr'=>[
-                    'class'=>'form-control am_stock',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:100'
                 ]
             ])
@@ -63,7 +63,7 @@ class ProductType extends AbstractType
                 'required'=>'required',
                 'label' => 'Existencias reservadas',
                 'attr'=>[
-                    'class'=>'form-control am_stock_reservado',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:50'
                 ]
             ])
@@ -72,7 +72,7 @@ class ProductType extends AbstractType
                 'class' => Season::class,
                 'label' => 'Temporada',
                 'attr'=>[
-                    'class'=>'form-control am_temporada',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:1'
                 ]
             ])
@@ -81,14 +81,14 @@ class ProductType extends AbstractType
                 'class' => Category::class,
                 'label' => 'Categoria',
                 'attr'=>[
-                    'class'=>'form-control am_categoria',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:2'
                 ]
             ])
             ->add('image',FileType::class,[
                 'label' => 'URL imagen',
                 'attr'=>[
-                    'class'=>'form-control am_imagen',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:img/manzana.jpg'
                 ]
             ])

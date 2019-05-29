@@ -1,13 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Añadir transportista</h1>
-        <div>
-            <div>
+        <div class="am_formulario">
+            <h2 class="jg_titulos">Añadir transportista</h2><br><br>
                 {{ form_start(form) }}
                 {{ form_widget(form) }}
+            <a class="jg_btn_cancel" href="{{ path('app_pedidos') }}">Cancelar</a></button>
                 {{ form_errors(form) }}
                 {{ form_end(form) }}
-            </div>
         </div>
 {% endblock %}

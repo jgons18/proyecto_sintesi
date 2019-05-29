@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Metrophobic" rel="stylesheet">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     {% endblock %}
     {% block javascript %}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -18,6 +19,26 @@
 <div class="margen"></div>
 <div class="am_cabecera">
     <header  class="jg_menu">
+        <div class="am_cabecera jg_menu_secondary">
+            {% if app.user is null %}
+                <i class="fas fa-user-alt"></i>&nbsp;<a href="{{ path('app_login') }}">Identifícate</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
+            {% else %}&nbsp;
+                {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
+                    <i class="fas fa-user-circle"></i>&nbsp;<a href="">Mi perfil</a>&nbsp;&nbsp;
+                    <i class="fas fa-box-open"></i>&nbsp;<a href="{{ path('app_my_orders', {'id':app.user.id}) }}">Mis pedidos</a>&nbsp;
+                {% endif %}&nbsp;
+                {% if is_granted('ROLE_ADMIN') %}
+                <i class="fas fa-user-circle"></i>&nbsp;Mi perfil&nbsp;&nbsp;
+                <i class="fas fa-boxes"></i>&nbsp;<a href="{{ path('app_pedidos') }}">Pedidos</a>&nbsp;&nbsp;
+                {% endif %}
+                <i class="fas fa-sign-out-alt"></i>&nbsp;<a href="{{ path('app_logout') }}">Logout</a>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
+                    &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
+                {% endif %}
+            {% endif %}&nbsp;
+
+        </div>
         <div class="am_div_logo">
             <a href="{{ path('app_homepage') }}">
                 <svg width="71" height="95" viewBox="0 0 71 95" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,12 +56,12 @@
         </div>
         <div class="am_div_buscador">
             <form role="search" method="post" action="{{ path('app_search_product') }}">
-                <input type="text" placeholder="buscar" class="am_buscador" name="search"/>
+                <input type="text" placeholder="buscar" class="am_buscador" name="search"/>&nbsp;
                 <button type="submit" class="am_boton_buscar">Buscar</button>
             </form>
             {#{{ render(controller('App\\Controller\\ProductController:searchForm')) }}#}
         </div>
-        {% if app.user is null %}
+        {#{% if app.user is null %}
         <div class="am_div_login">
             <a class="am_login" href="{{ path('app_login') }}">iniciar sesion</a>
         </div>
@@ -61,16 +82,16 @@
                </div>
         {% endif %}
             <div class="am_logout"><a class="nav-link" href="{{ path('app_logout') }}">Logout</a></div>
-        {% endif %}
-        <div class="am_div_carro">
+        {% endif %}#}
+        {#<div class="am_div_carro">
         <a href="{{ path('app_pedidos') }}"><div class="am_div_carro"><p class="am_carro fas fa-shopping-basket"></p></div>
         </a>
-        </div>
+        </div>#}
     </header>
 
     <nav class="jg_nav">
         <ul>
-            <a href="{{ path('app_fruits') }}"><li class="am_nav_obj jg_nav_fruit">Frutas</li></a>
+            <a href="{{ path('app_fruits') }}"><li class="am_nav_obj jg_nav_fruit ">Frutas</li></a>
             <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj am_nav_objverd jg_nav_veg">Verduras y Hortalizas</li></a>
             <a href="{{ path('app_boxes') }}"><li class="am_nav_obj jg_nav_basket">Cestas</li></a>
             <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj jg_nav_offers">Ofertas</li></a>
@@ -82,9 +103,9 @@
     <section class="sn_footer_top">
         <article>
             <p class="titulo">Contacto</p>
-            <p class="sn_move_top"><a>Nosotros</a></p>
-            <p class="sn_move_top"><a>Telefono: 555555555</a></p>
-            <p class="sn_move_top"><a>Email: info@fruitable.com</a></p>
+            <p class="sn_move_top"><a href="{{ path('app_contact') }}">Nosotros</a></p>
+            <p class="sn_move_top"><a href="tel:+34555555555">Telefono: 555555555</a></p>
+            <p class="sn_move_top"><a href="mailto:noreplyfruitable@gmail.com?subject=Consulta Fruitable">Email: info@fruitable.com</a></p>
         </article>
         <article>
             <p class="titulo">Productos</p>

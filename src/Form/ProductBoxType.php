@@ -29,7 +29,7 @@ class ProductBoxType extends AbstractType
                 'required'=>'required',
                 'label' => 'Nombre del producto',
                 'attr'=>[
-                    'class'=>'form-username form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:Melocotón'
                 ]
             ])
@@ -37,7 +37,7 @@ class ProductBoxType extends AbstractType
                 'required'=>'required',
                 'label' => 'Descripción',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:El Melocotón es originario de China desde hace 3.000 a. c.'
                 ]
             ])
@@ -45,7 +45,7 @@ class ProductBoxType extends AbstractType
                 'required'=>'required',
                 'label' => 'Precio unidad',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:2.99'
                 ]
             ])
@@ -53,7 +53,7 @@ class ProductBoxType extends AbstractType
                 'required'=>'required',
                 'label' => 'Existencias',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:100'
                 ]
             ])
@@ -61,7 +61,7 @@ class ProductBoxType extends AbstractType
                 'required'=>'required',
                 'label' => 'Existencias reservadas',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:50'
                 ]
             ])
@@ -70,7 +70,7 @@ class ProductBoxType extends AbstractType
                 'class' => Season::class,
                 'label' => 'Temporada',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:1'
                 ]
             ])
@@ -78,15 +78,15 @@ class ProductBoxType extends AbstractType
                 'class' => Category::class,
                 'label' => 'Categoria',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'choice_value'=>4
                 ]
             ])
             ->add('image',FileType::class,[
-                'label' => 'URL imagen',
+                'label' => 'Imagen',
                 'attr'=>[
-                    'class'=>'form-control',
-                    'placeholder'=>'ej:img/manzana.jpg'
+                    'class'=>'jg_input_form',
+                    'placeholder'=>'ej:El Melocotón es originario de China desde hace 3.000 a. c.'
                 ]
             ])
             ->add('save',SubmitType::class, [

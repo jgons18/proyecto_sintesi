@@ -2,8 +2,8 @@
 
 {% block body %}
 
-    <div>
-        <h1>Añadir nueva verdura</h1>
+    <div class="am_formulario">
+        <h2 class="jg_titulos">Añadir nueva verdura</h2><br><br>
         {{form_start(form)}}
         {{ form_widget(form) }}
         {{ form_row(form.nameproduct) }}
@@ -11,7 +11,7 @@
         {{ form_row(form.description) }}
         <br>
         <!--<input type="submit" class="btn btn-success" value="Crear post">-->
-        <a class="btn btn-danger" href="{{ path('app_vegetables') }}">Cancelar</a></button>
+        <a class="jg_btn_cancel" href="{{ path('app_vegetables') }}">Cancelar</a></button>
         {{ form_errors(form) }}
 
         {{ form_end(form) }}

@@ -53,6 +53,7 @@
         vertical-align: top;
     }
 
+
     .am_div_buscador{
         box-shadow: none;
         align-self: center;
@@ -71,7 +72,7 @@
         align-self: center;
         width: 25vw;
         height: 7vh;
-
+        padding: 2%;
     }
 
     .am_boton_buscar{
@@ -169,7 +170,6 @@
     }
 
     .fa-shopping-basket{
-        font-size: 9vh;
         color: #99C24D;
     }
     .am_div_comprar{
@@ -240,7 +240,7 @@
         margin: 4vh 1vw 4vh 0vw;
         font-family: dosis;
     }
-    .am_añadirproducto_fruta{
+    .am_añadirproducto_fruta,.am_añadirproducto_verdura,.jg_p_filters{
         font-family: Metrophobic;
         font-size: 1.1em;
         float: right;
@@ -263,10 +263,11 @@
 
         font-family: Metrophobic;
         font-size: 1.1em;
-
-
     }
-
+    .jg_adproduct_box{
+        font-family: Metrophobic;
+        font-size: 1.1em;
+    }
     /* NAV*/
 
     .jg_nav{
@@ -402,17 +403,17 @@
     }
 
     .fa-eye{
-        font-size:1em;
+        font-size:1.5em;
         color: #aaaaaa;
         text-align: right;
     }
     .fa-pen{
-        font-size:1em;
+        font-size:1.5em;
         color: #5eb5e0;
         text-align: right;
     }
     .fa-trash-alt{
-        font-size:1em;
+        font-size:1.5em;
         color: red;
         text-align: right;
     }
@@ -474,7 +475,7 @@
         margin-top: 2vh;
         border-radius: 3px;
         padding-top: 1vh;
-
+        vertical-align: middle;
     }
     .am_boton_producto:hover{
         opacity: 0.7;
@@ -619,6 +620,10 @@
     .am_precio{
         align-self: baseline;
     }
+    /*orders*/
+    .jg_add_order{
+        float: right;
+    }
 
 
 
@@ -669,7 +674,7 @@
         list-style: none;
         padding: 1vw;
         justify-content: space-between;
-        font-size: 10vh;
+        font-size: 7vh;
 
     }
 
@@ -700,6 +705,98 @@
     }
     .jg_box_login{
         margin-top: 42vh;
+        /*margin-left: 44%;*/
+    }
+    .jg_titulos,.jg_form_login,.jg_form_login button, .am_formulario form{
+        align-items: center;
+        text-align:center;
+    }
+    .am_formulario form label::after{
+        content: "\A";
+        white-space: pre;
+    }
+
+    .jg_form_login input,.jg_input_form{
+        width: 23%;
+        margin-bottom: 1%;
+        background: transparent;
+        border: 0px;
+        border-bottom-width: 0px;
+        border-bottom: 1px solid darkgray;
+        margin-bottom: 2%;
+    }
+    .jg_form_login input label,.jg_input_form label{
+        text-align: left;
+    }
+    .jg_form_login button,#user_save,.am_formulario form button,.jg_btn_contact{
+        width: 23%;
+        padding: 8px;
+        background-color: #51AD2A;
+        color: white;
+        font-size: 3vh;
+        letter-spacing: 2px;
+    }
+    .jg_btn_contact{
+        width: 100% !important;
+    }
+    .jg_btn_cancel{
+        font-family: Metrophobic;
+        color: red;
+    }
+    .jg_enlaces{
+        color: #51AD2A;
+        font-size: 1.8vh;
+    }
+    .jg_menu_secondary{
+        background-color: #f0f0f0;
+        text-align: right;
+    }
+    .jg_rememberme{
+        width: 1% !important;
+    }
+    .jg_title_rememberme{
+        font-size: 80%;
+    }
+    .jg_contacto{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 50% 50%;
+    }
+    .jg_box_contact{
+        justify-self: center;
+    }
+    .jg_input_contact{
+        width: 100%;
+        margin-bottom: 1%;
+        background: transparent;
+        border: 0px;
+        border-bottom-width: 0px;
+        border-bottom: 1px solid darkgray;
+    }
+    .jg_orders{
+        font-family: Metrophobic;
+    }
+    .jg_table_orders{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-collapse: collapse;
+        width: 99%;
+    }
+    .jg_table_orders th{
+        text-align: left;
+    }
+    .jg_table_orders td,.jg_table_orders th{
+        border: 1px solid #dddddd;
+        padding: 2%;
+        width: 17%;
+    }
+    .jg_table_orders tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    .jg_textarea_contact{
+        width: 100%;
+        margin-bottom: 10%;
     }
 
 */
@@ -825,6 +922,7 @@
         background-color: lightgray;
         padding: 20px;
         border-radius: 3px;
+        font-family: Metrophobic;
     }
     .jg_filtros_selected{
         background-color: bisque !important;

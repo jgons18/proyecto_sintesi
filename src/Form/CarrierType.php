@@ -25,14 +25,14 @@ class CarrierType extends AbstractType
                 'required'=>'required',
                 'label' => 'Nombre de la empresa',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form',
                     'placeholder'=>'ej:MRW'
                 ]
             ])
             ->add('image',FileType::class,[
                 'label' => 'URL logo',
                 'attr'=>[
-                    'class'=>'form-control'
+                    'class'=>'jg_input_form'
                 ]
             ])
             ->add('save',SubmitType::class, [

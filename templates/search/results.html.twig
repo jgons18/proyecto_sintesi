@@ -1,16 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% for re in res %}
-        <div>
-            <h2>Búsqueda de <em>{{ data }}</em></h2>
-            <div>
-                <h3>{{ re.nameproduct }}</h3>
-                <p>{{ re.description }}<br>
+    <h2 class="jg_titulos">Búsqueda de <em>{{ data }}</em></h2>
+    <div class="am_caja_productos_temporada">
+        {% for re in res %}
+            {% if re|length > 0 %}
+                <div class="jg_producto_temporada">
+                    <div class="am_iconos">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':re.id}) }}"></a>
+                            <a class="fas fa-pen" href="{{ path('edit_product_fruit', {'id':re.id}) }}"></a>
+                            <a class="fas fa-trash-alt" href="{{ path('delete_product_fruit', {'id':re.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
+                        {% endif %}
+                    </div>
+                    <!--añadiremos la misma descripción en alt que en longdesc-->
+                    <a class="am_producto" href="{{ path('view_product_fruit', {'id':re.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ re.image) }}" alt="{{ re.description }}" longdesc="{{ re.description }}">
+                        <h4 class="am_titulo_producto">{{ re.nameproduct }}</h4></a>
+                    <div class="jg_producto_temporada_bot">
+                        <div><p>{{ re.unitprice }}€</p></div>
+                        <div class="am_boton_producto"><a href="{{ path('add_product_to_basket',{'id':re.id}) }}" >Añadir a cesta</a></div></div>
 
-
-                </p>
-            </div>
-        </div>
-    {% endfor %}
+                </div>
+            {% else %}
+                <div class="jg_producto_temporada"><p>No se han encontrado resultados :(</p></div>
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endblock %}

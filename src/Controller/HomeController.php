@@ -12,6 +12,7 @@ use App\Entity\Product;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
 class HomeController extends AbstractController
 {
 
@@ -23,5 +24,7 @@ class HomeController extends AbstractController
         return $this->render('home/home.html.twig', [
             'products'=>$products]);
     }
+
+
 
 }
