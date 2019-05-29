@@ -85,14 +85,14 @@ class ProductEditType extends AbstractType
                     'placeholder'=>'ej:2'
                 ]
             ])
-            /*->add('image',FileType::class,[
+           /* ->add('image',FileType::class,[
                 'label' => 'URL imagen',
                 'attr'=>[
                     'class'=>'jg_input_form',
-                    'placeholder'=>'ej:img/manzana.jpg',
+                    'placeholder'=>'ej:img/manzana.jpg'
                 ]
             ])*/
-            //->add('image',FileType::class,array('data_class'=> null))
+            ->add('image',FileType::class,array('data_class'=> null, 'required' => false))
             ->add('save',SubmitType::class, [
                 'label' => 'Actualizar producto',
                 'attr'=>[

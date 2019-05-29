@@ -10,10 +10,6 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     {% endblock %}
-    {% block javascript %}
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
-    {% endblock %}
 </head>
 <body>
 <div class="margen"></div>
@@ -41,7 +37,7 @@
         </div>
         <div class="am_div_logo">
             <a href="{{ path('app_homepage') }}">
-                <svg width="71" height="95" viewBox="0 0 71 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="71" height="70" viewBox="0 0 71 95" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Logo">
                         <path id="Hoja" d="M38.2405 9.99982C35.675 16.8663 35.1951 22.9364 43.3223 29.5668C62.8867 33.6368 69.4678 11.9478 69.9995 10.2876C66.028 10.1138 53.7685 8.38365 45.9812 21.2658C44.9591 18.7418 43.8177 15.4473 38.2405 9.99982Z" fill="#51AD2A" stroke="#51AD2A"/>
                         <ellipse id="Naranja" cx="32.4251" cy="62.53" rx="32.4251" ry="32.0765" fill="#EF781C"/>
@@ -61,32 +57,6 @@
             </form>
             {#{{ render(controller('App\\Controller\\ProductController:searchForm')) }}#}
         </div>
-        {#{% if app.user is null %}
-        <div class="am_div_login">
-            <a class="am_login" href="{{ path('app_login') }}">iniciar sesion</a>
-        </div>
-        <div class="am_div_signin">
-            <a class="am_signin" href="{{ path('app_register') }}">registrate</a>
-        </div>
-        {% else %}
-
-        {% if is_granted('ROLE_ADMIN') %}
-            <div class="am_div_pedidos">
-                <a href="{{ path('app_pedidos') }}">Pedidos</a>
-            </div>
-        {% endif %}
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-
-            <div class="am_div_perfil"><a class="am_perfil" href="">perfil</a></div>
-               <div class="am_div_pedidos"><a class="am_pedidos" href="{{ path('app_my_orders', {'id':app.user.id}) }}">Mis pedidos</a>
-               </div>
-        {% endif %}
-            <div class="am_logout"><a class="nav-link" href="{{ path('app_logout') }}">Logout</a></div>
-        {% endif %}#}
-        {#<div class="am_div_carro">
-        <a href="{{ path('app_pedidos') }}"><div class="am_div_carro"><p class="am_carro fas fa-shopping-basket"></p></div>
-        </a>
-        </div>#}
     </header>
 
     <nav class="jg_nav">
@@ -109,9 +79,9 @@
         </article>
         <article>
             <p class="titulo">Productos</p>
-            <p class="sn_move_top"><a>Frutas</a></p>
-            <p class="sn_move_top"><a>Verduras y Hortalizas</a></p>
-            <p class="sn_move_top"><a>Cestas</a></p>
+            <p class="sn_move_top"><a href="{{ path('app_fruits') }}">Frutas</a></p>
+            <p class="sn_move_top"><a href="{{ path('app_vegetables') }}">Verduras y Hortalizas</a></p>
+            <p class="sn_move_top"><a href="{{ path('app_boxes') }}">Cestas</a></p>
         </article>
         <article class="rrss">
             <p class="titulo">RRSS</p>
@@ -138,4 +108,6 @@
     </section>
 </footer>
 {% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
 {% endblock %}

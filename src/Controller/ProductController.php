@@ -236,6 +236,26 @@ class ProductController extends AbstractController
         $error=$form->getErrors();
 
         if($form->isSubmitted() && $form->isValid()){
+            //capturo los datos
+            $prducttoedit=$form->getData();
+            //para obtener la imagen
+            $file = $form->get('image')->getData();
+            if($file){
+                //genero una serie de letras y números únicos + su extensión para la imagen
+                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+                // moves the file to the directory where brochures are stored
+                try{
+                    $file->move(
+                        $this->getParameter('pictures_directory'),
+                        $fileName
+                    );
+                    //actualizar propiedad de image
+                    $prducttoedit->setImage($fileName);
+                }catch (FileException $e){
+                    $this->addFlash('warning','Error uploading image');
+                }
+                $prducttoedit->setImage($fileName);
+            }
 
             $entityManager=$this->getDoctrine()->getManager();
             $entityManager->flush();

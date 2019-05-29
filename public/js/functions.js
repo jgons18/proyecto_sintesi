@@ -26,16 +26,17 @@ $(document).ready(function () {
     sessionStorage.setItem("mofertas ", 1);*/
 
     //en local
-    localStorage.setItem('mfrutas',1);
+    /*localStorage.setItem('mfrutas',1);
     localStorage.setItem('mverduras',1);
     localStorage.setItem('mcestas',1);
-    localStorage.setItem('mofertas',1);
+    localStorage.setItem('mofertas',1);*/
 
-        $(".jg_nav_fruit").click(function () {
-            //sessionStorage.setItem("mfrutas ", 2);
-            localStorage.setItem("mfrutas",2);
-            //if(sessionStorage.getItem('mfrutas')%2==0){
-            if(localStorage.getItem('mfrutas')%2==0){
+        /*$(".jg_nav_fruit").click(function () {
+           // alert("hola");
+            sessionStorage.setItem("mfrutas ", 2);
+            //localStorage.setItem("mfrutas",2);
+            if(sessionStorage.getItem('mfrutas')%2==0){
+            //if(localStorage.getItem('mfrutas')%2==0){
                 $(".jg_nav_fruit").addClass("jg_menu_selected");
                 $(".jg_nav_veg").removeClass("jg_menu_selected");
                 $(".jg_nav_basket").removeClass("jg_menu_selected");
@@ -43,10 +44,10 @@ $(document).ready(function () {
             }
         });
         $(".jg_nav_veg").click(function () {
-            //sessionStorage.setItem("mverduras ", 2);
-            localStorage.setItem("mverduras",2);
-            //if (sessionStorage.getItem('mverduras') % 2 == 0) {
-            if (localStorage.getItem('mverduras') % 2 == 0) {
+            sessionStorage.setItem("mverduras ", 2);
+            //localStorage.setItem("mverduras",2);
+            if (sessionStorage.getItem('mverduras') % 2 == 0) {
+            //if (localStorage.getItem('mverduras') % 2 == 0) {
                 $(".jg_nav_veg").addClass("jg_menu_selected");
                 $(".jg_nav_fruit").removeClass("jg_menu_selected");
                 $(".jg_nav_basket").removeClass("jg_menu_selected");
@@ -55,10 +56,10 @@ $(document).ready(function () {
             }
         });
         $(".jg_nav_basket").click(function () {
-            //sessionStorage.setItem("mcestas ", 2);
-            localStorage.setItem("mcestas",2);
-            //if (sessionStorage.getItem('mcestas') % 2 == 0) {
-            if (localStorage.getItem('mcestas') % 2 == 0) {
+            sessionStorage.setItem("mcestas ", 2);
+            //localStorage.setItem("mcestas",2);
+            if (sessionStorage.getItem('mcestas') % 2 == 0) {
+            //if (localStorage.getItem('mcestas') % 2 == 0) {
                 $(".jg_nav_basket").addClass("jg_menu_selected");
                 $(".jg_nav_fruit").removeClass("jg_menu_selected");
                 $(".jg_nav_veg").removeClass("jg_menu_selected");
@@ -66,16 +67,16 @@ $(document).ready(function () {
             }
         });
         $(".jg_nav_offers").click(function () {
-            //sessionStorage.setItem("mofertas ", 2);
-            localStorage.setItem("mofertas",2);
-            //if (sessionStorage.getItem('mofertas') % 2 == 0) {
-            if (localStorage.getItem('mofertas') % 2 == 0) {
+            sessionStorage.setItem("mofertas ", 2);
+            //localStorage.setItem("mofertas",2);
+            if (sessionStorage.getItem('mofertas') % 2 == 0) {
+            //if (localStorage.getItem('mofertas') % 2 == 0) {
                 $(".jg_nav_offers").addClass("jg_menu_selected");
                 $(".jg_nav_fruit").removeClass("jg_menu_selected");
                 $(".jg_nav_veg").removeClass("jg_menu_selected");
                 $(".jg_nav_basket").removeClass("jg_menu_selected");
             }
-        });
+        });*/
 
 
     /*if(localStorage.getItem('fruta')) {
@@ -134,6 +135,52 @@ $(document).ready(function () {
         return false;
     });
 
+    //ocultación de campos formulario de registro (6 -9)
+    $(".jg_ocultar_campos div div:nth-child(6)").hide();
+    $(".jg_ocultar_campos div div:nth-child(7)").hide();
+    $(".jg_ocultar_campos div div:nth-child(8)").hide();
+    $(".jg_ocultar_campos div div:nth-child(9)").hide();
+    $(".jg_atras_1").hide();
+    $(".jg_finalizar_1").hide();
+
+    $(".jg_siguiente_1").click(function () {
+        var nombre =$(".jg_ocultar_campos div div:nth-child(1)");
+        var apellidos =$(".jg_ocultar_campos div div:nth-child(2)");
+        var email =$(".jg_ocultar_campos div div:nth-child(3)");
+        var contrasenya =$(".jg_ocultar_campos div div:nth-child(4)");
+        var contrasenya2 =$(".jg_ocultar_campos div div:nth-child(5)");
+
+           $(".jg_ocultar_campos div div:nth-child(1)").hide(1000);
+           $(".jg_ocultar_campos div div:nth-child(2)").hide(1000);
+           $(".jg_ocultar_campos div div:nth-child(3)").hide(1000);
+           $(".jg_ocultar_campos div div:nth-child(4)").hide(1000);
+           $(".jg_ocultar_campos div div:nth-child(5)").hide(1000);
+            $(".jg_siguiente_1").hide(1000);
+           /////
+           $(".jg_ocultar_campos div div:nth-child(6)").show(1000);
+           $(".jg_ocultar_campos div div:nth-child(7)").show(1000);
+           $(".jg_ocultar_campos div div:nth-child(8)").show(1000);
+           $(".jg_ocultar_campos div div:nth-child(9)").show(1000);
+            $(".jg_atras_1").show(1000);
+            $(".jg_finalizar_1").show(1000);
+
+    });
+    $(".jg_atras_1").click(function () {
+        $(".jg_atras_1").hide(1000);
+        $(".jg_finalizar_1").hide(1000);
+        $(".jg_siguiente_1").show(1000);
+
+        $(".jg_ocultar_campos div div:nth-child(6)").hide(1000);
+        $(".jg_ocultar_campos div div:nth-child(7)").hide(1000);
+        $(".jg_ocultar_campos div div:nth-child(8)").hide(1000);
+        $(".jg_ocultar_campos div div:nth-child(9)").hide(1000);
+
+        $(".jg_ocultar_campos div div:nth-child(1)").show(1000);
+        $(".jg_ocultar_campos div div:nth-child(2)").show(1000);
+        $(".jg_ocultar_campos div div:nth-child(3)").show(1000);
+        $(".jg_ocultar_campos div div:nth-child(4)").show(1000);
+        $(".jg_ocultar_campos div div:nth-child(5)").show(1000);
+    });
 });
 
 
