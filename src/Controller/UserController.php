@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\DeleteUserType;
 use App\Form\UserType;
 use App\Form\EditUserProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,15 +19,39 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Security;
 
+
+/**
+ * Class UserController
+ * @package App\Controller
+ *
+ */
 class UserController extends AbstractController
 {
+
 
     /**
      * @Route("/perfil", name="profile_user")
      */
-    public function index(){
-      //  $user = $this->getUser();
-        return $this->render('user/perfil.html.twig');
+    public function index(Request $request){
+        $user = $this->getUser();
+        // $user = $security->getUser();
+        $form=$this->createForm(DeleteUserType::class);
+        $form->handleRequest($request);
+        $error=$form->getErrors();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($user);
+            $em->flush();
+            return $this->redirectToRoute('app_homepage');
+
+        }
+        return $this->render('user/perfil.html.twig',[
+            'error'=>$error,
+            //'form' es el nombre para construir el formulario en la plantilla
+            'form3'=>$form->createView()
+        ]);
+       // return $this->render('user/perfil.html.twig');
     }
 
 
@@ -35,6 +60,7 @@ class UserController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder){
         $user = new User();
+        $session = $request->getSession();
         $user->setRoles(['ROLE_USER']);
         //marca el usuario activo o inactivo
         //$user->setIsActive(true);
@@ -44,6 +70,14 @@ class UserController extends AbstractController
         $error=$form->getErrors();
 
         if($form->isSubmitted() && $form->isValid()){
+            //extraigo el string que va antes de @gmail.com(por ej.) y lo pongo como nombre de usuario(gestión interna)
+                //if($posibilite="@gmail.com" || $posibilite="@yahoo.com" || $posibilite="@hotmail.com"){
+            $emailfraccionado = explode("@",$user->getEmail());
+            //var_dump($emailfraccionado[0]);
+            //die;
+            $user->setUsername($emailfraccionado[0]);
+                //}
+
             //encriptamos el password y lo guardamos como campo
             $password=$passwordEncoder->encodePassword($user,$user->getPlainPassword());
             $user->setPassword($password);//si modifica el campo $user, el que irá a la bd
@@ -78,6 +112,12 @@ class UserController extends AbstractController
         $error=$authUtils->getLastAuthenticationError();//guardaremos el último errore de la autentificación
         //last username
         $lastUsername=$authUtils->getLastUsername();
+
+        $session = $this->get('session');
+        $session->set('filter', array(
+            'accounts' => 'value',
+        ));
+
         return $this->render('user/login.html.twig',[
             'error'=>$error,
             'last_username'=>$lastUsername
@@ -116,6 +156,7 @@ class UserController extends AbstractController
         $error=$form->getErrors();
 
         if($form->isSubmitted() && $form->isValid()){
+            $user=$form->getData();
             $entityManager=$this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -164,6 +205,64 @@ class UserController extends AbstractController
         $mailer->send($message);
 
         return $this->render('mail/confirmation.html.twig');
+    }
+
+    public function deleteProduct_Vegetable($id, Request $request)
+    {
+        return $this->delete_user($request, $id, 'app_vegetables');
+    }
+
+    private function delete_user(Request $request){
+        $user = $this->getUser();
+        // $user = $security->getUser();
+        $form=$this->createForm(EditUserProfileType::class);
+        $form->handleRequest($request);
+        $error=$form->getErrors();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($user);
+            $em->flush();
+            return $this->redirectToRoute('app_homepage');
+
+        }
+        //renderizar formulario
+        return $this->render('user/edit_prof.html.twig',[
+            'error'=>$error,
+            //'form' es el nombre para construir el formulario en la plantilla
+            'form3'=>$form->createView()
+        ]);
+
+    }
+
+    /**
+     * Función para eliminar producto - cestas
+     * @Route("/perfil/delete/{id}", name="delete_box")
+     */
+    public function deleteProduct_Box($id, Request $request)
+    {
+        return $this->deleteProduct($request, $id, 'app_homepage');
+    }
+
+    /**
+     * Función para eliminar producto
+     * @param Request $request
+     * @param int $id
+     * @param string $route
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+
+    private function deleteUser2(Request $request, int $id, string $route){
+        $user = $this->getUser();
+        $producttodelete=$user[0];
+        $entityManager=$this->getDoctrine()->getManager();
+        //comando en cuestión que borrará el producto
+        $entityManager->remove($user);
+        $entityManager->flush();
+
+        $this->addFlash('success', 'Usuario eliminado correctmanete');
+        //una vez eliminado,volvemos a la página que indicamos por parámetros, para comprobar que se ha borrado correctamente
+        return $this->redirectToRoute($route);
     }
 
 }

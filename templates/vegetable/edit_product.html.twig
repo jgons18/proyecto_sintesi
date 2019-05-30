@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div>
+    <div class="am_edit">
         {% for product in products %}
             <h2>Editar producto con identificador: <strong>{{ product.id }}</strong></h2>
             {{ form_start(form) }}

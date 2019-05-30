@@ -6,6 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\Session\Session;
+use App\Entity\Offer;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
@@ -267,6 +269,7 @@ class Product
 
     public function getOfferprice(): ?float
     {
+
         return $this->offerprice;
     }
 
@@ -280,7 +283,6 @@ class Product
   */
     public function setOfferprice(?float $offerprice): self
     {
-
         $this->offerprice = $offerprice;
 
         return $this;
@@ -291,4 +293,13 @@ class Product
 
     }
 
+    /**
+     * Función para convertir a string el array de los productos para poder mostrar el cotenido
+     * @return mixed
+     */
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->nameproduct;
+    }
 }

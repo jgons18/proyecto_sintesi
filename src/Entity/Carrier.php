@@ -28,6 +28,11 @@ class Carrier
      */
     private $details;
 
+    /**
+     * @ORM\Column(type="string", length=200, nullable=true)
+     */
+    private $image;
+
     public function __construct()
     {
         $this->details = new ArrayCollection();
@@ -80,4 +85,26 @@ class Carrier
 
         return $this;
     }
+    /**
+     * Función para convertir a string el array de los transportistas
+     * @return mixed
+     */
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->namecarrier;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
 }

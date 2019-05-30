@@ -1,14 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}{{ form_widget(form) }}
+    {{ form_errors(form) }}
+    {{ form_end(form) }}
 {% block stylesheet %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {% endblock %}
 {% block body %}
     <div class="">
-        <h2>Register, please</h2>
+        <h2>Introduzca su nueva direccion</h2>
 
+        {{ form_start(form) }}
         {{ form_widget(form) }}
-        {{ form_widget(form.save) }}
         {{ form_errors(form) }}
         {{ form_end(form) }}
 

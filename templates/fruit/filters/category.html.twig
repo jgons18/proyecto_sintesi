@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2>Frutas</h2>
+    {#{% if app.user %}#}
+    <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
+    <p><a href="{{ path('app_price_low_to_high_f') }}">Precio:bajo a alto</a></p>
+    <p><a href="{{ path('app_price_high_to_low_f') }}">Precio:alto a bajo</a></p>
+    <p><a href="{{ path('app_category_filter_banana') }}">Platanos</a>&nbsp;<a href="{{ path('app_category_filter_apple') }}">Manzanas</a> </p>
+    <p><a href=""></a></p>
+    {#    {% endif %}#}
+    {% for re in res %}
+        <div>
+                <div>
+                    <h3>{{ re.nameproduct }}</h3>
+                    <p>{{ re.description }}<br>
+                        {{ re.unitprice }}<br>
+                        {{ re.stock }}<br>
+                        {{ re.reservedstocks }}<br>
+                        {{ re.season }}<br>
+                        {{ re.category }}<br>
+                        <img width="30px" src="{{ asset('uploads/pictures/' ~ re.image) }}">
+
+                    </p>
+                    <a href="{{ path('add_product_to_basket',{'id':re.id}) }}">añadir al carrito</a>
+                    <a href="{{ path('view_product_fruit', {'id':re.id}) }}">Ver producto</a>
+                    <a href="{{ path('edit_product_fruit', {'id':re.id}) }}">Editar</a>
+                    <a href="{{ path('delete_product_fruit', {'id':re.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+                </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
+

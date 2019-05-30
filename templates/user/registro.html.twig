@@ -4,11 +4,11 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {% endblock %}
 {% block body %}
-<div class="">
+<div class="am_formulario">
     <h2>Register, please</h2>
 
+    {{ form_start(form) }}
     {{ form_widget(form) }}
-    {{ form_widget(form.save) }}
     {{ form_errors(form) }}
     {{ form_end(form) }}
 

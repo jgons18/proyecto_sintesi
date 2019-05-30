@@ -2,6 +2,7 @@
 
 {% block body %}
     <h2>Frutas en oferta</h2>
+    <a href="">Crear oferta</a>
     {% for product in products %}
         <div>
             {%  if product.isoffer == 1 %}
@@ -14,7 +15,7 @@
                         {{ product.stock }}<br>
                         {{ product.reservedstocks }}<br>
                         {{ product.season }}<br>
-                        {{ product.season }}<br>
+                        {{ product.offer }}<br>
                         {{ product.offer.discount}}<br>
                         {{ product.offer.name }}<br>
                         <p>{{ product.offer.datestart|date("d/m/Y H:i:s") }}</p><br>
@@ -32,7 +33,7 @@
 <p><a href="{{ path('new_product_vegetable') }}">+ Añadir nuevo producto</a></p>
     {% for product in products %}
         <div>
-            {% if product.isoffer == 2 %}
+            {% if product.isoffer == 1 %}
             {% if product.isfruit == 0 %}
                 <div>
                     <h3>{{ product.nameproduct }}</h3>
@@ -41,7 +42,6 @@
                         {{ product.offerprice }}<br>
                         {{ product.stock }}<br>
                         {{ product.reservedstocks }}<br>
-                        {{ product.season }}<br>
                         {{ product.season }}<br>
                         {{ product.offer.discount}}<br>
                         {{ product.offer.name }}<br>
@@ -61,4 +61,3 @@
     {% endfor %}
 
 {% endblock %}
-

@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {% endblock %}
 {% block body %}
+    {% set filter = app.session.get('filter') %}
+
     <div class="jg_box_login">
         <h2>Login</h2>
         <form action="{{ path('app_login') }}" method="post">

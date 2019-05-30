@@ -51,14 +51,13 @@ class EditUserProfileType extends AbstractType
                     'class'=>'form-username form-control'
                 ]
             ])
+        ->add('Anadir',SubmitType::class, [
+        'label' => 'Añadir',
+        'attr'=>[
+            'class' => 'sn_editar'
+        ]
+    ]);
 
-            ->add('save',SubmitType::class, [
-                'label' => 'Guardar cambios',
-                'attr'=>[
-                    'class' => 'save'
-                ]
-            ]);
-        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

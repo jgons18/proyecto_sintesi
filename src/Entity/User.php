@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -77,14 +78,27 @@ class User implements UserInterface
     private $phone;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Order", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Orderr", mappedBy="user")
      */
-    private $orders;
+    private $orderrs;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Cart", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $cart;
+
 
     public function __construct()
     {
         $this->orders = new ArrayCollection();
+        $this->orderrs = new ArrayCollection();
+    /*    $this->cart = new Cart();
+        $this->cart->setUser($this);
+        $this->cart->setTotal(0);
+    */
     }
+
+
 
     public function getId(): ?int
     {
@@ -271,33 +285,67 @@ class User implements UserInterface
     }
 
     /**
-     * @return Collection|Order[]
+     * @return Collection|Orderr[]
      */
-    public function getOrders(): Collection
+    public function getOrderrs(): Collection
     {
-        return $this->orders;
+        return $this->orderrs;
     }
 
-    public function addOrder(Order $order): self
+    public function addOrderr(Orderr $orderr): self
     {
-        if (!$this->orders->contains($order)) {
-            $this->orders[] = $order;
-            $order->setUser($this);
+        if (!$this->orderrs->contains($orderr)) {
+            $this->orderrs[] = $orderr;
+            $orderr->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeOrder(Order $order): self
+    public function removeOrderr(Orderr $orderr): self
     {
-        if ($this->orders->contains($order)) {
-            $this->orders->removeElement($order);
+        if ($this->orderrs->contains($orderr)) {
+            $this->orderrs->removeElement($orderr);
             // set the owning side to null (unless already changed)
-            if ($order->getUser() === $this) {
-                $order->setUser(null);
+            if ($orderr->getUser() === $this) {
+                $orderr->setUser(null);
             }
         }
 
         return $this;
     }
+    /**
+     * Función para convertir a string el array de los usuarios para poder mostrar el cotenido
+     * @return mixed
+     */
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->username;
+    }
+
+    public function getCart(): ?Cart
+    {
+        return $this->cart;
+    }
+
+    public function setCart(?Cart $cart): self
+    {
+        $this->cart = $cart;
+        return $this;
+    }
+
+    /*public function setCart(?Cart $cart): self
+    {
+        $this->$cart = $cart;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newUser = $cart === null ? null : $this;
+        if ($newUser !== $cart->getUser()) {
+            $cart->setUser($newUser);
+        }
+
+        return $this;
+    }*/
+    
 }

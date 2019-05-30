@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "a328ef64ac7447387ea770dfb1b07eeb",
+=======
+    "content-hash": "1f8958e7a7ced0f11dbac70e4fa2f9c4",
+>>>>>>> origin/master
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -384,6 +388,10 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
             "version": "1.11.1",
             "source": {
                 "type": "git",
@@ -394,6 +402,21 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/09a38417339dc93849d051b914aae3947eb231a7",
                 "reference": "09a38417339dc93849d051b914aae3947eb231a7",
+<<<<<<< HEAD
+=======
+=======
+            "version": "1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/DoctrineBundle.git",
+                "reference": "6e15d2d9a8f90c0f9b5664b0db92686ff14fcd7d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/6e15d2d9a8f90c0f9b5664b0db92686ff14fcd7d",
+                "reference": "6e15d2d9a8f90c0f9b5664b0db92686ff14fcd7d",
+>>>>>>> 349af40b0a6a7e099e0cccd090c0131553148a3d
+>>>>>>> origin/master
                 "shasum": ""
             },
             "require": {
@@ -469,7 +492,15 @@
                 "orm",
                 "persistence"
             ],
+<<<<<<< HEAD
             "time": "2019-05-13T14:30:38+00:00"
+=======
+<<<<<<< HEAD
+            "time": "2019-05-13T14:30:38+00:00"
+=======
+            "time": "2019-05-10T13:27:28+00:00"
+>>>>>>> 349af40b0a6a7e099e0cccd090c0131553148a3d
+>>>>>>> origin/master
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -4626,6 +4657,97 @@
     ],
     "packages-dev": [
         {
+<<<<<<< HEAD
+=======
+            "name": "bitsystem/searchpro",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/juliangarciaga3/SearchPro.git",
+                "reference": "d5142b01ba2e7b297d1c4119a0f0157eee174a6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/juliangarciaga3/SearchPro/zipball/d5142b01ba2e7b297d1c4119a0f0157eee174a6d",
+                "reference": "d5142b01ba2e7b297d1c4119a0f0157eee174a6d",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bitsystem\\SearchPro\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Julian Garcia Garcia",
+                    "email": "juliarriate@hotmail.es"
+                }
+            ],
+            "description": "Este es una libreria que te permite listar las tablas de una base de datos. Pueden mostrar tablas relacionadas y filtrarlas entre multiples valores. Pagina los resultados y puedes asignar el numero de resultados por pagina",
+            "time": "2018-07-26T09:58:30+00:00"
+        },
+        {
+            "name": "symfony/polyfill-php72",
+            "version": "v1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-php72.git",
+                "reference": "ab50dcf166d5f577978419edd37aa2bb8eabce0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/ab50dcf166d5f577978419edd37aa2bb8eabce0c",
+                "reference": "ab50dcf166d5f577978419edd37aa2bb8eabce0c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.11-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php72\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2019-02-06T07:57:58+00:00"
+        },
+        {
+>>>>>>> origin/master
             "name": "symfony/process",
             "version": "v4.2.8",
             "source": {

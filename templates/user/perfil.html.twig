@@ -20,9 +20,14 @@
         <p>Codigo postal: {{ app.user.postalcode }}</p>
         <p>Provincia: {{ app.user.province }}</p>
         <p>Telefono: {{ app.user.phone }}</p>
-            <a id="am_login" href="{{ path('app_prof') }}">Editar Direccion</a>
+            <a class="sn_editar" href="{{ path('app_prof') }}">Editar Direccion</a>
         </article>
     </section>
+       {# <a href="{{ path('user_del', {'id':user.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a> #}
+        {{ form_start(form3) }}
+        {{ form_widget(form3) }}
+        {{ form_errors(form3) }}
+        {{ form_end(form3) }}
         </div>
     {% endif %}
 
