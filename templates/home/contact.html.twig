@@ -126,8 +126,19 @@
         <article>©Fruitable Todos los derechos reservados</article>
     </section>
 </footer>
+    {% if app.request.cookies.get("cookie") == 0 %}
+        <div class="jg_caja_cookies">
+            <div class="jg_box_content">
+                <p>Las cookies de este sitio se usan para personalizar el contenido y los anuncios para ofrecer funciones de medios
+                    sociales y para analizar el tráfico. Además, compartimos información sobre el uso que haga del sitio web con nuestros
+                    partners de medios sociales de publicidad y de análisis web. &nbsp;<a href="{{ path('app_políticas_cookies') }}" class="jg_link_cookies">Más información</a></p>
+                <a class="jg_accept_cookies">Aceptar</a>
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}
 {% block javascripts %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 {% endblock %}

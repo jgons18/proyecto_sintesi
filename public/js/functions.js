@@ -181,6 +181,19 @@ $(document).ready(function () {
         $(".jg_ocultar_campos div div:nth-child(4)").show(1000);
         $(".jg_ocultar_campos div div:nth-child(5)").show(1000);
     });
+
+    //establezco la cookie que determinará si hemos acceptado el uso de cookies
+    Cookies.set('cookie', '0', { expires: 7 });
+    $(".jg_accept_cookies").click(function () {
+        //alert(Cookies.get('aceptarcookies'));
+        //alert(Cookies.set('cookie', '1', { expires: 7 }));
+        //una vez lo aceptamos, cambio el valor y así no se mostrará más
+        Cookies.set('cookie', '1', { expires: 7 });
+       $(".jg_caja_cookies").slideUp("slow",function () {
+           
+       });
+    });
+
 });
 
 
