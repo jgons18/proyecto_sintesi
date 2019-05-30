@@ -728,7 +728,7 @@
     .jg_form_login input label,.jg_input_form label{
         text-align: left;
     }
-    .jg_form_login button,#user_save,.am_formulario form button,.jg_btn_contact,{
+    .jg_form_login button,#user_save,.am_formulario form button,.jg_btn_contact,.jg_accept_cookies{
         width: 23%;
         padding: 8px;
         background-color: #51AD2A;
@@ -831,7 +831,35 @@
     .jg_link_now{
         font-style: italic;
     }
-
+    .jg_caja_cookies{
+        position:fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999999;
+        display: block;
+        font-family: Metrophobic;
+    }
+    .jg_box_content{
+        margin: auto;
+        position: relative;
+        top: 0;
+        height: 98px;
+        width: 100%;
+        text-align: center;
+        background-color: black;
+        color: white;
+        padding: 12px;
+    }
+    .jg_box_content p{
+        margin-bottom: 1%;
+    }
+    .jg_link_cookies{
+        color: #51AD2A;
+    }
+    .jg_accept_cookies{
+        margin-top: 20%;
+    }
 
     .la_horta{
         background-image: url("/img/la_horta.png");
