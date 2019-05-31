@@ -6,6 +6,7 @@ use App\Entity\Detail;
 use App\Entity\Product;
 use App\Entity\Offer;
 use App\Entity\Category;
+use App\Form\NewofferType;
 use App\Form\ProductType;
 use App\Form\ProductEditType;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,51 +37,35 @@ class OffersController extends AbstractController
             'products'=>$products]);
 
     }
-    private function addProduct(Request $request, string $template, string $route)
+
+    /**
+     * Función para añadir producto (que sea fruta)
+     * @Route("/ofertas/newoffer", name="new_offer")
+     */
+
+    public function newOffer(Request $request){
+        return $this->addOffer($request, 'offers/new_offer.html.twig', 'offers');
+    }
+    private function addOffer(Request $request, string $template, string $route)
     {
         //crear un nuevo objeto producto
-        $product = new Product();
-
-        //como este método lo utilizamos para añadir productos que son VERDURAS
-        //le pondremos por defecto el campo isfruta en false
-        $product->setIsfruit($isfruit);
+        $offer = new Offer();
 
         //creamos el formulario
-        $form = $this->createForm(ProductType::class, $product);
+        $form = $this->createForm(NewofferType::class, $offer);
         $form->handleRequest($request);
 
         $error = $form->getErrors();
 
         if ($form->isSubmitted() && $form->isValid()) {
             //capturo los datos
-            $product = $form->getData();
-            //para obtener la imagen
-            $file = $form->get('image')->getData();
-            if ($file) {
-                //genero una serie de letras y números únicos + su extensión para la imagen
-                $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
-                // moves the file to the directory where brochures are stored
-                try {
-                    $file->move(
-                        $this->getParameter('pictures_directory'),
-                        $fileName
-                    );
-                    //actualizar propiedad de image
-                    $product->setImage($fileName);
-                } catch (FileException $e) {
-                    $this->addFlash('warning', 'Error uploading image');
-                }
-                $product->setImage($fileName);
-            }
-
-
+            $offer = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($product);
+            $entityManager->persist($offer);
             $entityManager->flush();
-            $this->addFlash('success', 'Producto creado correctamente');
+            $this->addFlash('success', 'Oferta creada');
             return $this->redirectToRoute($route);
         }
-        //renderizar formulario
         return $this->render($template, [
             'error' => $error,
             'form' => $form->createView()

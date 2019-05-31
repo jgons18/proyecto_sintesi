@@ -3,10 +3,15 @@
 namespace App\Form;
 
 use App\Entity\Offer;
+use phpDocumentor\Reflection\Types\String_;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 class NewofferType extends AbstractType
@@ -15,9 +20,8 @@ class NewofferType extends AbstractType
     {
         $builder
 
-        ->add('name',EntityType::class,[
+        ->add('name',TextType::class,[
         'required'=>'required',
-        'class' => Offer::class,
         'label' => 'Nombre de la oferta',
         'attr'=>[
             'class'=>'form-control am_temporada',
@@ -26,7 +30,6 @@ class NewofferType extends AbstractType
     ])
         ->add('discount',NumberType::class,[
             'required'=>'required',
-            'class' => Offer::class,
             'label' => 'Descuento',
             'attr'=>[
                 'class'=>'form-control am_categoria',
@@ -35,7 +38,6 @@ class NewofferType extends AbstractType
         ])
         ->add('datestart',DateTimeType::class,[
             'required'=>'required',
-            'class' => Offer::class,
             'label' => 'fecha inicio',
             'attr'=>[
                 'class'=>'form-control am_categoria',
@@ -44,7 +46,6 @@ class NewofferType extends AbstractType
         ])
         ->add('datefinish',DateTimeType::class,[
             'required'=>'required',
-            'class' => Offer::class,
             'label' => 'fecha final',
             'attr'=>[
                 'class'=>'form-control am_categoria',

@@ -14,5 +14,3 @@ function am_slider_home() {
         },
     });
 }
-
-

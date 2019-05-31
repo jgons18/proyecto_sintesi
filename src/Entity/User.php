@@ -82,20 +82,11 @@ class User implements UserInterface
      */
     private $orderrs;
 
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Cart", mappedBy="user", cascade={"persist", "remove"})
-     */
-    private $cart;
-
 
     public function __construct()
     {
         $this->orders = new ArrayCollection();
         $this->orderrs = new ArrayCollection();
-    /*    $this->cart = new Cart();
-        $this->cart->setUser($this);
-        $this->cart->setTotal(0);
-    */
     }
 
 
