@@ -24,7 +24,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
  */
 class UserController extends AbstractController
 {
-
+    /*BORRAR ESTE COMENTARIO */
 
     /**
      * @Route("/user", name="user")
