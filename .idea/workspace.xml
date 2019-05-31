@@ -1552,19 +1552,16 @@
             <element signature="e#4066#4324#2" expanded="true" />
             <element signature="e#4465#4723#2" expanded="true" />
             <element signature="e#4843#5101#2" expanded="true" />
-=======
     <entry file="file://$PROJECT_DIR$/src/Controller/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3705">
           <caret line="259" column="8" selection-start-line="259" selection-start-column="8" selection-end-line="272" selection-end-column="29" />
           <folding>
             <element signature="e#115#139#0#PHP" expanded="true" />
->>>>>>> e4831df8f4cac621807ad401edc06bd44d973c74
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/public/js/swiper.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1606,24 +1603,20 @@
           <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
           <folding>
             <element signature="e#114#137#0#PHP" expanded="true" />
-=======
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
           <folding>
             <element signature="e#30#78#0#PHP" expanded="true" />
->>>>>>> 349af40b0a6a7e099e0cccd090c0131553148a3d
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/home/home.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="325">
           <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
-=======
     <entry file="file://$PROJECT_DIR$/templates/fruit/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1656,13 +1649,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1290">
           <caret line="97" selection-start-line="97" selection-end-line="97" />
->>>>>>> e4831df8f4cac621807ad401edc06bd44d973c74
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="430">
           <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
         </state>
@@ -1681,7 +1672,6 @@
           <caret line="40" column="62" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="62" />
           <folding>
             <element signature="e#35#94#0#PHP" expanded="true" />
-=======
         <state relative-caret-position="315">
           <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
         </state>
@@ -1707,7 +1697,6 @@
           <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
           <folding>
             <element signature="e#114#136#0#PHP" expanded="true" />
->>>>>>> e4831df8f4cac621807ad401edc06bd44d973c74
           </folding>
         </state>
       </provider>
@@ -1716,10 +1705,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="825">
           <caret line="55" selection-start-line="55" selection-end-line="55" />
-=======
         <state>
           <caret column="14" selection-start-column="14" selection-end-column="14" />
->>>>>>> 349af40b0a6a7e099e0cccd090c0131553148a3d
         </state>
       </provider>
     </entry>

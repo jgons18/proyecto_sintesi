@@ -4,9 +4,13 @@
 
     <h2>Frutas</h2>
     {#{% if app.user %}#}
-    <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
-    <p><a href="{{ path('app_price_low_to_high_f') }}">Precio:bajo a alto</a></p>
-    <p><a href="{{ path('app_price_high_to_low_f') }}">Precio:alto a bajo</a></p>
+    <div class="am_filtros"><p>
+            <div class="am_filtros_precio"><p>ordear por precio:</p><a id="am_filtro_bajo_alto" href="{{ path('app_price_low_to_high_f') }}">bajo a alto</a><a id="am_filtro_alto_bajo" href="{{ path('app_price_high_to_low_f') }}">alto a bajo</a></div>
+    <div class="am_filtros_categoria"><p>ordenar por categoria:</p><p><a href="{{ path('app_category_filter_banana') }}">Platanos</a><a href="{{ path('app_category_filter_apple') }}">Manzanas</a></p></div>
+
+    <p>HOLAAAA</p>
+    </div>
+    <p class="am_añadirproducto_fruta"><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
     {#    {% endif %}#}
     {% for re in res %}
         <div>

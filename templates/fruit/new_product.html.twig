@@ -2,18 +2,16 @@
 
 {% block body %}
 
-    <div>
+    <div class="am_nueva_fruta">
         <h1>Añadir nueva fruta</h1>
-        {{form_start(form)}}
-        {{ form_widget(form) }}
-        {{ form_row(form.nameproduct) }}
-        {{ form_row(form.unitprice) }}
-        {{ form_row(form.description) }}
-        <br>
+        <div>{{form_start(form)}}</div>
+        <div>{{ form_widget(form) }}</div>
+        <div>{{ form_row(form.nameproduct) }}</div>
+        <div>{{ form_row(form.unitprice) }}</div>
+        <div>{{ form_row(form.description) }}</div>
         <!--<input type="submit" class="btn btn-success" value="Crear post">-->
-        <a class="btn btn-danger" href="{{ path('app_fruits') }}">Cancelar</a></button>
+        <button class="btn btn-danger am_boton_cancelar" href="{{ path('app_fruits') }}">Cancelar</button>
         {{ form_errors(form) }}
-
         {{ form_end(form) }}
     </div>
 

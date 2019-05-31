@@ -15,8 +15,10 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use function Symfony\Component\Validator\Tests\Constraints\choice_callback;
 
 class UserType extends AbstractType
 {
@@ -25,6 +27,24 @@ class UserType extends AbstractType
     {
         //función para construir un formulario
         //añadimos add por tantos campos que tengamos en la clase User(en entity)
+
+        $provinces = json_decode(file_get_contents("json/provincias.json"), TRUE);
+        $provincesChoices = array();
+
+        foreach ($provinces as $province){
+            $provincesChoices[$province['nombre']] = $province['provincia_id'];
+
+        }
+
+        $cities = json_decode(file_get_contents("json/municipios.json"), TRUE);
+        $citiesChoices = array();
+
+        foreach ($cities as $city) {
+            $citiesChoices[$city['nombre']] = $city['municipio_id'];
+        }
+
+
+
         $builder
             ->add('username',TextType::class,[
                 'required'=>'required',
@@ -85,7 +105,23 @@ class UserType extends AbstractType
                     'placeholder'=>'ej:C/de las flores,44'
                 ]
             ])
-            ->add('city',TextType::class,[
+
+            ->add('province',ChoiceType::class, array(
+                'choices' => $provincesChoices
+            ),
+                [
+                    'required'=>'required',
+                    'label' => 'Provincia',
+                    'attr'=>[
+                        'class'=>'form-username form-control',
+                        'placeholder'=>'ej:Barcelona'
+                    ]
+                ])
+
+            ->add('city',ChoiceType::class, array(
+                'choices' => $citiesChoices
+            ),
+                [
                 'required'=>'required',
                 'label' => 'Ciudad',
                 'attr'=>[
@@ -101,14 +137,7 @@ class UserType extends AbstractType
                     'placeholder'=>'ej:08840'
                 ]
             ])
-            ->add('province',TextType::class,[
-                'required'=>'required',
-                'label' => 'Provincia',
-                'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:Barcelona'
-                ]
-            ])
+
 
             ->add('save',SubmitType::class, [
                 'label' => 'Registrarme',

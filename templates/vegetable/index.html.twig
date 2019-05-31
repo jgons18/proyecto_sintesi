@@ -10,25 +10,25 @@
     <p><a href="{{ path('app_category_filter_other_vegetables') }}">Otras</a>&nbsp; </p>
 
     {#    {% endif %}#}
-    {% for product in products %}
-        <div>
-            {%  if product.isfruit == 0 %}
-            <div class="jg_producto_temporada">
-                {#{%  if product.season == 'Todo el año' %}#}
-                <div class="am_iconos">
-                    <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':product.id}) }}"></a>
-                    <a class="fas fa-pen" href="{{ path('edit_product_fruit', {'id':product.id}) }}"></a>
-                    <a class="fas fa-trash-alt" href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
+    <div class="am_caja_productos_temporada">
+        {% for product in products %}
+                {%  if product.isfruit == 0 %}
+                <div class="jg_producto_temporada">
+                    {#{%  if product.season == 'Todo el año' %}#}
+                    <div class="am_iconos">
+                        <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':product.id}) }}"></a>
+                        <a class="fas fa-pen" href="{{ path('edit_product_fruit', {'id':product.id}) }}"></a>
+                        <a class="fas fa-trash-alt" href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
+                    </div>
+                    <div>
+                        <!--añadiremos la misma descripción en alt que en longdesc-->
+                        <a class="am_producto" href="{{ path('view_product_fruit', {'id':product.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
+                            <h4 class="am_titulo_producto">{{ product.nameproduct }}</h4></a>
+                        <div class="jg_producto_temporada_bot">
+                            <div><p>{{ product.unitprice }}€</p></div>
+                            <div><button class="am_boton_producto">Añadir a cesta</button><br></div></div></div>
                 </div>
-                <div>
-                    <!--añadiremos la misma descripción en alt que en longdesc-->
-                    <a class="am_producto" href="{{ path('view_product_fruit', {'id':product.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
-                        <h4 class="am_titulo_producto">{{ product.nameproduct }}</h4></a>
-                    <div class="jg_producto_temporada_bot">
-                        <div><p>{{ product.unitprice }}€</p></div>
-                        <div><button class="am_boton_producto">Añadir a cesta</button><br></div></div></div>
-            {% endif %}
-        </div>
-    {% endfor %}
-
+                    {% endif %}
+        {% endfor %}
+    </div>
 {% endblock %}
