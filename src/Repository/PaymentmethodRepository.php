@@ -19,6 +19,8 @@ class PaymentmethodRepository extends ServiceEntityRepository
         parent::__construct($registry, Paymentmethod::class);
     }
 
+
+
     // /**
     //  * @return Paymentmethod[] Returns an array of Paymentmethod objects
     //  */

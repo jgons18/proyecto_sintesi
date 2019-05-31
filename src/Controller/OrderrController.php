@@ -15,14 +15,22 @@ use App\Entity\Product;
 use App\Form\CarrierType;
 use App\Form\Orderr2Type;
 use App\Form\OrderrType;
+use App\Controller\HomeController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Debug\Debug;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Exception\ConflictingHeadersException;
+use Symfony\Component\HttpFoundation\Exception\SuspiciousOperationException;
 
 class OrderrController extends AbstractController
 {
+//$session = new Session();
+
+
     /**
      * Función para listar los pedidos
      * @Route("/pedidos", name="app_pedidos")
@@ -44,19 +52,64 @@ class OrderrController extends AbstractController
      * Función  para añadir productos al carrito
      * @Route("/pedido/add/{id}", name="add_product_to_basket")
      */
-    public function addProductOrder(Request $request,$id)
+
+    public function addProduct(Request $request,$id)
     {
+        //$session->start();
+        $detail = new Detail();
+       // $session = new Session();
+
+        $user=$this->getUser();
+        //obtengo la hora en la que se ha empezado el pedido
+       //$orderCreate=$orderr->getDateeorderr();
+       // Debug::enable();
+        $product = $this->getDoctrine()->getRepository(Product::class)->findBy(array('id' => $id));
+        $prducttoaddtobasket = $product[0];
+        $form = $this->createForm(OrderrType::class, $prducttoaddtobasket);
+        $form->handleRequest($request);
+        $error = $form->getErrors();
+
+
+        $form2=$this->createForm(Orderr2Type::class, $detail);
+        $form2->handleRequest($request);
+       //$detail->setProduct($prducttoaddtobasket);
+
+        if ($form2->isSubmitted() && $form2->isValid()) {
+          //  $session->set('Detail', 'prueba');
+            // $detail->get('Detail',$form2);
+          //  $cart = $session->get('Detail');
+            $contenido = $request->getContent();
+            var_dump($contenido );
+            die;
+       }
+        return $this->render('order/inprogress.html.twig', array(
+            /*'res' => $res*/
+            'orderrs'=>$product,
+            'form'=>$form->createView(),
+            'form2'=>$form2->createView()
+        ));
+        /*return $this->render('fruit/index.html.twig',[
+            'error'=>$error,
+            'products'=>$product,
+            'form'=>$form->createView()
+        ]);*/
+    }
+
+
+
+
+
+    /**
+     * Función  para añadir productos al carrito
+     * @Route("/pedido_old/add/{id}", name="add_product_to_basket_old")
+     */
+    public function addProductOrder_old(Request $request,$id)
+    {
+        $session = $request->getSession();
         $orderr = new Orderr();
-
-
-        //obtengo el usuario que está haciendo el pedido
         $user=$this->getUser();
 
-        //obtengo la hora en la que se ha empezado el pedido
-        $orderCreate=$orderr->getDateeorderr();
-
-
-        Debug::enable();
+       // Debug::enable();
         $detail = new Detail();
         $product = $this->getDoctrine()->getRepository(Product::class)->findBy(array('id' => $id));
         $prducttoaddtobasket = $product[0];
@@ -66,11 +119,36 @@ class OrderrController extends AbstractController
 
         $form->handleRequest($request);
         $error = $form->getErrors();
+        //$contenido = $request->getContent();
 
-        $form2=$this->createForm(Orderr2Type::class);
+        $form2=$this->createForm(Orderr2Type::class, $detail);
         $form2->handleRequest($request);
 
-        $detail->setProduct($prducttoaddtobasket);
+
+        if ($form2->isSubmitted() && $form2->isValid()) {
+            $session = $this->session;
+            $session = $this->getSession();
+            //$session->clear();
+            $ideitoSE=$session->get('id');
+            $ideitoRE=$request->get('id');
+           $canti23=$session->get('quantity');
+           // $remember=$request->get('remember');
+           // $session = $request->getSession();
+
+         //  $pi = $request->query->get('quantity');
+         $contenido = $request->getContent();
+         $session123 = $this->getContent();
+
+        //  $canti= $request->get("quantity");
+            $con2 = $request->getPathInfo();
+          //  return $this->storage->start();
+            var_dump($canti23);
+            die;
+            return $this->redirectToRoute('app_homepage');
+
+        }
+
+       // $detail->setProduct($prducttoaddtobasket);
 
         /*$em = $this->getDoctrine()->getManager();
         $query = $em->createQuery(
@@ -87,12 +165,6 @@ class OrderrController extends AbstractController
             'form'=>$form->createView(),
             'form2'=>$form2->createView()
         ));
-
-        /*return $this->render('fruit/index.html.twig',[
-            'error'=>$error,
-            'products'=>$product,
-            'form'=>$form->createView()
-        ]);*/
 
     }
 
@@ -114,12 +186,14 @@ class OrderrController extends AbstractController
      */
     public function addCarrier(Request $request){
         $carrier = new Carrier();
-
+        $detail = new Detail();
         //creamos el formulario
         $form=$this->createForm(CarrierType::class,$carrier);
         $form->handleRequest($request);
 
         $error=$form->getErrors();
+
+
 
         if($form->isSubmitted() && $form->isValid()){
             //capturo los datos
