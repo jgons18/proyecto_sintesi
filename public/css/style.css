@@ -725,6 +725,24 @@
         border-bottom: 1px solid darkgray;
         margin-bottom: 2%;
     }
+    .jg_input_unidades{
+        height: 0vh;
+    }
+    .jg_input_pedido_product{
+        width: 85%;
+        margin-bottom: 1%;
+        background: transparent;
+        border: 0px;
+        border-bottom-width: 0px;
+        margin-bottom: 2%;
+    }
+    .jg_input_pedido{
+        width: 30%;
+        margin-bottom: 1%;
+        background: transparent;
+        border: 0px;
+        border-bottom-width: 0px;
+    }
     .jg_form_login input label,.jg_input_form label{
         text-align: left;
     }
@@ -872,6 +890,13 @@
         width: 22%;
         max-height: 90vh;
         max-width: 22%;
+    }
+    .jg_box_order{
+        width: 50%;
+        font-family: Metrophobic;
+    }
+    .jg_right{
+        float: right;
     }
     #orderr{
         display: inline-flex;

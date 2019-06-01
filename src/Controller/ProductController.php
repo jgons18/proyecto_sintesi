@@ -28,9 +28,9 @@ class ProductController extends AbstractController
      * @Route("/frutas", name="app_fruits")
      */
     public function listfruit(){
-            $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-            return $this->render('fruit/index.html.twig', [
-                'products'=>$products]);
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        return $this->render('fruit/index.html.twig', [
+            'products'=>$products]);
 
     }
     /**

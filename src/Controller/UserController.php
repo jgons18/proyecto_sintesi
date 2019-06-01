@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
-
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Class UserController
@@ -87,6 +87,7 @@ class UserController extends AbstractController
      * @Route("/login",name="app_login")
      */
     public function login(Request $request, AuthenticationUtils $authUtils){
+
         $error=$authUtils->getLastAuthenticationError();//guardaremos el último errore de la autentificación
         //last username
         $lastUsername=$authUtils->getLastUsername();
