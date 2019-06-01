@@ -15,16 +15,13 @@ use App\Entity\Product;
 use App\Form\CarrierType;
 use App\Form\Orderr2Type;
 use App\Form\OrderrType;
-use App\Controller\HomeController;
+use App\Form\OrderrUnitsType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Debug\Debug;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\HttpFoundation\Exception\ConflictingHeadersException;
-use Symfony\Component\HttpFoundation\Exception\SuspiciousOperationException;
 
 class OrderrController extends AbstractController
 {
@@ -48,123 +45,104 @@ class OrderrController extends AbstractController
         return $this->findBy(array(), array('dateeorderr' => 'ASC'));
     }
 
-    /**
+
+     /**
      * Función  para añadir productos al carrito
      * @Route("/pedido/add/{id}", name="add_product_to_basket")
      */
-
-    public function addProduct(Request $request,$id)
+    public function addProductOrder(Request $request,$id)
     {
-        //$session->start();
-        $detail = new Detail();
-       // $session = new Session();
+        //creo la sessión, indicando el estado del pedido, que posteriomente modificaremos
+        /*$session = new Session();
+        $session->set('Pedido', 'inactive');*/
+        $estado = $request->getSession('Pedido');
+        //$session->get('Pedido');
 
-        $user=$this->getUser();
-        //obtengo la hora en la que se ha empezado el pedido
-       //$orderCreate=$orderr->getDateeorderr();
-       // Debug::enable();
-        $product = $this->getDoctrine()->getRepository(Product::class)->findBy(array('id' => $id));
-        $prducttoaddtobasket = $product[0];
-        $form = $this->createForm(OrderrType::class, $prducttoaddtobasket);
+        //obtenemos el id del producto a añadir al pedido
+        $product=$this->getDoctrine()->getRepository(Product::class)->findBy(array('id'=>$id));
+        $prducttoedit=$product[0];
+
+        //creamos el primer formulario en que recogemos todos los detalles del producto que posteriormente mostraremos en el pedido
+        $form=$this->createForm(OrderrType::class,$prducttoedit);
         $form->handleRequest($request);
-        $error = $form->getErrors();
+        $error=$form->getErrors();
 
-
-        $form2=$this->createForm(Orderr2Type::class, $detail);
+        //crearemos otro formulario en que determinados las unidades de cada producto,transportista y método de pago
+        $form2=$this->createForm(Orderr2Type::class);
         $form2->handleRequest($request);
-       //$detail->setProduct($prducttoaddtobasket);
+        $error=$form2->getErrors();
 
-        if ($form2->isSubmitted() && $form2->isValid()) {
-          //  $session->set('Detail', 'prueba');
-            // $detail->get('Detail',$form2);
-          //  $cart = $session->get('Detail');
-            $contenido = $request->getContent();
-            var_dump($contenido );
-            die;
-       }
-        return $this->render('order/inprogress.html.twig', array(
-            /*'res' => $res*/
-            'orderrs'=>$product,
-            'form'=>$form->createView(),
-            'form2'=>$form2->createView()
-        ));
-        /*return $this->render('fruit/index.html.twig',[
-            'error'=>$error,
-            'products'=>$product,
-            'form'=>$form->createView()
-        ]);*/
-    }
+        //crearemos otro formulario pero de las unidades
+        $form3=$this->createForm(OrderrUnitsType::class);
+        $form3->handleRequest($request);
+        $error=$form3->getErrors();
+
+        //if($estado=='inactive'){
+            //si el pedido está en estado inactivo, es decir, que no se ha creado aún, crearemos un pedido y cambiaremos el estado
+            //puesto que si está en proceso utilizaremos ese pedido para ir añadiendo productos
+            $pedido = new Orderr();
+            $estado->set('Pedido','in progress');
+
+            //creamos un detalle de pedido
+            $detalle = new Detail();
 
 
+            if($form2->isSubmitted() && $form2->isValid()){
+
+                $trans = $form2->get('carrier')->getData();
+                $metododepago=$form2->get('paymentmethod')->getData();
+
+                $pedido->setPaymentconfirmed(false);
+                $pedido->setMainaddress('calle de prueba');
+                $pedido->setSecondarydirection('-');
+                $pedido->setNameofowner('yo');
+                $pedido->setCardnumber('0123456789012345');
+                $pedido->setCarrier($trans);
+                $pedido->setPaymentmethod($metododepago);
+                $user = $this->getUser();
+                $pedido->setUser($user);
+
+                $entityManager=$this->getDoctrine()->getManager();
+                $entityManager->persist($pedido);
+                //$entityManager->flush();
+
+                $idpedido = $pedido->getId();
+
+                if(($pedido->getPaymentconfirmed() == false) && ($estado->get('Pedido') == 'in progress')){
+                    //$prducttoedit=$form->getData();
+                    $precio = $form->get('unitprice')->getData();
+                    //$cantidad = $form3->get('quantity')->getData();
+                    $cantidad=2;
+                    //$cantidad=$request->request->get('unidades');
+
+                    $detalle->setProduct($prducttoedit);
+                    $detalle->setQuantity($cantidad);
+                    $detalle->setPrice($precio);
+                    $detalle->setTotal($precio*$cantidad);
+                    $detalle->setForder($pedido);
 
 
+                    $entityManager=$this->getDoctrine()->getManager();
+                    $entityManager->persist($detalle);
+                    $entityManager->flush();
+                }
 
-    /**
-     * Función  para añadir productos al carrito
-     * @Route("/pedido_old/add/{id}", name="add_product_to_basket_old")
-     */
-    public function addProductOrder_old(Request $request,$id)
-    {
-        $session = $request->getSession();
-        $orderr = new Orderr();
-        $user=$this->getUser();
-
-       // Debug::enable();
-        $detail = new Detail();
-        $product = $this->getDoctrine()->getRepository(Product::class)->findBy(array('id' => $id));
-        $prducttoaddtobasket = $product[0];
+                $this->addFlash('success', 'Producto modificado correctamente');
+                return $this->redirectToRoute('app_homepage');
+            }
+        //}
 
 
-        $form = $this->createForm(OrderrType::class, $prducttoaddtobasket);
-
-        $form->handleRequest($request);
-        $error = $form->getErrors();
-        //$contenido = $request->getContent();
-
-        $form2=$this->createForm(Orderr2Type::class, $detail);
-        $form2->handleRequest($request);
-
-
-        if ($form2->isSubmitted() && $form2->isValid()) {
-            $session = $this->session;
-            $session = $this->getSession();
-            //$session->clear();
-            $ideitoSE=$session->get('id');
-            $ideitoRE=$request->get('id');
-           $canti23=$session->get('quantity');
-           // $remember=$request->get('remember');
-           // $session = $request->getSession();
-
-         //  $pi = $request->query->get('quantity');
-         $contenido = $request->getContent();
-         $session123 = $this->getContent();
-
-        //  $canti= $request->get("quantity");
-            $con2 = $request->getPathInfo();
-          //  return $this->storage->start();
-            var_dump($canti23);
-            die;
-            return $this->redirectToRoute('app_homepage');
-
-        }
-
-       // $detail->setProduct($prducttoaddtobasket);
-
-        /*$em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery(
-            'UPDATE p FROM App\Entity\Product p
-            SET p.stock = p.stock - 1,
-            p.reservedstocks = p.reservedstocks - 1 WHERE p.id ='.$detail);
-
-        $res = $query->getResult();*/
-        //$total=$detail
 
         return $this->render('order/inprogress.html.twig', array(
-            /*'res' => $res*/
+            //'res' => $res
+            'estado'=>$estado,
             'orderrs'=>$product,
             'form'=>$form->createView(),
-            'form2'=>$form2->createView()
+            'form2'=>$form2->createView(),
+            'form3'=>$form3->createView()
         ));
+
 
     }
 

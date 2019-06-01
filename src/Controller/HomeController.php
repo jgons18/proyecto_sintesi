@@ -15,6 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
 use Symfony\Component\HttpFoundation\Session\Session;
 
 
@@ -35,7 +36,13 @@ class HomeController extends AbstractController
         $response->sendHeaders();*/
 
 
+        //creo la sessión, indicando el estado del pedido, que posteriomente modificaremos
         $session = new Session();
+<<<<<<< HEAD
+=======
+        $session->set('Pedido', 'inactive');
+        
+>>>>>>> origin/master
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
         return $this->render('home/home.html.twig', [
             'products'=>$products]);

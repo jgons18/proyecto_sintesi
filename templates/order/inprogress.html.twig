@@ -70,14 +70,22 @@
     </nav>
 </div>
 {% block body %}
-    <h1>Pedido</h1>
+    <div class="jg_mostrar_carrito">carrito</div>
+    <h2 class="jg_titulos">Pedido</h2>
     {% for orderr in orderrs %}
-        <div>
+        <div class="jg_box_order">
                 <div class="jg_form_add_product_to_basket">
                     {{ form_start(form) }}
                     {{ form_widget(form) }}
                     {{ form_errors(form) }}
                     {{ form_end(form) }}
+
+                    {{ form_start(form3) }}
+                    {{ form_widget(form3) }}
+                    {{ form_errors(form3) }}
+                    {{ form_end(form3) }}
+                    {#<label>Unidades</label>
+                    <input type="number" min="1" name="unidades" id="unidades">#}
 
                     {{ form_start(form2) }}
                     {{ form_widget(form2) }}
@@ -85,6 +93,9 @@
                     {{ form_end(form2) }}
 
                 </div>
+        </div>
+        <div class="jg_box_order jg_right">
+            <h3>TOTAL</h3>
         </div>
     {% endfor %}
 <footer>

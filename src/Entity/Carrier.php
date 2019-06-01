@@ -33,9 +33,15 @@ class Carrier
      */
     private $image;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Orderr", mappedBy="carrier")
+     */
+    private $orderrs;
+
     public function __construct()
     {
         $this->details = new ArrayCollection();
+        $this->orderrs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -103,6 +109,37 @@ class Carrier
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Orderr[]
+     */
+    public function getOrderrs(): Collection
+    {
+        return $this->orderrs;
+    }
+
+    public function addOrderr(Orderr $orderr): self
+    {
+        if (!$this->orderrs->contains($orderr)) {
+            $this->orderrs[] = $orderr;
+            $orderr->setCarrier($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderr(Orderr $orderr): self
+    {
+        if ($this->orderrs->contains($orderr)) {
+            $this->orderrs->removeElement($orderr);
+            // set the owning side to null (unless already changed)
+            if ($orderr->getCarrier() === $this) {
+                $orderr->setCarrier(null);
+            }
+        }
 
         return $this;
     }
