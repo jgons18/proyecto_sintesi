@@ -70,40 +70,25 @@
     </nav>
 </div>
 {% block body %}
+    <div>
+        <div class="am_vista">
+            <h3 class="am_ruta">
+                <a href="{{ path('app_homepage') }}">Home</a>
+                > <a href="{{ path('offers') }}">Ofertas</a> >
+                <a href="{{ path('view_ofert_pro', {'id':product.id}) }}">{{ product.nameproduct }}</a>
+            </h3>
+            <div class="am_iconos"><a class="fas fa-pen" href="{{ path('edit_product_vegetable', {'id':product.id}) }}"></a> <a class="fas fa-trash-alt" href="{{ path('delete_product_vegetable', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a></div>
 
-    <h2 class="jg_titulos">Filtrado por otras</h2>
-    {% if is_granted('ROLE_ADMIN') %}
-        <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
-    {% endif %}
-    <select class="jg_filtros_precio">
-        <option value="{{ path('app_fruits') }}">Escoge una opción</option>
-        <option value="{{ path('app_price_low_to_high_v_others') }}">Ordenar por precio: de bajo a más alto</option>
-        <option value="{{ path('app_price_high_to_low_v_others') }}">Ordenar por precio: de alto a más bajo</option>
-    </select>
-    <div class="am_filtros_categoria">
-        <a href="{{ path('app_category_filter_other_vegetables') }}" class="jg_filtros_selected jg_filtros_otras">Otras</a>
-        <a href="{{ path('app_vegetables') }}" class="jg_filtros jg_quitar_filtros"><i class="fas fa-filter"></i><i class="fas fa-times"></i></a>
-    </div>
-    <div class="am_caja_productos_temporada">
-        {% for re in res %}
-            <div class="jg_producto_temporada">
-                {#{%  if product.season == 'Todo el año' %}#}
-                <div class="am_iconos">
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':re.id}) }}"></a>
-                        <a class="fas fa-pen" href="{{ path('edit_product_fruit', {'id':re.id}) }}"></a>
-                        <a class="fas fa-trash-alt" href="{{ path('delete_product_fruit', {'id':re.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
-                    {% endif %}
-                </div>
-                <!--añadiremos la misma descripción en alt que en longdesc-->
-                <a class="am_producto" href="{{ path('view_product_fruit', {'id':re.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ re.image) }}" alt="{{ re.description }}" longdesc="{{ re.description }}">
-                    <h4 class="am_titulo_producto">{{ re.nameproduct }}</h4></a>
-                <div class="jg_producto_temporada_bot">
-                    <div><p>{{ re.unitprice }}€</p></div>
-                    <div class="am_boton_producto"><a href="{{ path('add_product_to_basket',{'id':re.id}) }}" >Añadir a cesta</a></div></div>
-
+            <div class="detalles">
+                <div class="am_imagen"><img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}"></div>
+                <h3 class="am_nameproduct">{{ product.nameproduct }}</h3>
+                <div class="am_categoria">{{ product.category }}</div>
+                <div class="am_temporada">{{ product.season }}</div>
+                <div class="am_precio"><strike>{{ product.unitprice }}€</strike></div>
+                <div class="am_precio">{{ product.offerprice }}€</div>
+                <div class="am_descripcion">{{ product.description }}</div>
             </div>
-        {% endfor %}
+        </div>
     </div>
     <footer>
         <section class="sn_footer_top">
@@ -118,6 +103,7 @@
                 <p class="sn_move_top"><a href="{{ path('app_fruits') }}">Frutas</a></p>
                 <p class="sn_move_top"><a href="{{ path('app_vegetables') }}">Verduras y Hortalizas</a></p>
                 <p class="sn_move_top"><a href="{{ path('app_boxes') }}">Cestas</a></p>
+                <p class="sn_move_top"><a href="{{ path('offers') }}">Ofertas</a></p>
             </article>
             <article class="rrss">
                 <p class="titulo">RRSS</p>
@@ -155,7 +141,7 @@
     {% endif %}
 {% endblock %}
 {% block javascripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 {% endblock %}

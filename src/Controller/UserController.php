@@ -142,11 +142,9 @@ class UserController extends AbstractController
         return $this->render('user/perfil.html.twig');
 
     }
-
     /**
      * @Route("/edit_prof", name="app_prof")
      */
-
    // public function edit_user_prof(Request $request, Security $security) : Response{
     public function edit_user_prof(Request $request){
         $user = $this->getUser();
