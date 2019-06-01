@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 
 $(document).ready(function () {
 
@@ -195,24 +193,43 @@ $(document).ready(function () {
        });
     });
 
+    function am_slider_home() {
+
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    }
+
+    $("#user_province").on("change", function () {
+        var provinciaid = $(this).val();
+        var cities = $("#user_city");
+        cities.empty();
+        cities.append('<option selected="true" disabled>Selecciona una ciudad</option>');
+        cities.prop('selectedIndex', 0);
+
+        $.getJSON("json/municipios.json", function (data) {
+            $.each(data, function (key, entry) {
+                if (entry.provincia_id == provinciaid) {
+                    cities.append('<option value="'+ entry.id +'">'+ entry.name +'</option>');
+
+                }
+            })
+        });
+    })
+
 });
 
 
-=======
-function am_slider_home() {
 
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-}
->>>>>>> 74c686f84123c80d14cade743d37f2453d892d87
+
+

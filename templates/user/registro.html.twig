@@ -70,23 +70,16 @@
     </nav>
 </div>
 {% block body %}
-<<<<<<< HEAD
+
 <div class="am_formulario jg_ocultar_campos">
     <h2 class="jg_titulos">Regístrate rápidamente con estos sencillos pasos</h2>
   {{ form_start(form) }}
     {{ form_widget(form) }}
     {#{{ form_widget(form.save) }}#}
-=======
-<div class="am_formulario">
-    <h2>Register, please</h2>
-
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
->>>>>>> 74c686f84123c80d14cade743d37f2453d892d87
     {{ form_errors(form) }}
     {{ form_end(form) }}
-    <button type="button" class="jg_siguiente_1">Siguiente paso</button>
     <button type="button" class="jg_atras_1">Anterior paso</button>
+    <button type="button" class="jg_siguiente_1">Siguiente paso</button>
 </div>
 <footer>
     <section class="sn_footer_top">

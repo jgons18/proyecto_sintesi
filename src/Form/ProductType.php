@@ -38,16 +38,14 @@ class ProductType extends AbstractType
             ->add('description',TextType::class,[
                 'required'=>'required',
                 'label' => 'Descripción',
-                'attr'=>[
-                    'class'=>'jg_input_form',
+                'attr'=>['class'=>'jg_input_form',
                     'placeholder'=>'ej:El Melocotón es originario de China desde hace 3.000 a. c.'
                 ]
             ])
             ->add('unitprice',NumberType::class,[
                 'required'=>'required',
                 'label' => 'Precio unidad',
-                'attr'=>[
-                    'class'=>'jg_input_form',
+                'attr'=>['class'=>'jg_input_form',
                     'placeholder'=>'ej:2.99'
                 ]
             ])
@@ -56,6 +54,7 @@ class ProductType extends AbstractType
                 'label' => 'Existencias',
                 'attr'=>[
                     'class'=>'jg_input_form',
+                    //'class'=>'form-control am_form_input am_stock',
                     'placeholder'=>'ej:100'
                 ]
             ])
@@ -64,6 +63,7 @@ class ProductType extends AbstractType
                 'label' => 'Existencias reservadas',
                 'attr'=>[
                     'class'=>'jg_input_form',
+                   // 'class'=>'form-control am_form_input am_stock_reservado',
                     'placeholder'=>'ej:50'
                 ]
             ])
@@ -71,8 +71,8 @@ class ProductType extends AbstractType
                 'required'=>'required',
                 'class' => Season::class,
                 'label' => 'Temporada',
-                'attr'=>[
-                    'class'=>'jg_input_form',
+                'attr'=>['class'=>'jg_input_form',
+                    //'class'=>'form-control am_form_input am_temporada',
                     'placeholder'=>'ej:1'
                 ]
             ])
@@ -80,22 +80,22 @@ class ProductType extends AbstractType
                 'required'=>'required',
                 'class' => Category::class,
                 'label' => 'Categoria',
-                'attr'=>[
-                    'class'=>'jg_input_form',
+                'attr'=>['class'=>'jg_input_form',
+                    //'class'=>'form-control am_form_input am_categoria',
                     'placeholder'=>'ej:2'
                 ]
             ])
             ->add('image',FileType::class,[
                 'label' => 'URL imagen',
-                'attr'=>[
-                    'class'=>'jg_input_form',
+                'attr'=>['class'=>'jg_input_form',
+                    //'class'=>'form-control am_form_input am_ruta_imagen',
                     'placeholder'=>'ej:img/manzana.jpg'
                 ]
             ])
             ->add('save',SubmitType::class, [
                 'label' => 'Guardar producto',
                 'attr'=>[
-                    'class' => 'save'
+                    'class' => 'save am_boton_guardar'
                 ]
             ]);
     }
