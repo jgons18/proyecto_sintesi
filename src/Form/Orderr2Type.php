@@ -9,13 +9,15 @@
 namespace App\Form;
 
 use App\Entity\Carrier;
+use App\Entity\Category;
 use App\Entity\Detail;
+use App\Entity\Paymentmethod;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class Orderr2Type extends AbstractType
@@ -43,6 +45,23 @@ class Orderr2Type extends AbstractType
                     'placeholder'=>'ej:50'
                 ]
 
+            ])
+            ->add('paymentmethod',EntityType::class,[
+                'required'=>'required',
+                'class' => Paymentmethod::class,
+                'label' => 'Método de pago',
+                'multiple'  => false,
+                'expanded'  => true,
+                'attr'=>[
+                    'class'=>'form-control'
+                ]
+
+            ])
+            ->add('save',SubmitType::class, [
+                'label' => 'Guardar pedido',
+                'attr'=>[
+                    'class' => 'save'
+                ]
             ]);
 
     }

@@ -16,6 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 
+
 class HomeController extends AbstractController
 {
 
@@ -30,6 +31,7 @@ class HomeController extends AbstractController
         //le indico los valores
         $response->headers->setCookie(new Cookie("aceptarcookies", 0,$time));
         $response->sendHeaders();*/
+
 
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
         return $this->render('home/home.html.twig', [

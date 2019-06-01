@@ -860,7 +860,22 @@
     .jg_accept_cookies{
         margin-top: 20%;
     }
-
+    .jg_mostrar_carrito{
+        display: block;
+        border: 1px solid;
+        z-index: 999999;
+        height: 20vh;
+        position: fixed;
+        background-color: white;
+        right: 0;
+        top: 19px;
+        width: 22%;
+        max-height: 90vh;
+        max-width: 22%;
+    }
+    #orderr{
+        display: inline-flex;
+    }
     .la_horta{
         background-image: url("/img/la_horta.png");
         background-repeat: no-repeat;

@@ -20,6 +20,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Debug\Debug;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class OrderrController extends AbstractController
 {
@@ -40,59 +41,88 @@ class OrderrController extends AbstractController
         return $this->findBy(array(), array('dateeorderr' => 'ASC'));
     }
 
+
     /**
      * Función  para añadir productos al carrito
      * @Route("/pedido/add/{id}", name="add_product_to_basket")
      */
     public function addProductOrder(Request $request,$id)
     {
-        $orderr = new Orderr();
+        //creo la sessión, indicando el estado del pedido, que posteriomente modificaremos
+        $session = new Session();
+        $session->set('Pedido', 'created');
+        $estado = $session->get('Pedido');
 
+        $pedido = new Orderr();
 
-        //obtengo el usuario que está haciendo el pedido
-        $user=$this->getUser();
+        $detalle = new Detail();
 
-        //obtengo la hora en la que se ha empezado el pedido
-        $orderCreate=$orderr->getDateeorderr();
+        $product=$this->getDoctrine()->getRepository(Product::class)->findBy(array('id'=>$id));
+        $prducttoedit=$product[0];
 
-
-        Debug::enable();
-        $detail = new Detail();
-        $product = $this->getDoctrine()->getRepository(Product::class)->findBy(array('id' => $id));
-        $prducttoaddtobasket = $product[0];
-
-
-        $form = $this->createForm(OrderrType::class, $prducttoaddtobasket);
-
+        $form=$this->createForm(OrderrType::class,$prducttoedit);
         $form->handleRequest($request);
-        $error = $form->getErrors();
+        $error=$form->getErrors();
 
         $form2=$this->createForm(Orderr2Type::class);
         $form2->handleRequest($request);
+        $error=$form2->getErrors();
+        $session->set('Pedido', 'in progress');
 
-        $detail->setProduct($prducttoaddtobasket);
 
-        /*$em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery(
-            'UPDATE p FROM App\Entity\Product p
-            SET p.stock = p.stock - 1,
-            p.reservedstocks = p.reservedstocks - 1 WHERE p.id ='.$detail);
+        if($form2->isSubmitted() && $form2->isValid()){
 
-        $res = $query->getResult();*/
-        //$total=$detail
+            $pedido->setPaymentconfirmed(false);
+            $pedido->setMainaddress('calle de prueba');
+            $pedido->setSecondarydirection('-');
+            $pedido->setNameofowner('yo');
+            $pedido->setCardnumber('0123456789012345');
+            $user = $this->getUser();
+            $pedido->setUser($user);
+
+            $entityManager=$this->getDoctrine()->getManager();
+            $entityManager->persist($pedido);
+            $entityManager->flush();
+
+            $idpedido = $pedido->getId();
+
+            if(($pedido->getPaymentconfirmed() == false) && ($session->get('Pedido') == 'in progress')){
+                //$prducttoedit=$form->getData();
+                $precio = $form->get('unitprice')->getData();
+                $cantidad = $form2->get('quantity')->getData();
+                $trans = $form2->get('carrier')->getData();
+                $metododepago=$form2->get('paymentmethod')->getData();
+
+                $detalle->setProduct($prducttoedit);
+                $detalle->setQuantity($cantidad);
+                $detalle->setPrice($precio);
+                $detalle->setCarrier($trans);
+                $detalle->setTotal($precio*$cantidad);
+                $detalle->setPaymentmethod($metododepago);
+                $detalle->setForder($pedido);
+
+
+                $entityManager=$this->getDoctrine()->getManager();
+                $entityManager->persist($detalle);
+                $entityManager->flush();
+            }
+
+
+
+            $this->addFlash('success', 'Producto modificado correctamente');
+            return $this->redirectToRoute('app_homepage');
+        }
+
+
 
         return $this->render('order/inprogress.html.twig', array(
-            /*'res' => $res*/
+            //'res' => $res
+            'estado'=>$session,
             'orderrs'=>$product,
             'form'=>$form->createView(),
             'form2'=>$form2->createView()
         ));
 
-        /*return $this->render('fruit/index.html.twig',[
-            'error'=>$error,
-            'products'=>$product,
-            'form'=>$form->createView()
-        ]);*/
 
     }
 

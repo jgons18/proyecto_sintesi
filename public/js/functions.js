@@ -194,6 +194,15 @@ $(document).ready(function () {
        });
     });
 
+    $(".jg_mostrar_carrito").hide();
+    $(".am_boton_producto").click(function () {
+        $(".jg_mostrar_carrito").show();
+    });
+    //click carrito
+    $(".am_carro").click(function () {
+
+    });
+
 });
 
 
