@@ -945,9 +945,7 @@
     .jg_accept_cookies{
         margin-top: 20%;
     }
-<<<<<<< HEAD
-=======
-    .jg_mostrar_carrito{
+rar_carrito{
         display: block;
         border: 1px solid;
         z-index: 999999;
@@ -970,7 +968,6 @@
     #orderr{
         display: inline-flex;
     }
->>>>>>> origin/master
 
     .la_horta{
         background-image: url("/img/la_horta.png");

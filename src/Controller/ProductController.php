@@ -368,6 +368,23 @@ class ProductController extends AbstractController
             $prductoffer=$form->getData();
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($prductoffer);
+            $file = $form->get('image')->getData();
+            if($file){
+                //genero una serie de letras y números únicos + su extensión para la imagen
+                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+                // moves the file to the directory where brochures are stored
+                try{
+                    $file->move(
+                        $this->getParameter('pictures_directory'),
+                        $fileName
+                    );
+                    //actualizar propiedad de image
+                    $prductoffer->setImage($fileName);
+                }catch (FileException $e){
+                    $this->addFlash('warning','Error uploading image');
+                }
+                $prductoffer->setImage($fileName);
+            }
             $entityManager->flush();
             $this->addFlash('success', 'Oferta creada');
             return $this->redirectToRoute($route);
