@@ -226,6 +226,7 @@ class ProductController extends AbstractController
      * @param string $route
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
+
     private function editProduct(int $id, Request $request, string $template, string $route){
         $product=$this->getDoctrine()->getRepository(Product::class)->findBy(array('id'=>$id));
         $prducttoedit=$product[0];

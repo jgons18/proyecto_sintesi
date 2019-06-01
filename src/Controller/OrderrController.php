@@ -25,6 +25,9 @@ use Symfony\Component\HttpFoundation\Session\Session;
 
 class OrderrController extends AbstractController
 {
+//$session = new Session();
+
+
     /**
      * Función para listar los pedidos
      * @Route("/pedidos", name="app_pedidos")
@@ -43,7 +46,7 @@ class OrderrController extends AbstractController
     }
 
 
-    /**
+     /**
      * Función  para añadir productos al carrito
      * @Route("/pedido/add/{id}", name="add_product_to_basket")
      */
@@ -161,12 +164,14 @@ class OrderrController extends AbstractController
      */
     public function addCarrier(Request $request){
         $carrier = new Carrier();
-
+        $detail = new Detail();
         //creamos el formulario
         $form=$this->createForm(CarrierType::class,$carrier);
         $form->handleRequest($request);
 
         $error=$form->getErrors();
+
+
 
         if($form->isSubmitted() && $form->isValid()){
             //capturo los datos

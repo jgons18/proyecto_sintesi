@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+
+{% block javascripts %}
+
+{% endblock %}
+
+{% block body %}
+    <h1 class="sn_titulo_ayuda">Preguntas mas Frecuentes</h1>
+    <div class="sn_acordeon">
+        <div id="accordion">
+            <h3 class="sn_titulos_categorias_acordeon" onclick="change_image()"> <img class="img_der sn_change_1" src="{{ asset('/img/mas_gris.png') }}"/> Cuanto tardan los envios</h3>
+            <div>
+                <p class="sn_textos_acordeon">
+                    Los pedidos se envian 24 horas despues de realizarse el pedido
+                </p>
+            </div>
+            <h3 class="sn_titulos_categorias_acordeon"><img class="img_der" src="{{ asset('/img/mas_gris.png') }}"/> No estaba en casa cuando mi pedido llego </h3>
+            <div>
+                <p class="sn_textos_acordeon">
+                    Si usted no se encontraba en el domicilio en el momento en que llego, el pedido se enviara de vuelta al almacen y tiene 24 horas para reclamarlo, en caso de que no lo reclame o en el siguiente envio no lo vuelva a recoger
+                </p>
+            </div>
+            <h3 class="sn_titulos_categorias_acordeon"><img class="img_der" src="{{ asset('/img/mas_gris.png') }}"/> Reclamar pedido </h3>
+            <div>
+                <p class="sn_textos_acordeon">
+                    En caso de no haber podido entregarse en la primera direccion el envio se enviara a la segunda direccion establecida (en caso de firhaber sido establecida) en caso de no haber sido establecida o que tampoco haya sido entregao en el segundo domicilio el envio se enviara de vuelta al almacen donde usted tendra 24 horas para reclamarlo, al reclamarlo se lo volvera na enviar
+                </p>
+            </div>
+            <h3 class="sn_titulos_categorias_acordeon"> <img class="img_der" src="{{ asset('/img/mas_gris.png') }}"/> El pedido llega en mal estado</h3>
+            <div>
+                <p class="sn_textos_acordeon">
+                    En caso de que el pedido llegue en mal estado pongase en contacto con nosotros y resolveremos si el mal estado venia del alamcen o si hubo problema por el camino
+                </p>
+            </div>
+            <h3 class="sn_titulos_categorias_acordeon"> <img class="img_der" src="{{ asset('/img/mas_gris.png') }}"/> El pedido indica entregado pero no he recibido nada</h3>
+            <div>
+                <p class="sn_textos_acordeon">
+                    En caso de que esto suceda nos pondremos en contacto con la empresa de transporte para ver que ha sucedido y proceder a reenviar su pedido cuanto antes
+                </p>
+            </div>
+
+            <h3 class="sn_titulos_categorias_acordeon"> <img class="img_der" src="{{ asset('/img/mas_gris.png') }}"/>Devoluciones</h3>
+            <div>
+                <p class="sn_textos_acordeon">
+                    En caso de que usted haya cancelado el pedido en menos de 10 horas desde que lo realizo, se le devolvera su dinero integramente</p>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

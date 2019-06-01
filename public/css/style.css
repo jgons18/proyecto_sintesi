@@ -4,32 +4,31 @@
 
 /* PORTÁTILES & pantallas como las de clase*/
 @media (min-width: 1025px) and (max-width: 1913px) {
-    *{
+    * {
         box-sizing: border-box;
-        margin:0;
-        padding:0;
+        margin: 0;
+        padding: 0;
     }
+  
 
     .margen{
         margin-bottom: 29vh;
     }
 
     /* HEADER Base.html*/
-
-    .am_cabecera{
+    .am_cabecera {
         position: fixed;
         width: 100%;
         top: 0;
     }
 
-    header{
+    header {
         width: 100%;
         height: 20vh;
         display: flex;
         text-align: center;
         background-color: white;
         font-family: Metrophobic;
-
 
     }
     button:hover{
@@ -38,7 +37,6 @@
         cursor: pointer;
     }
     a:hover{
-
         font-weight: bolder;
     }
 
@@ -48,6 +46,7 @@
         width: 10vw;
         height:12vh;
     }
+
 
     .am_logo{
         vertical-align: top;
@@ -61,6 +60,7 @@
         height: 3vh;
         margin: 0vh 0vw 0vh 2vw;
     }
+
     .am_div_buscador form{
         display: flex;
         flex-direction: row;
@@ -74,6 +74,7 @@
         height: 7vh;
         padding: 2%;
     }
+
 
     .am_boton_buscar{
         height: 7vh;
@@ -89,6 +90,7 @@
         margin: 0vh 0vw 0vh 25vw;
     }
 
+
     .am_login{
         font-size: 4vh;
     }
@@ -99,12 +101,12 @@
         align-self: center;
     }
 
+
     .am_logout a{
         font-size: 4vh;
     }
 
     .am_div_signin{
-
         width: 10vw;
         text-align: center;
         align-self: center;
@@ -121,8 +123,8 @@
         text-align: center;
         align-self: center;
     }
-    .am_div_perfil{
 
+    .am_div_perfil{
         width: 10vw;
         text-align: center;
         align-self: center;
@@ -155,7 +157,6 @@
     }
 
     .am_div_carro{
-
         width: 8vw;
         text-align: center;
         align-self: center;
@@ -173,17 +174,14 @@
         color: #99C24D;
     }
     .am_div_comprar{
-
         justify-self: center;
         text-align: center;
         align-self: center;
         width: 9vw;
 
-
     }
 
     .am_comprar{
-
         width: 7vw;
         height: 10vh;
         font-size: 1em;
@@ -196,7 +194,7 @@
 
     }
 
-    a{
+    a {
         text-decoration: none;
         color: #000;
     }
@@ -269,18 +267,18 @@
         font-size: 1.1em;
     }
     /* NAV*/
-
-    .jg_nav{
+    .jg_nav {
         width: 100%;
         height: 8vh;
         background-color: #51AD2A;
         font-family: Metrophobic;
 
     }
+
     .jg_nav ul{
         vertical-align: center;
         display: flex;
-        flex-direction:row;
+        flex-direction: row;
         list-style: none;
         justify-content: space-around;
         font-size: 1.3em;
@@ -300,6 +298,7 @@
         color: white;
 
     }
+
 
     .am_nav_objverd{
         width: 25vw;
@@ -419,18 +418,19 @@
     }
 
     .jg_productos_temporada h1{
-
         font-family: dosis;
     }
-    .am_caja_productos_temporada{
+
+    .am_caja_productos_temporada {
 
         display: grid;
-        grid-template-columns:repeat(4, 1fr);
-        grid-auto-rows:55vh;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 55vh;
         grid-gap: 0px;
         padding: 12vh 0vw 1vh 0vw;
     }
-    .jg_producto_temporada{
+
+    .jg_producto_temporada {
         text-align: center;
         width: 20vw;
         height: 50vh;
@@ -440,6 +440,7 @@
         margin: 0vh 1vw 0vh 1vw;
 
     }
+
     .jg_producto_temporada p{
         color: #99C24D;
         font-size: 1.8em;
@@ -462,7 +463,7 @@
         text-align: center;
     }
 
-    .am_boton_producto{
+    .am_boton_producto {
         font-family: dosis;
         width: 7vw;
         height: 7vh;
@@ -490,7 +491,6 @@
         color: white;
     }
     .am_boton_producto a:hover{
-
         opacity: 0.7;
         font-weight: normal;
     }
@@ -500,12 +500,12 @@
         text-align: center;
     }
 
-    .am_marcas h1{
+    .am_marcas h1 {
 
         font-family: dosis;
     }
 
-    .am_div_marcas{
+    .am_div_marcas {
         margin-top: 12vh;
         display: flex;
         flex-direction:row;
@@ -522,21 +522,22 @@
 
     }
 
-    .am_opiniones{
+    .am_opiniones {
         text-align: center;
         margin-top: 10vh;
     }
 
-    .am_opiniones h1{
+    .am_opiniones h1 {
         font-family: dosis;
     }
 
-    .am_var_opiniones{
+    .am_var_opiniones {
         margin-top: 12vh;
         display: flex;
-        flex-direction:row;
+        flex-direction: row;
         justify-content: space-around;
     }
+
     .am_opinion{
         padding: 3vh 1vw 0vh 1vw;
         font-family: Metrophobic;
@@ -575,6 +576,7 @@
         font-family: Metrophobic;
         padding-top: 5vh;
     }
+
 
 
 
@@ -638,6 +640,7 @@
 
     }
 
+
     footer a {
         font-style: normal;
         color: white;
@@ -645,18 +648,19 @@
     .sn_footer_top{
         margin-top: 5vh;
         display: flex;
-        flex-direction:row;
+        flex-direction: row;
         list-style: none;
         padding: 1vw;
         justify-content: space-between;
 
     }
 
-    .sn_footer_top article{
+    .sn_footer_top article {
 
         width: 20vw;
         height: 20vh;
     }
+
     .sn_footer_mid article{
         width: 20vw;
         text-align: center;
@@ -667,10 +671,11 @@
     .rrss{
         text-align: center;
     }
-    .iconos{
+
+    .iconos {
 
         display: flex;
-        flex-direction:row;
+        flex-direction: row;
         list-style: none;
         padding: 1vw;
         justify-content: space-between;
@@ -678,14 +683,16 @@
 
     }
 
+
     .sn_footer_mid{
         display: flex;
-        flex-direction:row;
+        flex-direction: row;
         list-style: none;
         padding: 1vw;
         justify-content: center;
         margin: 5vh 0vw 5vh 0vw;
     }
+
     .titulo{
         font-size: 1.2em;
         color: #e0e0e0;
@@ -697,13 +704,15 @@
         margin: 2vh 0vw 0vh 0vw;
         padding-bottom: 4vh;
     }
-    .sn_footer_top > p{
+
+    .sn_footer_top > p {
         font-size: 2em;
     }
     .sn_move_top{
         margin-top: 1vh;
     }
-    .jg_box_login{
+
+    .jg_box_login {
         margin-top: 42vh;
         /*margin-left: 44%;*/
     }
@@ -714,6 +723,64 @@
     .am_formulario form label::after{
         content: "\A";
         white-space: pre;
+    }
+    /*PERFIL DEL USUARIO */
+    .sn_perfil{
+        margin-top:35vh;
+        height: 45vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        justify-items: center;
+    }
+    .datos de accesso{
+        margin-left: 15vh;
+    }
+    .sn_titulos{
+        margin-bottom: 4vh;
+    }
+
+    .sn_acordeon{
+        margin-top: 5vh;
+        height: 25vh;
+        width: 40vw;
+        margin-left: 35%;
+        margin-bottom: 55vh;
+    }
+    .sn_titulo_ayuda{
+        font-family: Metrophobic;
+        margin-top: 45vh;
+        text-align: center;
+        font-size: 2em;
+    }
+    .sn_titulos_categorias_acordeon{
+        /* background-color: #99C24D; */
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        font-size: 2em;
+        font-family: Dosis;
+    }
+    .sn_textos_acordeon{
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        font-size: 1.5em;
+        font-family: Metrophobic;
+    }
+    .img_der{
+        height: 25px;
+    }
+    .sn_profile{
+        height: 25vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .sn_titulos_prof{
+        font-family: Dosis;
+    }
+    .sn_direccion{
+        font-size: 1.2em;
+        height: 25vh;
     }
 
     .jg_form_login input,.jg_input_form{
@@ -901,6 +968,7 @@
     #orderr{
         display: inline-flex;
     }
+
     .la_horta{
         background-image: url("/img/la_horta.png");
         background-repeat: no-repeat;
@@ -953,7 +1021,26 @@
         padding: 3vh 5vw 0vh 5vw;
         font-family: Metrophobic;
 
+    }
 
+    .sn_perfil_general{
+        margin-top: 40vh;
+        height: 50vh;
+    }
+    .sn_user_name{
+        margin: 5vh;
+        margin-left: 25vh;
+        font-size: 2em;
+    }
+    .sn_titulos_prof{
+        margin-bottom: 3vh;
+    }
+    .sn_datosacceso{
+        margin-left: 25vh;
+        font-size: 1.2em;
+    }
+
+    /*--------cookies-----------*/
     }
 
     .am_cookies h1 , h2{
@@ -1009,6 +1096,10 @@
 
     }
 
+    .sn_editar{
+        margin-top: 25vh;
+
+    }
 /*FORMULARIO DE AÑADIR UN PRODUCTO AL CARRITO*/
     #orderr div:nth-child(4),#orderr div:nth-child(5),#orderr div:nth-child(6),#orderr div:nth-child(7){
         display: none;

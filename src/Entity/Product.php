@@ -6,6 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\Session\Session;
+use App\Entity\Offer;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
@@ -71,7 +73,24 @@ class Product
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Detail", mappedBy="product")
      */
+
     private $details;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Offer", inversedBy="products")
+     */
+    private $offer;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $isoffer;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $offerprice;
+
 
 
     public function __construct()
@@ -192,6 +211,7 @@ class Product
         return $this;
     }
 
+
     /**
      * @return Collection|Detail[]
      */
@@ -221,6 +241,56 @@ class Product
         }
 
         return $this;
+    }
+
+    public function getOffer(): ?Offer
+    {
+        return $this->offer;
+    }
+
+    public function setOffer(?Offer $offer): self
+    {
+        $this->offer = $offer;
+
+        return $this;
+    }
+
+    public function getIsoffer(): ?int
+    {
+        return $this->isoffer;
+    }
+
+    public function setIsoffer(?int $isoffer): self
+    {
+        $this->isoffer = $isoffer;
+
+        return $this;
+    }
+
+    public function getOfferprice(): ?float
+    {
+
+        return $this->offerprice;
+    }
+
+    /* Clase general
+   public function setOfferprice(?float $offerprice): self
+    {
+        $this->offerprice = $offerprice;
+
+        return $this;
+    }
+  */
+    public function setOfferprice(?float $offerprice): self
+    {
+        $this->offerprice = $offerprice;
+
+        return $this;
+    }
+
+    public function calcular_porcentaje(){
+        $por = 100;
+
     }
 
     /**
