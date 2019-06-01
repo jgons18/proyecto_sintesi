@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 
 $(document).ready(function () {
 
@@ -216,8 +214,6 @@ $(document).ready(function () {
 
 });
 
-
-=======
 function am_slider_home() {
 
     var swiper = new Swiper('.swiper-container', {
@@ -234,4 +230,3 @@ function am_slider_home() {
         },
     });
 }
->>>>>>> 74c686f84123c80d14cade743d37f2453d892d87
