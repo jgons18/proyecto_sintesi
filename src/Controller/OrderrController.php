@@ -15,6 +15,7 @@ use App\Entity\Product;
 use App\Form\CarrierType;
 use App\Form\Orderr2Type;
 use App\Form\OrderrType;
+use App\Form\OrderrUnitsType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -52,78 +53,94 @@ class OrderrController extends AbstractController
     public function addProductOrder(Request $request,$id)
     {
         //creo la sessión, indicando el estado del pedido, que posteriomente modificaremos
-        $session = new Session();
-        $session->set('Pedido', 'created');
-        $estado = $session->get('Pedido');
+        /*$session = new Session();
+        $session->set('Pedido', 'inactive');*/
+        $estado = $request->getSession('Pedido');
+        //$session->get('Pedido');
 
-        $pedido = new Orderr();
-
-        $detalle = new Detail();
-
+        //obtenemos el id del producto a añadir al pedido
         $product=$this->getDoctrine()->getRepository(Product::class)->findBy(array('id'=>$id));
         $prducttoedit=$product[0];
 
+        //creamos el primer formulario en que recogemos todos los detalles del producto que posteriormente mostraremos en el pedido
         $form=$this->createForm(OrderrType::class,$prducttoedit);
         $form->handleRequest($request);
         $error=$form->getErrors();
 
+        //crearemos otro formulario en que determinados las unidades de cada producto,transportista y método de pago
         $form2=$this->createForm(Orderr2Type::class);
         $form2->handleRequest($request);
         $error=$form2->getErrors();
-        $session->set('Pedido', 'in progress');
+
+        //crearemos otro formulario pero de las unidades
+        $form3=$this->createForm(OrderrUnitsType::class);
+        $form3->handleRequest($request);
+        $error=$form3->getErrors();
+
+        //if($estado=='inactive'){
+            //si el pedido está en estado inactivo, es decir, que no se ha creado aún, crearemos un pedido y cambiaremos el estado
+            //puesto que si está en proceso utilizaremos ese pedido para ir añadiendo productos
+            $pedido = new Orderr();
+            $estado->set('Pedido','in progress');
+
+            //creamos un detalle de pedido
+            $detalle = new Detail();
 
 
-        if($form2->isSubmitted() && $form2->isValid()){
+            if($form2->isSubmitted() && $form2->isValid()){
 
-            $pedido->setPaymentconfirmed(false);
-            $pedido->setMainaddress('calle de prueba');
-            $pedido->setSecondarydirection('-');
-            $pedido->setNameofowner('yo');
-            $pedido->setCardnumber('0123456789012345');
-            $user = $this->getUser();
-            $pedido->setUser($user);
-
-            $entityManager=$this->getDoctrine()->getManager();
-            $entityManager->persist($pedido);
-            $entityManager->flush();
-
-            $idpedido = $pedido->getId();
-
-            if(($pedido->getPaymentconfirmed() == false) && ($session->get('Pedido') == 'in progress')){
-                //$prducttoedit=$form->getData();
-                $precio = $form->get('unitprice')->getData();
-                $cantidad = $form2->get('quantity')->getData();
                 $trans = $form2->get('carrier')->getData();
                 $metododepago=$form2->get('paymentmethod')->getData();
 
-                $detalle->setProduct($prducttoedit);
-                $detalle->setQuantity($cantidad);
-                $detalle->setPrice($precio);
-                $detalle->setCarrier($trans);
-                $detalle->setTotal($precio*$cantidad);
-                $detalle->setPaymentmethod($metododepago);
-                $detalle->setForder($pedido);
-
+                $pedido->setPaymentconfirmed(false);
+                $pedido->setMainaddress('calle de prueba');
+                $pedido->setSecondarydirection('-');
+                $pedido->setNameofowner('yo');
+                $pedido->setCardnumber('0123456789012345');
+                $pedido->setCarrier($trans);
+                $pedido->setPaymentmethod($metododepago);
+                $user = $this->getUser();
+                $pedido->setUser($user);
 
                 $entityManager=$this->getDoctrine()->getManager();
-                $entityManager->persist($detalle);
-                $entityManager->flush();
+                $entityManager->persist($pedido);
+                //$entityManager->flush();
+
+                $idpedido = $pedido->getId();
+
+                if(($pedido->getPaymentconfirmed() == false) && ($estado->get('Pedido') == 'in progress')){
+                    //$prducttoedit=$form->getData();
+                    $precio = $form->get('unitprice')->getData();
+                    //$cantidad = $form3->get('quantity')->getData();
+                    $cantidad=2;
+                    //$cantidad=$request->request->get('unidades');
+
+                    $detalle->setProduct($prducttoedit);
+                    $detalle->setQuantity($cantidad);
+                    $detalle->setPrice($precio);
+                    $detalle->setTotal($precio*$cantidad);
+                    $detalle->setForder($pedido);
+
+
+                    $entityManager=$this->getDoctrine()->getManager();
+                    $entityManager->persist($detalle);
+                    $entityManager->flush();
+                }
+
+                $this->addFlash('success', 'Producto modificado correctamente');
+                return $this->redirectToRoute('app_homepage');
             }
-
-
-
-            $this->addFlash('success', 'Producto modificado correctamente');
-            return $this->redirectToRoute('app_homepage');
-        }
+        //}
 
 
 
         return $this->render('order/inprogress.html.twig', array(
             //'res' => $res
-            'estado'=>$session,
+            'estado'=>$estado,
             'orderrs'=>$product,
             'form'=>$form->createView(),
-            'form2'=>$form2->createView()
+            'form2'=>$form2->createView(),
+            'form3'=>$form3->createView()
         ));
 
 

@@ -30,7 +30,7 @@ class OrderrType extends AbstractType
                 'label' => 'Nombre del producto',
                 'attr'=>[
                     'readonly' => true,
-                    'class'=>'form-username form-control',
+                    'class'=>'jg_input_pedido_product',
                     'placeholder'=>'ej:Melocotón'
                 ]
             ])
@@ -39,7 +39,7 @@ class OrderrType extends AbstractType
                 'label' => 'Descripción',
                 'attr'=>[
                     'readonly' => true,
-                    'class'=>'form-control',
+                    'class'=>'jg_input_pedido_product',
                     'placeholder'=>'ej:El Melocotón es originario de China desde hace 3.000 a. c.'
                 ]
             ])
@@ -48,7 +48,7 @@ class OrderrType extends AbstractType
                 'label' => 'Precio unidad',
                 'attr'=>[
                     'readonly' => true,
-                    'class'=>'form-control',
+                    'class'=>'jg_input_pedido_product',
                     'placeholder'=>'ej:2.99'
                 ]
             ])
@@ -57,7 +57,7 @@ class OrderrType extends AbstractType
                 'label' => 'Existencias',
                 'attr'=>[
                     'readonly' => true,
-                    'class'=>'form-control',
+                    'class'=>'jg_input_pedido_product',
                     'placeholder'=>'ej:100'
                 ]
             ])
@@ -66,7 +66,7 @@ class OrderrType extends AbstractType
                 'label' => 'Existencias reservadas',
                 'attr'=>[
                     'readonly' => true,
-                    'class'=>'form-control',
+                    'class'=>'jg_input_pedido_product',
                     'placeholder'=>'ej:50'
                 ]
             ])
@@ -75,7 +75,7 @@ class OrderrType extends AbstractType
                 'class' => Season::class,
                 'label' => 'Temporada',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_pedido_product',
                     'placeholder'=>'ej:1'
                 ]
             ])
@@ -84,18 +84,10 @@ class OrderrType extends AbstractType
                 'class' => Category::class,
                 'label' => 'Categoria',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_pedido_product',
                     'placeholder'=>'ej:2'
                 ]
-            ])
-
-            ->add('save',SubmitType::class, [
-                'label' => 'Guardar producto',
-                'attr'=>[
-                    'class' => 'save'
-                ]
-            ])
-            ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -16,6 +16,9 @@ use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+use Symfony\Component\HttpFoundation\Session\Session;
+
+
 class HomeController extends AbstractController
 {
 
@@ -31,7 +34,12 @@ class HomeController extends AbstractController
         //le indico los valores
         $response->headers->setCookie(new Cookie("aceptarcookies", 0,$time));
         $response->sendHeaders();*/
-      
+
+
+        //creo la sessión, indicando el estado del pedido, que posteriomente modificaremos
+        $session = new Session();
+        $session->set('Pedido', 'inactive');
+        
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
         return $this->render('home/home.html.twig', [
             'products'=>$products]);

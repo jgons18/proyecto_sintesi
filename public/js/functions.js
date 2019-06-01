@@ -195,14 +195,24 @@ $(document).ready(function () {
        });
     });
 
-    $(".jg_mostrar_carrito").hide();
-    $(".am_boton_producto").click(function () {
-        $(".jg_mostrar_carrito").show();
-    });
+
+
     //click carrito
     $(".am_carro").click(function () {
 
     });
+
+    $(".jg_mostrar_carrito").hide();
+    //animación carrito
+    $(".am_boton_producto").click(function () {
+        $(".am_carro").addClass("animated swing delay-5s");
+        $(".jg_mostrar_carrito").show();
+        //$(".jg_mostrar_carrito").append('{{ product.description }}');
+    });
+
+
+    /*$("#orderr2 div:nth-child(3)").hide();
+    $("#orderr2 div:nth-child(4)").hide();*/
 
 });
 

@@ -28,9 +28,15 @@ class Paymentmethod
      */
     private $details;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Orderr", mappedBy="paymentmethod")
+     */
+    private $orderrs;
+
     public function __construct()
     {
         $this->details = new ArrayCollection();
+        $this->orderrs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -88,5 +94,36 @@ class Paymentmethod
     {
         // TODO: Implement __toString() method.
         return $this->namemethod;
+    }
+
+    /**
+     * @return Collection|Orderr[]
+     */
+    public function getOrderrs(): Collection
+    {
+        return $this->orderrs;
+    }
+
+    public function addOrderr(Orderr $orderr): self
+    {
+        if (!$this->orderrs->contains($orderr)) {
+            $this->orderrs[] = $orderr;
+            $orderr->setPaymentmethod($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderr(Orderr $orderr): self
+    {
+        if ($this->orderrs->contains($orderr)) {
+            $this->orderrs->removeElement($orderr);
+            // set the owning side to null (unless already changed)
+            if ($orderr->getPaymentmethod() === $this) {
+                $orderr->setPaymentmethod(null);
+            }
+        }
+
+        return $this;
     }
 }

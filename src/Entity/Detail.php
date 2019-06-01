@@ -38,18 +38,6 @@ class Detail
     private $product;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Carrier", inversedBy="details")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $carrier;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Paymentmethod", inversedBy="details")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $paymentmethod;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Orderr", inversedBy="details")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -105,30 +93,6 @@ class Detail
     public function setProduct(?Product $product): self
     {
         $this->product = $product;
-
-        return $this;
-    }
-
-    public function getCarrier(): ?Carrier
-    {
-        return $this->carrier;
-    }
-
-    public function setCarrier(?Carrier $carrier): self
-    {
-        $this->carrier = $carrier;
-
-        return $this;
-    }
-
-    public function getPaymentmethod(): ?Paymentmethod
-    {
-        return $this->paymentmethod;
-    }
-
-    public function setPaymentmethod(?Paymentmethod $paymentmethod): self
-    {
-        $this->paymentmethod = $paymentmethod;
 
         return $this;
     }
