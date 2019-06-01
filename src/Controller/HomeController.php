@@ -9,13 +9,12 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Entity\Season;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
-
 
 class HomeController extends AbstractController
 {
@@ -23,6 +22,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/",name="app_homepage")
      */
+
     public function homepage(){
         /*//creación de la cookie para saber si el usuario las ha aceptado
         $response = new Response();
@@ -31,13 +31,10 @@ class HomeController extends AbstractController
         //le indico los valores
         $response->headers->setCookie(new Cookie("aceptarcookies", 0,$time));
         $response->sendHeaders();*/
-
-
+      
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
         return $this->render('home/home.html.twig', [
             'products'=>$products]);
     }
-
-
 
 }

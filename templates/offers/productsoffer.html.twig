@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Frutas en Oferta</h2>
+    {% for product in products %}
+        <div>
+            {% if product.offer == 1 %}
+            {%  if product.isfruit == 1 %}
+                <div>
+                    <h3>{{ product.nameproduct }}</h3>
+                    <p>{{ product.description }}<br>
+                        {{ product.unitprice }}<br>
+                        {{ product.stock }}<br>
+                        {{ product.reservedstocks }}<br>
+                        {{ product.season }}<br>
+                        {{ product.category }}<br>
+                        <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
+
+                    </p>
+                </div>
+            {% endif %}
+            {% endif %}
+        </div>
+    {% endfor %}
+
+{% endblock %}
+
+{% block body %}
+
+    <h2>Frutas</h2>
+    {#{% if app.user %}#}
+    <p><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
+    {#    {% endif %}#}
+    {% for product in products %}
+        <div>
+            {%  if product.oferta == 1 %}
+            {%  if product.isfruit == 1 %}
+                <div>
+                    <h3>{{ product.nameproduct }}</h3>
+                    <p>{{ product.description }}<br>
+                        {{ product.unitprice }}<br>
+                        {{ product.stock }}<br>
+                        {{ product.reservedstocks }}<br>
+                        {{ product.season }}<br>
+                        {{ product.category }}<br>
+                        <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
+            {% endif %}
+        </div>
+    {% endfor %}
+
+{% endblock %}

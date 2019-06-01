@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div>
+        <h1>Añadir nueva verdura</h1>
+        {{form_start(form)}}
+        {{ form_widget(form) }}
+        <a class="btn btn-danger" href="{{ path('offers') }}">Cancelar</a></button>
+        {{ form_errors(form) }}
+
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

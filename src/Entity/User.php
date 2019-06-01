@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -81,11 +82,14 @@ class User implements UserInterface
      */
     private $orderrs;
 
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
         $this->orderrs = new ArrayCollection();
     }
+
+
 
     public function getId(): ?int
     {
@@ -310,4 +314,19 @@ class User implements UserInterface
         // TODO: Implement __toString() method.
         return $this->username;
     }
+
+
+    /*public function setCart(?Cart $cart): self
+    {
+        $this->$cart = $cart;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newUser = $cart === null ? null : $this;
+        if ($newUser !== $cart->getUser()) {
+            $cart->setUser($newUser);
+        }
+
+        return $this;
+    }*/
+    
 }
