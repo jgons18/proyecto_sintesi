@@ -352,8 +352,8 @@ class ProductController extends AbstractController
         $error=$form->getErrors();
         if($form->isSubmitted() && $form->isValid()){
             $time = date('H:i:s \O\n d/m/Y');
-            var_dump($time);
-            die;
+           // var_dump($time);
+           // die;
            $precio = $prductoffer->getUnitprice();
            $descuento = $prductoffer->getOffer()->getDiscount();
            $operacion = $descuento / 100;
