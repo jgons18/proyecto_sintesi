@@ -89,12 +89,12 @@ class OrderrType extends AbstractType
                 ]
             ])
 
-            /*->add('save',SubmitType::class, [
+            ->add('save',SubmitType::class, [
                 'label' => 'Guardar producto',
                 'attr'=>[
                     'class' => 'save'
                 ]
-            ])*/
+            ])
             ;
     }
 

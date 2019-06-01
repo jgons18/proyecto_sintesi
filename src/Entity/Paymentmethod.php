@@ -80,4 +80,13 @@ class Paymentmethod
 
         return $this;
     }
+    /**
+     * Función para convertir a string el array de métodos de pago para poder mostrar su contenido
+     * @return mixed
+     */
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->namemethod;
+    }
 }
