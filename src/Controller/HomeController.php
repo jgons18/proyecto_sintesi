@@ -38,6 +38,7 @@ class HomeController extends AbstractController
 
         //creo la sessión, indicando el estado del pedido, que posteriomente modificaremos
         $session = new Session();
+
         $session->set('Pedido', 'inactive');
 
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();

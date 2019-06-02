@@ -102,7 +102,29 @@ class OffersController extends AbstractController
      //   return $this->redirectToRoute($route);
     }
 
+    /**
+     * Función para ver un producto seleccionado - cestas
+     * @Route("ofertas/view_product/{id}", name="view_ofert_pro")
+     */
+    public function viewProduct_Box($id){
 
+        return $this->viewProduct($id, 'offers/view_product.html.twig');
+    }
+    /**
+     * Función para ver un producto en concreto
+     * @param $id
+     * @param string $template
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    private function viewProduct($id, string $template){
+
+        $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
+
+        return $this->render($template, [
+            'product' => $product
+
+        ]);
+    }
 
 
 }

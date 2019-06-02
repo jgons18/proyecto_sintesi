@@ -82,7 +82,7 @@ class Product
     private $offer;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="boolean")
      */
     private $isoffer;
 
@@ -255,12 +255,11 @@ class Product
         return $this;
     }
 
-    public function getIsoffer(): ?int
+    public function getIsoffer(): ?bool
     {
         return $this->isoffer;
     }
-
-    public function setIsoffer(?int $isoffer): self
+    public function setIsoffer(bool $isoffer): self
     {
         $this->isoffer = $isoffer;
 

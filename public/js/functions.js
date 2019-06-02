@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
 
     $('#slider a:gt(0)').hide();
@@ -242,7 +240,3 @@ $(document).ready(function () {
 
     });
     //$(".jg_ocultar_campos div div").append('<img class="jg_valido_register" src="" alt="indicador de campo valido" longdesc="a través de un check o una cruz indica si es válido el campo"/>');
-
-
-});
-
