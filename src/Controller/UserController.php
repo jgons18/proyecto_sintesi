@@ -195,27 +195,8 @@ class UserController extends AbstractController
 
     }
 
-    /**
-     * Esta funcion envia mails
-     * @Route("/perfi_test", name="view_prfoile")
-     */
 
-    private function test_mail($user, \Swift_Mailer $mailer)
-    {
-      //  $em=$this->getDoctrine()->getManager();
-      //  $us = $em->getRepository('us');
-        $message = (new \Swift_Message('Activacion de cuenta | Fruitable'))
-            ->setFrom('sergionuevovidaal@gmail.com')
-            ->setTo('sergionuevovidal@gmail.com')
-            ->setBody(
-                $this->renderView('mail/confirmation.html.twig'), 'text/html');
-
-        $mailer->send($message);
-
-        return $this->render('mail/confirmation.html.twig');
-    }
-
-    public function deleteProduct_Vegetable($id, Request $request)
+    public function deleteusu($id, Request $request)
     {
         return $this->delete_user($request, $id, 'app_vegetables');
     }
@@ -243,52 +224,6 @@ class UserController extends AbstractController
 
     }
 
-    /**
-     * Función para eliminar producto - cestas
-     * @Route("/perfil/delete/{id}", name="delete_box")
-     */
-    public function deleteProduct_Box($id, Request $request)
-    {
-        return $this->deleteProduct($request, $id, 'app_homepage');
-    }
 
-    /**
-     * Función para eliminar producto
-     * @param Request $request
-     * @param int $id
-     * @param string $route
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-
-    private function deleteUser2(Request $request, int $id, string $route){
-        $user = $this->getUser();
-        $producttodelete=$user[0];
-        $entityManager=$this->getDoctrine()->getManager();
-        //comando en cuestión que borrará el producto
-        $entityManager->remove($user);
-        $entityManager->flush();
-
-        $this->addFlash('success', 'Usuario eliminado correctmanete');
-        //una vez eliminado,volvemos a la página que indicamos por parámetros, para comprobar que se ha borrado correctamente
-        return $this->redirectToRoute($route);
-    }
-
-    private function sendMailsAction($user, \Swift_Mailer $mailer ){
-      //  $em = $this->getDoctrine()->getManager();
-      //  $users = $em->getRepository('ApplicationSonataUserBundle:User')->findBy(array('enabled'=>false));
-        //$users = $em->getRepository('ApplicationSonataUserBundle:User')->findBy(array('email'=>'julio.perdiguer@gmail.com'));
-
-        $message = (new \Swift_Message('Activacion de cuenta | Fruitable'))
-            ->setFrom('noreplyfruitable@gmail.com')
-            ->setTo($user)
-            ->setBody(
-                $this->renderView('mail/confirmation.html.twig'), 'text/html');
-
-        $mailer->send($message);
-
-        return $this->render('mail/confirmation.html.twig');
-
-        return $this->redirect($this->generateUrl('admin_sonata_user_user_list'));
-    }
 
 }

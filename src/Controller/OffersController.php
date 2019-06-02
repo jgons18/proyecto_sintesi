@@ -63,34 +63,6 @@ class OffersController extends AbstractController
 
     }
 
-    /**
-     * Función para editar productos
-     * @param int $id
-     * @param Request $request
-     * @param string $template
-     * @param string $route
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-
-    private function deleteOffer(Request $request, int $id, string $route){
-      //  $em = $this->getDoctrine()->getManager();
-       // $purchase = $em->getRepository(Offer::class)->find(231);
-        //buscamos por el id del producto que hemos seleccionado para eliminar
-       // $detail = new Product($id);
-       // $offer=$em->getDoctrine()->getRepository(Offer::class)->findBy(array('id'=>$id));
-       // $oferdelete=$offer[0];
-       // $offer->setOffer('null')
-       // $detail->setOffer('null');
-       // $detail->setUnitprice('null');
-       // $entityManager=$this->getDoctrine()->getManager();
-       // $offer->
-       // $entityManager->remove($oferdelete);
-       // $entityManager->flush();
-
-       // $this->addFlash('success', 'Producto eliminado correctmanete');
-        //una vez eliminado,volvemos a la página que indicamos por parámetros, para comprobar que se ha borrado correctamente
-     //   return $this->redirectToRoute($route);
-    }
 
     /**
      * Función para ver un producto seleccionado - cestas
