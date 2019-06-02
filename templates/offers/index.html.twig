@@ -1,6 +1,5 @@
 {#{% extends 'base.html.twig' %}#}
 
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -67,35 +66,9 @@
             <a href="{{ path('app_fruits') }}"><li class="am_nav_obj jg_nav_fruit ">Frutas</li></a>
             <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj am_nav_objverd jg_nav_veg">Verduras y Hortalizas</li></a>
             <a href="{{ path('app_boxes') }}"><li class="am_nav_obj jg_nav_basket">Cestas</li></a>
-            <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj jg_nav_offers jg_menu_selected">Ofertas</li></a>
+            <a href="{{ path('offers') }}"><li class="am_nav_obj jg_nav_offers jg_menu_selected">Ofertas</li></a>
         </ul>
     </nav>
-</div>
-{% block body %}
-    <div class="am_filtros">
-        <input type="text"><button>Filtrar</button>
-    </div>
-    <div class="jg_productos_temporada">
-        <h1>Productos de temporada</h1>
-        <div class="am_caja_productos_temporada">
-            {% for product in products %}
-                <div class="jg_producto_temporada">
-                    {#{%  if product.season == 'Todo el año' %}#}
-                    <div class="am_iconos">
-                        {% if is_granted('ROLE_ADMIN') %}
-                        <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':product.id}) }}"></a>
-                        <a class="fas fa-pen" href="{{ path('edit_product_fruit', {'id':product.id}) }}"></a>
-                        <a class="fas fa-trash-alt" href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
-                    {% endif %}
-                    </div>
-                    <!--añadiremos la misma descripción en alt que en longdesc-->
-                    <a class="am_producto" href="{{ path('view_product_fruit', {'id':product.id}) }}"><img src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
-                        <h4 class="am_titulo_producto">{{ product.nameproduct }}</h4></a>
-                    <div class="jg_producto_temporada_bot">
-                        <div><p>{{ product.unitprice }}€</p></div>
-                        <div><button class="am_boton_producto">Añadir a cesta</button><br></div></div>
-=======
-{% block body %}
     <h2>Frutas en oferta</h2>
     <a href="">Crear oferta</a>
     {% for product in products %}
@@ -117,9 +90,9 @@
                         <p>La oferta acaba el dia{{ product.offer.datefinish|date("d/m/Y H:i:s") }}</p><br>
                         {{ product.category }}<br>
                         <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
-
-                    </p>
->>>>>>> 74c686f84123c80d14cade743d37f2453d892d87
+                </p>
+                    <a href="{{ path('view_ofert_pro', {'id':product.id}) }}">Ver producto</a>
+                    <a href="{{ path('edit_product_vegetable', {'id':product.id}) }}">Editar</a>
                 </div>
             {% endif %}
             {% endif %}
@@ -147,16 +120,14 @@
                     {{ "now"|date("m/d/Y") }}<br>
                     <img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}">
                     </p>
-                    <a href="{{ path('view_product_fruit', {'id':product.id}) }}">Ver producto</a>
+                    <a href="{{ path('view_ofert_pro', {'id':product.id}) }}">Ver producto</a>
                     <a href="{{ path('edit_product_vegetable', {'id':product.id}) }}">Editar</a>
-                    <a href="{{ path('delete_product_vegetable', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
-                </div>
+                    </div>
             {% endif %}
             {% endif %}
         </div>
     {% endfor %}
 
-<<<<<<< HEAD
     </div>
     <footer>
         <section class="sn_footer_top">
@@ -205,13 +176,10 @@
                 <a class="jg_accept_cookies">Aceptar</a>
             </div>
         </div>
+</body>
     {% endif %}
-{% endblock %}
 {% block javascripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 {% endblock %}
-=======
-{% endblock %}
->>>>>>> 74c686f84123c80d14cade743d37f2453d892d87

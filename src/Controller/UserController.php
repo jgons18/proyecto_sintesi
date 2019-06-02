@@ -17,8 +17,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Security;
-
+use Symfony\Bundle\SwiftmailerBundle;
 
 /**
  * Class UserController
@@ -27,7 +28,7 @@ use Symfony\Component\Security\Core\Security;
  */
 class UserController extends AbstractController
 {
-    /*BORRAR ESTE COMENTARIO */
+
 
     /**
      * @Route("/perfil", name="profile_user")
@@ -109,6 +110,7 @@ class UserController extends AbstractController
      * @Route("/login",name="app_login")
      */
     public function login(Request $request, AuthenticationUtils $authUtils){
+
         $error=$authUtils->getLastAuthenticationError();//guardaremos el último errore de la autentificación
         //last username
         $lastUsername=$authUtils->getLastUsername();
@@ -142,11 +144,9 @@ class UserController extends AbstractController
         return $this->render('user/perfil.html.twig');
 
     }
-
     /**
      * @Route("/edit_prof", name="app_prof")
      */
-
    // public function edit_user_prof(Request $request, Security $security) : Response{
     public function edit_user_prof(Request $request){
         $user = $this->getUser();

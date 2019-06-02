@@ -22,7 +22,7 @@
     <header  class="jg_menu">
         <div class="am_cabecera jg_menu_secondary">
             {% if app.user is null %}
-                <i class="fas fa-user-alt"></i>&nbsp;<a href="{{ path('app_login') }}">Identifícate</a>
+                <em class="fas fa-user-alt"></em>&nbsp;<a href="{{ path('app_login') }}">Identifícate</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
             {% else %}&nbsp;
                 {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
@@ -35,7 +35,7 @@
                 {% endif %}
                 <i class="fas fa-sign-out-alt"></i>&nbsp;<a href="{{ path('app_logout') }}">Logout</a>
                 {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
-                    &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
+                    &nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{ path('app_view_order') }}"><p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta</a>
                 {% endif %}
             {% endif %}&nbsp;
 
@@ -61,6 +61,7 @@
                 <button type="submit" class="am_boton_buscar">Buscar</button>
             </form>
             {#{{ render(controller('App\\Controller\\ProductController:searchForm')) }}#}
+        </div>
 
     </header>
 
@@ -69,7 +70,7 @@
             <a href="{{ path('app_fruits') }}"><li class="am_nav_obj jg_nav_fruit ">Frutas</li></a>
             <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj am_nav_objverd jg_nav_veg">Verduras y Hortalizas</li></a>
             <a href="{{ path('app_boxes') }}"><li class="am_nav_obj jg_nav_basket">Cestas</li></a>
-            <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj jg_nav_offers">Ofertas</li></a>
+            <a href="{{ path('offers') }}"><li class="am_nav_obj jg_nav_offers">Ofertas</li></a>
         </ul>
     </nav>
 </div>
@@ -87,6 +88,7 @@
             <p class="sn_move_top"><a href="{{ path('app_fruits') }}">Frutas</a></p>
             <p class="sn_move_top"><a href="{{ path('app_vegetables') }}">Verduras y Hortalizas</a></p>
             <p class="sn_move_top"><a href="{{ path('app_boxes') }}">Cestas</a></p>
+            <p class="sn_move_top"><a href="{{ path('offers') }}">Ofertas</a></p>
         </article>
         <article class="rrss">
             <p class="titulo">RRSS</p>

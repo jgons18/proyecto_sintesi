@@ -11,6 +11,7 @@ namespace App\Form;
 
 use App\Entity\Product;
 use App\Entity\Category;
+use App\Entity\Offer;
 use App\Entity\Season;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -83,6 +84,12 @@ class ProductEditType extends AbstractType
                 'attr'=>[
                     'class'=>'jg_input_form',
                     'placeholder'=>'ej:2'
+                ]
+            ])
+            ->add('save',SubmitType::class, [
+                'label' => 'Aplicar oferta',
+                'attr'=>[
+                    'class' => 'save'
                 ]
             ])
            /* ->add('image',FileType::class,[
