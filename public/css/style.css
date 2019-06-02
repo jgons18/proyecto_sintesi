@@ -209,6 +209,9 @@
     .jg_filtros_precio{
         float: right;
     }
+    #am_filtro_bajo_alto:hover{
+        font-weight: normal;
+        opacity: 0.7;
     /*.am_filtros_precio{
         display: flex;
         flex-direction: row;
@@ -742,7 +745,6 @@
     }
     .sn_titulo_ayuda{
         font-family: Metrophobic;
-        margin-top: 45vh;
         text-align: center;
         font-size: 2em;
     }
@@ -1154,7 +1156,7 @@
 }
 
 /*Para tablets*/
-@media(min-width: 450px) and (max-width: 980px){
+/*@media(min-width: 450px) and (max-width: 980px){
     * {
         box-sizing: border-box;
         margin: 0;
@@ -1164,6 +1166,10 @@
     .margen{
         margin-bottom: 29vh;
     }
+  
+  }*/
+
+@media (min-width: 1025px) and (max-width: 1913px) {
 
     /* HEADER Base.html*/
     .am_cabecera {
@@ -3610,5 +3616,3 @@
     }
 
 }
-
-

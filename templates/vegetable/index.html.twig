@@ -22,11 +22,11 @@
         &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
         {% else %}&nbsp;
             {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
-                <i class="fas fa-user-circle"></i>&nbsp;<a href="">Mi perfil</a>&nbsp;&nbsp;
-                <i class="fas fa-box-open"></i>&nbsp;<a href="{{ path('app_my_orders', {'id':app.user.id}) }}">Mis pedidos</a>&nbsp;
+                <i class="fas fa-user-circle"></i><a href="{{ path('view_profoile') }}"> Mi perfil</a>
+                <i class="fas fa-box-open"></i> <a href="{{ path('app_my_orders', {'id':app.user.id}) }}"> pedidos</a>
             {% endif %}&nbsp;
             {% if is_granted('ROLE_ADMIN') %}
-                <i class="fas fa-user-circle"></i>&nbsp;Mi perfil&nbsp;&nbsp;
+                <i class="fas fa-user-circle"></i><a href="{{ path('view_profoile') }}"> Mi perfil</a>
                 <i class="fas fa-boxes"></i>&nbsp;<a href="{{ path('app_pedidos') }}">Pedidos</a>&nbsp;&nbsp;
             {% endif %}
             <i class="fas fa-sign-out-alt"></i>&nbsp;<a href="{{ path('app_logout') }}">Logout</a>
@@ -140,7 +140,7 @@
             </article>
             <article>
                 <p class="titulo">Ayuda</p>
-                <p class="sn_move_top"><a>FAQ</a></p>
+                <p class="sn_move_top"><a href="{{ path('app_privacity') }}">FAQ</a></p>
             </article>
         </section>
         <hr>

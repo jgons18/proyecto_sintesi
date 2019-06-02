@@ -12,8 +12,11 @@
 
 
     {% endblock %}
-    {% block javascript %}<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
+    {% block javascript %}
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+    <script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
     {% endblock %}
 </head>
 <body>
@@ -26,7 +29,7 @@
                 &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
             {% else %}&nbsp;
                 {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
-                    <i class="fas fa-user-circle"></i>&nbsp;<a href="">Mi perfil</a>&nbsp;&nbsp;
+                    <i class="fas fa-user-circle"></i>&nbsp;<a href="{{ path('view_profoile') }}">Mi perfil</a>&nbsp;&nbsp;
                     <i class="fas fa-box-open"></i>&nbsp;<a href="{{ path('app_my_orders', {'id':app.user.id}) }}">Mis pedidos</a>&nbsp;
                 {% endif %}&nbsp;
                 {% if is_granted('ROLE_ADMIN') %}
@@ -100,7 +103,7 @@
         </article>
         <article>
             <p class="titulo">Ayuda</p>
-            <p class="sn_move_top"><a>FAQ</a></p>
+            <p class="sn_move_top"><a href="{{ path('app_privacity') }}">FAQ</a></p>
         </article>
     </section>
     <hr>
