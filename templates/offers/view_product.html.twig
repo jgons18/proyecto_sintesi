@@ -32,7 +32,6 @@
             <i class="fas fa-sign-out-alt"></i>&nbsp;<a href="{{ path('app_logout') }}">Logout</a>
             {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
                 &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
-
             {% endif %}
             {% endif %}&nbsp;
 
@@ -63,104 +62,73 @@
 
     <nav class="jg_nav">
         <ul>
-            <a href="{{ path('app_fruits') }}"><li class="am_nav_obj jg_nav_fruit jg_menu_selected">Frutas</li></a>
-            <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj am_nav_objverd jg_nav_veg">Verduras y Hortalizas</li></a>
+            <a href="{{ path('app_fruits') }}"><li class="am_nav_obj jg_nav_fruit ">Frutas</li></a>
+            <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj am_nav_objverd jg_nav_veg jg_menu_selected">Verduras y Hortalizas</li></a>
             <a href="{{ path('app_boxes') }}"><li class="am_nav_obj jg_nav_basket">Cestas</li></a>
             <a href="{{ path('offers') }}"><li class="am_nav_obj jg_nav_offers">Ofertas</li></a>
         </ul>
     </nav>
 </div>
 {% block body %}
-<div class="jg_mostrar_carrito">
-<p>hola</p>
-</div>
+    <div>
+        <div class="am_vista">
+            <h3 class="am_ruta">
+                <a href="{{ path('app_homepage') }}">Home</a>
+                > <a href="{{ path('offers') }}">Ofertas</a> >
+                <a href="{{ path('view_ofert_pro', {'id':product.id}) }}">{{ product.nameproduct }}</a>
+            </h3>
+            <div class="am_iconos"><a class="fas fa-pen" href="{{ path('edit_product_vegetable', {'id':product.id}) }}"></a> <a class="fas fa-trash-alt" href="{{ path('delete_product_vegetable', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a></div>
 
-    <h2 class="jg_titulos">Frutas</h2>
-
-    <select class="jg_filtros_precio">
-        <option value="{{ path('app_fruits') }}">Escoge una opción</option>
-        <option value="{{ path('app_price_low_to_high_f') }}">Ordenar por precio: de bajo a más alto</option>
-        <option value="{{ path('app_price_high_to_low_f') }}">Ordenar por precio: de alto a más bajo</option>
-    </select>
-    <div class="am_filtros">
-        <div class="am_filtros_categoria">
-            <a href="{{ path('app_category_filter_banana') }}" class="jg_filtros jg_filtros_banana">Platanos</a>
-            <a href="{{ path('app_category_filter_apple') }}" class="jg_filtros jg_filtros_apple">Manzanas</a>
+            <div class="detalles">
+                <div class="am_imagen"><img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}"></div>
+                <h3 class="am_nameproduct">{{ product.nameproduct }}</h3>
+                <div class="am_categoria">{{ product.category }}</div>
+                <div class="am_temporada">{{ product.season }}</div>
+                <div class="am_precio"><strike>{{ product.unitprice }}€</strike></div>
+                <div class="am_precio">{{ product.offerprice }}€</div>
+                <div class="am_descripcion">{{ product.description }}</div>
+            </div>
         </div>
     </div>
-    {% if is_granted('ROLE_ADMIN') %}
-    <p class="am_añadirproducto_fruta"><a href="{{ path('new_product_fruit') }}">+ Añadir nuevo producto</a></p>
-    {% endif %}
-    {#    {% endif %}#}
-    <div class="am_caja_productos_temporada">
-    {% for product in products %}
-            {%  if product.isfruit == 1 and product.category != 'Caja' %}
-                <div class="jg_producto_temporada">
-                    {#{%  if product.season == 'Todo el año' %}#}
-                    <div class="am_iconos">
-                        {% if is_granted('ROLE_ADMIN') %}
-                        <a class="fas fa-tags sn_tag"  href="{{ path('delete_productoffer_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
-                        <a class="fas fa-tags sn_tag2"  href="{{ path('offer_fruit', {'id':product.id}) }}"></a>
-                        <a class="fas fa-eye"  href="{{ path('view_product_fruit', {'id':product.id}) }}"></a>
-                        <a class="fas fa-pen" href="{{ path('edit_product_fruit', {'id':product.id}) }}"></a>
-                        <a class="fas fa-trash-alt" href="{{ path('delete_product_fruit', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a>
-                        {% endif %}
-                    </div>
-                    <!--añadiremos la misma descripción en alt que en longdesc-->
-                    <a class="am_producto" href="{{ path('view_product_fruit', {'id':product.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
-                    <h4 class="am_titulo_producto">{{ product.nameproduct }}</h4></a>
-                    <div class="jg_producto_temporada_bot">
-                        {% if product.offer == true %}
-                            <div><p class="sn_old_prices"><strike>{{ product.unitprice }}€</strike></p></div>
-                            <div><p>{{ product.offerprice }}€</p></div>
-                        {% else %}
-                            <div><p>{{ product.unitprice }}€</p></div>
-                        {%  endif %}
-                        <div class="am_boton_producto"><a href="{{ path('add_product_to_basket',{'id':product.id}) }}" >Añadir a cesta</a></div></div>
-
+    <footer>
+        <section class="sn_footer_top">
+            <article>
+                <p class="titulo">Contacto</p>
+                <p class="sn_move_top"><a href="{{ path('app_contact') }}">Nosotros</a></p>
+                <p class="sn_move_top"><a href="tel:+34555555555">Telefono: 555555555</a></p>
+                <p class="sn_move_top"><a href="mailto:noreplyfruitable@gmail.com?subject=Consulta Fruitable">Email: info@fruitable.com</a></p>
+            </article>
+            <article>
+                <p class="titulo">Productos</p>
+                <p class="sn_move_top"><a href="{{ path('app_fruits') }}">Frutas</a></p>
+                <p class="sn_move_top"><a href="{{ path('app_vegetables') }}">Verduras y Hortalizas</a></p>
+                <p class="sn_move_top"><a href="{{ path('app_boxes') }}">Cestas</a></p>
+                <p class="sn_move_top"><a href="{{ path('offers') }}">Ofertas</a></p>
+            </article>
+            <article class="rrss">
+                <p class="titulo">RRSS</p>
+                <div class="iconos">
+                    <a><p class="fab fa-facebook-square  sn_move_top"></p></a>
+                    <a><p class="fab fa-instagram  sn_move_top"></p></a>
+                    <a><p class="fab fa-linkedin  sn_move_top"></p></a>
                 </div>
-            {% endif %}
-    {% endfor %}
-    </div>
-<footer>
-    <section class="sn_footer_top">
-        <article>
-            <p class="titulo">Contacto</p>
-            <p class="sn_move_top"><a href="{{ path('app_contact') }}">Nosotros</a></p>
-            <p class="sn_move_top"><a href="tel:+34555555555">Telefono: 555555555</a></p>
-            <p class="sn_move_top"><a href="mailto:noreplyfruitable@gmail.com?subject=Consulta Fruitable">Email: info@fruitable.com</a></p>
-        </article>
-        <article>
-            <p class="titulo">Productos</p>
-            <p class="sn_move_top"><a href="{{ path('app_fruits') }}">Frutas</a></p>
-            <p class="sn_move_top"><a href="{{ path('app_vegetables') }}">Verduras y Hortalizas</a></p>
-            <p class="sn_move_top"><a href="{{ path('app_boxes') }}">Cestas</a></p>
-            <p class="sn_move_top"><a href="{{ path('offers') }}">Ofertas</a></p>
-        </article>
-        <article class="rrss">
-            <p class="titulo">RRSS</p>
-            <div class="iconos">
-                <a><p class="fab fa-facebook-square  sn_move_top"></p></a>
-                <a><p class="fab fa-instagram  sn_move_top"></p></a>
-                <a><p class="fab fa-linkedin  sn_move_top"></p></a>
-            </div>
-        </article>
-        <article>
-            <p class="titulo">Ayuda</p>
-            <p class="sn_move_top"><a>FAQ</a></p>
-        </article>
-    </section>
-    <hr>
-    <section class="sn_footer_mid">
-        <article class="am_avisolegal"><a href="{{ path('app_legal_notice') }}">Aviso legal</a></article>
-        <article class="am_politicas"><a href="{{ path('app_políticas_cookies') }}">Política de cookies</a></article>
-        <article class="am_politicas"><a href="{{ path('app_sale_terms') }}">Condiciones generales de venta</a></article>
-        <article class="am_politicas"><a href="{{ path('app_privacy_policy') }}">Política de privacidad</a></article>
-    </section>
-    <section class="sn_footer_bot">
-        <article>©Fruitable Todos los derechos reservados</article>
-    </section>
-</footer>
+            </article>
+            <article>
+                <p class="titulo">Ayuda</p>
+                <p class="sn_move_top"><a>FAQ</a></p>
+            </article>
+        </section>
+        <hr>
+        <section class="sn_footer_mid">
+            <article class="am_avisolegal"><a href="{{ path('app_legal_notice') }}">Aviso legal</a></article>
+            <article class="am_politicas"><a href="{{ path('app_políticas_cookies') }}">Política de cookies</a></article>
+            <article class="am_politicas"><a href="{{ path('app_sale_terms') }}">Condiciones generales de venta</a></article>
+            <article class="am_politicas"><a href="{{ path('app_privacy_policy') }}">Política de privacidad</a></article>
+        </section>
+        <section class="sn_footer_bot">
+            <article>©Fruitable Todos los derechos reservados</article>
+        </section>
+    </footer>
     {% if app.request.cookies.get("cookie") == 0 %}
         <div class="jg_caja_cookies">
             <div class="jg_box_content">

@@ -954,7 +954,7 @@
     .jg_accept_cookies{
         margin-top: 20%;
     }
-    .jg_mostrar_carrito{
+rar_carrito{
         display: block;
         border: 1px solid;
         z-index: 999999;
@@ -1067,7 +1067,6 @@
     }
 
     /*--------cookies-----------*/
-    }
 
     .am_cookies h1 , h2{
         font-family: dosis;
@@ -1141,6 +1140,17 @@
     }
     .jg_filtros_selected{
         background-color: bisque !important;
+    }
+
+    .sn_tag{
+        color: red;
+    }
+    .sn_tag2{
+        color: #5eb5e0;
+    }
+    .sn_old_prices{
+        font-size: 1.2em!important;
+        color: red!important;
     }
 
 
