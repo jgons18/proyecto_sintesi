@@ -793,7 +793,7 @@
         margin-bottom: 2%;
     }
     .jg_input_form_order {
-        width: 53%;
+        width: 100%;
         margin-bottom: 1%;
         background: transparent;
         border: 0px;
@@ -988,6 +988,10 @@
         justify-content: center;
         align-items: center;
         display: flex;
+    }
+    .jg_box_order_complete {
+        display: flex;
+        justify-content: center;
     }
 
 
