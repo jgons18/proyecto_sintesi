@@ -215,7 +215,6 @@
         float: right;
     }
 
-    }
     #am_filtro_bajo_alto:hover{
 
         font-weight: normal;
@@ -1198,9 +1197,3 @@ rar_carrito{
 
 }
 
-@media (min-width: 1025px) and (max-width: 1913px) {
-
-
-
-    
-}
