@@ -102,9 +102,12 @@
                         </td>
                         <td>{{ orderr.dateeorderr|date('d-m-Y H:i:s') }}</td>
                         <td>
-                            {% for detail in details %}
-                                <strong>Producto: </strong>
-                            {% endfor %}
+                            {% for detail in orderr.details %}
+                                <strong>{{ detail.product }}</strong><br>
+                                <strong>{{ detail.price }}</strong><br>
+                                <strong>{{ detail.quantity }}</strong>
+                            {% endfor %}<br>
+                            <strong>TOTAL:{{ orderr.totalfactura }}</strong>
                         </td>
                     </tr>
                </table>

@@ -1,6 +1,7 @@
 /*font-family: 'Dosis', sans-serif;*/
 /*font-family: 'Metrophobic', sans-serif;*/
 
+/*Para mobile*/
 @media (max-width: 495px){
     * {
         box-sizing: border-box;
@@ -1151,6 +1152,8 @@
         color: red!important;
     }
 }
+
+/*Para tablets*/
 @media(min-width: 450px) and (max-width: 980px){
     * {
         box-sizing: border-box;
@@ -2511,8 +2514,6 @@
     .jg_filtros_precio{
         float: right;
     }
-
-    }
     #am_filtro_bajo_alto:hover{
 
         font-weight: normal;
@@ -3495,20 +3496,12 @@
         font-size: 1.2em!important;
         color: red!important;
     }
-
+    .sn_txt_mails{
+        color: red;
+        font-size: 1.2em;
+    }
 
 }
 
-<<<<<<< HEAD
-.sn_txt_mails{
-    color: red;
-   font-size: 1.2em;
-}
-=======
-@media (min-width: 1025px) and (max-width: 1913px) {
 
 
-
-    
-}
->>>>>>> origin/master
