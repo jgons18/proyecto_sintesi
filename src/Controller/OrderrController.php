@@ -285,7 +285,6 @@ class OrderrController extends AbstractController
         $detail = $this->getDoctrine()->getRepository(Detail::class)->findAll();*/
 
 
-
         //crearemos otro formulario en que determinados las unidades de cada producto,transportista y método de pago
         $form2=$this->createForm(Orderr2Type::class);
         $form2->handleRequest($request);
@@ -309,13 +308,44 @@ class OrderrController extends AbstractController
             $detailquantity=$detail[0]->getQuantity();
             $totalfactura=$res[0]->setTotalfactura($detailprice*$detailquantity);
         }
+        if($form2->isSubmitted() && $form2->isValid()){
+            $useraddress=$user->getAddress();
+            $secondaddress=$form2->get('secondarydirection')->getData();
+            $trans = $form2->get('carrier')->getData();
+            $metododepago=$form2->get('paymentmethod')->getData();
+            $nameowner= $form2->get('nameofowner')->getData();
+            $cardnumber= $form2->get('cardnumber')->getData();
 
+            $res[0]->setPaymentconfirmed(true);
+            $res[0]->setMainaddress($useraddress);
+            $res[0]->setSecondarydirection($secondaddress);
+            $res[0]->setNameofowner($nameowner);
+            $res[0]->setCardnumber($cardnumber);
+            $res[0]->setCarrier($trans);
+            $res[0]->setPaymentmethod($metododepago);
+
+            $entityManager=$this->getDoctrine()->getManager();
+            $entityManager->persist($res[0]);
+            $entityManager->flush();
+            $this->addFlash('success','Pedido pagado correctamente correctamente');
+            return $this->redirectToRoute('app_buy_confirmed');
+            //return $this->render('order/finished.html.twig');
+
+        }
 
         return $this->render('order/inprogress.html.twig', [
             'res'=>$res,
             'details'=>$detail,
             'form2'=>$form2->createView()
         ]);
+    }
+
+    /**
+     * Función para indicar que se ha pagado el pedido
+     * @Route("/pedido/finished", name="app_buy_confirmed")
+     */
+    public function orderConfirmed(){
+        return $this->render('order/finished.html.twig');
     }
 
 }

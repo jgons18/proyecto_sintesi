@@ -33,6 +33,24 @@ class Orderr2Type extends AbstractType
                     'min'=>1
                 ]
             ])*/
+            ->add('mainaddress',TextType::class,[
+                'label' => 'Dirección principal',
+                'attr'=>[
+                    'readonly' => true,
+                    'class'=>'jg_input_form_order',
+                    'placeholder'=>'Si quieres editar esta dirección, edítala en el perfil'
+                ]
+
+            ])
+            ->add('secondarydirection',TextType::class,[
+                'label' => 'Dirección alternativa',
+                'attr'=>[
+                    'class'=>'jg_input_form_order',
+                    'placeholder'=>'ej:C/de las Flores,32,Gava',
+                    'pattern'=>'[A-Za-z0-9]{1,120}'
+                ]
+
+            ])
             ->add('carrier',EntityType::class,[
                 'required'=>'required',
                 'class' => Carrier::class,
@@ -70,7 +88,7 @@ class Orderr2Type extends AbstractType
                 'label' => 'Número de tarjeta',
                 'attr'=>[
                     'class'=>'jg_input_form_order',
-                    'pattern'=>'{1,16}'
+                    'pattern'=>'[0-9]{1,16}'
                 ]
 
             ])
