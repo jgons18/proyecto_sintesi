@@ -1198,9 +1198,16 @@ rar_carrito{
 
 }
 
+<<<<<<< HEAD
+.sn_txt_mails{
+    color: red;
+   font-size: 1.2em;
+}
+=======
 @media (min-width: 1025px) and (max-width: 1913px) {
 
 
 
     
 }
+>>>>>>> origin/master

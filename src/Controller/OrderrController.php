@@ -302,6 +302,7 @@ class OrderrController extends AbstractController
         $res[0]->getId();
         $detail = $this->getDoctrine()->getRepository(Detail::class)->findBy(array('forder'=>$res));
 
+
         $detalletotales=count($detail);
         for($i=1;$i<=$detalletotales;$i++){
             $detailprice=$detail[0]->getPrice();
