@@ -60,7 +60,7 @@ class Orderr2Type extends AbstractType
                 'required'=>'required',
                 'label' => 'Nombre de la tarjeta',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form_order',
                     'pattern'=>'[A-Za-z]{1,150}'
                 ]
 
@@ -69,7 +69,7 @@ class Orderr2Type extends AbstractType
                 'required'=>'required',
                 'label' => 'Número de tarjeta',
                 'attr'=>[
-                    'class'=>'form-control',
+                    'class'=>'jg_input_form_order',
                     'pattern'=>'{1,16}'
                 ]
 

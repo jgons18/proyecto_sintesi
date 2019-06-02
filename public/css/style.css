@@ -6,8 +6,9 @@
 @media (min-width: 1025px) and (max-width: 1913px) {
     * {
         box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+        margin:0;
+        padding:0;
+        cursor: default;
     }
   
 
@@ -38,6 +39,9 @@
     }
     a:hover{
         font-weight: bolder;
+    }
+    input:hover{
+        cursor: text;
     }
 
     .am_div_logo{
@@ -203,25 +207,32 @@
 
 
     .am_filtros{
-
+        font-family: Metrophobic;
         display: flex;
         flex-direction: column;
     }
     .jg_filtros_precio{
         float: right;
     }
-    /*.am_filtros_precio{
-        display: flex;
-        flex-direction: row;
+
+    }
+    #am_filtro_bajo_alto:hover{
+
+        font-weight: normal;
+        opacity: 0.7;
     }
 
-    .am_filtros_precio a{
-        margin: 0vh 1vw 0vh 1vw;
+    #am_filtro_alto_bajo{
+        width: 7vw;
         height: 5vh;
+        text-align: center;
         background-color: #e0e0e0;
-        border: 1px solid;
-    }*/
 
+    }
+    #am_filtro_alto_bajo:hover{
+
+        font-weight: normal;
+    }
     .am_filtros_categoria{
         display: flex;
         flex-direction: row;
@@ -231,8 +242,6 @@
         margin: 0vh 1vw 0vh 0vw;
 
     }
-
-
     .am_titulo_frutas{
         font-size: 2.5em;
         margin: 4vh 1vw 4vh 0vw;
@@ -247,8 +256,50 @@
     .am_imagen_producto{
         width: auto;
         height: 30vh;
+    }
+
+    /* Nueva Fruta*/
+
+    .am_nueva_fruta{
+
+        display: flex;
+        flex-direction: column;
+        width: 40vw;
+        height: 90vh;
+        background-color: #e0e0e0;
+        margin-left: 30vw;
+        text-align: left;
+        font-family: Metrophobic;
+            }
+    .am_nueva_fruta h1{
+        text-align: center;
+        font-family: dosis;
+    }
+    .am_nueva_fruta label{
+
+        margin: 0vh 0vw 0vh 1vw;
+    }
+    .am_form_input{
+        font-family: dosis;
+        font-size: 1.1em;
+        align-self: flex-end;
+        align-self: center;
+        margin:1vh 0vw 1vh 1vw;
 
     }
+
+    .am_boton_guardar{
+        width: 10vw;
+        height: 8vh;
+        margin: 0vh 0vw 0vh 15vw;
+    }
+
+    .am_boton_cancelar{
+        width: 10vw;
+        height: 8vh;
+        margin: 0vh 0vw 0vh 15vw;
+    }
+
     /*verdura*/
 
     .am_titulo_verdura{
@@ -258,7 +309,7 @@
     }
 
     .am_añadirproducto_verdura{
-
+        margin-left: 2vw;
         font-family: Metrophobic;
         font-size: 1.1em;
     }
@@ -592,12 +643,7 @@
 
     }
 
-    .am_nameproduct{
-        font-family: dosis;
-        font-size: 2.5em;
-        align-self: flex-end;
 
-    }
 
     .am_imagen{
 
@@ -792,6 +838,15 @@
         border-bottom: 1px solid darkgray;
         margin-bottom: 2%;
     }
+    .jg_input_form_order {
+        width: 53%;
+        margin-bottom: 1%;
+        background: transparent;
+        border: 0px;
+        border-bottom-width: 0px;
+        border-bottom: 1px solid darkgray;
+        margin-bottom: 2%;
+    }
     .jg_input_unidades{
         height: 0vh;
     }
@@ -968,6 +1023,19 @@ rar_carrito{
     #orderr{
         display: inline-flex;
     }
+    .jg_valido_name,.jg_valido_email{
+        width: 20px;
+        float: right;
+    }
+    .jg_valido_register {
+        width: 20px;
+    }
+    .jg_box_order {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
 
     .la_horta{
         background-image: url("/img/la_horta.png");
@@ -1130,7 +1198,16 @@ rar_carrito{
 
 }
 
+<<<<<<< HEAD
 .sn_txt_mails{
     color: red;
    font-size: 1.2em;
 }
+=======
+@media (min-width: 1025px) and (max-width: 1913px) {
+
+
+
+    
+}
+>>>>>>> origin/master

@@ -62,15 +62,20 @@ class Orderr
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Carrier", inversedBy="orderrs")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $carrier;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Paymentmethod", inversedBy="orderrs")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $paymentmethod;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $totalfactura;
 
     public function __construct()
     {
@@ -222,6 +227,16 @@ class Orderr
         return $this;
     }
 
+    public function getTotalfactura(): ?float
+    {
+        return $this->totalfactura;
+    }
+
+    public function setTotalfactura(?float $totalfactura): self
+    {
+        $this->totalfactura = $totalfactura;
+        return $this;
+    }
 
 
 }

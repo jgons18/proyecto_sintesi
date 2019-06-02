@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     $('#slider a:gt(0)').hide();
@@ -193,7 +192,24 @@ $(document).ready(function () {
        });
     });
 
+    $("#user_province").on("change", function () {
+        var provinciaid = $(this).val();
+        var cities = $("#user_city");
+        cities.empty();
+        cities.append('<option selected="true" disabled>Selecciona una ciudad</option>');
+        cities.prop('selectedIndex', 0);
 
+        $.getJSON("json/municipios.json", function (data) {
+            $.each(data, function (key, entry) {
+                if (entry.provincia_id == provinciaid) {
+                    cities.append('<option value="'+ entry.id +'">'+ entry.name +'</option>');
+
+                }
+            })
+        });
+    })
+
+});
 
     //click carrito
     $(".am_carro").click(function () {
@@ -212,21 +228,32 @@ $(document).ready(function () {
     /*$("#orderr2 div:nth-child(3)").hide();
     $("#orderr2 div:nth-child(4)").hide();*/
 
-});
+    /*$(".jg_input_contact").change(function () {
+        if($(".jg_input_contact").valid()){
+            $(".jg_valido").attr("src","img/correct.png");
+        }else{
+            $(".jg_valido").attr("src","img/wrong.png");
+        }
 
-function am_slider_home() {
+    });*/
+    //validación en linea de lapagina de contacto
+    $(".jg_input_name").on("change",function () {
+        //$(".jg_valido").attr("src","img/correct.png");
+        var $regexname=/^([a-zA-Z]{1,40})$/;
+        if (!$(this).val().match($regexname)) {
+            $(".jg_valido_name").attr("src","img/wrong.png");
+        }else{
+            $(".jg_valido_name").attr("src","img/correct.png");
+        }
 
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
     });
-}
+    $(".jg_input_email").on("change",function () {
+        var $regexname=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if (!$(this).val().match($regexname)) {
+            $(".jg_valido_email").attr("src","img/wrong.png");
+        }else{
+            $(".jg_valido_email").attr("src","img/correct.png");
+        }
+
+    });
+    //$(".jg_ocultar_campos div div").append('<img class="jg_valido_register" src="" alt="indicador de campo valido" longdesc="a través de un check o una cruz indica si es válido el campo"/>');
