@@ -27,18 +27,6 @@ class OffersController extends AbstractController
             'ofertas'=>$ofertas]);
     }
 
-    /**
-     * Función para listar los productos que sean verduras
-     * @Route("/listar", name="app_list_offer")
-     */
-    public function listoffer(){
-        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-        $ofertas = $this->getDoctrine()->getRepository(Offer::class)->findAll();
-        return $this->render('offers/listoffer.html.twig', [
-            'products'=>$products,
-            'offers'=>$ofertas]);
-
-    }
 
     /**
      * Función para añadir producto (que sea fruta)
