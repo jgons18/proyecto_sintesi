@@ -28,9 +28,15 @@ class Paymentmethod
      */
     private $details;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Orderr", mappedBy="paymentmethod")
+     */
+    private $orderrs;
+
     public function __construct()
     {
         $this->details = new ArrayCollection();
+        $this->orderrs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -75,6 +81,46 @@ class Paymentmethod
             // set the owning side to null (unless already changed)
             if ($detail->getPaymentmethod() === $this) {
                 $detail->setPaymentmethod(null);
+            }
+        }
+
+        return $this;
+    }
+    /**
+     * Función para convertir a string el array de métodos de pago para poder mostrar su contenido
+     * @return mixed
+     */
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->namemethod;
+    }
+
+    /**
+     * @return Collection|Orderr[]
+     */
+    public function getOrderrs(): Collection
+    {
+        return $this->orderrs;
+    }
+
+    public function addOrderr(Orderr $orderr): self
+    {
+        if (!$this->orderrs->contains($orderr)) {
+            $this->orderrs[] = $orderr;
+            $orderr->setPaymentmethod($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderr(Orderr $orderr): self
+    {
+        if ($this->orderrs->contains($orderr)) {
+            $this->orderrs->removeElement($orderr);
+            // set the owning side to null (unless already changed)
+            if ($orderr->getPaymentmethod() === $this) {
+                $orderr->setPaymentmethod(null);
             }
         }
 

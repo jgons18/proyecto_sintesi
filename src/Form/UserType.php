@@ -15,8 +15,10 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use function Symfony\Component\Validator\Tests\Constraints\choice_callback;
 
 class UserType extends AbstractType
 {
@@ -25,6 +27,24 @@ class UserType extends AbstractType
     {
         //función para construir un formulario
         //añadimos add por tantos campos que tengamos en la clase User(en entity)
+
+        $provinces = json_decode(file_get_contents("json/provincias.json"), TRUE);
+        $provincesChoices = array();
+
+        foreach ($provinces as $province){
+            $provincesChoices[$province['nombre']] = $province['provincia_id'];
+
+        }
+
+        $cities = json_decode(file_get_contents("json/municipios.json"), TRUE);
+        $citiesChoices = array();
+
+        foreach ($cities as $city) {
+            $citiesChoices[$city['nombre']] = $city['municipio_id'];
+        }
+
+
+
         $builder
             /*->add('username',TextType::class,[
                 'required'=>'required',
@@ -89,7 +109,23 @@ class UserType extends AbstractType
                     'pattern'=>'[A-za-z]'*/
                 ]
             ])
-            ->add('city',TextType::class,[
+
+            ->add('province',ChoiceType::class, array(
+                'choices' => $provincesChoices
+            ),
+                [
+                    'required'=>'required',
+                    'label' => 'Provincia',
+                    'attr'=>[
+                        'class'=>'form-username form-control',
+                        'placeholder'=>'ej:Barcelona'
+                    ]
+                ])
+
+            ->add('city',ChoiceType::class, array(
+                'choices' => $citiesChoices
+            ),
+                [
                 'required'=>'required',
                 'label' => 'Ciudad',
                 'attr'=>[
@@ -107,15 +143,6 @@ class UserType extends AbstractType
                     'pattern'=>'[0-9]{5}'
                 ]
             ])
-            ->add('province',TextType::class,[
-                'required'=>'required',
-                'label' => 'Provincia',
-                'attr'=>[
-                    'class'=>'jg_input_form',
-                    'placeholder'=>'ej:Barcelona',
-                    'pattern'=>'[A-Za-z]{1,20}'
-                ]
-            ])
 
             ->add('save',SubmitType::class, [
                 'label' => 'Registrarme',
@@ -123,45 +150,6 @@ class UserType extends AbstractType
                     'class' => 'save jg_finalizar_1'
                 ]
             ]);
-/*<<<<<<< HEAD
-=======
-            /*->add('username',TextType::class,[
-                'required'=>'required',
-                'label' => 'Nombre de usuario',
-                'attr'=>[
-                    'class'=>'form-username form-control',
-                    'placeholder'=>'ej:usuario123'
-                ]
-            ])
-            ->add('email',EmailType::class,[
-                'required'=>'required',
-                'label' => 'Correo electrónico',
-                'attr'=>[
-                    'class'=>'form-email form-control',
-                    'placeholder'=>'Email@email'
-                ]
-            ])
-            ->add('plainpassword',RepeatedType::class,[ //repeated por que se repetirá para comparar con otro campo de password de que son iguales
-                'type'=>PasswordType::class, //aqui indicamos que tipo de campo se va  repetir
-                'required'=>'required',
-                'first_options'=>[
-                    'label' => 'Contraseña',
-                    'attr'=>[
-                        'class'=>'form-password form-control',
-                        'placeholder'=>'Introduzca la contraseña',
-                    ]
-                ],
-                'second_options'=>[
-                    'label' => 'Repita la contraseña',
-                    'attr'=>[
-                        'class'=>'form-password form-control',
-                        'placeholder'=>'Repite la contraseña'
-                    ]
-                ]
-
-            ])
->>>>>>> e4831df8f4cac621807ad401edc06bd44d973c74*/
-            
     }
 
     public function configureOptions(OptionsResolver $resolver)

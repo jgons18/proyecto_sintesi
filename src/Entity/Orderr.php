@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OrderrRepository")
@@ -58,6 +59,23 @@ class Orderr
      * @ORM\OneToMany(targetEntity="App\Entity\Detail", mappedBy="forder")
      */
     private $details;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Carrier", inversedBy="orderrs")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $carrier;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Paymentmethod", inversedBy="orderrs")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $paymentmethod;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $totalfactura;
 
     public function __construct()
     {
@@ -185,6 +203,40 @@ class Orderr
         return $this;
     }
 
+    public function getCarrier(): ?Carrier
+    {
+        return $this->carrier;
+    }
+
+    public function setCarrier(?Carrier $carrier): self
+    {
+        $this->carrier = $carrier;
+
+        return $this;
+    }
+
+    public function getPaymentmethod(): ?Paymentmethod
+    {
+        return $this->paymentmethod;
+    }
+
+    public function setPaymentmethod(?Paymentmethod $paymentmethod): self
+    {
+        $this->paymentmethod = $paymentmethod;
+
+        return $this;
+    }
+
+    public function getTotalfactura(): ?float
+    {
+        return $this->totalfactura;
+    }
+
+    public function setTotalfactura(?float $totalfactura): self
+    {
+        $this->totalfactura = $totalfactura;
+        return $this;
+    }
 
 
 }

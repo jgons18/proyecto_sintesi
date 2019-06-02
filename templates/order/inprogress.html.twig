@@ -22,11 +22,11 @@
         &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
         {% else %}&nbsp;
             {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
-                <i class="fas fa-user-circle"></i>&nbsp;<a href="">Mi perfil</a>&nbsp;&nbsp;
+                <i class="fas fa-user-circle"></i><a href="{{ path('view_profoile') }}">Mi perfil</a>&nbsp;&nbsp;
                 <i class="fas fa-box-open"></i>&nbsp;<a href="{{ path('app_my_orders', {'id':app.user.id}) }}">Mis pedidos</a>&nbsp;
             {% endif %}&nbsp;
             {% if is_granted('ROLE_ADMIN') %}
-                <i class="fas fa-user-circle"></i>&nbsp;Mi perfil&nbsp;&nbsp;
+                <i class="fas fa-user-circle"></i><a href="{{ path('view_profoile') }}">Mi perfil</a>&nbsp;
                 <i class="fas fa-boxes"></i>&nbsp;<a href="{{ path('app_pedidos') }}" class="jg_link_now">Pedidos</a>&nbsp;&nbsp;
             {% endif %}
             <i class="fas fa-sign-out-alt"></i>&nbsp;<a href="{{ path('app_logout') }}">Logout</a>
@@ -65,28 +65,47 @@
             <a href="{{ path('app_fruits') }}"><li class="am_nav_obj jg_nav_fruit ">Frutas</li></a>
             <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj am_nav_objverd jg_nav_veg">Verduras y Hortalizas</li></a>
             <a href="{{ path('app_boxes') }}"><li class="am_nav_obj jg_nav_basket">Cestas</li></a>
-            <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj jg_nav_offers">Ofertas</li></a>
+            <a href="{{ path('offers') }}"><li class="am_nav_obj jg_nav_offers">Ofertas</li></a>
         </ul>
     </nav>
 </div>
 {% block body %}
-    <h1>Pedido</h1>
-    {% for orderr in orderrs %}
-        <div>
+    {#{{ app.session.get('Pedido') }}#}
+    <div class="jg_mostrar_carrito">carrito</div>
+    <h2 class="jg_titulos">Pedido</h2>
+{#    {% for re in res %}
+        {{ re.user}}
+        {{ re.dateeorderr|date('d-m-Y H:i:s') }}
+    {% endfor %}#}
+
+        <div class="jg_box_order">
                 <div class="jg_form_add_product_to_basket">
-                    {{ form_start(form) }}
+                    {% for detail in details %}
+                        {{ detail.product }}
+                        {{ detail.price }}€
+                        <label>Unidades</label>
+                        <input type="number" min="1" name="unidades" id="unidades" value="1" class="jg_unidades" readonly>
+                        {#<input type="number" step="0.1" value="{{ detail.total+detail.total }}" class="jg_totaal">#}
+                        <br>
+
+                    {% endfor %}
+                    {#{{ form_start(form) }}
                     {{ form_widget(form) }}
                     {{ form_errors(form) }}
-                    {{ form_end(form) }}
-
+                    {{ form_end(form) }}#}
                     {{ form_start(form2) }}
                     {{ form_widget(form2) }}
                     {{ form_errors(form2) }}
                     {{ form_end(form2) }}
-
                 </div>
         </div>
-    {% endfor %}
+        <div class="jg_box_order jg_right">
+            {% for re in res %}
+                <h3>TOTAL: {{ re.totalfactura }}€</h3>
+
+            {% endfor %}
+
+        </div>
 <footer>
     <section class="sn_footer_top">
         <article>

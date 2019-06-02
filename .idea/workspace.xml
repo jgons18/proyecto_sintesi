@@ -6,6 +6,38 @@
       <change beforePath="$PROJECT_DIR$/src/Form/Orderr2Type.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Orderr2Type.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/ProductBoxType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ProductBoxType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/boxes/view_product.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/boxes/view_product.html.twig" afterDir="false" />
+
+      <change afterPath="$PROJECT_DIR$/pruebas.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/functions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/footer/faq.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/mail/confirmation.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/offers/productsoffer.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/edit_prof.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/perfil.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/fruitable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fruitable.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PaymentmethodRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PaymentmethodRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProductRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/registro.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/registro.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/vegetable/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baskets/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Form/CarrierType.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Form/Orderr2Type.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Form/ProductBoxEditType.php" afterDir="false" />
@@ -67,6 +99,8 @@
       <change beforePath="$PROJECT_DIR$/templates/home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/home.html.twig" afterDir="false" />
 
 
+
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,24 +136,27 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="fruitable@172.17.0.2" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="fruitable: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="fruitable: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="fruitable@172.17.0.2" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-
         <item name="fruitable: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="user: table" type="98d5ac3d:MysqlImplModel$Table" />
-
+        <item name="category: table" type="98d5ac3d:MysqlImplModel$Table" />
         <item name="fruitable: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="user: table" type="285a2a93:MysqlImplModel$Table" />
-
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="fruitable@172.17.0.2" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="fruitable: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="user: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
   </component>
-
   <component name="FUSProjectUsageTrigger">
     <session id="672045071">
       <usages-collector id="statistics.lifecycle.project">
@@ -162,8 +199,18 @@
           <entry key="season" value="2" />
           <entry key="sql" value="2" />
           <entry key="twig" value="94" />
+
+          <entry key="twig" value="34" />
+          <entry key="user" value="3" />
+          <entry key="twig" value="91" />
           <entry key="user" value="5" />
           <entry key="yaml" value="9" />
+
+
+          <entry key="twig" value="5" />
+
+
+          <entry key="yaml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -178,8 +225,16 @@
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="Scratch" value="2" />
           <entry key="Twig" value="94" />
+
+          <entry key="Twig" value="34" />
+          <entry key="UML" value="4" />
+          <entry key="Twig" value="91" />
           <entry key="UML" value="5" />
           <entry key="YAML" value="9" />
+
+          <entry key="Twig" value="5" />
+          <entry key="UML" value="1" />
+          <entry key="YAML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -197,7 +252,22 @@
           <entry key="js" value="15" />
           <entry key="php" value="11691" />
           <entry key="sql" value="4" />
+
           <entry key="twig" value="3781" />
+
+          <entry key="twig" value="1801" />
+          <entry key="twig" value="189" />
+          <entry key="twig" value="3775" />
+          <entry key="twig" value="3781" />
+
+          <entry key="twig" value="189" />
+
+
+          <entry key="twig" value="3781" />
+
+          <entry key="twig" value="1801" />
+          <entry key="twig" value="189" />
+          <entry key="twig" value="3775" />
           <entry key="txt" value="41" />
           <entry key="yaml" value="11" />
         </counts>
@@ -210,9 +280,102 @@
           <entry key="PHP" value="11691" />
           <entry key="PLAIN_TEXT" value="50" />
           <entry key="SQL" value="4" />
+
+
+
+          <entry key="Scratch" value="48" />
+          <entry key="Twig" value="1801" />
+
           <entry key="Scratch" value="65" />
           <entry key="Twig" value="3781" />
           <entry key="YAML" value="11" />
+
+          <entry key="Twig" value="189" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-1312503346">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="14" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.15" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.39" value="1" />
+          <entry key="project.open.time.40" value="1" />
+          <entry key="project.open.time.42" value="1" />
+          <entry key="project.open.time.45" value="2" />
+          <entry key="project.open.time.46" value="1" />
+          <entry key="project.open.time.47" value="3" />
+          <entry key="project.open.time.48" value="1" />
+          <entry key="project.open.time.51" value="1" />
+          <entry key="project.open.time.52" value="1" />
+          <entry key="project.open.time.61" value="1" />
+          <entry key="project.open.time.81" value="1" />
+          <entry key="project.opened" value="25" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="category" value="2" />
+          <entry key="css" value="12" />
+          <entry key="detail" value="2" />
+          <entry key="env" value="3" />
+          <entry key="js" value="2" />
+          <entry key="offer" value="2" />
+          <entry key="order" value="1" />
+          <entry key="paymentmethod" value="1" />
+          <entry key="php" value="68" />
+          <entry key="product" value="5" />
+          <entry key="rst" value="1" />
+          <entry key="season" value="1" />
+          <entry key="sql" value="2" />
+          <entry key="twig" value="53" />
+          <entry key="user" value="3" />
+          <entry key="yaml" value="31" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key=".env file" value="3" />
+          <entry key="CSS" value="12" />
+          <entry key="Database Element" value="17" />
+          <entry key="JavaScript" value="2" />
+          <entry key="PHP" value="68" />
+          <entry key="ReST" value="1" />
+          <entry key="SQL" value="1" />
+          <entry key="Scratch" value="1" />
+          <entry key="Twig" value="53" />
+          <entry key="YAML" value="31" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cell" value="407" />
+          <entry key="css" value="475" />
+          <entry key="env" value="47" />
+          <entry key="js" value="1" />
+          <entry key="php" value="1907" />
+          <entry key="twig" value="1751" />
+          <entry key="yaml" value="145" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key=".env file" value="47" />
+          <entry key="CSS" value="475" />
+          <entry key="JavaScript" value="1" />
+          <entry key="PHP" value="1907" />
+          <entry key="Scratch" value="407" />
+          <entry key="Twig" value="1751" />
+          <entry key="YAML" value="145" />
+          <entry key="Twig" value="189" />
         </counts>
       </usages-collector>
     </session>
@@ -220,25 +383,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/offers/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="129">
+              <caret line="48" column="50" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
         <entry file="file://$PROJECT_DIR$/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
 
             <state relative-caret-position="120">
               <caret line="256" column="56" selection-start-line="256" selection-start-column="48" selection-end-line="256" selection-end-column="56" />
-
-
             <state relative-caret-position="210">
               <caret line="454" column="49" selection-start-line="454" selection-start-column="49" selection-end-line="454" selection-end-column="49" />
-
             <state relative-caret-position="-150">
               <caret line="293" column="34" lean-forward="true" selection-start-line="293" selection-start-column="34" selection-end-line="293" selection-end-column="34" />
             <state relative-caret-position="3705">
               <caret line="259" column="8" selection-start-line="259" selection-start-column="8" selection-end-line="272" selection-end-column="29" />
-
               <folding>
                 <element signature="e#115#139#0#PHP" expanded="true" />
               </folding>
-
             </state>
           </provider>
         </entry>
@@ -263,7 +425,6 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/vegetable/filters/category.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-
             <state relative-caret-position="60">
               <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
             <state relative-caret-position="315">
@@ -277,7 +438,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-
         <entry file="file://$PROJECT_DIR$/templates/vegetable/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
@@ -305,13 +465,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
               <caret line="25" selection-start-line="25" selection-end-line="25" />
-
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/user/perfil.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="68" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
       <file pinned="false" current-in-tab="false">
-
         <entry file="file://$PROJECT_DIR$/templates/boxes/view_product.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
@@ -331,13 +494,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
               <caret line="3" selection-start-line="3" selection-end-line="3" />
-
             </state>
           </provider>
         </entry>
       </file>
 
       <file pinned="false" current-in-tab="true">
+
         <entry file="file://$PROJECT_DIR$/src/Form/Orderr2Type.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="271">
@@ -371,6 +534,8 @@
 
         <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="404" selection-start-line="404" selection-end-line="404" />
             <state relative-caret-position="1290">
               <caret line="97" selection-start-line="97" selection-end-line="97" />
 
@@ -380,6 +545,18 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Form/ProductType.php">
+
+        <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1239">
+              <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
+              <folding>
+                <element signature="e#114#134#0#PHP" expanded="true" />
+              </folding>
+        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" /
 
         <entry file="file://$PROJECT_DIR$/src/Form/ProductBoxType.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -421,6 +598,12 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Form/ProductBoxType.php">
+
+        <entry file="file://$PROJECT_DIR$/templates/user/registro.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        <entry file="file://$PROJECT_DIR$/templates/fruit/filters/price.html.twig">
           <provider selected="true" editor-type-id="text-editor">
 
             <state>
@@ -438,7 +621,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1200">
               <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-
             </state>
           </provider>
         </entry>
@@ -471,6 +653,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/user/edit_prof.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
         <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="645">
@@ -478,6 +664,11 @@
               <folding>
                 <element signature="e#30#78#0#PHP" expanded="true" />
               </folding>
+
+        <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -495,6 +686,31 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>tmp/phplArwoq</find>
+      <find>login.html.tw</find>
+      <find>productedit</find>
+      <find>ProductEditType</find>
+      <find>usertype</find>
+      <find>function __</find>
+      <find>extends</find>
+      <find>app_login</find>
+      <find>{id}</find>
+      <find>form_widget</find>
+      <find>produc</find>
+      <find>App\Entity\Offer</find>
+      <find>off</find>
+      <find>OFFEr</find>
+      <find>products</find>
+      <find>ayuda.ht</find>
+      <find>faq.html</find>
+      <find>category</find>
+      <find>array(</find>
+      <find>__tos</find>
+      <find>dosis</find>
+      <find>usertype.ph</find>
+      <find>ProductEdit</find>
+      <find>public function register</find>
+      <find>form.save</find>
+      <find>UserTy</find>
       <find>#</find>
       <find>logo</find>
       <find>id</find>
@@ -538,23 +754,52 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/config/routes.yaml" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/Entity/User.php" />
         <option value="$PROJECT_DIR$/templates/user/registro.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Season.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Category.php" />
         <option value="$PROJECT_DIR$/templates/fruit/new_product.html.twig" />
         <option value="$PROJECT_DIR$/templates/vegetable/new_product.html.twig" />
         <option value="$PROJECT_DIR$/templates/fruit/edit_product.html.twig" />
         <option value="$PROJECT_DIR$/templates/vegetable/view_product.html.twig" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
         <option value="$PROJECT_DIR$/src/Form/ProductEditType.php" />
+        <option value="$PROJECT_DIR$/templates/vegetable/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/fruit/view_product.html.twig" />
+        <option value="$PROJECT_DIR$/templates/user/login.html.twig" />
+        <option value="$PROJECT_DIR$/templates/home/home.html.twig" />
+        <option value="$PROJECT_DIR$/templates/user/registro.html.twig" />
+        <option value="$PROJECT_DIR$/../../PROYECTO_DEF/proyecto_sintesi/public/css/style.css" />
+        <option value="$PROJECT_DIR$/src/Form/UserType.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/templates/mail/confirmation.html.twig" />
+        <option value="$PROJECT_DIR$/templates/otras/politicas_privacidad.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Product.php" />
         <option value="$PROJECT_DIR$/src/Controller/ProductController.php" />
+        <option value="$PROJECT_DIR$/templates/fruit/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/offers/productsoffer.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/Offer.php" />
         <option value="$PROJECT_DIR$/src/Controller/HomeController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
+        <option value="$PROJECT_DIR$/templates/baskets/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/BasketController.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Category.php" />
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/Product.php" />
+        <option value="$PROJECT_DIR$/pruebas.php" />
+        <option value="$PROJECT_DIR$/src/Repository/PaymentmethodRepository.php" />
+        <option value="$PROJECT_DIR$/config/packages/swiftmailer.yaml" />
+        <option value="$PROJECT_DIR$/src/Controller/OffersController.php" />
+        <option value="$PROJECT_DIR$/templates/basket/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/offers/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Repository/ProductRepository.php" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/public/js/functions.js" />
+        <option value="$PROJECT_DIR$/src/Form/EditUserProfileType.php" />
+        <option value="$PROJECT_DIR$/templates/user/edit_prof.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
+        <option value="$PROJECT_DIR$/templates/user/perfil.html.twig" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/templates/user/login.html.twig" />
         <option value="$PROJECT_DIR$/templates/user/registro.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/UserType.php" />
@@ -599,6 +844,7 @@
         <option value="$PROJECT_DIR$/templates/fruit/filters/category.html.twig" />
         <option value="$PROJECT_DIR$/templates/user/my_orders.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
+
         <option value="$PROJECT_DIR$/templates/user/login.html.twig" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/src/Entity/Detail.php" />
@@ -625,6 +871,8 @@
         <option value="$PROJECT_DIR$/src/Controller/ProductController.php" />
         <option value="$PROJECT_DIR$/templates/boxes/view_product.html.twig" />
         <option value="$PROJECT_DIR$/src/Form/Orderr2Type.php" />
+
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
       </list>
     </option>
   </component>
@@ -720,6 +968,10 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
       <path value="$PROJECT_DIR$/vendor/symfony/form" />
       <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
       <path value="$PROJECT_DIR$/vendor/bitsystem/searchpro" />
     </include_path>
   </component>
@@ -735,10 +987,12 @@
     <option name="width" value="888" />
     <option name="height" value="417" />
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="464" />
+    <option name="width" value="902" />
+    <option name="height" value="418" />
     <option name="x" value="10" />
     <option name="width" value="1128" />
     <option name="height" value="910" />
-  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="680" />
     <option name="height" value="624" />
   </component>
@@ -757,8 +1011,11 @@
             <path>
               <item name="proyecto_sintesi" type="b2602c69:ProjectViewProjectNode" />
               <item name="proyecto_sintesi" type="462c0819:PsiDirectoryNode" />
+              <item name="fruitable" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fruitable" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+
               <item name="proyecto_sintesi" type="b2602c69:ProjectViewProjectNode" />
               <item name="proyecto_sintesi" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
@@ -769,6 +1026,7 @@
               <item name="fruitable" type="462c0819:PsiDirectoryNode" />
               <item name="proyecto_sintesi" type="b2602c69:ProjectViewProjectNode" />
               <item name="proyecto_sintesi" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -780,20 +1038,26 @@
             <path>
               <item name="proyecto_sintesi" type="b2602c69:ProjectViewProjectNode" />
               <item name="proyecto_sintesi" type="462c0819:PsiDirectoryNode" />
-
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
+
+
+
+
 
               <item name="fruitable" type="b2602c69:ProjectViewProjectNode" />
               <item name="fruitable" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="proyecto_sintesi" type="b2602c69:ProjectViewProjectNode" />
               <item name="proyecto_sintesi" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="uploads" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
@@ -811,6 +1075,7 @@
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+
               <item name="proyecto_sintesi" type="b2602c69:ProjectViewProjectNode" />
               <item name="proyecto_sintesi" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
@@ -829,9 +1094,7 @@
               <item name="proyecto_sintesi" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="boxes" type="462c0819:PsiDirectoryNode" />
-
               <item name="footer" type="462c0819:PsiDirectoryNode" />
-
             </path>
 
             <path>
@@ -855,19 +1118,25 @@
               <item name="proyecto_sintesi" type="b2602c69:ProjectViewProjectNode" />
               <item name="proyecto_sintesi" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="mail" type="462c0819:PsiDirectoryNode" />
               <item name="vegetable" type="462c0819:PsiDirectoryNode" />
 
             </path>
             <path>
               <item name="proyecto_sintesi" type="b2602c69:ProjectViewProjectNode" />
               <item name="proyecto_sintesi" type="462c0819:PsiDirectoryNode" />
+              <item name="fruitable" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fruitable" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="vegetable" type="462c0819:PsiDirectoryNode" />
               <item name="filters" type="462c0819:PsiDirectoryNode" />
-
               <item name="home" type="462c0819:PsiDirectoryNode" />
 
+
+              <item name="fruitable" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fruitable" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
 
           </expand>
@@ -882,6 +1151,11 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../webseite_Sergio" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
 
     <property name="database.console.LAST_STATE" value="false" />
 
@@ -914,12 +1188,13 @@
       <recent name="$PROJECT_DIR$/templates/vegetable" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-
+      <recent name="$PROJECT_DIR$/src/Form" />
       <recent name="$PROJECT_DIR$/templates" />
-
       <recent name="$PROJECT_DIR$/public/uploads/pictures" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/baskets" />
+      <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/templates/vegetable" />
     </key>
   </component>
@@ -949,7 +1224,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="077947ff-565a-4672-a56a-f8484b29cd52" name="Default Changelist" comment="" />
-      <created>1557415679280</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1557415679280</updated>
@@ -960,6 +1234,31 @@
       <workItem from="1557839263676" duration="13665000" />
       <workItem from="1557925718656" duration="15452000" />
       <workItem from="1558012197163" duration="11006000" />
+      <workItem from="1558037837906" duration="1275000" />
+      <workItem from="1558042509763" duration="1038000" />
+      <workItem from="1558095968694" duration="1055000" />
+      <workItem from="1558098574387" duration="1258000" />
+      <workItem from="1558100818837" duration="2281000" />
+      <workItem from="1558103146153" duration="57000" />
+      <workItem from="1558103233415" duration="818000" />
+      <workItem from="1558104473760" duration="2521000" />
+      <workItem from="1558108870277" duration="4246000" />
+      <workItem from="1558194937543" duration="2763000" />
+      <workItem from="1558260334551" duration="19623000" />
+      <workItem from="1558439024227" duration="3319000" />
+      <workItem from="1558446014879" duration="3264000" />
+      <workItem from="1558449596308" duration="6332000" />
+      <workItem from="1558459925429" duration="1153000" />
+      <workItem from="1558473849270" duration="2089000" />
+      <workItem from="1558526878751" duration="972000" />
+      <workItem from="1558530894441" duration="13321000" />
+      <workItem from="1558561932828" duration="6210000" />
+      <workItem from="1558617027230" duration="10098000" />
+      <workItem from="1558629011885" duration="442000" />
+      <workItem from="1558631180362" duration="269000" />
+      <workItem from="1558646556853" duration="2985000" />
+      <workItem from="1558698302282" duration="1806000" />
+      <workItem from="1558703503751" duration="6781000" />
       <workItem from="1558100520533" duration="3479000" />
       <workItem from="1558104775592" duration="10962000" />
       <workItem from="1558358144698" duration="11759000" />
@@ -995,6 +1294,38 @@
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="153780000" />
+
+    <option name="totallyTimeSpent" value="166029000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1366" height="633" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20770393" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49924126" weight="0.61564624" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32985657" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5007587" side_tool="true" weight="0.32843137" />
+      <window_info anchor="bottom" id="Database Console" order="12" sideWeight="0.5091047" weight="0.21218075" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.20392749" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1828528" />
+    <option name="totallyTimeSpent" value="12379000" />
+    <option name="totallyTimeSpent" value="151124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="672" y="0" width="1248" height="910" extended-state="0" />
@@ -1005,7 +1336,6 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24542898" />
     <option name="totallyTimeSpent" value="130264000" />
     <option name="totallyTimeSpent" value="128423000" />
-
   </component>
   <component name="ToolWindowManager">
     <frame x="8" y="0" width="888" height="417" extended-state="0" />
@@ -1033,6 +1363,14 @@
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27162367" />
+
+    <option name="totallyTimeSpent" value="12379000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="444" y="0" width="1476" height="910" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24542898" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1064,6 +1402,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.17298938" />
 
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.2562814" />
 
@@ -1101,6 +1440,58 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/fruit/new_product.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes/annotations.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes/dev/twig.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes/dev/web_profiler.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="58" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/fruit/edit_product.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/mail/confirmation.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12/schema/fruitable/table/order">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12/schema/fruitable/table/season">
 
     <entry file="file://$PROJECT_DIR$/src/Form/SearchType.php" />
     <entry file="file://$PROJECT_DIR$/templates/search/form.html.twig" />
@@ -1140,7 +1531,66 @@
         </state>
       </provider>
     </entry>
-
+    <entry file="das://904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12/schema/fruitable/table/paymentmethod">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/home/home.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../webseite_Sergio/vendor/sensio/framework-extra-bundle/Resources/doc/index.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/fruit/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Offers.php" />
+    <entry file="file://$PROJECT_DIR$/src/Entity/Order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12/schema/fruitable/table/offer.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/footer/ayuda.html.twig" />
+    <entry file="file://$PROJECT_DIR$/templates/offers/productsoffer.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+    <entry file="uml://DATABASE/904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.SCHEMA:fruitable">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
     <entry file="file://$PROJECT_DIR$/src/Entity/Orderr.php">
 
     <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
@@ -1216,6 +1666,7 @@
       </provider>
     </entry>
 
+
     <entry file="file://$PROJECT_DIR$/src/Entity/Detail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
@@ -1227,12 +1678,22 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
 
+
     <entry file="uml://DATABASE/904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.SCHEMA:fruitable">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
           <ID>DATABASE</ID>
           <OriginalElement>904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.SCHEMA:fruitable</OriginalElement>
           <nodes>
+            <node x="" y="">904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.TABLE:fruitable.temporada</node>
+            <node x="" y="">904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.TABLE:fruitable.migration_versions</node>
+            <node x="" y="">904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.TABLE:fruitable.detalle</node>
+            <node x="" y="">904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.TABLE:fruitable.producto</node>
+            <node x="" y="">904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.TABLE:fruitable.metododepago</node>
+            <node x="" y="">904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.TABLE:fruitable.user</node>
+            <node x="" y="">904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.TABLE:fruitable.categoria</node>
+            <node x="" y="">904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.TABLE:fruitable.transportista</node>
+            <node x="" y="">904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.TABLE:fruitable.pedido</node>
             <node x="470.0" y="467.0">904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.TABLE:fruitable.carrier</node>
             <node x="349.25" y="120.0">904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.TABLE:fruitable.category</node>
             <node x="0.0" y="964.0">904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12.TABLE:fruitable.migration_versions</node>
@@ -1304,6 +1765,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/baskets/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="45" lean-forward="true" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12/schema/fruitable/table/category">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12/schema/fruitable/table/detail">
 
     <entry file="file://$PROJECT_DIR$/config/routes.yaml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1427,6 +1906,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/security.yaml">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12/schema/fruitable/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+          <column-attributes>
+            <column name="roles" languageId="JSON" />
+          </column-attributes>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/PaymentmethodRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
         </state>
@@ -1435,11 +1934,15 @@
 
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
+
         <state relative-caret-position="405">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#30#78#0#PHP" expanded="true" />
           </folding>
+
+        <state relative-caret-position="-2745">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
@@ -1492,8 +1995,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/ProductEditType.php">
+    <entry file="file://$PROJECT_DIR$/src/Controller/OffersController.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
         <state relative-caret-position="120">
           <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
           <folding>
@@ -1502,8 +2007,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Form/ProductType.php">
+    <entry file="file://$PROJECT_DIR$/src/Controller/BasketController.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pruebas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12/schema/fruitable/table/offer">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12/schema/fruitable/table/product">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         <state relative-caret-position="1020">
           <caret line="83" column="55" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="55" />
           <folding>
@@ -1589,6 +2117,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/boxes/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4200">
+          <caret line="283" column="8" selection-start-line="283" selection-start-column="8" selection-end-line="283" selection-end-column="8" />
+        <state relative-caret-position="90">
+          <caret line="12" column="43" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="das://904d1c7c-1cb7-4bfb-aea3-41f8b5f7fb12/schema/fruitable/table/category">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1611,6 +2148,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/swiftmailer.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Offer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding>
+            <element signature="e#30#78#0#PHP" expanded="true" />
+          </folding>
+        <state relative-caret-position="-2745">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/footer/faq.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+
 
     <entry file="file://$PROJECT_DIR$/src/Form/ProductBoxEditType.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1669,8 +2230,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/fruit/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Entity/Category.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1119">
+          <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/offers/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="48" column="50" selection-start-line="48" selection-start-column="50" selection-end-line="48" selection-end-column="50" />
         <state relative-caret-position="480">
           <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
         </state>
@@ -1695,6 +2265,7 @@
             <element signature="e#4465#4723#2" expanded="true" />
             <element signature="e#4843#5101#2" expanded="true" />
 
+
     <entry file="file://$PROJECT_DIR$/src/Controller/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3705">
@@ -1702,11 +2273,13 @@
           <folding>
             <element signature="e#115#139#0#PHP" expanded="true" />
 
+
           </folding>
 
         </state>
       </provider>
     </entry>
+
 
     <entry file="file://$PROJECT_DIR$/public/js/swiper.min.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1743,12 +2316,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/HomeController.php">
+    <entry file="file://$PROJECT_DIR$/templates/basket/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/functions.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/UserType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="33" selection-start-line="33" selection-end-line="33" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ProductController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="157" column="32" lean-forward="true" selection-start-line="157" selection-start-column="32" selection-end-line="157" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/ProductRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/EditUserProfileType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+          <folding>
+            <element signature="e#28#48#0#PHP" expanded="true" />
         <state relative-caret-position="263">
           <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
           <folding>
             <element signature="e#114#137#0#PHP" expanded="true" />
+
 
     <entry file="file://$PROJECT_DIR$/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1756,6 +2372,7 @@
           <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
           <folding>
             <element signature="e#30#78#0#PHP" expanded="true" />
+
 
           </folding>
         </state>
@@ -1767,6 +2384,9 @@
         <state relative-caret-position="325">
           <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
 
+
+        <state relative-caret-position="325">
+          <caret line="71" column="14" selection-start-line="71" selection-start-column="14" selection-end-line="71" selection-end-column="14" />
     <entry file="file://$PROJECT_DIR$/templates/fruit/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1845,6 +2465,35 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/boxes/index.html.twig">
+
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="404" selection-start-line="404" selection-end-line="404" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/user/registro.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/user/edit_prof.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1239">
+          <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
+          <folding>
+            <element signature="e#114#134#0#PHP" expanded="true" />
+    <entry file="file://$PROJECT_DIR$/templates/vegetable/filters/price-high-to-low.html.twig">
       <provider selected="true" editor-type-id="text-editor">
 
         <state relative-caret-position="90">
@@ -1856,11 +2505,13 @@
         <state relative-caret-position="1290">
           <caret line="97" selection-start-line="97" selection-end-line="97" />
 
+
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
+
 
         <state relative-caret-position="430">
           <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
@@ -1880,6 +2531,7 @@
           <caret line="40" column="62" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="62" />
           <folding>
             <element signature="e#35#94#0#PHP" expanded="true" />
+
 
         <state relative-caret-position="315">
           <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
@@ -1923,6 +2575,7 @@
           <folding>
             <element signature="e#114#136#0#PHP" expanded="true" />
 
+
           </folding>
 
         </state>
@@ -1936,6 +2589,9 @@
         <state>
           <caret column="14" selection-start-column="14" selection-end-column="14" />
 
+
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1963,6 +2619,22 @@
           <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
 
 
+
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/user/perfil.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="68" selection-start-line="22" selection-start-column="68" selection-end-line="22" selection-end-column="68" />
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
         </state>
       </provider>
     </entry>
