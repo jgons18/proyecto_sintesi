@@ -57,6 +57,7 @@ class UserController extends AbstractController
 
 
     /**
+     * Función para registrarse en la página
      * @Route("/register", name="app_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, \Swift_Mailer $mailer){
@@ -114,6 +115,7 @@ class UserController extends AbstractController
     }
 
     /**
+     * Función para inciar sesión
      * @param Request $request
      * @param AuthenticationUtils $authUtils
      * @Route("/login",name="app_login")
@@ -135,6 +137,7 @@ class UserController extends AbstractController
         ]);
     }
     /**
+     * Función para deslogarse
      * @Route("/logout",name="app_logout")
      */
     public function logout(){
@@ -145,7 +148,6 @@ class UserController extends AbstractController
      * Perfil de user en proceso
      * @Route("/perfil", name="view_profoile")
      */
-
     public function user_profile(){
        // $user = $this->getDoctrine()->getRepository(User::class)->find(2);
         //return $this->render('user/perfil.html.twig');
@@ -154,6 +156,7 @@ class UserController extends AbstractController
 
     }
     /**
+     * Función para editar el perfil
      * @Route("/edit_prof", name="app_prof")
      */
    // public function edit_user_prof(Request $request, Security $security) : Response{
