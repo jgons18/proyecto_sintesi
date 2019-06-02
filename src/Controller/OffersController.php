@@ -28,13 +28,15 @@ class OffersController extends AbstractController
     }
 
     /**
-     * Función para listar los productos que sean frutas
-     * @Route("/ofertas_old", name="app_fruits")
+     * Función para listar los productos que sean verduras
+     * @Route("/listar", name="app_list_offer")
      */
-    public function listfruitoffers(){
+    public function listoffer(){
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-        return $this->render('offers/productsoffer.html.twig', [
-            'products'=>$products]);
+        $ofertas = $this->getDoctrine()->getRepository(Offer::class)->findAll();
+        return $this->render('offers/listoffer.html.twig', [
+            'products'=>$products,
+            'offers'=>$ofertas]);
 
     }
 

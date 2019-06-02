@@ -10,9 +10,11 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Validator\Constraints\Range;
 
 class NewofferType extends AbstractType
 {
@@ -33,7 +35,9 @@ class NewofferType extends AbstractType
             'label' => 'Descuento',
             'attr'=>[
                 'class'=>'form-control am_categoria',
-                'placeholder'=>'01/01/2020'
+                'min' => '10',
+                'max' => '90'
+
             ]
         ])
         ->add('datestart',DateTimeType::class,[
