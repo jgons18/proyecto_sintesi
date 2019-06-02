@@ -792,6 +792,15 @@
         border-bottom: 1px solid darkgray;
         margin-bottom: 2%;
     }
+    .jg_input_form_order {
+        width: 53%;
+        margin-bottom: 1%;
+        background: transparent;
+        border: 0px;
+        border-bottom-width: 0px;
+        border-bottom: 1px solid darkgray;
+        margin-bottom: 2%;
+    }
     .jg_input_unidades{
         height: 0vh;
     }
@@ -968,6 +977,19 @@ rar_carrito{
     #orderr{
         display: inline-flex;
     }
+    .jg_valido_name,.jg_valido_email{
+        width: 20px;
+        float: right;
+    }
+    .jg_valido_register {
+        width: 20px;
+    }
+    .jg_box_order {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
 
     .la_horta{
         background-image: url("/img/la_horta.png");

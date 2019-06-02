@@ -11,6 +11,7 @@ namespace App\Controller;
 use App\Entity\Carrier;
 use App\Entity\Orderr;
 use App\Entity\Detail;
+use App\Entity\Paymentmethod;
 use App\Entity\Product;
 use App\Form\CarrierType;
 use App\Form\Orderr2Type;
@@ -22,6 +23,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Debug\Debug;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Cookie;
+use Symfony\Component\HttpFoundation\Response;
 
 class OrderrController extends AbstractController
 {
@@ -58,6 +61,9 @@ class OrderrController extends AbstractController
         $estado = $request->getSession('Pedido');
         //$session->get('Pedido');
 
+        //creación de la cookie para saber si el usuario las ha aceptado
+        $response = new Response();
+
         //obtenemos el id del producto a añadir al pedido
         $product=$this->getDoctrine()->getRepository(Product::class)->findBy(array('id'=>$id));
         $prducttoedit=$product[0];
@@ -72,47 +78,96 @@ class OrderrController extends AbstractController
         $form2->handleRequest($request);
         $error=$form2->getErrors();
 
-        //crearemos otro formulario pero de las unidades
-        $form3=$this->createForm(OrderrUnitsType::class);
-        $form3->handleRequest($request);
-        $error=$form3->getErrors();
-
-        //if($estado=='inactive'){
             //si el pedido está en estado inactivo, es decir, que no se ha creado aún, crearemos un pedido y cambiaremos el estado
             //puesto que si está en proceso utilizaremos ese pedido para ir añadiendo productos
+
             $pedido = new Orderr();
-            $estado->set('Pedido','in progress');
+            $user = $this->getUser();
+            $userid=$user->getId();
+            //$estado->set('Pedido','order in progress');
 
-            //creamos un detalle de pedido
-            $detalle = new Detail();
+            $em = $this->getDoctrine()->getManager();
+            $query = $em->createQuery(
+                'SELECT p FROM App\Entity\Orderr p
+                WHERE p.user = '.$userid.' AND p.dateeorderr <= :today order by p.id DESC')
+                ->setParameter('today', new \DateTime())
+                ->setMaxResults(1);
+            $res = $query->getResult();
 
+            //si en la consulta anterior encuentro algún registro, solo añadiré del detalle a ese registro encontrado, de lo contrario crearé un nuevo pedido y añadiré el detalle
+            if(count($res) == 1){
+                //creamos un detalle de pedido
+                $detalle = new Detail();
 
-            if($form2->isSubmitted() && $form2->isValid()){
+                //if($form2->isSubmitted()){
 
                 $trans = $form2->get('carrier')->getData();
                 $metododepago=$form2->get('paymentmethod')->getData();
 
                 $pedido->setPaymentconfirmed(false);
-                $pedido->setMainaddress('calle de prueba');
+                $pedido->setMainaddress('-');
                 $pedido->setSecondarydirection('-');
-                $pedido->setNameofowner('yo');
+                $pedido->setNameofowner('-');
                 $pedido->setCardnumber('0123456789012345');
                 $pedido->setCarrier($trans);
                 $pedido->setPaymentmethod($metododepago);
                 $user = $this->getUser();
                 $pedido->setUser($user);
 
-                $entityManager=$this->getDoctrine()->getManager();
+                /*$entityManager=$this->getDoctrine()->getManager();
                 $entityManager->persist($pedido);
-                //$entityManager->flush();
+                $entityManager->flush();*/
 
                 $idpedido = $pedido->getId();
 
-                if(($pedido->getPaymentconfirmed() == false) && ($estado->get('Pedido') == 'in progress')){
+                if($pedido->getPaymentconfirmed() == false){
                     //$prducttoedit=$form->getData();
                     $precio = $form->get('unitprice')->getData();
                     //$cantidad = $form3->get('quantity')->getData();
-                    $cantidad=2;
+                    //$cantidad = $request->request->get("unidades");
+                    $cantidad=1;
+                    //$cantidad=$request->request->get('unidades');
+
+                    $detalle->setProduct($prducttoedit);
+                    $detalle->setQuantity($cantidad);
+                    $detalle->setPrice($precio);
+                    $detalle->setTotal($precio*$cantidad);
+                    $detalle->setForder($res[0]);
+
+
+                    $entityManager=$this->getDoctrine()->getManager();
+                    $entityManager->persist($detalle);
+                    $entityManager->flush();
+                }
+
+                $this->addFlash('success', 'Producto modificado correctamente');
+                return $this->redirectToRoute('app_homepage');
+
+            }else{
+                //creamos un detalle de pedido
+                $detalle = new Detail();
+
+                $pedido->setPaymentconfirmed(false);
+                $pedido->setMainaddress('-');
+                $pedido->setSecondarydirection('-');
+                $pedido->setNameofowner('-');
+                $pedido->setCardnumber('0123456789012345');
+
+                $user = $this->getUser();
+                $pedido->setUser($user);
+
+                $entityManager=$this->getDoctrine()->getManager();
+                $entityManager->persist($pedido);
+                $entityManager->flush();
+
+                $idpedido = $pedido->getId();
+
+                if($pedido->getPaymentconfirmed() == false){
+                    //$prducttoedit=$form->getData();
+                    $precio = $form->get('unitprice')->getData();
+                    //$cantidad = $form3->get('quantity')->getData();
+                    //$cantidad = $request->request->get("unidades");
+                    $cantidad=1;
                     //$cantidad=$request->request->get('unidades');
 
                     $detalle->setProduct($prducttoedit);
@@ -130,17 +185,15 @@ class OrderrController extends AbstractController
                 $this->addFlash('success', 'Producto modificado correctamente');
                 return $this->redirectToRoute('app_homepage');
             }
-        //}
+
 
 
 
         return $this->render('order/inprogress.html.twig', array(
-            //'res' => $res
-            'estado'=>$estado,
+            'res' => $res,
             'orderrs'=>$product,
             'form'=>$form->createView(),
-            'form2'=>$form2->createView(),
-            'form3'=>$form3->createView()
+            'form2'=>$form2->createView()
         ));
 
 
@@ -220,6 +273,48 @@ class OrderrController extends AbstractController
         return md5(uniqid());
     }
 
+    /**
+     * Función para ver el pedido
+     * @Route("/pedido/view", name="app_view_order")
+     */
+    public function viewOrder(Request $request){
+        $user = $this->getUser();
+        $userid=$user->getId();
 
+        /*$orderr = $this->getDoctrine()->getRepository(Orderr::class)->findAll();
+        $detail = $this->getDoctrine()->getRepository(Detail::class)->findAll();*/
+
+
+
+        //crearemos otro formulario en que determinados las unidades de cada producto,transportista y método de pago
+        $form2=$this->createForm(Orderr2Type::class);
+        $form2->handleRequest($request);
+        $error=$form2->getErrors();
+
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p FROM App\Entity\Orderr p
+                WHERE p.user = '.$userid.' AND p.dateeorderr <= :today order by p.id DESC')
+            ->setParameter('today', new \DateTime())
+            ->setMaxResults(1);
+        $res = $query->getResult();
+
+        $res[0]->getId();
+        $detail = $this->getDoctrine()->getRepository(Detail::class)->findBy(array('forder'=>$res));
+
+        $detalletotales=count($detail);
+        for($i=1;$i<=$detalletotales;$i++){
+            $detailprice=$detail[0]->getPrice();
+            $detailquantity=$detail[0]->getQuantity();
+            $totalfactura=$res[0]->setTotalfactura($detailprice*$detailquantity);
+        }
+
+
+        return $this->render('order/inprogress.html.twig', [
+            'res'=>$res,
+            'details'=>$detail,
+            'form2'=>$form2->createView()
+        ]);
+    }
 
 }
