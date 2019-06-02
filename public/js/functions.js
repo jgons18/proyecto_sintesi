@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 
 $(document).ready(function () {
@@ -214,24 +213,36 @@ $(document).ready(function () {
     /*$("#orderr2 div:nth-child(3)").hide();
     $("#orderr2 div:nth-child(4)").hide();*/
 
+    /*$(".jg_input_contact").change(function () {
+        if($(".jg_input_contact").valid()){
+            $(".jg_valido").attr("src","img/correct.png");
+        }else{
+            $(".jg_valido").attr("src","img/wrong.png");
+        }
+
+    });*/
+    //validación en linea de lapagina de contacto
+    $(".jg_input_name").on("change",function () {
+        //$(".jg_valido").attr("src","img/correct.png");
+        var $regexname=/^([a-zA-Z]{1,40})$/;
+        if (!$(this).val().match($regexname)) {
+            $(".jg_valido_name").attr("src","img/wrong.png");
+        }else{
+            $(".jg_valido_name").attr("src","img/correct.png");
+        }
+
+    });
+    $(".jg_input_email").on("change",function () {
+        var $regexname=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        if (!$(this).val().match($regexname)) {
+            $(".jg_valido_email").attr("src","img/wrong.png");
+        }else{
+            $(".jg_valido_email").attr("src","img/correct.png");
+        }
+
+    });
+    //$(".jg_ocultar_campos div div").append('<img class="jg_valido_register" src="" alt="indicador de campo valido" longdesc="a través de un check o una cruz indica si es válido el campo"/>');
+
+
 });
 
-
-=======
-function am_slider_home() {
-
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-}
->>>>>>> 74c686f84123c80d14cade743d37f2453d892d87

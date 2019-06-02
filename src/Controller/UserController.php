@@ -19,7 +19,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Security;
-
+use Symfony\Bundle\SwiftmailerBundle;
 
 /**
  * Class UserController
@@ -28,6 +28,7 @@ use Symfony\Component\Security\Core\Security;
  */
 class UserController extends AbstractController
 {
+
 
     /**
      * @Route("/perfil", name="profile_user")

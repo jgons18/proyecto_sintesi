@@ -17,7 +17,7 @@
     <header  class="jg_menu">
         <div class="am_cabecera jg_menu_secondary">
             {% if app.user is null %}
-                <i class="fas fa-user-alt"></i>&nbsp;<a href="{{ path('app_login') }}">Identifícate</a>
+                <em class="fas fa-user-alt"></em>&nbsp;<a href="{{ path('app_login') }}">Identifícate</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
             {% else %}&nbsp;
                 {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
@@ -30,7 +30,7 @@
                 {% endif %}
                 <i class="fas fa-sign-out-alt"></i>&nbsp;<a href="{{ path('app_logout') }}">Logout</a>
                 {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
-                    &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
+                    &nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{ path('app_view_order') }}"><p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta</a>
                 {% endif %}
             {% endif %}&nbsp;
 
@@ -57,31 +57,7 @@
             </form>
             {#{{ render(controller('App\\Controller\\ProductController:searchForm')) }}#}
         </div>
-        {% if app.user is null %}
-        <div class="am_div_login">
-            <a class="am_login" href="{{ path('app_login') }}">iniciar sesion</a>
-        </div>
-        <div class="am_div_signin">
-            <a class="am_signin" href="{{ path('app_register') }}">registrate</a>
-        </div>
-        {% else %}
 
-        {% if is_granted('ROLE_ADMIN') %}
-            <div class="am_div_pedidos">
-                <a href="{{ path('app_pedidos') }}">Pedidos</a>
-            </div>
-        {% endif %}
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <div class="am_div_perfil"><a class="am_perfil" href="{{ path('view_profoile') }}">perfil</a></div>
-               <div class="am_div_pedidos"><a class="am_pedidos" href="{{ path('app_my_orders', {'id':app.user.id}) }}">Mis pedidos</a>
-               </div>
-        {% endif %}
-            <div class="am_logout"><a class="nav-link" href="{{ path('app_logout') }}">Logout</a></div>
-        {% endif %}
-        <div class="am_div_carro">
-        <a href="{{ path('app_pedidos') }}"><div class="am_div_carro"><p class="am_carro fas fa-shopping-basket"></p></div>
-        </a>
-        </div>
     </header>
 
     <nav class="jg_nav">
