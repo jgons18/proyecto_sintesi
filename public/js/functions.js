@@ -189,10 +189,26 @@ $(document).ready(function () {
         //una vez lo aceptamos, cambio el valor y así no se mostrará más
         Cookies.set('cookie', '1', {expires: 7});
         $(".jg_caja_cookies").slideUp("slow", function () {
-
         });
     });
+    $("#user_province").on("change", function () {
+        var provinciaid = $(this).val();
+        var cities = $("#user_city");
+        cities.empty();
+        cities.append('<option selected="true" disabled>Selecciona una ciudad</option>');
+        cities.prop('selectedIndex', 0);
 
+        $.getJSON("json/municipios.json", function (data) {
+            $.each(data, function (key, entry) {
+                if (entry.provincia_id == provinciaid) {
+                    cities.append('<option value="'+ entry.id +'">'+ entry.name +'</option>');
+
+                }
+            })
+        });
+    })
+
+});
 
     //click carrito
     $(".am_carro").click(function () {

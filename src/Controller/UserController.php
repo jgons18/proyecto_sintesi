@@ -60,7 +60,7 @@ class UserController extends AbstractController
      * Función para registrarse en la página
      * @Route("/register", name="app_register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder){
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, \Swift_Mailer $mailer){
         $user = new User();
         $session = $request->getSession();
         $user->setRoles(['ROLE_USER']);
@@ -87,9 +87,18 @@ class UserController extends AbstractController
             $entityManager=$this->getDoctrine()->getManager();
             //entidad-orm-bd
             //persistimso la información del formulario
+            $message = (new \Swift_Message('Bienvenido a  | Fruitable'))
+                ->setFrom('sergionuevovidaal@gmail.com')
+                ->setTo($user->getEmail())
+                ->setBody(
+                    $this->renderView('mail/confirmation.html.twig',
+                        array('user' => $user)
+                    ),'text/html' );
+
+            $mailer->send($message);
             $entityManager->persist($user);
             $entityManager->flush();
-           // $this->test_mail($user);
+
             $this->addFlash(
                 'success','User created'
             );
@@ -163,7 +172,6 @@ class UserController extends AbstractController
             $entityManager=$this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
-            //$this->test_mail($user);
             $this->addFlash(
                 'success','Datos modificados correctamente'
             );
@@ -190,27 +198,8 @@ class UserController extends AbstractController
 
     }
 
-    /**
-     * Esta funcion envia mails
-     * @Route("/perfi_test", name="view_prfoile")
-     */
 
-    public function test_mail($user, \Swift_Mailer $mailer)
-    {
-        $em=$this->getDoctrine()->getManager();
-        $us = $em->getRepository('JperdiorShopBundle:Purchase')->find($user);
-        $message = (new \Swift_Message('Activacion de cuenta | Fruitable'))
-            ->setFrom('noreplyfruitable@gmail.com')
-            ->setTo($us->getEmail())
-            ->setBody(
-                $this->renderView('mail/confirmation.html.twig'), 'text/html');
-
-        $mailer->send($message);
-
-        return $this->render('mail/confirmation.html.twig');
-    }
-
-    public function deleteProduct_Vegetable($id, Request $request)
+    public function deleteusu($id, Request $request)
     {
         return $this->delete_user($request, $id, 'app_vegetables');
     }
@@ -238,34 +227,6 @@ class UserController extends AbstractController
 
     }
 
-    /**
-     * Función para eliminar producto - cestas
-     * @Route("/perfil/delete/{id}", name="delete_box")
-     */
-    public function deleteProduct_Box($id, Request $request)
-    {
-        return $this->deleteProduct($request, $id, 'app_homepage');
-    }
 
-    /**
-     * Función para eliminar producto
-     * @param Request $request
-     * @param int $id
-     * @param string $route
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-
-    private function deleteUser2(Request $request, int $id, string $route){
-        $user = $this->getUser();
-        $producttodelete=$user[0];
-        $entityManager=$this->getDoctrine()->getManager();
-        //comando en cuestión que borrará el producto
-        $entityManager->remove($user);
-        $entityManager->flush();
-
-        $this->addFlash('success', 'Usuario eliminado correctmanete');
-        //una vez eliminado,volvemos a la página que indicamos por parámetros, para comprobar que se ha borrado correctamente
-        return $this->redirectToRoute($route);
-    }
 
 }

@@ -70,7 +70,7 @@
         </ul>
     </nav>
     <h2>Frutas en oferta</h2>
-    <a href="">Crear oferta</a>
+    <a href="{{ path('new_offer') }}">Crear oferta</a>
     {% for product in products %}
         <div>
             {%  if product.isoffer == 1 %}

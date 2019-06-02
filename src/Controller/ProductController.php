@@ -21,6 +21,7 @@ use App\Form\ProductBoxEditType;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class ProductController extends AbstractController
 {
@@ -350,53 +351,81 @@ class ProductController extends AbstractController
         $form=$this->createForm(AplyoferType::class,$prductoffer);
         $form->handleRequest($request);
         $error=$form->getErrors();
-        if($form->isSubmitted() && $form->isValid()){
-            $time = date('H:i:s \O\n d/m/Y');
-           // var_dump($time);
-           // die;
-           $precio = $prductoffer->getUnitprice();
-           $descuento = $prductoffer->getOffer()->getDiscount();
-           $operacion = $descuento / 100;
-           $price2 = $precio * $operacion;
-           $preciooferta = $precio - $price2;
-           $prductoffer->setOfferprice($preciooferta);
-           $prueba = $prductoffer->getOfferprice();
-            $prductoffer->setIsoffer($isoffer);
-           // $prductoffer->setOffer('1');
-            $fileName = $prductoffer->getImage();
-            $prductoffer->setImage($fileName);
-            $prductoffer=$form->getData();
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($prductoffer);
-            $file = $form->get('image')->getData();
-            if($file){
-                //genero una serie de letras y números únicos + su extensión para la imagen
-                $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
-                // moves the file to the directory where brochures are stored
-                try{
-                    $file->move(
-                        $this->getParameter('pictures_directory'),
-                        $fileName
-                    );
-                    //actualizar propiedad de image
-                    $prductoffer->setImage($fileName);
-                }catch (FileException $e){
-                    $this->addFlash('warning','Error uploading image');
-                }
-                $prductoffer->setImage($fileName);
-            }
-            $entityManager->flush();
-            $this->addFlash('success', 'Oferta creada');
-            return $this->redirectToRoute($route);
-        }
+        if($form->isSubmitted() && $form->isValid()) {
+            $time = date('Y-m-d H:i:s.sss');
+            $preu = $prductoffer->getOffer()->getDatefinish();
+            $f_inicio = $prductoffer->getOffer()->getDatestart();
+            // $time_now = strtotime($time);
+            // $time_finish = strtotime($preu);
+            $now = new \DateTime();
+            if ($now < $preu && $now > $f_inicio ) {
 
+                $precio = $prductoffer->getUnitprice();
+                $descuento = $prductoffer->getOffer()->getDiscount();
+                $operacion = $descuento / 100;
+                $price2 = $precio * $operacion;
+                $preciooferta = $precio - $price2;
+                $prductoffer->setOfferprice($preciooferta);
+                $prueba = $prductoffer->getOfferprice();
+                $prductoffer->setIsoffer($isoffer);
+                // $prductoffer->setOffer('1');
+                $fileName = $prductoffer->getImage();
+                $prductoffer->setImage($fileName);
+                $prductoffer = $form->getData();
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($prductoffer);
+                $file = $form->get('image')->getData();
+                if ($file) {
+                    //genero una serie de letras y números únicos + su extensión para la imagen
+                    $fileName = $this->generateUniqueFileName() . '.' . $file->guessExtension();
+                    // moves the file to the directory where brochures are stored
+                    try {
+                        $file->move(
+                            $this->getParameter('pictures_directory'),
+                            $fileName
+                        );
+                        //actualizar propiedad de image
+                        $prductoffer->setImage($fileName);
+                    } catch (FileException $e) {
+                        $this->addFlash('warning', 'Error uploading image');
+                    }
+                    $prductoffer->setImage($fileName);
+                }
+                $entityManager->flush();
+                $this->addFlash('success', 'Oferta creada');
+                return $this->redirectToRoute($route);
+            }else{
+                return $this->redirectToRoute($route);
+            }
+        }
         return $this->render($template,[
             'error'=>$error,
             'products'=>$product,
             'form'=>$form->createView()
         ]);
     }
-
+    /**
+     * @Route("/ofertas",name="ofertas_caducadas")
+     *
+     */
+    public function limpiarofertas(Request $request)
+    {
+        $product = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        foreach ($product as $productss) {
+            if ($productss->getIsoffer() === '1') {
+            $preu = $productss->getOffer()->getDatefinish();
+            $f_inicio = $productss->getOffer()->getDatestart();
+            // $time_now = strtotime($time);
+            // $time_finish = strtotime($preu);
+            $now = new \DateTime();
+            if ($now < $preu && $now > $f_inicio) {
+                $productss->setOffer(null);
+                $productss->setOfferprice(null);
+                $productss->setIsoffer(null);
+            }
+        }
+        }
+    }
     /**
      * Función para eliminar producto - fruta
      * @Route("/verdura/delete/{id}", name="delete_productoffer_vegetable")
