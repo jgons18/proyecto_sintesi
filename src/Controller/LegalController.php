@@ -57,11 +57,11 @@ class LegalController extends AbstractController
     {
 
         return $this->render('home/contact.html.twig');
-        /**
-         * @Route("/faq",name="app_privacity")
-         */
-    }
 
+    }
+    /**
+     * @Route("/faq",name="app_privacity")
+     */
     public function privacidad()
         {
             return $this->render('footer/faq.html.twig');

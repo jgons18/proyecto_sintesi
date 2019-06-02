@@ -208,8 +208,6 @@ $(document).ready(function () {
         });
     })
 
-});
-
     //click carrito
     $(".am_carro").click(function () {
 

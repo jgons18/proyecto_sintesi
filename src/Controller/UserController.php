@@ -145,17 +145,6 @@ class UserController extends AbstractController
     }
 
     /**
-     * Perfil de user en proceso
-     * @Route("/perfil", name="view_profoile")
-     */
-    public function user_profile(){
-       // $user = $this->getDoctrine()->getRepository(User::class)->find(2);
-        //return $this->render('user/perfil.html.twig');
-
-        return $this->render('user/perfil.html.twig');
-
-    }
-    /**
      * Función para editar el perfil
      * @Route("/edit_prof", name="app_prof")
      */

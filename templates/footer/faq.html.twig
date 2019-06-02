@@ -1,10 +1,6 @@
 {% extends 'base.html.twig' %}
 
 
-{% block javascripts %}
-
-{% endblock %}
-
 {% block body %}
     <h1 class="sn_titulo_ayuda">Preguntas mas Frecuentes</h1>
     <div class="sn_acordeon">
@@ -49,4 +45,9 @@
         </div>
     </div>
 
+{% endblock %}
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 {% endblock %}

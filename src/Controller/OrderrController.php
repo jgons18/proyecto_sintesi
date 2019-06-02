@@ -77,6 +77,7 @@ class OrderrController extends AbstractController
         $form2=$this->createForm(Orderr2Type::class);
         $form2->handleRequest($request);
         $error=$form2->getErrors();
+        //falta poner un try catch por si el usuario no esta logueado
 
             //si el pedido está en estado inactivo, es decir, que no se ha creado aún, crearemos un pedido y cambiaremos el estado
             //puesto que si está en proceso utilizaremos ese pedido para ir añadiendo productos
