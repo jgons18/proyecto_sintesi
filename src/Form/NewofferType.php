@@ -33,7 +33,9 @@ class NewofferType extends AbstractType
             'label' => 'Descuento',
             'attr'=>[
                 'class'=>'form-control am_categoria',
-                'placeholder'=>'01/01/2020'
+                'placeholder'=>'01/01/2020',
+                'min' => '10',
+                'max' => '90'
             ]
         ])
         ->add('datestart',DateTimeType::class,[

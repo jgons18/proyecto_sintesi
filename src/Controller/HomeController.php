@@ -23,6 +23,7 @@ class HomeController extends AbstractController
 {
 
     /**
+     * Función de la home - renderizado de los productos
      * @Route("/",name="app_homepage")
      */
 
