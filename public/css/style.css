@@ -215,7 +215,6 @@
         float: right;
     }
 
-    }
     #am_filtro_bajo_alto:hover{
 
         font-weight: normal;
@@ -796,7 +795,6 @@
     }
     .sn_titulo_ayuda{
         font-family: Metrophobic;
-        margin-top: 45vh;
         text-align: center;
         font-size: 2em;
     }
@@ -1198,16 +1196,13 @@ rar_carrito{
 
 }
 
-<<<<<<< HEAD
 .sn_txt_mails{
     color: red;
    font-size: 1.2em;
 }
-=======
 @media (min-width: 1025px) and (max-width: 1913px) {
 
 
 
     
 }
->>>>>>> origin/master
