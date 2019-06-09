@@ -87,6 +87,8 @@ class ProductController extends AbstractController
         //como este método lo utilizamos para añadir productos que son VERDURAS
         //le pondremos por defecto el campo isfruta en false
         $product->setIsfruit($isfruit);
+        //por defecto indicamos que un producto cuando lo creamos no tiene oferta
+        $product->setIsoffer(0);
 
         //creamos el formulario
         $form=$this->createForm(ProductType::class,$product);

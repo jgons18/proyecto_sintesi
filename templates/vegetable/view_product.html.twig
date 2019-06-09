@@ -78,8 +78,9 @@
                 <a href="{% if product.category == 'Otras' %}{{ path('app_category_filter_other_vegetables') }}{% endif %}">{{ product.category }}</a> >
                 <a href="{{ path('view_product_vegetable', {'id':product.id}) }}">{{ product.nameproduct }}</a>
             </h3>
+            {% if is_granted('ROLE_ADMIN') %}
             <div class="am_iconos"><a class="fas fa-pen" href="{{ path('edit_product_vegetable', {'id':product.id}) }}"></a> <a class="fas fa-trash-alt" href="{{ path('delete_product_vegetable', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a></div>
-
+            {% endif %}
             <div class="detalles">
                 <div class="am_imagen"><img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}"></div>
                 <h3 class="am_nameproduct">{{ product.nameproduct }}</h3>

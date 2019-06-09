@@ -181,8 +181,13 @@ $(document).ready(function () {
         $(".jg_ocultar_campos div div:nth-child(5)").show(1000);
     });
 
-    //establezco la cookie que determinará si hemos acceptado el uso de cookies
-    Cookies.set('cookie', '0', {expires: 7});
+    //compruebo si existe la cookie 'cookie', si no se encuentra, la creamos.(esto no ayudará a que no aparezca más veces cuando recarguemos la página)
+    if (typeof Cookies.get('cookie') === 'undefined'){
+        //establezco la cookie que determinará si hemos acceptado el uso de cookies
+        Cookies.set('cookie', '0', {expires: 7});
+    }
+
+    //console.log(Cookies.get('cookie'));
     $(".jg_accept_cookies").click(function () {
         //alert(Cookies.get('aceptarcookies'));
         //alert(Cookies.set('cookie', '1', { expires: 7 }));
@@ -201,12 +206,13 @@ $(document).ready(function () {
         $.getJSON("json/municipios.json", function (data) {
             $.each(data, function (key, entry) {
                 if (entry.provincia_id == provinciaid) {
-                    cities.append('<option value="'+ entry.id +'">'+ entry.name +'</option>');
+                    cities.append('<option value="'+ entry.municipio_id +'">'+ entry.nombre +'</option>');
 
                 }
             })
         });
     })
+
 
     //click carrito
     $(".am_carro").click(function () {
@@ -256,9 +262,9 @@ $(document).ready(function () {
 
     //$(".jg_ocultar_campos div div").append('<img class="jg_valido_register" src="" alt="indicador de campo valido" longdesc="a través de un check o una cruz indica si es válido el campo"/>');
 
-$( "#accordion" ).accordion({
-    heightStyle: "content",
-    collapsipble: true
-});
+    $( "#accordion" ).accordion({
+        heightStyle: "content",
+        collapsipble: true
+    });
 
 });

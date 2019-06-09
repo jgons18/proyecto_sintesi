@@ -23,7 +23,7 @@
                 &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
             {% else %}&nbsp;
                 {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
-                    <i class="fas fa-user-circle"></i><a href="{{ path('view_profoile') }}">Mi perfil</a> &nbsp;
+                    <i class="fas fa-user-circle"></i><a href="{{ path('view_profoile') }}" class="jg_mi_perfil">Mi perfil</a>&nbsp;
                     <i class="fas fa-box-open"></i>&nbsp;<a href="{{ path('app_my_orders', {'id':app.user.id}) }}">Mis pedidos</a>&nbsp;
                 {% endif %}&nbsp;
                 {% if is_granted('ROLE_ADMIN') %}
