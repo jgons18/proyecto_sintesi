@@ -3,6 +3,54 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {% endblock %}
+{% block javascripts %}
+    <script type="application/javascript">
+        $(document).ready(function() {
+            var ciudad= $(".jg_ciudad").val();
+            var provincia=$(".jg_provincia").val();
+            //alert(ciudad);
+           var aciudad= $.ajax({
+                url:"/json/municipios.json",
+                success:function(resultado){
+                    $.each(resultado,function(i,value){
+                        if(value.municipio_id == ciudad){
+                            $(".jg_resul_city").append(value.nombre);
+                            $(".jg_ciudad").hide();
+                        }
+
+                    })
+
+                },
+                error:function(){
+                    //si por ejemplo, está mal el nombre del fichero,
+                    //saltará el error
+                    $(".jg_resul_city").html("se ha producido un error");
+                }
+            })
+
+        var aprovincia= $.ajax({
+            url:"/json/provincias.json",
+            success:function(resultado){
+                $.each(resultado,function(i,value){
+                    if(value.provincia_id == provincia){
+                        $(".jg_resul_province").append(value.nombre);
+                        $(".jg_provincia").hide();
+                    }
+
+                })
+
+            },
+            error:function(){
+                //si por ejemplo, está mal el nombre del fichero,
+                //saltará el error
+                $(".jg_resul_province").html("se ha producido un error");
+            }
+        });
+
+        });
+    </script>
+
+{% endblock %}
 {% block body %}
     <div class="sn_perfil_general">
     <p class="sn_user_name">Bienvenido a tu perfil {{ app.user.name }}</p>
@@ -16,9 +64,9 @@
         <article class="sn_direccion">
             <h1 class="sn_titulos_prof">Tu actual direccion</h1>
         <p>Direccion: {{ app.user.address }}</p>
-        <p>Ciudad: {{ app.user.city }}</p>
+            <p class="jg_resul_city">Ciudad:  <input class="jg_ciudad" value="{{ app.user.city }}" readonly></p>
         <p>Codigo postal: {{ app.user.postalcode }}</p>
-        <p>Provincia: {{ app.user.province }}</p>
+        <p class="jg_resul_province">Provincia: <input class="jg_provincia" value="{{ app.user.province }}" readonly></p>
         <p>Telefono: {{ app.user.phone }}</p>
             <a class="sn_editar" href="{{ path('app_prof') }}">Editar Direccion</a>
         </article>

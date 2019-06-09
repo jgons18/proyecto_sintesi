@@ -77,8 +77,9 @@
                 > <a href="{{ path('app_boxes') }}">Cestas</a> >
                 <a href="{{ path('view_box', {'id':product.id}) }}">{{ product.nameproduct }}</a>
             </h3>
+            {% if is_granted('ROLE_ADMIN') %}
             <div class="am_iconos"><a class="fas fa-pen" href="{{ path('edit_box', {'id':product.id}) }}"></a> <a class="fas fa-trash-alt" href="{{ path('delete_box', {'id':product.id}) }}" onclick="return confirm('¿Estás seguro?')"></a></div>
-
+            {% endif %}
             <div class="detalles">
                 <div class="am_imagen"><img width="30px" src="{{ asset('uploads/pictures/' ~ product.image) }}"></div>
                 <h3 class="am_nameproduct">{{ product.nameproduct }}</h3>

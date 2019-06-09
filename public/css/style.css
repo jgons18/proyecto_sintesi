@@ -992,25 +992,25 @@
 
 
     .la_horta{
-        background-image: url("/img/la_horta.png");
+        background-image: url("/public/img/la_horta.png");
         background-repeat: no-repeat;
         background-position: top;
     }
     .camp_verd{
 
-        background-image: url("/img/Camp_Verd.png");
+        background-image: url("/public/img/Camp_Verd.png");
         background-repeat: no-repeat;
         background-position: top;
     }
     .huerto_de_manolo{
 
-        background-image: url("/img/huerto_de_manolo.png");
+        background-image: url("/public/img/huerto_de_manolo.png");
         background-repeat: no-repeat;
         background-position: top;
     }
     .terra_viva{
 
-        background-image: url("/img/Terra_Viva.png");
+        background-image: url("/public/img/Terra_Viva.png");
         background-repeat: no-repeat;
         background-position: top;
     }
@@ -2088,7 +2088,7 @@
         margin: auto;
         position: relative;
         top: 0;
-        height: 98px;
+        height: 110px;
         width: 100%;
         text-align: center;
         background-color: black;
@@ -2146,22 +2146,22 @@
 
 
     .la_horta{
-        background-image: url("/img/la_horta.png");
+        background-image: url("/public/img/la_horta.png");
         background-repeat: no-repeat;
     }
     .camp_verd{
 
-        background-image: url("/img/Camp_Verd.png");
+        background-image: url("/public/img/Camp_Verd.png");
         background-repeat: no-repeat;
     }
     .huerto_de_manolo{
 
-        background-image: url("/img/huerto_de_manolo.png");
+        background-image: url("/public/img/huerto_de_manolo.png");
         background-repeat: no-repeat;
     }
     .terra_viva{
 
-        background-image: url("/img/Terra_Viva.png");
+        background-image: url("/public/img/Terra_Viva.png");
         background-repeat: no-repeat;
     }
 
@@ -3282,7 +3282,7 @@
         margin: auto;
         position: relative;
         top: 0;
-        height: 98px;
+        height: 110px;
         width: 100%;
         text-align: center;
         background-color: black;
@@ -3337,25 +3337,29 @@
         display: flex;
         justify-content: center;
     }
+    .jg_ciudad,.jg_provincia{
+        background-color: transparent;
+        border: 0;
+    }
 
 
     .la_horta{
-        background-image: url("/img/la_horta.png");
+        background-image: url("/public/img/la_horta.png");
         background-repeat: no-repeat;
     }
     .camp_verd{
 
-        background-image: url("/img/Camp_Verd.png");
+        background-image: url("/public/img/Camp_Verd.png");
         background-repeat: no-repeat;
     }
     .huerto_de_manolo{
 
-        background-image: url("/img/huerto_de_manolo.png");
+        background-image: url("/public/img/huerto_de_manolo.png");
         background-repeat: no-repeat;
     }
     .terra_viva{
 
-        background-image: url("/img/Terra_Viva.png");
+        background-image: url("/public/img/Terra_Viva.png");
         background-repeat: no-repeat;
     }
 

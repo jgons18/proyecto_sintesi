@@ -70,11 +70,10 @@
     </nav>
 </div>
 {% block body %}
-
     {% for orderr in orderrs %}
-        {% if orderr|length < 0 %}
+        {% if orderr|length > 0 %}
             <h2>Hola {{ app.user.name }},estos son tus pedidos:</h2>
-                {{ orderr.dateeorderr }}<br>
+                {{ orderr.dateeorderr|date('d-m-Y H:i:s') }}<br>
                 {{ orderr.mainaddress }}<br>
                 {{ orderr.secondarydirection }}
         {% else %}

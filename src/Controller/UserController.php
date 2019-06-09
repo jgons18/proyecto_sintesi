@@ -183,7 +183,18 @@ class UserController extends AbstractController
 
     public function edit_user_profile(Request $request){
        // $user = $this->getDoctrine()->getRepository(User::class)->find(2);
-        return $this->render('user/perfil.html.twig');
+        $posterList = file_get_contents($this->get('kernel')->getRootDir() . '/public/json/municipios.json');
+
+        $json = json_decode($posterList, true);
+
+        foreach ($json['0'] as $key => $value) {
+            echo $value['municipio_id'];
+        }
+
+        return $this->render('user/perfil.html.twig',[
+            'json' => $json,
+            'posterList' => $posterList
+        ]);
 
     }
 
