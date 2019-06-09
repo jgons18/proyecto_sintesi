@@ -60,6 +60,10 @@
             <h1 class="sn_titulos_prof">Datos de acceso</h1>
         <p>Email: {{ app.user.email }}</p>
         <p>Password: ********</p>
+            {{ form_start(form3) }}
+            {{ form_widget(form3) }}
+            {{ form_errors(form3) }}
+            {{ form_end(form3) }}
         </article>
         <article class="sn_direccion">
             <h1 class="sn_titulos_prof">Tu actual direccion</h1>
@@ -68,14 +72,10 @@
         <p>Codigo postal: {{ app.user.postalcode }}</p>
         <p class="jg_resul_province">Provincia: <input class="jg_provincia" value="{{ app.user.province }}" readonly></p>
         <p>Telefono: {{ app.user.phone }}</p>
-            <a class="sn_editar" href="{{ path('app_prof') }}">Editar Direccion</a>
+            <a class="sn_editar" href="{{ path('app_prof') }}"> <p class="am_editar">Editar Direccion</p></a>
         </article>
     </section>
        {# <a href="{{ path('user_del', {'id':user.id}) }}" onclick="return confirm('¿Estás seguro?')">Eliminar</a> #}
-        {{ form_start(form3) }}
-        {{ form_widget(form3) }}
-        {{ form_errors(form3) }}
-        {{ form_end(form3) }}
         </div>
     {% endif %}
 
