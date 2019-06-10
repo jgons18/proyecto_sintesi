@@ -27,7 +27,12 @@
                 <a class="am_producto" href="{{ path('view_product_fruit', {'id':product.id}) }}"><img src="{{ asset('uploads/pictures/' ~ product.image) }}" alt="{{ product.description }}" longdesc="{{ product.description }}">
                 <h4 class="am_titulo_producto">{{ product.nameproduct }}</h4></a>
                 <div class="jg_producto_temporada_bot">
-                <div><p>{{ product.unitprice }}€</p></div>
+                    {% if product.offer == true %}
+                        <div><p class="sn_old_prices"><strike>{{ product.offerprice }}€</strike></p></div>
+                        <div><p>{{ product.unitprice }}€</p></div>
+                    {% else %}
+                        <div><p>{{ product.unitprice }}€</p></div>
+                    {%  endif %}
                 <div><button class="am_boton_producto">Añadir a cesta</button><br></div></div>
                 </div>
             {#{% endif %}#}

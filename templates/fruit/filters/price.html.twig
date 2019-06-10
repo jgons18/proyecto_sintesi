@@ -98,7 +98,12 @@
                     <a class="am_producto" href="{{ path('view_product_fruit', {'id':re.id}) }}"><img class="am_imagen_producto" src="{{ asset('uploads/pictures/' ~ re.image) }}" alt="{{ re.description }}" longdesc="{{ re.description }}">
                         <h4 class="am_titulo_producto">{{ re.nameproduct }}</h4></a>
                     <div class="jg_producto_temporada_bot">
-                        <div><p>{{ re.unitprice }}€</p></div>
+                        {% if re.offer == true %}
+                            <div class=""><p class="sn_old_prices"><strike>{{ re.offerprice }}€</strike></p></div>
+                            <div class=""><p>{{ re.unitprice }}€</p></div>
+                        {% else %}
+                            <div class=""><p>{{ re.unitprice }}€</p></div>
+                        {%  endif %}
                         <div class="am_boton_producto"><a href="{{ path('add_product_to_basket',{'id':re.id}) }}" >Añadir a cesta</a></div></div>
 
                 </div>

@@ -162,6 +162,12 @@
         margin: 0vh 3vw 0vh 0vw;
 
     }
+    .sn_textos_acordeon{
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        font-size: 1em;
+        font-family: Metrophobic;
+    }
 
 
     .fas:hover{
@@ -736,9 +742,8 @@
     .sn_acordeon{
         margin-top: 5vh;
         height: 25vh;
-        width: 40vw;
-        margin-left: 35%;
-        margin-bottom: 55vh;
+        margin-left: 5%;
+        margin-bottom: 95vh;
     }
     .sn_titulo_ayuda{
         font-family: Metrophobic;
@@ -1842,7 +1847,11 @@
         float: right;
     }
 
-
+    .sn_acordeon{
+        margin-top: 5vh;
+        height: 25vh;
+        margin-bottom: 65vh;
+    }
 
 
 
@@ -1956,13 +1965,6 @@
         margin-bottom: 4vh;
     }
 
-    .sn_acordeon{
-        margin-top: 5vh;
-        height: 25vh;
-        width: 40vw;
-        margin-left: 35%;
-        margin-bottom: 55vh;
-    }
     .sn_titulo_ayuda{
         font-family: Metrophobic;
         margin-top: 45vh;
@@ -2994,7 +2996,6 @@
 
 
 
-
     .detalles{
         font-family: Metrophobic;
         display: grid;
@@ -3153,13 +3154,13 @@
     .sn_acordeon{
         margin-top: 5vh;
         height: 25vh;
-        width: 40vw;
-        margin-left: 35%;
-        margin-bottom: 55vh;
+        margin-bottom: 75vh;
+        text-align: center;
+
     }
     .sn_titulo_ayuda{
         font-family: Metrophobic;
-        margin-top: 45vh;
+        margin-top: 40vh;
         text-align: center;
         font-size: 2em;
     }
@@ -3173,7 +3174,7 @@
     .sn_textos_acordeon{
         margin-top: 3vh;
         margin-bottom: 3vh;
-        font-size: 1.5em;
+        font-size: 1.1em;
         font-family: Metrophobic;
     }
     .img_der{
@@ -3568,6 +3569,9 @@
     .sn_txt_mails{
         color: red;
         font-size: 1.2em;
+    }
+    .element{
+        height: 50px!important;
     }
 
 }

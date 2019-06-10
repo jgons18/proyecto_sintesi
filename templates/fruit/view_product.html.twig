@@ -86,7 +86,12 @@
                 <h3 class="am_nameproduct">{{ product.nameproduct }}</h3>
                 <div class="am_categoria">{{ product.category }}</div>
                 <div class="am_temporada">{{ product.season }}</div>
-                <div class="am_precio">{{ product.unitprice }}€</div>
+                {% if product.offer == true %}
+                    <div><p class="sn_old_prices"><strike>{{ product.offerprice }}€</strike></p></div>
+                    <div class="am_precio"><p>{{ product.unitprice }}€</p></div>
+                {% else %}
+                    <div class="am_precio"><p>{{ product.unitprice }}€</p></div>
+                {%  endif %}
                 <div class="am_descripcion">{{ product.description }}</div>
                 <div class="am_boton_producto"><a href="{{ path('add_product_to_basket',{'id':product.id}) }}" >Añadir a cesta</a></div></div>
             </div>
