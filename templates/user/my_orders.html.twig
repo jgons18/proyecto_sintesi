@@ -32,7 +32,7 @@
             {% endif %}
             <i class="fas fa-sign-out-alt"></i>&nbsp;<a href="{{ path('app_logout') }}">Logout</a>
             {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
-                &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
+                &nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{ path('app_view_order') }}"><p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta</a>
             {% endif %}
             {% endif %}&nbsp;
 
@@ -71,16 +71,19 @@
     </nav>
 </div>
 {% block body %}
+    {% if orderrs %}
     {% for orderr in orderrs %}
-        {% if orderr|length > 0 %}
-            <h2>Hola {{ app.user.name }},estos son tus pedidos:</h2>
-                {{ orderr.dateeorderr|date('d-m-Y H:i:s') }}<br>
-                {{ orderr.mainaddress }}<br>
-                {{ orderr.secondarydirection }}
-        {% else %}
-            <h2>Hola {{ app.user.name }},no tienes pedidos aún:(</h2>
-        {% endif %}
+            <h2 class="jg_titulos">Hola {{ app.user.name }},estos son tus pedidos:</h2>
+                <div class="jg_box_my_orders">
+                    {{ orderr.dateeorderr|date('d-m-Y H:i:s') }}<br>
+                    {{ orderr.mainaddress }}<br>
+                    {{ orderr.secondarydirection }}
+                </div>
     {% endfor %}
+    {% else %}
+        <h2 class="jg_titulos">Hola {{ app.user.name }},no tienes pedidos aún:(</h2>
+    {% endif %}
+
     <footer>
         <section class="sn_footer_top">
             <article>
