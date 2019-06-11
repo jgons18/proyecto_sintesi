@@ -44,7 +44,7 @@ class ProductEditType extends AbstractType
                     'placeholder'=>'ej:El Melocotón es originario de China desde hace 3.000 a. c.'
                 ]
             ])
-            ->add('unitprice',NumberType::class,[
+            ->add('offerprice',NumberType::class,[
                 'required'=>'required',
                 'label' => 'Precio unidad',
                 'attr'=>[
