@@ -201,7 +201,7 @@ class UserController extends AbstractController
 
     public function deleteusu($id, Request $request)
     {
-        return $this->delete_user($request, $id, 'app_vegetables');
+        return $this->delete_user($request, $id);
     }
 
     private function delete_user(Request $request){
@@ -212,6 +212,9 @@ class UserController extends AbstractController
         $error=$form->getErrors();
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setEmail(null);
+            $this->get('security.context')->setToken(null);
+            $this->get('request')->getSession()->invalidate();
             $em = $this->getDoctrine()->getManager();
             $em->remove($user);
             $em->flush();

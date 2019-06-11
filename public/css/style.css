@@ -157,6 +157,15 @@ input:hover{
     font-size: 4vh;
 }
 
+    }
+    .sn_textos_acordeon{
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        font-size: 1em;
+        font-family: Metrophobic;
+    }
+
+
 .am_div_carro{
     width: 8vw;
     text-align: center;
@@ -615,6 +624,46 @@ a.mas {
 
 
 /* View Product */
+    .sn_acordeon{
+        margin-top: 5vh;
+        height: 25vh;
+        margin-left: 5%;
+        margin-bottom: 95vh;
+    }
+    .sn_titulo_ayuda{
+        font-family: Metrophobic;
+        margin-top: 45vh;
+        text-align: center;
+        font-size: 2em;
+    }
+    .sn_titulos_categorias_acordeon{
+        /* background-color: #99C24D; */
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        font-size: 2em;
+        font-family: Dosis;
+    }
+    .sn_textos_acordeon{
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        font-size: 1.5em;
+        font-family: Metrophobic;
+    }
+    .img_der{
+        height: 25px;
+    }
+    .sn_profile{
+        height: 25vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .sn_titulos_prof{
+        font-family: Dosis;
+    }
+    .sn_direccion{
+        font-size: 1.2em;
+        height: 25vh;
+    }
 
 
 
@@ -1832,7 +1881,11 @@ footer a {
         float: right;
     }
 
-
+    .sn_acordeon{
+        margin-top: 5vh;
+        height: 25vh;
+        margin-bottom: 65vh;
+    }
 
 
 
@@ -1942,13 +1995,6 @@ footer a {
         margin-bottom: 4vh;
     }
 
-    .sn_acordeon{
-        margin-top: 5vh;
-        height: 25vh;
-        width: 40vw;
-        margin-left: 35%;
-        margin-bottom: 55vh;
-    }
     .sn_titulo_ayuda{
         font-family: Metrophobic;
         margin-top: 45vh;
@@ -3051,7 +3097,6 @@ footer a {
 
 
 
-
     .detalles{
         font-family: Metrophobic;
         display: grid;
@@ -3210,13 +3255,13 @@ footer a {
     .sn_acordeon{
         margin-top: 5vh;
         height: 25vh;
-        width: 40vw;
-        margin-left: 35%;
-        margin-bottom: 55vh;
+        margin-bottom: 75vh;
+        text-align: center;
+
     }
     .sn_titulo_ayuda{
         font-family: Metrophobic;
-        margin-top: 45vh;
+        margin-top: 40vh;
         text-align: center;
         font-size: 2em;
     }
@@ -3230,7 +3275,7 @@ footer a {
     .sn_textos_acordeon{
         margin-top: 3vh;
         margin-bottom: 3vh;
-        font-size: 1.5em;
+        font-size: 1.1em;
         font-family: Metrophobic;
     }
     .img_der{
@@ -3633,6 +3678,9 @@ footer a {
         background-color: palegreen;
         margin-top: -6px;
         text-align: center;
+
+    .element{
+        height: 50px!important;
     }
 
 }

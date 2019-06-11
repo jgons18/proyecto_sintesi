@@ -100,6 +100,8 @@ class ProductController extends AbstractController
             //capturo los datos
             $product=$form->getData();
             //para obtener la imagen
+            $of = $product->getUnitprice();
+            $product->setOfferprice($of);
             $file = $form->get('image')->getData();
             if($file){
                 //genero una serie de letras y números únicos + su extensión para la imagen
@@ -245,6 +247,8 @@ class ProductController extends AbstractController
             //capturo los datos
             $prducttoedit=$form->getData();
             //para obtener la imagen
+            $precio = $prducttoedit->getOfferprice();
+            $prducttoedit->setUnitprice($precio);
             $file = $form->get('image')->getData();
             if($file){
                 //genero una serie de letras y números únicos + su extensión para la imagen
@@ -263,13 +267,13 @@ class ProductController extends AbstractController
                 $prducttoedit->setImage($fileName);
             }
            $pr = $prducttoedit->getIsoffer();
-            if ($pr == true){
-                $precio = $prducttoedit->getUnitprice();
+            if ($pr == '1'){
                 $descuento = $prducttoedit->getOffer()->getDiscount();
+                $prducttoedit->setOfferprice($precio);
                 $operacion = $descuento / 100;
                 $price2 = $precio * $operacion;
                 $preciooferta = $precio - $price2;
-                $prducttoedit->setOfferprice($preciooferta);
+                $prducttoedit->setUnitprice($preciooferta);
                // $prueba = $prducttoedit->getOfferprice();
             }
             //    $producttofferdelete->setIsoffer(false);
@@ -324,7 +328,7 @@ class ProductController extends AbstractController
      */
     public function aply_offer_vegetable($id,Request $request){
 
-        return $this->aplyoffer($id, $request, true, 'vegetable/offer_product.html.twig', 'app_vegetables');
+        return $this->aplyoffer($id, $request, 1, 'vegetable/offer_product.html.twig', 'app_vegetables');
 
     }
 
@@ -334,7 +338,7 @@ class ProductController extends AbstractController
      */
     public function aply_offer_fruit($id,Request $request){
 
-        return $this->aplyoffer($id, $request, true, 'fruit/offer_product.html.twig', 'app_fruits');
+        return $this->aplyoffer($id, $request, 1, 'fruit/offer_product.html.twig', 'app_fruits');
 
     }
 
@@ -361,13 +365,12 @@ class ProductController extends AbstractController
             // $time_finish = strtotime($preu);
             $now = new \DateTime();
             if ($now < $preu && $now > $f_inicio ) {
-
-                $precio = $prductoffer->getUnitprice();
+                $precio = $prductoffer->getOfferprice();
                 $descuento = $prductoffer->getOffer()->getDiscount();
                 $operacion = $descuento / 100;
                 $price2 = $precio * $operacion;
                 $preciooferta = $precio - $price2;
-                $prductoffer->setOfferprice($preciooferta);
+                $prductoffer->setUnitprice($preciooferta);
                 $prueba = $prductoffer->getOfferprice();
                 $prductoffer->setIsoffer($isoffer);
                 // $prductoffer->setOffer('1');
@@ -423,7 +426,7 @@ class ProductController extends AbstractController
             if ($now < $preu && $now > $f_inicio) {
                 $productss->setOffer(null);
                 $productss->setOfferprice(null);
-                $productss->setIsoffer(null);
+                $productss->setIsoffer(0);
             }
         }
         }
@@ -456,8 +459,9 @@ class ProductController extends AbstractController
         $product=$this->getDoctrine()->getRepository(Product::class)->findBy(array('id'=>$id));
         $producttofferdelete=$product[0];
         $entityManager=$this->getDoctrine()->getManager();
-        $producttofferdelete->setIsoffer(false);
-        $producttofferdelete->setOfferprice(null);
+        $old_p = $producttofferdelete->getOfferprice();
+        $producttofferdelete->setUnitprice($old_p);
+        $producttofferdelete->setIsoffer(0);
         $producttofferdelete->setOffer(null);
         $entityManager->persist($producttofferdelete);
         $entityManager->flush();
