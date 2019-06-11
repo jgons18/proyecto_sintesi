@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 {#{{ estado }}#}
+    {% for message in app.flashes('success') %}
+        <div class="jg_add_product_succefull">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <div id="slider-wrapper">
         <div id="slider">
             <a href="URL_ENLACE1"><img src="http://xurl.es/3h8zb" alt="ofertas de manzanas" longdesc="ofertas de manzanas de temporada"/></a>
