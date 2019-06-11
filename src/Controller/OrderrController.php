@@ -143,7 +143,7 @@ class OrderrController extends AbstractController
                     $entityManager->flush();
                 }
 
-                $this->addFlash('success', 'Producto añadido correctamente correctamente');
+                $this->addFlash('success', 'Producto añadido correctamente');
                 return $this->redirectToRoute('app_homepage');
 
             }else{
@@ -185,7 +185,7 @@ class OrderrController extends AbstractController
                     $entityManager->flush();
                 }
 
-                $this->addFlash('success', 'Producto modificado correctamente');
+                $this->addFlash('success', 'Producto añadido correctamente');
                 return $this->redirectToRoute('app_homepage');
             }
         }catch (\Error $exception){
