@@ -143,7 +143,7 @@ class OrderrController extends AbstractController
                     $entityManager->flush();
                 }
 
-                $this->addFlash('success', 'Producto modificado correctamente');
+                $this->addFlash('success', 'Producto añadido correctamente correctamente');
                 return $this->redirectToRoute('app_homepage');
 
             }else{
