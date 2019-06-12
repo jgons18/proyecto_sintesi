@@ -11,6 +11,56 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('/public/img/favicon.ico') }}" />
+    {% block javascripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script type="application/javascript">
+            $(document).ready(function() {
+                var ciudad= $(".jg_ciudad").val();
+                var provincia=$(".jg_provincia").val();
+                //alert(ciudad);
+                var aciudad= $.ajax({
+                    url:"/json/municipios.json",
+                    success:function(resultado){
+                        $.each(resultado,function(i,value){
+                            if(value.municipio_id == ciudad){
+                                $(".jg_resul_city").append(value.nombre);
+                                $(".jg_ciudad").hide();
+                            }
+
+                        })
+
+                    },
+                    error:function(){
+                        //si por ejemplo, está mal el nombre del fichero,
+                        //saltará el error
+                        $(".jg_resul_city").html("se ha producido un error");
+                    }
+                });
+
+                var aprovincia= $.ajax({
+                    url:"/json/provincias.json",
+                    success:function(resultado){
+                        $.each(resultado,function(i,value){
+                            if(value.provincia_id == provincia){
+                                $(".jg_resul_province").append(value.nombre);
+                                $(".jg_provincia").hide();
+                            }
+
+                        })
+
+                    },
+                    error:function(){
+                        //si por ejemplo, está mal el nombre del fichero,
+                        //saltará el error
+                        $(".jg_resul_province").html("se ha producido un error");
+                    }
+                });
+
+            });
+        </script>
+    {% endblock %}
 </head>
 <body>
 <div class="margen"></div>
@@ -120,56 +170,6 @@
     </div>
 </div>
 {% endif %}
-{% block javascripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script type="application/javascript">
-        $(document).ready(function() {
-            var ciudad= $(".jg_ciudad").val();
-            var provincia=$(".jg_provincia").val();
-            //alert(ciudad);
-            var aciudad= $.ajax({
-                url:"/json/municipios.json",
-                success:function(resultado){
-                    $.each(resultado,function(i,value){
-                        if(value.municipio_id == ciudad){
-                            $(".jg_resul_city").append(value.nombre);
-                            $(".jg_ciudad").hide();
-                        }
-
-                    })
-
-                },
-                error:function(){
-                    //si por ejemplo, está mal el nombre del fichero,
-                    //saltará el error
-                    $(".jg_resul_city").html("se ha producido un error");
-                }
-            });
-
-            var aprovincia= $.ajax({
-                url:"/json/provincias.json",
-                success:function(resultado){
-                    $.each(resultado,function(i,value){
-                        if(value.provincia_id == provincia){
-                            $(".jg_resul_province").append(value.nombre);
-                            $(".jg_provincia").hide();
-                        }
-
-                    })
-
-                },
-                error:function(){
-                    //si por ejemplo, está mal el nombre del fichero,
-                    //saltará el error
-                    $(".jg_resul_province").html("se ha producido un error");
-                }
-            });
-
-        });
-    </script>
-{% endblock %}
 
 </body>
 </html>
