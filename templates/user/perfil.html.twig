@@ -162,7 +162,7 @@
             //alert(ciudad);
             var aciudad= $.ajax({
                 dataType: "json",
-                url:"/json/municipios.json",
+                url:"/public/json/municipios.json",
                 success:function(resultado){
                     $.each(resultado,function(i,value){
                         if(value.municipio_id == ciudad){
@@ -182,7 +182,7 @@
 
             var aprovincia= $.ajax({
                 dataType: "json",
-                url:"/json/provincias.json",
+                url:"/public/json/provincias.json",
                 success:function(resultado){
                     $.each(resultado,function(i,value){
                         if(value.provincia_id == provincia){
