@@ -161,6 +161,7 @@
             var provincia=$(".jg_provincia").val();
             //alert(ciudad);
             var aciudad= $.ajax({
+                dataType: "json",
                 url:"/json/municipios.json",
                 success:function(resultado){
                     $.each(resultado,function(i,value){
@@ -180,6 +181,7 @@
             });
 
             var aprovincia= $.ajax({
+                dataType: "json",
                 url:"/json/provincias.json",
                 success:function(resultado){
                     $.each(resultado,function(i,value){
