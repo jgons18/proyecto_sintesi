@@ -100,7 +100,7 @@ class UserController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash(
-                'success','User created'
+                'success','Bienvenido a Fruitable!Registro completado exitosamente'
             );
             return $this->redirectToRoute('app_homepage');
 
