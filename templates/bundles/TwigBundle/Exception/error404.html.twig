@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h2 class="jg_title_errors">Ups! Error 404</h2>
+    <div class="jg_box_error404">
+        <p class="jg_description_error">No se pudo localizar la página solicitada. Compruebe la URL o
+            <a href="{{ path('app_homepage') }}">vuelva a la página principal</a>.
+        </p>
+        <img src="{{ asset('img/fruitcry.gif') }}" alt="tomate llorando">
+    </div>
+
+{% endblock %}

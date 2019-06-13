@@ -3689,6 +3689,23 @@ footer a {
         justify-content: center;
         font-family: Metrophobic;
     }
+    .jg_title_errors{
+        font-size: 4em;
+        align-items: center;
+        text-align: center;
+    }
+    .jg_description_error{
+        font-family: Metrophobic;
+        width: 38%;
+    }
+    .jg_box_error404{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .jg_box_error404 img{
+        width: 20%;
+    }
 
 }
 
