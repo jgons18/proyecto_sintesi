@@ -1262,6 +1262,23 @@ footer a {
     justify-content: center;
     font-family: Metrophobic;
 }
+.jg_title_errors{
+    font-size: 4em;
+    align-items: center;
+    text-align: center;
+}
+.jg_description_error{
+    font-family: Metrophobic;
+    width: 38%;
+}
+.jg_box_error404{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.jg_box_error404 img{
+    width: 20%;
+}
 
 /*Para mobile*/
 @media (max-width: 495px){
@@ -2467,6 +2484,18 @@ footer a {
         color: #AAAAAA;
         margin: 0vh 1vw 0vh 1vw;
 
+    }
+    .jg_box_error404 {
+        display: inline-grid;
+        justify-items: center;
+    }
+    .jg_description_error {
+        font-family: Metrophobic;
+        width: 91%;
+        font-size: 1.2em;
+    }
+    .jg_box_error404 img {
+        width: 50%;
     }
 
 
