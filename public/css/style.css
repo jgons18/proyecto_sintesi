@@ -2485,13 +2485,18 @@ footer a {
         margin: 0vh 1vw 0vh 1vw;
 
     }
+    .jg_title_errors {
+        font-size: 4em;
+        align-items: start;
+        text-align: start;
+    }
     .jg_box_error404 {
         display: inline-grid;
         justify-items: center;
     }
     .jg_description_error {
         font-family: Metrophobic;
-        width: 91%;
+        width: 82%;
         font-size: 1.2em;
     }
     .jg_box_error404 img {
