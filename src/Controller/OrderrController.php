@@ -282,6 +282,7 @@ class OrderrController extends AbstractController
      * @Route("/pedido/view", name="app_view_order")
      */
     public function viewOrder(Request $request){
+        try{
         $user = $this->getUser();
         $userid=$user->getId();
 
@@ -294,7 +295,7 @@ class OrderrController extends AbstractController
         $form2->handleRequest($request);
         $error=$form2->getErrors();
 
-        try{
+
             $em = $this->getDoctrine()->getManager();
             $query = $em->createQuery(
                 'SELECT p FROM App\Entity\Orderr p
