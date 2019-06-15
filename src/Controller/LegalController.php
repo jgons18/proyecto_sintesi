@@ -69,4 +69,12 @@ class LegalController extends AbstractController
         {
             return $this->render('footer/faq.html.twig');
         }
+
+    /**
+     * @Route("/order_empty",name="app_orderempty")
+     */
+    public function viewOrderEmpty(){
+        return $this->render('order/empty.html.twig');
     }
+
+}

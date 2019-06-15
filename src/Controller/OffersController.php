@@ -53,7 +53,7 @@ class OffersController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($offer);
             $entityManager->flush();
-            $this->addFlash('success', 'Oferta creada');
+            $this->addFlash('success', 'Oferta creada correctamente');
             return $this->redirectToRoute($route);
         }
         return $this->render($template, [

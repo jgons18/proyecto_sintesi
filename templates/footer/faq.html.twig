@@ -32,7 +32,7 @@
             {% endif %}
             <i class="fas fa-sign-out-alt"></i>&nbsp;<a href="{{ path('app_logout') }}">Logout</a>
             {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
-                &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
+                &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{ path('app_view_order') }}"><p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta</a>
             {% endif %}
             {% endif %}&nbsp;
 
@@ -64,7 +64,7 @@
     <nav class="jg_nav">
         <ul>
             <a href="{{ path('app_fruits') }}"><li class="am_nav_obj jg_nav_fruit ">Frutas</li></a>
-            <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj am_nav_objverd jg_nav_veg jg_menu_selected">Verduras y Hortalizas</li></a>
+            <a href="{{ path('app_vegetables') }}"><li class="am_nav_obj am_nav_objverd jg_nav_veg">Verduras y Hortalizas</li></a>
             <a href="{{ path('app_boxes') }}"><li class="am_nav_obj jg_nav_basket">Cestas</li></a>
             <a href="{{ path('offers') }}"><li class="am_nav_obj jg_nav_offers">Ofertas</li></a>
         </ul>
