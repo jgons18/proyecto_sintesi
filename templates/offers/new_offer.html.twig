@@ -2,8 +2,8 @@
 
 {% block body %}
 
-    <div>
-        <h1>Añadir nueva verdura</h1>
+    <div class="am_formulario">
+        <h2 class="jg_titulos">Crear oferta</h2><br><br>
         {{form_start(form)}}
         {{ form_widget(form) }}
         <a class="btn btn-danger" href="{{ path('offers') }}">Cancelar</a></button>

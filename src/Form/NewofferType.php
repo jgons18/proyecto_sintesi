@@ -26,7 +26,7 @@ class NewofferType extends AbstractType
         'required'=>'required',
         'label' => 'Nombre de la oferta',
         'attr'=>[
-            'class'=>'form-control am_temporada',
+            'class'=>'jg_input_form',
             'placeholder'=>'ej:1'
         ]
     ])
@@ -34,7 +34,7 @@ class NewofferType extends AbstractType
             'required'=>'required',
             'label' => 'Descuento',
             'attr'=>[
-                'class'=>'form-control am_categoria',
+                'class'=>'jg_input_form',
                 'placeholder'=>'01/01/2020',
                 'min' => '10',
                 'max' => '90'
@@ -44,7 +44,7 @@ class NewofferType extends AbstractType
             'required'=>'required',
             'label' => 'fecha inicio',
             'attr'=>[
-                'class'=>'form-control am_categoria',
+                'class'=>'jg_input_foram',
                 'placeholder'=>'05/01/2020'
             ]
         ])
@@ -52,7 +52,7 @@ class NewofferType extends AbstractType
             'required'=>'required',
             'label' => 'fecha final',
             'attr'=>[
-                'class'=>'form-control am_categoria',
+                'class'=>'jg_input_forma',
                 'placeholder'=>'ej:2'
             ]
         ])

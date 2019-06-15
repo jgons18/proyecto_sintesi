@@ -20,6 +20,8 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Bundle\SwiftmailerBundle;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * Class UserController
@@ -41,10 +43,12 @@ class UserController extends AbstractController
         $error=$form->getErrors();
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $em->remove($user);
             $em->flush();
-            return $this->redirectToRoute('app_homepage');
+            return $this->redirect($this->generateUrl('app_homepage'));
+           // return $this->redirectToRoute('app_homepage');
 
         }
         return $this->render('user/perfil.html.twig',[
@@ -199,30 +203,32 @@ class UserController extends AbstractController
     }
 
 
-    public function deleteusu($id, Request $request)
-    {
-        return $this->delete_user($request, $id);
-    }
 
-    private function delete_user(Request $request){
+    public function delete_user(Request $request){
         $user = $this->getUser();
         // $user = $security->getUser();
-        $form=$this->createForm(EditUserProfileType::class);
+
+        if($user == null)
+        {
+            return $this->redirect($this->generateUrl('app_homepage'));
+        }
+
+        $form=$this->createForm(DeleteUserType::class);
         $form->handleRequest($request);
         $error=$form->getErrors();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setEmail(null);
-            $this->get('security.context')->setToken(null);
-            $this->get('request')->getSession()->invalidate();
             $em = $this->getDoctrine()->getManager();
             $em->remove($user);
             $em->flush();
+            $this->get('security.context')->setToken(null);
+            $this->get('request')->getSession()->invalidate();
+          //  return $this->redirect($this->generateUrl('tuto_accueil_homepage'));
             return $this->redirectToRoute('app_homepage');
 
         }
         //renderizar formulario
-        return $this->render('user/edit_prof.html.twig',[
+        return $this->render('user/perfil.html.twig',[
             'error'=>$error,
             //'form' es el nombre para construir el formulario en la plantilla
             'form3'=>$form->createView()
