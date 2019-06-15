@@ -196,7 +196,7 @@ $(document).ready(function () {
         $(".jg_caja_cookies").slideUp("slow", function () {
         });
     });
-    $("#edit_user_profile_province").on("change", function () {
+    $("#user_province").on("change", function () {
         var provinciaid = $(this).val();
         var cities = $("#user_city");
         cities.empty();
