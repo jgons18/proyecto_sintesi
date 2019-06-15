@@ -203,6 +203,11 @@ class UserController extends AbstractController
     }
 
 
+    public function deleteusu($id, Request $request)
+    {
+        return $this->delete_user($request, $id);
+    }
+
 
 
 }

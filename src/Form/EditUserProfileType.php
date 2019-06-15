@@ -36,8 +36,6 @@ class EditUserProfileType extends AbstractType
             $citiesChoices[$city['nombre']] = $city['municipio_id'];
         }
 
-
-
         $builder
 
             ->add('address',TextType::class,[
