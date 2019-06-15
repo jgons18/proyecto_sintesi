@@ -204,38 +204,5 @@ class UserController extends AbstractController
 
 
 
-    public function delete_user(Request $request){
-        $user = $this->getUser();
-        // $user = $security->getUser();
-
-        if($user == null)
-        {
-            return $this->redirect($this->generateUrl('app_homepage'));
-        }
-
-        $form=$this->createForm(DeleteUserType::class);
-        $form->handleRequest($request);
-        $error=$form->getErrors();
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($user);
-            $em->flush();
-            $this->get('security.context')->setToken(null);
-            $this->get('request')->getSession()->invalidate();
-          //  return $this->redirect($this->generateUrl('tuto_accueil_homepage'));
-            return $this->redirectToRoute('app_homepage');
-
-        }
-        //renderizar formulario
-        return $this->render('user/perfil.html.twig',[
-            'error'=>$error,
-            //'form' es el nombre para construir el formulario en la plantilla
-            'form3'=>$form->createView()
-        ]);
-
-    }
-
-
 
 }
