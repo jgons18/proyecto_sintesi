@@ -35,7 +35,7 @@ class NewofferType extends AbstractType
             'label' => 'Descuento',
             'attr'=>[
                 'class'=>'form-control am_categoria',
-                'placeholder'=>'01/01/2020',
+                'placeholder'=>'20',
                 'min' => '10',
                 'max' => '90'
             ]
@@ -59,7 +59,7 @@ class NewofferType extends AbstractType
         ->add('save',SubmitType::class, [
             'label' => 'Guardar Oferta',
             'attr'=>[
-                'class' => 'save'
+                'class' => 'save sn_s'
             ]
         ]);
     }
