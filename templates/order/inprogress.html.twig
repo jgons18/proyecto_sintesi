@@ -73,6 +73,7 @@
 </div>
 {% block body %}
     {#{{ app.session.get('Pedido') }}#}
+    {% if details %}
     <div class="jg_mostrar_carrito">carrito</div>
     <h2 class="jg_titulos">Pedido</h2>
 {#    {% for re in res %}
@@ -107,6 +108,9 @@
             {% endfor %}
 
         </div>
+    {% else %}
+    <script>window.location.href = {{'app_orderempty'}}</script>
+    {% endif %}
 <footer>
     <section class="sn_footer_top">
         <article>
