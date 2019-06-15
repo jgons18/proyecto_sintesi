@@ -20,6 +20,8 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Bundle\SwiftmailerBundle;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * Class UserController
@@ -41,10 +43,12 @@ class UserController extends AbstractController
         $error=$form->getErrors();
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $em->remove($user);
             $em->flush();
-            return $this->redirectToRoute('app_homepage');
+            return $this->redirect($this->generateUrl('app_homepage'));
+           // return $this->redirectToRoute('app_homepage');
 
         }
         return $this->render('user/perfil.html.twig',[
@@ -203,7 +207,6 @@ class UserController extends AbstractController
     {
         return $this->delete_user($request, $id);
     }
-
 
 
 

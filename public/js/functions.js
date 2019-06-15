@@ -218,6 +218,23 @@ $(document).ready(function () {
             })
         });
     })
+    //edit_user_profile_city
+    $("#edit_user_profile_province").on("change", function () {
+        var provinciaid = $(this).val();
+        var cities = $("#edit_user_profile_city");
+        cities.empty();
+        cities.append('<option selected="true" disabled>Selecciona una ciudad</option>');
+        cities.prop('selectedIndex', 0);
+
+        $.getJSON("json/municipios.json", function (data) {
+            $.each(data, function (key, entry) {
+                if (entry.provincia_id == provinciaid) {
+                    cities.append('<option value="'+ entry.municipio_id +'">'+ entry.nombre +'</option>');
+
+                }
+            })
+        });
+    })
 
 
     //click carrito
