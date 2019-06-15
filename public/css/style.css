@@ -1253,7 +1253,8 @@ footer a {
     width: 100%;
     height: 30px;
     font-family: Metrophobic;
-    background-color: palegreen;
+    color: #270;
+    background-color: #DFF2BF;
     margin-top: -6px;
     text-align: center;
 }
@@ -3711,7 +3712,8 @@ footer a {
         width: 100%;
         height: 30px;
         font-family: Metrophobic;
-        background-color: palegreen;
+        color: #270;
+        background-color: #DFF2BF;
         margin-top: -6px;
         text-align: center;
     }

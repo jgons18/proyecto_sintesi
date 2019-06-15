@@ -397,7 +397,7 @@ class ProductController extends AbstractController
                     $prductoffer->setImage($fileName);
                 }
                 $entityManager->flush();
-                $this->addFlash('success', 'Oferta creada');
+                $this->addFlash('success', 'Oferta aplicada correctamente');
                 return $this->redirectToRoute($route);
             }else{
                 return $this->redirectToRoute($route);
@@ -465,7 +465,7 @@ class ProductController extends AbstractController
         $producttofferdelete->setOffer(null);
         $entityManager->persist($producttofferdelete);
         $entityManager->flush();
-        $this->addFlash('success', 'Oferta eliminado correctmanete');
+        $this->addFlash('success', 'Oferta eliminada correctmanete');
         //una vez eliminado,volvemos a la página que indicamos por parámetros, para comprobar que se ha borrado correctamente
         return $this->redirectToRoute($route);
     }

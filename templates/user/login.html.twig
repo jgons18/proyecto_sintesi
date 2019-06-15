@@ -33,7 +33,7 @@
             {% endif %}
             <i class="fas fa-sign-out-alt"></i>&nbsp;<a href="{{ path('app_logout') }}">Logout</a>
             {% if is_granted('IS_AUTHENTICATED_FULLY') and not is_granted('ROLE_ADMIN') %}
-                &nbsp;&nbsp;|&nbsp;&nbsp;<p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{{ path('app_view_order') }}"><p class="am_carro fas fa-shopping-basket"></p>&nbsp;Mi cesta</a>
             {% endif %}
             {% endif %}&nbsp;
 
@@ -84,6 +84,7 @@
             <div>
                 <p>Contraseña</p>
                 <input type="password" id="_password" name="_password" placeholder="*********"><br>
+                <a href="mailto:noreplyfruitable@gmail.com?Subject=He%20olvidado%20mi%20contraseña&body=Hola,he olvidado mi contraseña,¿Me podrían enviar otra?" target="_top" class="jg_enlaces">¿Has olvidado tú contraseña?</a><br>
                 <input type="checkbox" id="remember_me" name="_remember_me" class="jg_rememberme"/>
                 <label for="remember_me" class="jg_title_rememberme">Recordar contraseña</label>
                 <br><br><a href="{{ path('app_register') }}" class="jg_enlaces">¿No tienes cuenta? Regístrate</a>

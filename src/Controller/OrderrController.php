@@ -294,48 +294,51 @@ class OrderrController extends AbstractController
         $form2->handleRequest($request);
         $error=$form2->getErrors();
 
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery(
-            'SELECT p FROM App\Entity\Orderr p
+        try{
+            $em = $this->getDoctrine()->getManager();
+            $query = $em->createQuery(
+                'SELECT p FROM App\Entity\Orderr p
                 WHERE p.user = '.$userid.' AND p.dateeorderr <= :today order by p.id DESC')
-            ->setParameter('today', new \DateTime())
-            ->setMaxResults(1);
-        $res = $query->getResult();
+                ->setParameter('today', new \DateTime())
+                ->setMaxResults(1);
+            $res = $query->getResult();
 
-        $res[0]->getId();
-        $detail = $this->getDoctrine()->getRepository(Detail::class)->findBy(array('forder'=>$res));
+            $res[0]->getId();
+            $detail = $this->getDoctrine()->getRepository(Detail::class)->findBy(array('forder'=>$res));
+            $detalletotales=count($detail);
+            for($i=1;$i<=$detalletotales;$i++){
+                $detailprice=$detail[0]->getPrice();
+                $detailquantity=$detail[0]->getQuantity();
+                $totalfactura=$res[0]->setTotalfactura($detailprice*$detailquantity);
+            }
+            if($form2->isSubmitted() && $form2->isValid()){
+                $useraddress=$user->getAddress();
+                $secondaddress=$form2->get('secondarydirection')->getData();
+                $trans = $form2->get('carrier')->getData();
+                $metododepago=$form2->get('paymentmethod')->getData();
+                $nameowner= $form2->get('nameofowner')->getData();
+                $cardnumber= $form2->get('cardnumber')->getData();
 
+                $res[0]->setPaymentconfirmed(true);
+                $res[0]->setMainaddress($useraddress);
+                $res[0]->setSecondarydirection($secondaddress);
+                $res[0]->setNameofowner($nameowner);
+                $res[0]->setCardnumber($cardnumber);
+                $res[0]->setCarrier($trans);
+                $res[0]->setPaymentmethod($metododepago);
 
-        $detalletotales=count($detail);
-        for($i=1;$i<=$detalletotales;$i++){
-            $detailprice=$detail[0]->getPrice();
-            $detailquantity=$detail[0]->getQuantity();
-            $totalfactura=$res[0]->setTotalfactura($detailprice*$detailquantity);
+                $entityManager=$this->getDoctrine()->getManager();
+                $entityManager->persist($res[0]);
+                $entityManager->flush();
+                $this->addFlash('success','Pedido pagado correctamente');
+                return $this->redirectToRoute('app_buy_confirmed');
+                //return $this->render('order/finished.html.twig');
+
+            }
+        }catch (\Exception $e){
+            return $this->redirectToRoute('app_orderempty');
         }
-        if($form2->isSubmitted() && $form2->isValid()){
-            $useraddress=$user->getAddress();
-            $secondaddress=$form2->get('secondarydirection')->getData();
-            $trans = $form2->get('carrier')->getData();
-            $metododepago=$form2->get('paymentmethod')->getData();
-            $nameowner= $form2->get('nameofowner')->getData();
-            $cardnumber= $form2->get('cardnumber')->getData();
 
-            $res[0]->setPaymentconfirmed(true);
-            $res[0]->setMainaddress($useraddress);
-            $res[0]->setSecondarydirection($secondaddress);
-            $res[0]->setNameofowner($nameowner);
-            $res[0]->setCardnumber($cardnumber);
-            $res[0]->setCarrier($trans);
-            $res[0]->setPaymentmethod($metododepago);
-
-            $entityManager=$this->getDoctrine()->getManager();
-            $entityManager->persist($res[0]);
-            $entityManager->flush();
-            $this->addFlash('success','Pedido pagado correctamente correctamente');
-            return $this->redirectToRoute('app_buy_confirmed');
-            //return $this->render('order/finished.html.twig');
-
-        }
 
         return $this->render('order/inprogress.html.twig', [
             'res'=>$res,
