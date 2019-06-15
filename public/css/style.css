@@ -22,12 +22,11 @@
 
 header {
     width: 100%;
-    height: 20vh;
+    height: 14vh;
     display: flex;
     text-align: center;
     background-color: white;
     font-family: Metrophobic;
-
 }
 button:hover{
 
@@ -1282,15 +1281,15 @@ footer a {
 }
 
 /*Para mobile*/
-@media (max-width: 495px){
+@media (min-width: 10px) and (max-width: 495px){
     * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
     }
 
-    .margen{
-        margin-bottom: 29vh;
+    .margen {
+        margin-bottom: 9vh;
     }
 
     /* HEADER Base.html*/
@@ -1308,6 +1307,10 @@ footer a {
         background-color: white;
         font-family: Metrophobic;
     }
+
+
+
+
     button:hover{
 
         opacity: 0.7;
@@ -1317,11 +1320,69 @@ footer a {
         font-weight: bolder;
     }
 
+    /*menu responsive*/
+
+
+    .jg_menu_secondary{
+        background-color: #f0f0f0;
+    }
+    .am_menu_bar {
+        border-bottom: 1px solid;
+        text-align: left;
+        padding: 1vw;
+        font-size: 1.5em;
+    }
+
+    .am_bt_menu{
+        display: block;
+
+
+    }
+    .fa-bars{
+        float: right;
+        margin-right: 2vw;
+        font-size: 1.5em;
+    }
+
+    .barra{
+        display: none;
+    }
+    .am_menu_secondary_2{
+        background-color: #f0f0f0;
+        width: 80%;
+        height: 100vh;
+        position: fixed;
+
+
+    }
+
+    .am_menu_secondary_2 a{
+        display: block;
+        float: none;
+        text-align: left;
+        border-bottom: 1px solid;
+        font-size: 1.5em;
+        padding:1vh 0vw 1vh 1vw ;
+        width: 100%;
+
+    }
+
+    /*menu responsive*/
+
+    .am_logo_buscador {
+        width: 100%;
+        height: 14vh;
+        display: flex;
+        flex-direction: row;
+        background-color: #fff;
+    }
+
+
     .am_div_logo {
         align-self: center;
         text-align: center;
         width: 22vw;
-        height: 11vh;
+        height: 8vh;
         margin-top: 3vh;
     }
 
@@ -1336,7 +1397,7 @@ footer a {
         align-self: center;
         width: 70vw;
         height: 5vh;
-        margin: 4vh 0vw 0vh 2vw;
+        margin: 6vh 0vw 0vh 2vw;
     }
 
     .am_div_buscador form{
@@ -1601,9 +1662,10 @@ footer a {
         position: relative;
         width: 100%;
         max-width: 100%;
+        margin: 0 auto;
+        padding: 0 10px;
         font-size: 0;
         z-index: -99999;
-        margin-top: -1%;
     }
 
     #slider {
@@ -1732,7 +1794,9 @@ footer a {
 
 
     .jg_producto_temporada_bot{
+        display: flex;
         flex-direction: row;
+        justify-content: flex-end;
         padding-left: 5vw;
 
     }
@@ -1742,19 +1806,19 @@ footer a {
     }
 
     .am_boton_producto {
-        width: 55%;
-        padding: 5%;
+        width: 14vh;
         font-family: dosis;
         height: 7vh;
         vertical-align: center;
         text-align: center;
-        background-color: #f95e1b ;
+        background-color: #f95e1b;
         border: 1px solid #f95e1b;
         font-size: 1em;
         color: #fff;
-        margin-top: 2vh;
+        margin-top: 1vh;
         border-radius: 3px;
         vertical-align: middle;
+        padding-top: 2vh;
     }
     .am_boton_producto:hover{
         opacity: 0.7;
@@ -1806,22 +1870,23 @@ footer a {
     }
 
     .am_var_opiniones {
-        margin-top: 12vh;
-        flex-direction: row;
-        justify-content: space-around;
+        margin-top: 6vh;
+        flex-direction: column;
+        justify-content: center;
+        display: flex;
     }
 
-    .am_opinion{
+    .am_opinion {
         padding: 3vh 1vw 0vh 1vw;
         font-family: Metrophobic;
-        width: 100%;
-        height: 40vh;
+        width: 95%;
+        height: 26vh;
         text-align: left;
         font-size: 1.1em;
-        color :black;
-        background-image: url("/img/bocadillo.png");
+        color: black;
+        background-image: url("/public/img/bocadillo.png");
         background-repeat: no-repeat;
-        background-size : cover;
+        background-size: 95vw 23vh;
         align-self: center;
     }
 
@@ -1836,8 +1901,8 @@ footer a {
 
     /* REGISTRARCE */
 
-    .am_formulario{
-        margin-top: 45vh;
+    .am_formulario {
+        margin-top: 3vh;
     }
 
 
@@ -1902,11 +1967,7 @@ footer a {
         float: right;
     }
 
-    .sn_acordeon{
-        margin-top: 5vh;
-        height: 25vh;
-        margin-bottom: 65vh;
-    }
+
 
 
 
@@ -2016,9 +2077,15 @@ footer a {
         margin-bottom: 4vh;
     }
 
-    .sn_titulo_ayuda{
+    .sn_acordeon{
+        margin-top: 5vh;
+        height: 25vh;
+        width: 40vw;
+        margin-left: 35%;
+        margin-bottom: 55vh;
+    }
+    .sn_titulo_ayuda {
         font-family: Metrophobic;
-        margin-top: 45vh;
         text-align: center;
         font-size: 2em;
     }
@@ -2038,17 +2105,46 @@ footer a {
     .img_der{
         height: 25px;
     }
-    .sn_profile{
+    .sn_profile {
         height: 25vh;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
     .sn_titulos_prof{
         font-family: Dosis;
     }
-    .sn_direccion{
+
+    .sn_direccion {
         font-size: 1.2em;
         height: 25vh;
+        margin-left: 6vw;
+        margin-top: 3vh;
+    }
+
+    .sn_datosacceso button{
+
+        background-color: red;
+        border-radius: 3px;
+        font-size: 1em;
+        padding: 1px;
+        border: 1px solid red;
+    }
+    .am_editar {
+        background-color: #99C24D;
+        border-radius: 3px;
+        font-size: 1em;
+        padding: 1px;
+        border: 1px solid #99C24D;
+        width: 44vw;
+        color: white;
+    }
+    .am_editar:hover{
+        font-weight: normal;
+        opacity: 0.7;
+    }
+    .sn_editar:hover{
+        font-weight: normal;
+
     }
 
     .jg_form_login input,.jg_input_form{
@@ -2102,16 +2198,16 @@ footer a {
         align-items: center;
         text-align:center;
     }
-    .jg_siguiente_1{
-        width: 100%;
+    .jg_siguiente_1 {
+        width: 95%;
         padding: 8px;
         background-color: #96D094;
         color: white;
         font-size: 3vh;
         letter-spacing: 2px;
     }
-    .jg_atras_1,.jg_finalizar_1{
-        width: 23%;
+    .jg_atras_1, .jg_finalizar_1 {
+        width: 95%;
         padding: 8px;
         font-size: 3vh;
         letter-spacing: 2px;
@@ -2327,20 +2423,19 @@ footer a {
 
     }
 
-    .sn_perfil_general{
-        margin-top: 40vh;
+    .sn_perfil_general {
+        margin-top: 4vh;
         height: 50vh;
     }
-    .sn_user_name{
-        margin: 5vh;
-        margin-left: 25vh;
+    .sn_user_name {
+        margin: 3vh;
         font-size: 2em;
     }
     .sn_titulos_prof{
         margin-bottom: 3vh;
     }
-    .sn_datosacceso{
-        margin-left: 25vh;
+    .sn_datosacceso {
+        margin-left: 3vh;
         font-size: 1.2em;
     }
 
@@ -2399,9 +2494,8 @@ footer a {
 
     }
 
-    .sn_editar{
-        margin-top: 25vh;
-
+    .sn_editar {
+        margin-top: 3vh;
     }
     /*FORMULARIO DE AÑADIR UN PRODUCTO AL CARRITO*/
     #orderr div:nth-child(4),#orderr div:nth-child(5),#orderr div:nth-child(6),#orderr div:nth-child(7){

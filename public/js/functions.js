@@ -1,10 +1,13 @@
 $(document).ready(function () {
-    /*$('.am_menu_secondary_2').hide();
+    if( screen.width < 495){
+        $('.am_menu_secondary_2').hide();
 
-    $('.am_menu_bar').click(function() {
-        //alert("hola soy un menu");
+        $('.am_menu_bar').click(function() {
+            //alert("hola soy un menu");
             $('.am_menu_secondary_2').toggle("slow");
-    });*/
+        });
+    }
+
 
     $('#slider a:gt(0)').hide();
     var interval = setInterval(changeDiv, 6000);
