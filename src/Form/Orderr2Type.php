@@ -47,7 +47,7 @@ class Orderr2Type extends AbstractType
                 'attr'=>[
                     'class'=>'jg_input_form_order',
                     'placeholder'=>'ej:C/de las Flores,32,Gava',
-                    'pattern'=>'[A-Za-z0-9]{1,120}'
+                    'pattern'=>'[A-Za-z0-9]+{6,120}'
                 ]
 
             ])
