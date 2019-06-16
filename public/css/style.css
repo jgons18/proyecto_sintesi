@@ -2330,6 +2330,7 @@ footer a {
         border-spacing: 0;
         border-collapse: collapse;
         width: 100%;
+        display: block;
     }
     .jg_table_orders th{
         text-align: left;
