@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+
+
+
     if( screen.width < 495){
         $('.am_menu_secondary_2').hide();
 
