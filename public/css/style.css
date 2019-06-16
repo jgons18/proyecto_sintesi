@@ -1964,18 +1964,20 @@ footer a {
         font-family: Metrophobic;
         padding-top: 5vh;
     }
-
+    .am_ruta{
+        padding: 0 21px;
+    }
+    .jg_box_order_complete img{
+        width: 75%;
+    }
 
 
 
 
     .detalles {
         font-family: Metrophobic;
-        display: grid;
-        grid-gap: 0px;
-        grid-template-columns: 40vw 45vw;
-        grid-template-rows: 15vh 8vh repeat(4, 5vh);
-        grid-auto-flow: dense;
+        display: block;
+        padding: 21px;
     }
 
     .am_nameproduct{
