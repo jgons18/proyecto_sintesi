@@ -1897,7 +1897,7 @@ footer a {
 
     .am_div_marcas {
         margin-top: 12vh;
-        flex-direction:row;
+        flex-direction:column;
         justify-content: center;
     }
 
