@@ -2392,7 +2392,8 @@ footer a {
         max-width: 22%;
     }
     .jg_box_order{
-        width: 50%;
+        width: 85%;
+        margin-left: 8%;
         font-family: Metrophobic;
     }
     .jg_right{
@@ -2667,7 +2668,7 @@ footer a {
     }
 
     .margen{
-        margin-bottom: 29vh;
+        margin-bottom: 5vh;
     }
 
     /* HEADER Base.html*/
