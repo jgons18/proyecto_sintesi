@@ -46,7 +46,8 @@ class ProductType extends AbstractType
                 'required'=>'required',
                 'label' => 'Precio unidad',
                 'attr'=>['class'=>'jg_input_form',
-                    'placeholder'=>'ej:2.99'
+                    'placeholder'=>'ej:2.99',
+                    'min' => 1
                 ]
             ])
             ->add('stock',NumberType::class,[
@@ -55,7 +56,8 @@ class ProductType extends AbstractType
                 'attr'=>[
                     'class'=>'jg_input_form',
                     //'class'=>'form-control am_form_input am_stock',
-                    'placeholder'=>'ej:100'
+                    'placeholder'=>'ej:100',
+                    'min' => 1
                 ]
             ])
             ->add('reservedstocks',NumberType::class,[
@@ -64,7 +66,8 @@ class ProductType extends AbstractType
                 'attr'=>[
                     'class'=>'jg_input_form',
                    // 'class'=>'form-control am_form_input am_stock_reservado',
-                    'placeholder'=>'ej:50'
+                    'placeholder'=>'ej:50',
+                    'min' => 1
                 ]
             ])
             ->add('season',EntityType::class,[
