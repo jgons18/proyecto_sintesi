@@ -442,7 +442,7 @@ class ProductController extends AbstractController
 
     /**
      * Función para eliminar producto - fruta
-     * @Route("/fruta/delete/{id}", name="delete_productoffer_fruit")
+     * @Route("/fruta/delete_offer/{id}", name="delete_productoffer_fruit")
      */
     public function deleteProductOffer_Fruit($id, Request $request)
     {
